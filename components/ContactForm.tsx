@@ -1,0 +1,108 @@
+"use client";
+
+import { useId, useState } from "react";
+import { Field } from "@/components/ui/Field";
+import { ArrowRight } from "@/components/ui/Button";
+
+const controlCls =
+  "min-h-12 w-full rounded-input border-[1.5px] border-line bg-white px-3.5 text-body text-ink placeholder:text-muted/70 focus:outline-2 focus:outline-offset-2 focus:outline-teal";
+
+const needs = [
+  "New website",
+  "Website redesign",
+  "WordPress support or fixes",
+  "SEO",
+  "Google Ads",
+  "Something else",
+];
+
+// Demo form: no backend, so submit just confirms receipt. Wire to a real
+// endpoint (or the WordPress form plugin) before launch.
+// Future Elementor widget: "OMH Consultation Form".
+export function ContactForm() {
+  const [sent, setSent] = useState(false);
+  const needId = useId();
+  const msgId = useId();
+
+  if (sent) {
+    return (
+      <div className="rounded-card border border-teal/25 bg-soft/50 p-8 max-sm:p-6" role="status">
+        <h2 className="font-sans text-h3 font-semibold">Thanks — that's with us.</h2>
+        <p className="mt-3 max-w-[48ch] text-body leading-relaxed text-ink/75">
+          A real person will review your enquiry and reply with a clear recommendation on the
+          next step. If it's urgent, call us on{" "}
+          <span className="font-semibold text-ink">020 3489 3934</span>.
+        </p>
+        <button
+          type="button"
+          onClick={() => setSent(false)}
+          className="mt-6 text-[15px] font-semibold text-teal underline underline-offset-4"
+        >
+          Send another enquiry
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        setSent(true);
+      }}
+      data-event="wpdev_form_submit"
+      className="rounded-card border border-line bg-white p-8 max-sm:p-6"
+    >
+      <div className="grid grid-cols-2 gap-5 max-sm:grid-cols-1">
+        <Field label="Full name" required placeholder="Jane Smith" />
+        <Field label="Work email" type="email" required placeholder="jane@company.co.uk" />
+        <Field label="Phone" type="tel" placeholder="020 0000 0000" />
+        <Field label="Company" placeholder="Company name" />
+        <div className="col-span-2 max-sm:col-span-1">
+          <Field label="Website URL" placeholder="https://" help="If you have one already." />
+        </div>
+
+        <div className="col-span-2 flex flex-col gap-1.5 max-sm:col-span-1">
+          <label htmlFor={needId} className="text-label font-semibold text-ink">
+            What do you need?
+          </label>
+          <select id={needId} defaultValue="" className={controlCls}>
+            <option value="" disabled>
+              Choose one
+            </option>
+            {needs.map((n) => (
+              <option key={n} value={n}>
+                {n}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="col-span-2 flex flex-col gap-1.5 max-sm:col-span-1">
+          <label htmlFor={msgId} className="text-label font-semibold text-ink">
+            What's the goal or problem?
+            <span className="text-error" aria-hidden> *</span>
+          </label>
+          <textarea
+            id={msgId}
+            required
+            rows={4}
+            placeholder="Tell us what's not working now and what you want the website to do."
+            className={`${controlCls} min-h-28 py-3 leading-relaxed`}
+          />
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        className="group mt-7 inline-flex min-h-12 items-center gap-2 rounded-button border-[1.5px] border-transparent bg-teal px-6 py-4 text-base font-semibold leading-none text-white transition hover:-translate-y-px hover:bg-teal-dark"
+      >
+        Send enquiry
+        <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+      </button>
+      <p className="mt-4 text-bsm text-muted">
+        We only use your details to respond to this enquiry.
+      </p>
+    </form>
+  );
+}
