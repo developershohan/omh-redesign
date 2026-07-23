@@ -58,11 +58,13 @@ function Band({
    narrow sidebar column — at h2 those wrapped to three and four lines. */
 function SectionIntro({
   title,
+  accent,
   body,
   size = "lg",
   className = "",
 }: {
   title: string;
+  accent?: string;
   body?: string;
   size?: "lg" | "md";
   className?: string;
@@ -74,7 +76,13 @@ function SectionIntro({
           size === "md" ? "text-h3" : "text-h2"
         }`}
       >
-        {title}
+        {accent && title.includes(accent) ? (
+          <>
+            {title.slice(0, title.indexOf(accent))}
+            <span className="text-teal">{accent}</span>
+            {title.slice(title.indexOf(accent) + accent.length)}
+          </>
+        ) : title}
       </h2>
       {body && <p className="mt-5 max-w-[64ch] text-lead leading-relaxed text-ink/75">{body}</p>}
     </div>
@@ -127,7 +135,7 @@ export function ServiceHero() {
                   lines and pushed the hero past the fold. U+2011 keeps "long-term"
                   from breaking across lines at its hyphen. */}
               <h1 className="mb-6 mt-7 max-w-[19ch] font-sans text-h1 font-semibold text-balance">
-                {content.hero.title.replace("long-term", "long‑term")}
+                WordPress websites built to support enquiries, sales and <span className="text-teal">long-term growth</span>
               </h1>
               <p className="mb-9 max-w-[54ch] text-lead leading-relaxed text-ink/75">
                 {content.hero.body}
@@ -203,7 +211,7 @@ export function PainPointSection() {
         <div className="grid grid-cols-12 gap-x-10 gap-y-10 max-lg:block">
           <div className="col-span-5 max-lg:mb-10">
             <div className="lg:sticky lg:top-24">
-              <SectionIntro title="A WordPress website can look fine and still hold the business back" />
+              <SectionIntro title="A WordPress website can look fine and still hold the business back" accent="business back" />
               {/* Serif pull quote — the direction's editorial accent, used once */}
               <p className="mt-7 border-l-2 border-amber pl-5 font-serif text-[21px] leading-snug text-ink/85">
                 Most businesses do not come to us because the website failed. They come
@@ -252,6 +260,7 @@ export function FitSection() {
       <Reveal>
         <SectionIntro
           title="Built for businesses that need a serious WordPress website"
+          accent="serious WordPress website"
           body="This service works best when there is a clear business reason for the build and enough planning time to do the work properly. If that is not where you are yet, it is better to say so early."
         />
         <div className="mt-12 grid grid-cols-12 gap-x-10 gap-y-8 max-lg:block">
@@ -310,6 +319,7 @@ export function ServiceCapabilityGrid() {
       <Reveal>
         <SectionIntro
           title="WordPress development shaped around how your business actually works"
+          accent="business actually works"
           body="The scope can cover a new build, a careful redesign, technical improvements or the functionality needed to support your sales process."
         />
         <div className="mt-12 grid grid-cols-6 gap-5 max-lg:grid-cols-2 max-sm:grid-cols-1">
@@ -343,7 +353,7 @@ export function ServiceCapabilityGrid() {
               }`}
             >
               <h3 className="font-sans text-h4 font-semibold">{item.title}</h3>
-              <p className="mt-3 text-[16.5px] leading-relaxed text-ink/75">{item.body}</p>
+              <p className="mt-3 text-[18px] leading-relaxed text-ink/75">{item.body}</p>
             </article>
           ))}
         </div>
@@ -365,6 +375,7 @@ export function ProcessSteps() {
               <SectionIntro
                 size="md"
                 title="A clear process from planning to launch"
+                accent="planning to launch"
                 body="The goal, content and design decisions are agreed before development becomes expensive to change."
               />
               <div className="mt-8">
@@ -446,12 +457,13 @@ function PackageCard({ pkg }: { pkg: Package }) {
 export function PricingPackages() {
   return (
     <Band label="Packages" id="packages">
-      <Reveal>
+      <div>
         <div data-event="wpdev_pricing_view">
           <div className="grid grid-cols-12 items-end gap-x-10 gap-y-6 max-lg:block">
             <SectionIntro
               className="col-span-7"
               title="Website packages for different stages of growth"
+              accent="stages of growth"
               body="Every WordPress project needs the right scope. These packages are a starting point, and your account manager will recommend the right option during the consultation."
             />
             <p className="col-span-5 text-bsm leading-relaxed text-ink/70 max-lg:mt-6">
@@ -560,7 +572,7 @@ export function PricingPackages() {
             ))}
           </ul>
         </div>
-      </Reveal>
+      </div>
     </Band>
   );
 }
@@ -573,6 +585,7 @@ export function IncludedFeatures() {
       <Reveal>
         <SectionIntro
           title="What is included"
+          accent="included"
           body="Exact scope depends on the package you choose, but the work always groups into these five areas."
         />
         <div className="mt-12 border-t border-line">
@@ -618,7 +631,7 @@ export function CaseStudyFeature() {
             <div className="col-span-5">
               <Eyebrow>Case study placeholder</Eyebrow>
               <h2 className="mb-5 mt-6 font-sans text-h3 font-semibold text-balance">
-                A real WordPress project, explained properly
+                A real WordPress project, <span className="text-teal">explained properly</span>
               </h2>
               <p className="text-body leading-relaxed text-ink/75">
                 This slot is built for the real client name or anonymised sector, business
@@ -673,6 +686,7 @@ export function WhyChooseSection() {
       <Reveal>
         <SectionIntro
           title="WordPress development connected to marketing, not separated from it"
+          accent="not separated from it"
           body="A better website is not only a design job. It has to support the way people find the business, compare the offer and decide to enquire or buy."
         />
         <div className="mt-12 grid grid-cols-2 gap-x-12 max-lg:grid-cols-1">
@@ -685,7 +699,7 @@ export function WhyChooseSection() {
                 <Check className="mt-1 size-4 shrink-0 text-teal" />
                 {title}
               </h3>
-              <p className="mt-2.5 pl-7 text-[16.5px] leading-relaxed text-ink/75">{body}</p>
+              <p className="mt-2.5 pl-7 text-[18px] leading-relaxed text-ink/75">{body}</p>
             </article>
           ))}
         </div>
@@ -702,7 +716,7 @@ export function FAQAccordion() {
         <div className="grid grid-cols-12 gap-x-12 gap-y-8 max-lg:block">
           <div className="col-span-4 max-lg:mb-8">
             <div className="lg:sticky lg:top-24">
-              <SectionIntro size="md" title="Questions before you brief a WordPress project" />
+              <SectionIntro size="md" title="Questions before you brief a WordPress project" accent="WordPress project" />
               <p className="mt-5 text-bsm leading-relaxed text-ink/70">
                 If your question is not here, ask it on the consultation call and you will
                 get a straight answer.
@@ -731,11 +745,10 @@ export function FAQAccordion() {
 export function FinalCTA() {
   return (
     <section className="bg-ink text-white">
-    {/* <section className="mt-[clamp(64px,42px+3.5vw,104px)] bg-ink text-white"> */}
       <div className="container-omh section-md grid grid-cols-12 items-start gap-x-10 gap-y-10 max-lg:block">
         <Reveal className="col-span-7">
           <h2 className="mb-5 max-w-[20ch] font-serif text-[clamp(30px,24px+1.6vw,42px)] font-normal leading-tight tracking-normal">
-            Ready to improve your WordPress website?
+            Ready to improve your <span className="text-[#5fc8bd]">WordPress website?</span>
           </h2>
           <p className="mb-9 max-w-[56ch] text-lead leading-relaxed text-white/75">
             Tell us what you need your website to do, what is not working now, and what you

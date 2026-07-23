@@ -50,7 +50,7 @@ export default function RootLayout({
         <div className="bg-ink text-white">
           <div className="container-omh flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1 py-2 text-center text-[13px] leading-snug">
             <span className="font-semibold">Redesign preview</span>
-            <span className="text-white/70">
+            <span className="text-white/70 max-sm:hidden">
               Home, WordPress Development and Contact are fully designed — other pages show a
               coming-soon placeholder.
             </span>

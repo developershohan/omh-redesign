@@ -29,7 +29,7 @@ const typeScale = [
   { cls: "text-h2 font-sans font-semibold", label: "Heading 2", spec: "44/38/32 · section openers, max 24ch" },
   { cls: "text-h3 font-sans font-semibold", label: "Heading 3", spec: "30/27/24" },
   { cls: "text-h4 font-sans font-semibold", label: "Heading 4", spec: "22/20" },
-  { cls: "text-lead", label: "Body large", spec: "20/30 · standfirsts" },
+  { cls: "text-lead", label: "Body large", spec: "18/27 · standfirsts" },
   { cls: "text-body", label: "Body", spec: "18/28 · 60–75ch, left-aligned" },
   { cls: "text-bsm", label: "Body small", spec: "16/24 · captions, metadata" },
   { cls: "text-label font-semibold uppercase tracking-[0.14em]", label: "Label", spec: "14/20 · small caps, letterspaced" },

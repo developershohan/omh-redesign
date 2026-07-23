@@ -27,10 +27,10 @@ export function ContactForm() {
   if (sent) {
     return (
       <div className="rounded-card border border-teal/25 bg-soft/50 p-8 max-sm:p-6" role="status">
-        <h2 className="font-sans text-h3 font-semibold">Thanks — that's with us.</h2>
+        <h2 className="font-sans text-h3 font-semibold">Thanks - that&apos;s with us.</h2>
         <p className="mt-3 max-w-[48ch] text-body leading-relaxed text-ink/75">
           A real person will review your enquiry and reply with a clear recommendation on the
-          next step. If it's urgent, call us on{" "}
+          next step. If it&apos;s urgent, call us on{" "}
           <span className="font-semibold text-ink">020 3489 3934</span>.
         </p>
         <button
@@ -80,14 +80,17 @@ export function ContactForm() {
 
         <div className="col-span-2 flex flex-col gap-1.5 max-sm:col-span-1">
           <label htmlFor={msgId} className="text-label font-semibold text-ink">
-            What's the goal or problem?
-            <span className="text-error" aria-hidden> *</span>
+            What&apos;s the goal or problem?
+            <span className="text-error" aria-hidden>
+              {" "}
+              *
+            </span>
           </label>
           <textarea
             id={msgId}
             required
             rows={4}
-            placeholder="Tell us what's not working now and what you want the website to do."
+            placeholder="Tell us what&apos;s not working now and what you want the website to do."
             className={`${controlCls} min-h-28 py-3 leading-relaxed`}
           />
         </div>
@@ -95,7 +98,7 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="group mt-7 inline-flex min-h-12 items-center gap-2 rounded-button border-[1.5px] border-transparent bg-teal px-6 py-4 text-base font-semibold leading-none text-white transition hover:-translate-y-px hover:bg-teal-dark"
+        className="button-motion group mt-7 inline-flex min-h-12 items-center gap-2 rounded-button border-[1.5px] border-transparent bg-teal px-6 py-4 text-[18px] font-semibold leading-none text-white hover:bg-teal-dark max-sm:w-full max-sm:justify-center"
       >
         Send enquiry
         <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />

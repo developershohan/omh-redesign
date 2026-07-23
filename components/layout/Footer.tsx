@@ -14,8 +14,8 @@ export function Footer() {
             <p className="mt-1 text-[10.5px] uppercase tracking-[0.14em] text-muted">
               {company.name}
             </p>
-            <p className="mt-4 text-[15px] leading-relaxed text-muted">{company.positioning}</p>
-            <p className="mt-3 text-[15px] leading-relaxed text-muted">
+            <p className="mt-4 text-[18px] leading-relaxed text-muted">{company.positioning}</p>
+            <p className="mt-3 text-[18px] leading-relaxed text-muted">
               <a href={company.phoneHref} className="hover:text-ink">
                 {company.phoneDisplay}
               </a>

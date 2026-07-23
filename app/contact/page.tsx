@@ -25,7 +25,7 @@ export default function ContactPage() {
           <div className="col-span-5 max-lg:mb-12">
             <Eyebrow>Contact</Eyebrow>
             <h1 className="mb-5 mt-6 max-w-[18ch] font-sans text-h1 font-semibold text-balance">
-              Tell us what you need and we&apos;ll recommend the next step
+              Tell us what you need and we&apos;ll recommend <span className="text-teal">the next step</span>
             </h1>
             <p className="max-w-[52ch] text-lead leading-relaxed text-ink/75">
               Whether it&apos;s a new website, a redesign, WordPress support or wider marketing,
@@ -56,7 +56,7 @@ export default function ContactPage() {
                   <a
                     href={`mailto:${company.email}`}
                     data-event="wpdev_email_click"
-                    className="font-sans text-[18px] font-semibold hover:text-teal"
+                    className="break-all font-sans text-[18px] font-semibold hover:text-teal"
                   >
                     {company.email}
                   </a>

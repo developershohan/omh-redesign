@@ -65,7 +65,7 @@ export function Header() {
       }`}
     >
       <div
-        className={`container-omh flex items-center gap-8 transition-[height] duration-200 ${
+        className={`container-omh flex items-center gap-8 transition-[height] duration-200 max-xl:gap-3 ${
           scrolled ? "h-[68px]" : "h-[84px]"
         }`}
       >
@@ -78,7 +78,7 @@ export function Header() {
           </span>
         </Link>
 
-        <nav aria-label="Primary" className="ml-auto flex items-center gap-1 max-lg:hidden">
+        <nav aria-label="Primary" className="ml-auto flex items-center gap-1 max-xl:hidden">
           {primaryNav.map((item) =>
             item.columns ? (
               <div
@@ -151,7 +151,7 @@ export function Header() {
         >
           {company.phoneDisplay}
         </a>
-        <span className="max-md:hidden">
+        <span className="max-xl:ml-auto max-md:hidden">
           <Button href="/contact" small>
             Book a Growth Consultation
           </Button>
@@ -162,7 +162,7 @@ export function Header() {
           onClick={() => setOpen(!open)}
           aria-expanded={open}
           aria-controls="mobile-menu"
-          className="ml-auto hidden size-11 items-center justify-center rounded-button max-lg:flex"
+          className="hidden size-11 items-center justify-center rounded-button max-xl:flex max-md:ml-auto"
         >
           <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="size-6" aria-hidden>
@@ -172,8 +172,8 @@ export function Header() {
       </div>
 
       {open && (
-        <div id="mobile-menu" className="border-t border-line bg-warm lg:hidden">
-          <div className="container-omh max-h-[calc(100dvh-68px)] overflow-y-auto py-4">
+        <div id="mobile-menu" className="border-t border-line bg-warm xl:hidden">
+          <div className="container-omh max-h-[calc(100dvh-84px)] overflow-y-auto py-4">
             {primaryNav.map((item) =>
               item.columns ? (
                 <details key={item.label} name="mobile-nav" className="group border-b border-line">
