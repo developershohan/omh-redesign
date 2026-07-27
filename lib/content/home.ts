@@ -1,4 +1,5 @@
 import type { CaseMeta } from "@/components/ui/Case";
+import { caseStudies } from "@/lib/content/case-studies";
 
 export const hero = {
   eyebrow: "★★★★★ UK digital marketing & web development agency",
@@ -43,34 +44,33 @@ export const stats = [
   { value: "100%", label: "UK business focus" },
 ];
 
+const fineDining = caseStudies.find((s) => s.slug === "fine-dining")!;
+const bakery = caseStudies.find((s) => s.slug === "bakery")!;
+const carShowroom = caseStudies.find((s) => s.slug === "car-showroom")!;
+const craft = caseStudies.find((s) => s.slug === "craft-business")!;
+
+function headlineResult(study: (typeof caseStudies)[number]) {
+  const result = study.results.find((r) => r.value.includes("%")) ?? study.results[0];
+  return `${result.value} ${result.label.replace("Published ", "").replace(/^./, (c) => c.toLowerCase())}`;
+}
+
 export const featuredCase: CaseMeta = {
-  sector: "Home improvement",
-  sampleNote: "Sample layout - verified client result to be supplied before launch.",
-  challenge: "High lead volume but poor lead quality",
-  work: "Google Ads restructuring, landing page improvement, conversion tracking",
-  href: "/case-studies",
+  sector: fineDining.sector,
+  challenge: fineDining.challenges[0],
+  work: fineDining.work.map((w) => w.title).join(", "),
+  period: fineDining.duration,
+  result: headlineResult(fineDining),
+  href: `/case-studies/${fineDining.slug}`,
 };
 
-export const supportingCases: CaseMeta[] = [
-  {
-    sector: "Bakery",
-    challenge: "",
-    work: "Local SEO campaign and website improvements - details to be rebuilt from client records",
-    href: "/case-studies",
-  },
-  {
-    sector: "Car showroom",
-    challenge: "",
-    work: "SEO and website work - details to be rebuilt from client records",
-    href: "/case-studies",
-  },
-  {
-    sector: "Professional services",
-    challenge: "",
-    work: "Paid search, tracking, and landing page testing - verified proof required",
-    href: "/case-studies",
-  },
-];
+export const supportingCases: CaseMeta[] = [bakery, carShowroom, craft].map((study) => ({
+  sector: study.sector,
+  challenge: study.challenges[0],
+  work: study.work.map((w) => w.title).join(", "),
+  period: study.duration,
+  result: headlineResult(study),
+  href: `/case-studies/${study.slug}`,
+}));
 
 export const difference = [
   {
@@ -100,33 +100,21 @@ export const difference = [
 ];
 
 export const services = [
-  { label: "Google Ads", href: "/services/google-ads-management" },
+  { label: "Google Ads", href: "/google-adwords-ppc" },
+  { label: "Amazon PPC", href: "/amazon-ppc-advertising-agency-uk" },
   { label: "Meta Ads", href: "/services/meta-ads-management" },
-  { label: "SEO", href: "/services/seo" },
+  { label: "SEO", href: "/search-engine-optimisation" },
   { label: "Local SEO", href: "/services/local-seo" },
   { label: "Website Design", href: "/services/website-design" },
   { label: "WordPress Development", href: "/wordpress-development" },
-  { label: "Website Maintenance", href: "/services/website-maintenance" },
+  { label: "Website Maintenance", href: "/wordpress-website-maintenance" },
   { label: "Conversion Improvement", href: "/solutions/improve-website-conversion" },
 ];
 
-export const testimonials = [
-  {
-    quote:
-      "The right website and marketing structure makes it easier to understand what is working and where growth is coming from.",
-    name: "Client proof slot",
-  },
-  {
-    quote:
-      "Clearer campaigns, stronger landing pages, and better tracking give the whole team more confidence in the next move.",
-    name: "Verified review required",
-  },
-  {
-    quote:
-      "A joined-up marketing partner is valuable when the website, ads, SEO, and reporting all need to work together.",
-    name: "Client name to confirm",
-  },
-];
+export const testimonials = caseStudies
+  .filter((s) => s.testimonial)
+  .slice(0, 3)
+  .map((s) => ({ quote: s.testimonial!.quote, name: s.testimonial!.attribution }));
 
 export const recognition = [
   "Google Ads",

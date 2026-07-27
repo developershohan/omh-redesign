@@ -1,10 +1,12 @@
 import Link from "next/link";
-import { Fragment, type ReactNode } from "react";
+import { Fragment } from "react";
 import { Pointer } from "@/components/Pointer";
 import { Reveal } from "@/components/Reveal";
 import { Accordion } from "@/components/ui/Accordion";
 import { Button, TextLink } from "@/components/ui/Button";
 import { Eyebrow, Fpo, VerifiedSlot } from "@/components/ui/Proof";
+import { MediaFrame } from "@/components/ServiceMedia";
+import { ServiceBand as Band } from "@/components/services/ServiceBand";
 import { company } from "@/lib/content/nav";
 import { wordpressDevelopment as content } from "@/lib/content/wordpress-development";
 
@@ -15,44 +17,6 @@ type Package = (typeof content.packages)[number];
   list, bento, numbered spine, comparison table, chip rows. Every device is
   grid/flex + hairline borders only, so all of it maps to Elementor containers.
 */
-
-/*
-  Service-page band. Deliberately NOT the shared <Section /> margin-label
-  scaffold: across eleven sections that sidebar column repeated too heavily and
-  squeezed content into 10 of 12 columns. Here the label sits on the rule itself
-  and content runs full width, with the tone alternating warm/white so the page
-  reads as bands rather than one flat sheet.
-  Future Elementor widget: "OMH Service Band".
-*/
-function Band({
-  label,
-  id,
-  tone = "warm",
-  children,
-}: {
-  label: string;
-  id?: string;
-  tone?: "warm" | "white";
-  children: ReactNode;
-}) {
-  return (
-    <section
-      id={id}
-      className={tone === "white" ? "border-y border-line bg-white" : undefined}
-    >
-      <div className="container-omh py-[clamp(56px,38px+2.9vw,88px)]">
-        <div className="mb-11 flex items-center gap-5">
-          <span aria-hidden className="h-0.5 w-[18px] shrink-0 bg-amber" />
-          <span className="shrink-0 font-sans text-[13px] font-semibold uppercase tracking-[0.16em] text-muted">
-            {label}
-          </span>
-          <span aria-hidden className="h-px flex-1 bg-line" />
-        </div>
-        {children}
-      </div>
-    </section>
-  );
-}
 
 /* `size="md"` steps the heading down to h3 for sections whose heading sits in a
    narrow sidebar column — at h2 those wrapped to three and four lines. */
@@ -174,11 +138,12 @@ export function ServiceHero() {
                 pointer. Wrapper stays fixed so the tracked rect never moves. */}
             <Pointer>
               <div className="pointer-parallax">
-                <Fpo
+                <MediaFrame
+                  kind="screen"
+                  theme="wordpress"
                   ratio="16/11"
-                  tag="Project visual"
-                  title="[WORDPRESS PROJECT SCREENSHOT REQUIRED]"
-                  note="Use a real WordPress project preview, before/after view or planning board."
+                  title="WordPress project preview"
+                  note="Replace with a real project, before-and-after view or planning board."
                 />
               </div>
             </Pointer>
@@ -190,9 +155,9 @@ export function ServiceHero() {
                 Proof to add before launch
               </p>
               <div className="flex flex-wrap gap-2.5">
-                <VerifiedSlot>[CLIENT REVIEW SCORE REQUIRED]</VerifiedSlot>
-                <VerifiedSlot>[CLIENT LOGOS/PERMISSION REQUIRED]</VerifiedSlot>
-                <VerifiedSlot>[REAL WEBSITE RESULT REQUIRED]</VerifiedSlot>
+                <VerifiedSlot>Client review score — pending</VerifiedSlot>
+                <VerifiedSlot>Client logos/permission — pending</VerifiedSlot>
+                <VerifiedSlot>Real website result — pending</VerifiedSlot>
               </div>
             </div>
           </Reveal>
@@ -660,14 +625,14 @@ export function CaseStudyFeature() {
 
             <div className="col-span-7 col-start-6 max-lg:mt-9">
               <div className="grid grid-cols-2 gap-5 max-sm:grid-cols-1">
-                <Fpo ratio="4/3" tag="Before" title="[BEFORE WEBSITE SCREENSHOT REQUIRED]" note="Use the real previous website screen." />
-                <Fpo ratio="4/3" tag="After" title="[AFTER WEBSITE SCREENSHOT REQUIRED]" note="Use the real launched website screen." />
+                <Fpo ratio="4/3" tag="Before" title="Before website screenshot" note="Use the real previous website screen." />
+                <Fpo ratio="4/3" tag="After" title="After website screenshot" note="Use the real launched website screen." />
               </div>
               <div className="mt-6 rounded-card border border-soft-dark bg-white/70 p-6">
-                <VerifiedSlot>[WORDPRESS CASE STUDY REQUIRED - add client/project details]</VerifiedSlot>
+                <VerifiedSlot>WordPress case study — pending</VerifiedSlot>
                 <div className="mt-4 flex flex-wrap gap-3">
-                  <VerifiedSlot>[VERIFIED RESULT REQUIRED]</VerifiedSlot>
-                  <VerifiedSlot>[CLIENT TESTIMONIAL REQUIRED]</VerifiedSlot>
+                  <VerifiedSlot>Verified result — pending</VerifiedSlot>
+                  <VerifiedSlot>Client testimonial — pending</VerifiedSlot>
                 </div>
               </div>
             </div>

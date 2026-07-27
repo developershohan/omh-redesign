@@ -17,8 +17,8 @@ export function CaseStudyFeature({ c, media }: { c: CaseMeta; media: React.React
   const rows: [string, React.ReactNode][] = [
     ["Challenge", c.challenge],
     ["Work", c.work],
-    ["Period", c.period ?? <VerifiedSlot>PERIOD REQUIRED</VerifiedSlot>],
-    ["Result", c.result ?? <VerifiedSlot>VERIFIED RESULT REQUIRED</VerifiedSlot>],
+    ["Period", c.period ?? <VerifiedSlot>Period — pending</VerifiedSlot>],
+    ["Result", c.result ?? <VerifiedSlot>Verified result — pending</VerifiedSlot>],
   ];
   return (
     <div className="grid grid-cols-[7fr_5fr] items-start gap-8 max-lg:grid-cols-1">
@@ -51,7 +51,7 @@ export function CaseStudyRow({ c }: { c: CaseMeta }) {
     >
       <span className="font-sans text-[17px] font-semibold">{c.sector}</span>
       <span className="text-[15.5px] leading-snug text-muted">{c.work}</span>
-      <span>{c.result ?? <VerifiedSlot>VERIFIED RESULT REQUIRED</VerifiedSlot>}</span>
+      <span>{c.result ?? <VerifiedSlot>Verified result — pending</VerifiedSlot>}</span>
       <ArrowRight className="size-4 max-sm:hidden" />
     </Link>
   );

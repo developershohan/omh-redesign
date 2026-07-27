@@ -31,23 +31,23 @@ export const primaryNav: NavItem[] = [
         links: [
           { label: "WordPress Development", href: "/wordpress-development", ready: true },
           { label: "Website Design", href: "/services/website-design" },
-          { label: "Shopify Development", href: "/services/shopify-development" },
-          { label: "Website Maintenance", href: "/services/website-maintenance" },
+          { label: "Shopify Development", href: "/shopify-development", ready: true },
+          { label: "Website Maintenance", href: "/wordpress-website-maintenance", ready: true },
         ],
       },
       {
         heading: "Paid Advertising",
         links: [
-          { label: "Google Ads Management", href: "/services/google-ads-management" },
+          { label: "Google Ads Management", href: "/google-adwords-ppc", ready: true },
           { label: "Meta Ads Management", href: "/services/meta-ads-management" },
-          { label: "Amazon PPC Advertising", href: "/services/amazon-ppc" },
+          { label: "Amazon PPC Advertising", href: "/amazon-ppc-advertising-agency-uk", ready: true },
           { label: "Paid Social Advertising", href: "/services/paid-social-advertising" },
         ],
       },
       {
         heading: "Organic Growth",
         links: [
-          { label: "Search Engine Optimisation", href: "/services/seo" },
+          { label: "Search Engine Optimisation", href: "/search-engine-optimisation", ready: true },
           { label: "Local SEO", href: "/services/local-seo" },
           { label: "Content Writing", href: "/services/content-writing" },
         ],
@@ -72,6 +72,12 @@ export const primaryNav: NavItem[] = [
 export const readyPages: NavLink[] = [
   { label: "Home", href: "/", ready: true },
   { label: "WordPress Development", href: "/wordpress-development", ready: true },
+  { label: "Shopify Development", href: "/shopify-development", ready: true },
+  { label: "WordPress Maintenance", href: "/wordpress-website-maintenance", ready: true },
+  { label: "Google Ads PPC", href: "/google-adwords-ppc", ready: true },
+  { label: "Amazon PPC Advertising", href: "/amazon-ppc-advertising-agency-uk", ready: true },
+  { label: "Search Engine Optimisation", href: "/search-engine-optimisation", ready: true },
+  { label: "Case Studies", href: "/case-studies", ready: true },
   { label: "Contact", href: "/contact", ready: true },
 ];
 
@@ -112,11 +118,12 @@ export const footerCols = [
     heading: "Services",
     links: [
       { label: "WordPress Development", href: "/wordpress-development" },
-      { label: "Google Ads", href: "/services/google-ads-management" },
+      { label: "Google Ads", href: "/google-adwords-ppc" },
+      { label: "Amazon PPC", href: "/amazon-ppc-advertising-agency-uk" },
       { label: "Meta Ads", href: "/services/meta-ads-management" },
-      { label: "SEO", href: "/services/seo" },
-      { label: "Shopify Development", href: "/services/shopify-development" },
-      { label: "Website Maintenance", href: "/services/website-maintenance" },
+      { label: "SEO", href: "/search-engine-optimisation" },
+      { label: "Shopify Development", href: "/shopify-development" },
+      { label: "Website Maintenance", href: "/wordpress-website-maintenance" },
     ],
   },
   {

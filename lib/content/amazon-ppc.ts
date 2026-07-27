@@ -1,0 +1,147 @@
+export const amazonPpc = {
+  hero: {
+    eyebrow: "Amazon PPC Advertising Agency for UK Sellers",
+    body: "Amazon advertising management for brands that need tighter control of search terms, bids, product targeting and the relationship between ad spend and attributed sales. We plan, build and optimise campaigns alongside the listings shoppers actually reach.",
+    primary: { label: "Discuss Your Amazon Ads", href: "/contact" },
+    secondary: { label: "Compare Packages", href: "#packages" },
+  },
+  problems: [
+    ["Spend rises faster than sales", "Budgets grow, but search terms, bids and product targets are not being refined around useful outcomes."],
+    ["ACoS lacks business context", "A single efficiency metric does not show margin, stock position, new-product goals or the wider effect on organic sales."],
+    ["Campaign structure has become tangled", "Products, match types and targets overlap, making it difficult to see what is working or where spend is being wasted."],
+    ["Listings weaken paid traffic", "An advert wins the click, but the product detail page does not answer the questions needed to convert it."],
+    ["Search-term learning is lost", "Useful customer language is not being moved into controlled campaigns, while irrelevant terms remain active."],
+    ["Reports describe rather than decide", "Data is available, but the next bid, budget, listing or targeting action is not clear."],
+  ],
+  campaignTypes: [
+    {
+      title: "Sponsored Products",
+      label: "Convert product demand",
+      body: "Product and keyword campaigns designed around searches and product detail pages where purchase intent is visible.",
+      detail: ["Keyword and product targeting", "Bid and negative-keyword reviews", "Search-term harvesting"],
+    },
+    {
+      title: "Sponsored Brands",
+      label: "Build the brand journey",
+      body: "Headline, product-collection and eligible video placements that can send shoppers to a Store or selected listings.",
+      detail: ["Creative and product selection", "Storefront journey review", "New-to-brand context where available"],
+    },
+    {
+      title: "Sponsored Display",
+      label: "Reach relevant audiences",
+      body: "Audience and contextual placements used to support product discovery, consideration and eligible remarketing activity.",
+      detail: ["Audience and product targeting", "Budget and frequency context", "Placement and conversion review"],
+    },
+    {
+      title: "Amazon DSP",
+      label: "Advanced scope",
+      body: "Programmatic activity for suitable brands, subject to audience, creative, access, budget and measurement requirements.",
+      detail: ["Eligibility and scope review", "Audience planning", "Attribution and reporting definition"],
+    },
+  ],
+  process: [
+    ["Commercial baseline", "Review products, margins, stock, goals, account access and the attribution window used to judge performance."],
+    ["Catalogue and account audit", "Map listings, search terms, targets, budgets and campaign overlap before recommending structural changes."],
+    ["Campaign architecture", "Build or reorganise campaigns by product, intent and match type, with clear naming and budget controls."],
+    ["Controlled optimisation", "Review bids, negatives, product targets, placements and budgets using enough data to make responsible changes."],
+    ["Reporting and next actions", "Connect advertising metrics with sales context, explain what changed and agree the next account or listing priorities."],
+  ],
+  packages: [
+    {
+      name: "Amazon PPC Seed",
+      stage: "Starting account",
+      bestFor: "The smallest published allowance for a focused Amazon advertising account.",
+      price: "£750",
+      features: {
+        includedHours: "15", requiredAdSpend: "£500", contractLength: "3", setupTime: "14 days",
+        keywordResearch: true, accountManager: true, meetings: "Monthly", onboarding: "24 hours",
+        listingSuggestions: false, auditRecommendation: false, audienceResearch: true, competitorResearch: false,
+        campaignSetup: true, managementOptimisation: true, analyticsSetup: true, reporting: true,
+        adCopywriting: true, conversionOptimisation: false, consultancy: false,
+      },
+    },
+    {
+      name: "Amazon PPC Shoot",
+      stage: "Growing account",
+      bestFor: "More management time plus listing, audit, competitor and consultancy input.",
+      price: "£850",
+      features: {
+        includedHours: "25", requiredAdSpend: "£1,500", contractLength: "6", setupTime: "14 days",
+        keywordResearch: true, accountManager: true, meetings: "Monthly", onboarding: "24 hours",
+        listingSuggestions: true, auditRecommendation: true, audienceResearch: true, competitorResearch: true,
+        campaignSetup: true, managementOptimisation: true, analyticsSetup: true, reporting: true,
+        adCopywriting: true, conversionOptimisation: true, consultancy: true,
+      },
+    },
+    {
+      name: "Amazon PPC Sapling",
+      stage: "Larger programme",
+      bestFor: "A broader catalogue with a higher published ad-spend threshold and time allowance.",
+      price: "£1,350",
+      features: {
+        includedHours: "35", requiredAdSpend: "£3,000", contractLength: "6", setupTime: "14 days",
+        keywordResearch: true, accountManager: true, meetings: "Monthly", onboarding: "24 hours",
+        listingSuggestions: true, auditRecommendation: true, audienceResearch: true, competitorResearch: true,
+        campaignSetup: true, managementOptimisation: true, analyticsSetup: true, reporting: true,
+        adCopywriting: true, conversionOptimisation: true, consultancy: true,
+      },
+    },
+    {
+      name: "Amazon PPC Tree",
+      stage: "Highest allowance",
+      bestFor: "The largest published package, with 60 included hours and £5,000 required ad spend.",
+      price: "£3,300",
+      features: {
+        includedHours: "60", requiredAdSpend: "£5,000", contractLength: "6", setupTime: "14 days",
+        keywordResearch: true, accountManager: true, meetings: "Monthly", onboarding: "24 hours",
+        listingSuggestions: true, auditRecommendation: true, audienceResearch: true, competitorResearch: true,
+        campaignSetup: true, managementOptimisation: true, analyticsSetup: true, reporting: true,
+        adCopywriting: true, conversionOptimisation: true, consultancy: true,
+      },
+    },
+  ],
+  packageGroups: [
+    {
+      label: "Commercial scope",
+      rows: [
+        ["Included hours*", "includedHours"], ["Required ad spend", "requiredAdSpend"],
+        ["Contract length (months)", "contractLength"], ["Set-up time", "setupTime"],
+        ["Account manager", "accountManager"], ["Meetings", "meetings"], ["Onboarding", "onboarding"],
+      ],
+    },
+    {
+      label: "Research and catalogue",
+      rows: [
+        ["Keyword research", "keywordResearch"], ["Listing suggestions", "listingSuggestions"],
+        ["Audit and recommendation", "auditRecommendation"], ["Audience research", "audienceResearch"],
+        ["Competitor research", "competitorResearch"],
+      ],
+    },
+    {
+      label: "Campaign delivery",
+      rows: [
+        ["Campaign set-up", "campaignSetup"], ["Ads management and optimisation", "managementOptimisation"],
+        ["Analytics set-up", "analyticsSetup"], ["Reporting", "reporting"], ["Ad copywriting", "adCopywriting"],
+        ["Conversion optimisation", "conversionOptimisation"], ["Consultancy", "consultancy"],
+      ],
+    },
+  ] as const,
+  pricingNotes: [
+    "Published package fees are £750, £850, £1,350 and £3,300. Amazon advertising spend is additional.",
+    "The source lists required ad spend of £500, £1,500, £3,000 and £5,000 respectively.",
+    "The source shows three- or six-month contract lengths while also referring to rolling monthly agreements. Confirm the applicable term in writing.",
+    "*Confirm whether included hours and prices are monthly, whether unused time carries forward, and whether VAT is included before publication.",
+    "No package can guarantee sales, ACoS, ROAS or a financial return; outcomes also depend on margin, listings, reviews, price, stock, competition and attribution.",
+  ],
+  faqs: [
+    ["What is Amazon PPC, and why appoint a UK Amazon PPC agency?", "Amazon PPC is advertising charged when an eligible shopper clicks an advert. A specialist agency can structure campaigns, manage bids and search terms, and explain performance, while your business retains responsibility for products, pricing, stock and commercial decisions."],
+    ["How long does it take to see results from Amazon PPC campaigns?", "Ads may gain visibility quickly after approval, but a reliable optimisation view takes longer. The original page suggests allowing roughly two to three months for meaningful learning; the actual period depends on demand, conversion volume, budget and catalogue readiness."],
+    ["How do you reduce wasted Amazon ad spend?", "Typical controls include search-term reviews, negative keywords, product-target refinement, bid and placement adjustments, budget allocation and clearer campaign separation. Changes should be judged against enough data and the agreed commercial goal."],
+    ["Which Amazon ad campaign types can you manage?", "The source covers Sponsored Products, Sponsored Brands, Sponsored Display and advanced Amazon DSP activity. The appropriate mix depends on eligibility, catalogue, brand registration, creative, audience, budget and measurement requirements."],
+    ["Will I have a dedicated account manager?", "The published package table includes an account manager at every tier and monthly meetings. Confirm contact arrangements, response times and what is included in writing before the work begins."],
+    ["How do you measure Amazon campaign success?", "Reporting can include attributed sales, spend, ACoS, ROAS, conversion rate and new-to-brand measures where available. These should be interpreted alongside margin, stock, price, organic sales and the attribution window rather than in isolation."],
+    ["Can you help with advanced strategies such as Amazon DSP?", "The source includes Amazon DSP and strategic insight work. Suitability, platform access, minimums, audience availability, creative production and measurement must be confirmed during scoping."],
+    ["Why choose Online Marketing Help for Amazon PPC?", "The service combines campaign management, listing recommendations, research, analytics and reporting in published packages. Ask for an approved Amazon case study, current credentials and a written scope before relying on any performance claim."],
+    ["I am new to selling on Amazon. Can you still help?", "Yes, subject to fit. A new seller may need catalogue, listing, operational and measurement foundations before advertising can be scaled responsibly, so the first recommendation may be to prepare those areas."],
+  ],
+};

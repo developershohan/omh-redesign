@@ -1,0 +1,138 @@
+export const searchEngineOptimisation = {
+  hero: {
+    eyebrow: "Search Engine Optimisation for UK Businesses",
+    body: "SEO strategy and implementation for businesses that need clearer search visibility, better-qualified organic visits and a website structure people and search engines can understand. We connect technical health, content, authority and measurement instead of treating them as isolated tasks.",
+    primary: { label: "Discuss Your SEO", href: "/contact" },
+    secondary: { label: "Compare SEO Packages", href: "#packages" },
+  },
+  signals: [
+    ["The right pages are not visible", "Important services or products do not appear for the searches most closely connected to the business."],
+    ["Traffic does not match intent", "Organic visits arrive, but the page, query or next action is poorly aligned with what the searcher needs."],
+    ["Content competes with itself", "Several pages target the same topic, while valuable themes have no clear, useful destination."],
+    ["Technical issues block progress", "Crawling, indexing, duplication, speed, mobile parity or structured data problems weaken an otherwise sound site."],
+    ["Authority is being chased blindly", "Links are pursued for volume rather than relevance, credibility and a natural connection to the business."],
+    ["Reporting stops at rankings", "Position changes are shown without explaining useful visits, enquiries, sales or what should happen next."],
+  ],
+  pillars: [
+    {
+      label: "Understand",
+      title: "Research and SEO audit",
+      body: "Establish the baseline across content, code, structure, indexing, competitors and off-site signals before deciding what deserves attention.",
+      items: ["Site and competitor analysis", "Keyword and search-intent research", "Technical and content audit"],
+    },
+    {
+      label: "Organise",
+      title: "On-page and technical SEO",
+      body: "Improve how pages are discovered, interpreted and experienced, including the site architecture that connects related topics.",
+      items: ["Page structure and optimisation", "Crawl, index and sitemap checks", "Internal linking and structured data"],
+    },
+    {
+      label: "Earn",
+      title: "Content and authority",
+      body: "Plan useful content and responsible outreach around audience questions, credible publications and the subjects the business can support.",
+      items: ["Content planning and copy guidance", "Relevant link opportunities", "Brand and topical authority"],
+    },
+    {
+      label: "Improve",
+      title: "Measurement and iteration",
+      body: "Track visibility, organic landing pages and meaningful actions so the next technical, content or authority task has a reason.",
+      items: ["Analytics and search measurement", "Rank and landing-page tracking", "Prioritised monthly actions"],
+    },
+  ],
+  process: [
+    ["Measurement baseline", "Confirm analytics, Search Console access, useful conversion actions and the reporting period used to judge progress."],
+    ["Website and search audit", "Review crawlability, indexing, page quality, architecture, competitors and the current organic starting point."],
+    ["Search strategy", "Map topics and intent to the right pages, decide what should be improved or created, and prioritise the work."],
+    ["Implementation", "Complete the agreed technical, on-page, content and internal-linking work, coordinating development where needed."],
+    ["Monitor and refine", "Review visibility, landing pages, conversions and competitor movement, then set the next evidence-led priorities."],
+  ],
+  packages: [
+    {
+      name: "SEO Seed",
+      stage: "Focused starting scope",
+      bestFor: "The smallest published allowance for a defined SEO priority and a limited website scope.",
+      price: "£850",
+      features: {
+        includedHours: "15", contractLength: "6", setupTime: "14 days", keywordResearch: true,
+        accountManager: true, meetings: "Monthly", onboarding: "24 hours", audienceResearch: true,
+        campaignSetup: true, managementOptimisation: true, analyticsSetup: true, reporting: true,
+        adCopywriting: false, conversionOptimisation: false, consultancy: false,
+      },
+    },
+    {
+      name: "SEO Shoot",
+      stage: "Growing programme",
+      bestFor: "More implementation time plus copy, conversion and consultancy support.",
+      price: "£1,600",
+      features: {
+        includedHours: "30", contractLength: "6", setupTime: "14 days", keywordResearch: true,
+        accountManager: true, meetings: "Monthly", onboarding: "24 hours", audienceResearch: true,
+        campaignSetup: true, managementOptimisation: true, analyticsSetup: true, reporting: true,
+        adCopywriting: true, conversionOptimisation: true, consultancy: true,
+      },
+    },
+    {
+      name: "SEO Sapling",
+      stage: "Broader website scope",
+      bestFor: "A larger published allowance for a broader site, topic set or implementation programme.",
+      price: "£2,500",
+      features: {
+        includedHours: "45", contractLength: "9", setupTime: "14 days", keywordResearch: true,
+        accountManager: true, meetings: "Monthly", onboarding: "24 hours", audienceResearch: true,
+        campaignSetup: true, managementOptimisation: true, analyticsSetup: true, reporting: true,
+        adCopywriting: true, conversionOptimisation: true, consultancy: true,
+      },
+    },
+    {
+      name: "SEO Tree",
+      stage: "Highest allowance",
+      bestFor: "The largest published package, with 75 included hours and a nine-month term.",
+      price: "£4,100",
+      features: {
+        includedHours: "75", contractLength: "9", setupTime: "14 days", keywordResearch: true,
+        accountManager: true, meetings: "Monthly", onboarding: "24 hours", audienceResearch: true,
+        campaignSetup: true, managementOptimisation: true, analyticsSetup: true, reporting: true,
+        adCopywriting: true, conversionOptimisation: true, consultancy: true,
+      },
+    },
+  ],
+  packageGroups: [
+    {
+      label: "Scope and support",
+      rows: [
+        ["Included hours*", "includedHours"], ["Contract length (months)", "contractLength"],
+        ["Set-up time", "setupTime"], ["Account manager", "accountManager"],
+        ["Meetings", "meetings"], ["Onboarding", "onboarding"],
+      ],
+    },
+    {
+      label: "SEO delivery",
+      rows: [
+        ["Keyword research", "keywordResearch"], ["Audience research", "audienceResearch"],
+        ["SEO campaign set-up", "campaignSetup"], ["Management and optimisation", "managementOptimisation"],
+        ["Analytics set-up", "analyticsSetup"], ["Reporting", "reporting"],
+        ["Ad copywriting", "adCopywriting"], ["Conversion optimisation", "conversionOptimisation"],
+        ["Consultancy", "consultancy"],
+      ],
+    },
+  ] as const,
+  pricingNotes: [
+    "Published package fees are £850, £1,600, £2,500 and £4,100.",
+    "The source lists 6, 6, 9 and 9 month contract lengths while also referring to a rolling monthly agreement. Confirm the applicable term in writing.",
+    "*Confirm whether included hours and prices are monthly, whether unused time carries forward, and whether VAT is included before publication.",
+    "The source says technical work may include crawling, hreflang recommendations, performance analysis, audits, log-file analysis, sitemap checks, schema investigation and mobile-versus-desktop parity checks. Final scope depends on the selected package and proposal.",
+    "Rankings, traffic, enquiries, sales and financial returns cannot be guaranteed. Search results also depend on competition, the website, content quality, authority, implementation and search-engine changes.",
+  ],
+  faqs: [
+    ["What is search engine optimisation?", "SEO is the ongoing work of making a website easier for search engines to discover, understand and evaluate while making its pages more useful to the people searching. It can include technical improvements, content, internal linking, authority building and measurement."],
+    ["What results should I expect from an SEO package?", "Progress may appear in crawl and index health, relevant rankings, organic landing-page visits and meaningful actions such as enquiries or sales. The useful measures should be agreed at the beginning; no specific ranking, traffic volume or commercial result can be promised."],
+    ["How long does SEO take?", "The source suggests that noticeable progress often takes around three to six months, but that is not a guarantee. Timing varies with the starting site, competition, implementation pace, search demand, content quality and the type of work required."],
+    ["What might be reviewed after six months?", "A review can compare the agreed baseline with current technical health, index coverage, search visibility, organic landing-page traffic and conversions. The conclusion should explain what changed and what deserves the next investment, not assume every metric must rise."],
+    ["What happens after I choose an SEO package?", "The published process begins with measurement and an audit, followed by strategy, implementation and ongoing optimisation. Exact access, deliverables, responsibilities and timing should be defined in the proposal."],
+    ["Do I need to sign a contract?", "The current source says a contract is required and the package table publishes six- or nine-month terms. It also mentions rolling monthly availability, so the applicable agreement, cancellation terms and notice period must be confirmed in writing."],
+    ["Can SEO results or first-place rankings be guaranteed?", "No. Search engines control their results and change them continually. Work can follow documented good practice and target agreed improvements, but an agency cannot responsibly guarantee a ranking, traffic volume, lead count, sale or return."],
+    ["How do you keep SEO work current?", "The source says the team follows current search-engine guidance. In practice, recommendations should be based on official documentation, the site’s evidence and responsible testing rather than reacting to every industry rumour."],
+    ["What is social media optimisation?", "Social media optimisation concerns how a brand’s profiles, publishing and creative support discovery and engagement on social platforms. It may complement SEO, but it is a separate scope from technical and organic search work."],
+    ["Will a page stay at the top once it ranks?", "No position is permanent. Competitors, search demand, site changes and search-engine systems continue to move. Important pages need monitoring and may need technical, content or authority improvements over time."],
+  ],
+};

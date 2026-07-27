@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Instrument_Sans, Source_Sans_3, Source_Serif_4 } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -47,18 +46,6 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <div className="bg-ink text-white">
-          <div className="container-omh flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1 py-2 text-center text-[13px] leading-snug">
-            <span className="font-semibold">Redesign preview</span>
-            <span className="text-white/70 max-sm:hidden">
-              Home, WordPress Development and Contact are fully designed — other pages show a
-              coming-soon placeholder.
-            </span>
-            <Link href="/wordpress-development" className="font-semibold text-soft underline underline-offset-2">
-              See the example page
-            </Link>
-          </div>
-        </div>
         <Header />
         <main id="main" className="flex-1">
           {children}

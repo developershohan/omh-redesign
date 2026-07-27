@@ -1,16 +1,15 @@
 import type { ReactNode } from "react";
 
 /*
-  Placeholder discipline (brief §1): unverified facts render as unmistakable
-  amber slots; imagery without a real asset renders as a labelled FPO frame.
-  Nothing in these components can be mistaken for real proof.
+  Placeholder discipline (brief §1): unverified facts never render as if they
+  were proof. Styled quietly (not as an alarm) so pages read as in-progress
+  rather than broken while these are swapped for the real thing pre-launch.
 */
 
 // Future Elementor widget: "OMH Verified Slot"
 export function VerifiedSlot({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-lg border-[1.5px] border-dashed border-[#b9a26b] bg-amber/10 px-3 py-1.5 text-[13.5px] font-semibold tracking-wide text-[#7a5a1e]">
-      <span aria-hidden className="text-xs text-amber">◈</span>
+    <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-warm px-3 py-1 text-[12.5px] font-medium text-muted">
       {children}
     </span>
   );
@@ -41,8 +40,7 @@ export function Fpo({
         {tag}
       </span>
       <span className="max-w-[75%] text-center text-[14.5px] leading-snug text-muted">
-        <b className="mb-1 block font-sans text-[15px] font-semibold text-ink">{title}</b>
-        {note}
+        <b className="block font-sans text-[15px] font-semibold text-ink">{title}</b>
       </span>
     </div>
   );

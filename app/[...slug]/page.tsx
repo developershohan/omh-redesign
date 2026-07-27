@@ -5,7 +5,7 @@ import { Eyebrow } from "@/components/ui/Proof";
 import { company, navLabels, readyPages } from "@/lib/content/nav";
 
 // One catch-all for every route that isn't designed yet. Explicit routes
-// (/, /wordpress-development, /contact, /design-system) take precedence, so this
+// (/, three explicit service routes, /contact, /design-system) take precedence, so this
 // only ever renders for planned-but-unbuilt pages — no 404s during the demo.
 // Future Elementor equivalent: a shared "Coming soon" template.
 

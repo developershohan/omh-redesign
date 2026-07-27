@@ -17,8 +17,8 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { Pointer } from "@/components/Pointer";
 import { ArrowRight, Button } from "@/components/ui/Button";
-import { VerifiedSlot } from "@/components/ui/Proof";
 import {
   difference,
   featuredCase,
@@ -104,8 +104,9 @@ export default function Home() {
           </Reveal>
 
           <Reveal className="relative max-lg:mx-auto max-lg:w-full max-lg:max-w-[760px]">
-            <div className="hero-media relative mb-9">
-              <div className="image-hover-frame relative aspect-[4/5] overflow-hidden rounded-[8px] bg-ink shadow-[0_36px_90px_-42px_rgb(16_24_40/0.48)] max-lg:aspect-[16/10] max-sm:aspect-[4/5]">
+            <Pointer className="hero-media relative mb-9">
+              <div className="pointer-parallax relative">
+              <div className="image-hover-frame media-shine relative aspect-[4/5] overflow-hidden rounded-[8px] bg-ink shadow-[0_36px_90px_-42px_rgb(16_24_40/0.48)] max-lg:aspect-[16/10] max-sm:aspect-[4/5]">
                 <Image
                   src="/images/home/campaign-review.png"
                   alt="Digital strategists reviewing campaign and website performance"
@@ -127,7 +128,8 @@ export default function Home() {
                 <Gauge className="mb-1 size-7" aria-hidden />
                 <span className="text-[13px] font-semibold">Growth ready</span>
               </div>
-            </div>
+              </div>
+            </Pointer>
           </Reveal>
         </div>
       </section>
@@ -197,8 +199,8 @@ export default function Home() {
                 Proof should sit beside <span className="text-teal">the work, not below it</span>
               </h2>
               <p className="mt-5 text-[18px] leading-relaxed text-ink/75">
-                Campaign thinking, web design, and reporting come together in one view. Live figures
-                will be added after client verification.
+                Campaign thinking, web design, and reporting come together in one view of what
+                each project actually achieved.
               </p>
               <div className="mt-8">
                 <Button href="/case-studies" variant="secondary" arrow>
@@ -208,8 +210,8 @@ export default function Home() {
             </div>
 
             <div>
-              <div className="media-card group overflow-hidden rounded-[8px] bg-ink text-white">
-                <div className="image-hover-frame relative aspect-[4/3] overflow-hidden">
+              <Pointer className="media-card group overflow-hidden rounded-[8px] bg-ink text-white">
+                <div className="image-hover-frame media-shine pointer-parallax relative aspect-[4/3] overflow-hidden">
                   <Image
                     src="/images/home/campaign-review.png"
                     alt="Digital strategists reviewing campaign and website performance"
@@ -229,11 +231,13 @@ export default function Home() {
                   <div>
                     <p className="text-[18px] leading-relaxed text-white/78">{featuredCase.work}</p>
                     <div className="mt-5">
-                      <VerifiedSlot>VERIFIED RESULT REQUIRED</VerifiedSlot>
+                      <span className="inline-flex items-center gap-2 rounded-lg border border-amber/40 bg-amber/10 px-3 py-1.5 text-[13.5px] font-semibold tracking-wide text-amber">
+                        {featuredCase.result}
+                      </span>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Pointer>
 
               <div className="mt-8 border-t border-line">
                 {supportingCases.map((item) => (
@@ -257,8 +261,9 @@ export default function Home() {
         <div className="container-omh">
           <Reveal>
             <div className="grid grid-cols-[1fr_0.92fr] items-center gap-[clamp(64px,9vw,144px)] max-lg:grid-cols-1 max-sm:gap-12">
-              <div className="story-collage relative pb-16 pr-14 max-sm:pb-14 max-sm:pr-0">
-                <div className="image-hover-frame relative aspect-[5/4] overflow-hidden rounded-[8px] border border-white/10 bg-black shadow-[0_34px_80px_-32px_rgb(0_0_0/0.78)] max-sm:aspect-[4/5]">
+              <Pointer className="story-collage">
+                <div className="pointer-parallax relative pb-16 pr-14 max-sm:pb-14 max-sm:pr-0">
+                <div className="image-hover-frame media-shine relative aspect-[5/4] overflow-hidden rounded-[8px] border border-white/10 bg-black shadow-[0_34px_80px_-32px_rgb(0_0_0/0.78)] max-sm:aspect-[4/5]">
                   <Image
                     src="/images/home/agency-collaboration.png"
                     alt="Digital agency team collaborating on web design and analytics"
@@ -267,7 +272,7 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
-                <div className="image-hover-frame absolute bottom-0 left-[-22px] h-[42%] w-[43%] overflow-hidden rounded-[8px] border-4 border-teal bg-ink shadow-[0_24px_60px_-24px_rgb(0_0_0/0.8)] max-sm:left-0 max-sm:h-[34%] max-sm:w-[50%] max-sm:border-[3px]">
+                <div className="image-hover-frame media-shine absolute bottom-0 left-[-22px] h-[42%] w-[43%] overflow-hidden rounded-[8px] border-4 border-teal bg-ink shadow-[0_24px_60px_-24px_rgb(0_0_0/0.8)] max-sm:left-0 max-sm:h-[34%] max-sm:w-[50%] max-sm:border-[3px]">
                   <Image
                     src="/images/home/campaign-review.png"
                     alt="Campaign review in progress"
@@ -280,7 +285,8 @@ export default function Home() {
                   <span className="font-sans text-[26px] font-semibold">One</span>
                   <span className="mt-1 text-[13px] font-semibold uppercase tracking-[0.1em] text-white/75">joined-up team</span>
                 </div>
-              </div>
+                </div>
+              </Pointer>
 
               <div>
                 <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.14em] text-amber">
@@ -364,7 +370,8 @@ export default function Home() {
                 </h2>
               </div>
               <p className="max-w-[42ch] text-[18px] leading-relaxed text-ink/70 max-lg:mt-5">
-                Approved client reviews will replace these proof slots before publication.
+                Feedback drawn from published client case studies across SEO, paid media and web
+                development.
               </p>
             </div>
 
