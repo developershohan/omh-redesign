@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 
 export function HighlightedText({
   text,
@@ -128,5 +129,32 @@ export function FeatureValue({
       <MinusIcon className="size-4" />
       <span className="sr-only">Not included</span>
     </span>
+  );
+}
+
+// Audit T-26: the live site has zero contextual in-body internal links — every
+// internal link resolves to the header, footer or mega-menu. Content files hold
+// plain strings, so link targets are written inline as [anchor](/path) and
+// rendered here. Keeps the §7 linking plan in the content data, not the markup.
+export function withLinks(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\(\/[^)]*\))/g);
+  return (
+    <>
+      {parts.map((part, i) => {
+        const match = /^\[([^\]]+)\]\((\/[^)]*)\)$/.exec(part);
+        if (!match) return part;
+        // ponytail: a plain inline anchor, not TextLink — TextLink appends an
+        // arrow and is inline-flex, which breaks mid-sentence.
+        return (
+          <Link
+            key={i}
+            href={match[2]}
+            className="font-semibold text-amber-deep underline decoration-amber-deep/35 underline-offset-4 hover:decoration-amber-deep"
+          >
+            {match[1]}
+          </Link>
+        );
+      })}
+    </>
   );
 }

@@ -36,9 +36,10 @@ import {
 function StarRating({ label }: { label: string }) {
   return (
     <p className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-4 py-2 text-[15px] font-semibold text-ink shadow-[0_12px_28px_-24px_rgb(16_24_40/0.55)]">
-      <span className="text-amber" aria-hidden>
-        &#9733;&#9733;&#9733;&#9733;&#9733;
-      </span>
+      {/* ponytail: no star glyphs — five stars next to no rating reads as a
+          review score, which brief §6/§33 forbids inventing. Restore only
+          alongside a real, attributed rating. */}
+      <span className="size-1.5 rounded-full bg-amber" aria-hidden />
       {label}
     </p>
   );
@@ -80,7 +81,7 @@ export default function Home() {
           <Reveal className="relative z-10">
             <StarRating label="Growth-focused UK agency" />
             <h1 className="mb-7 mt-8 max-w-[14ch] font-sans text-display font-semibold max-lg:max-w-none">
-              Digital Marketing for Service Businesses and <span className="text-amber-deep">Ecommerce Brands</span>
+              Digital marketing and WordPress support for <span className="text-amber-deep">UK businesses</span>
             </h1>
             <p className="mb-10 max-w-[59ch] text-[18px] leading-relaxed text-ink/75 max-lg:max-w-none">
               {hero.standfirst}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ServiceJsonLd } from "@/lib/schema";
 import {
   SeoEvidence,
   SeoFAQ,
@@ -27,6 +28,7 @@ export const metadata: Metadata = {
 export default function SearchEngineOptimisationPage() {
   return (
     <div className="service-page service-page-seo">
+      <ServiceJsonLd path="/search-engine-optimisation" />
       <SeoHero />
       <SeoSearchLandscape />
       <SeoSignalSection />
@@ -38,7 +40,7 @@ export default function SearchEngineOptimisationPage() {
       <ServiceCaseStudies
         serviceId="seo"
         title="See the SEO work in context"
-        body="These reconstructed studies connect audits, local visibility, content, technical improvements and measurement to the project that needed them. Published figures remain clearly labelled until verified."
+        body="Audits, local visibility, content, technical improvements and measurement, shown against the projects that needed them."
         limit={4}
       />
       <SiteTestimonials eventPrefix="seo" accent="bg-[#ee8c67]" />

@@ -290,7 +290,7 @@ export function MaintenancePricingPackages() {
             className="col-span-7"
             title="Maintenance packages with clear published allowances"
             accent="published allowances"
-            body="The source table contains three packages and sixteen comparison points. Every value is preserved below, while ambiguous billing and contract terms are highlighted for confirmation."
+            body="Three packages across sixteen comparison points. Billing and contract terms still to be confirmed are marked."
           />
           <p className="col-span-5 text-bsm leading-relaxed text-ink/70 max-lg:mt-6">
             No package has been labelled as recommended. The right option

@@ -16,6 +16,9 @@ const needs = [
   "Something else",
 ];
 
+const budgets = ["Under £1,000", "£1,000 – £3,000", "£3,000 – £10,000", "Over £10,000", "Monthly retainer"];
+const timings = ["As soon as possible", "Within 1–3 months", "Later this year", "Just researching"];
+
 // Demo form: no backend, so submit just confirms receipt. Wire to a real
 // endpoint (or the WordPress form plugin) before launch.
 // Future Elementor widget: "OMH Consultation Form".
@@ -23,6 +26,8 @@ export function ContactForm() {
   const [sent, setSent] = useState(false);
   const needId = useId();
   const msgId = useId();
+  const budgetId = useId();
+  const timingId = useId();
 
   if (sent) {
     return (
@@ -73,6 +78,36 @@ export function ContactForm() {
             {needs.map((n) => (
               <option key={n} value={n}>
                 {n}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Audit T-29: qualification fields, so the reply can be specific
+            rather than a request for the same details back. */}
+        <div className="flex flex-col gap-1.5">
+          <label htmlFor={budgetId} className="text-label font-semibold text-ink">
+            Rough budget
+          </label>
+          <select id={budgetId} defaultValue="" className={controlCls}>
+            <option value="">Prefer not to say</option>
+            {budgets.map((b) => (
+              <option key={b} value={b}>
+                {b}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="flex flex-col gap-1.5">
+          <label htmlFor={timingId} className="text-label font-semibold text-ink">
+            When do you want to start?
+          </label>
+          <select id={timingId} defaultValue="" className={controlCls}>
+            <option value="">Not sure yet</option>
+            {timings.map((t) => (
+              <option key={t} value={t}>
+                {t}
               </option>
             ))}
           </select>

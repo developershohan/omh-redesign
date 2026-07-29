@@ -83,7 +83,7 @@ export function AmazonAccountDiagnosis() {
           <div className="col-span-4 max-lg:mb-9">
             <p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-[#a96500]">Is the account learning?</p>
             <h2 className="mt-5 max-w-[14ch] font-sans text-h2 font-semibold">Six signs Amazon advertising needs attention.</h2>
-            <p className="mt-5 max-w-[42ch] text-[17px] leading-relaxed text-ink/70">The original page lists dozens of tasks. This diagnosis groups them around the problems a seller can actually recognise.</p>
+            <p className="mt-5 max-w-[42ch] text-[17px] leading-relaxed text-ink/70">Dozens of tasks sit under Amazon PPC. This diagnosis groups them around the problems a seller can actually recognise.</p>
             <div className="mt-8"><TextLink href="/contact" data-event="amazon_account_review_click">Request an account review</TextLink></div>
           </div>
           <div className="col-span-8 grid grid-cols-2 border-l border-t border-line max-md:grid-cols-1">
@@ -107,7 +107,7 @@ export function AmazonCampaignMap() {
       <Reveal>
         <div className="flex items-end justify-between gap-10 max-lg:block">
           <h2 className="max-w-[18ch] font-sans text-h2 font-semibold">A campaign mix shaped around the shopper journey.</h2>
-          <p className="max-w-[48ch] text-[17px] leading-relaxed text-white/65 max-lg:mt-5">The source covers four Amazon advertising formats. Availability and suitability depend on account eligibility, catalogue, brand registration, creative and budget.</p>
+          <p className="max-w-[48ch] text-[17px] leading-relaxed text-white/65 max-lg:mt-5">Four Amazon advertising formats. Availability and suitability depend on account eligibility, catalogue, brand registration, creative and budget.</p>
         </div>
         <div className="mt-12 grid grid-cols-12 gap-5">
           {content.campaignTypes.map((item, index) => (
@@ -216,7 +216,7 @@ export function AmazonProofGuide() {
           <div className="col-span-5 max-lg:mb-9">
             <p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-[#ffb84d]">Before increasing spend</p>
             <h2 className="mt-5 max-w-[15ch] font-sans text-h2 font-semibold">Use a real account story, with the measurement explained.</h2>
-            <p className="mt-5 text-[17px] leading-relaxed text-white/68">The source page contains a generic case-study block. Replace this with an approved Amazon example that states the products, date range, spend, attribution window and commercial context.</p>
+            <p className="mt-5 text-[17px] leading-relaxed text-white/68">An approved Amazon example belongs here, stating the products, date range, spend, attribution window and commercial context. [VERIFIED CASE STUDY REQUIRED]</p>
             <ul className="mt-7 grid gap-3 border-t border-white/12 pt-5 text-[15px] text-white/72">
               {["Starting account and catalogue context", "Campaign and listing work completed", "Spend and comparison period", "Verified outcome with metric definitions"].map((item) => <li key={item} className="flex gap-3"><Check className="mt-0.5 size-4 shrink-0 text-[#ffb84d]" />{item}</li>)}
             </ul>

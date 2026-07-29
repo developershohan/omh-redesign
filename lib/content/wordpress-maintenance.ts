@@ -193,7 +193,7 @@ export const wordpressMaintenance = {
     "Current published maintenance package values are £300, £400 and £500.",
     "Each package includes one monthly consultation. Bespoke packages and ad-hoc access to an account manager are available subject to scope.",
     "An initial 30-minute consultation is used to recommend the most suitable package.",
-    "The current page mentions both fixed contract lengths and a rolling monthly agreement. Confirm which term applies to each package before publication.",
+    "Both fixed contract lengths and a rolling monthly agreement are referenced. Confirm which term applies to each package before publication.",
     "*Confirm whether included hours reset monthly, how unused time is treated, whether prices are monthly, and whether VAT is included. Advertising spend is excluded.",
   ],
   reasons: [
@@ -210,8 +210,8 @@ export const wordpressMaintenance = {
     ["Can you investigate CSS, theme or plugin problems?", "Yes. Send the website URL and a clear description of the problem. The team can investigate whether the cause is CSS, a theme, a plugin or another part of the setup."],
     ["What access do you need before starting?", "WordPress administrator access is normally required. Hosting, domain or other platform access may also be needed depending on the task. Credentials should only be shared through the approved secure process."],
     ["Are backups, security and monitoring included?", "All three published packages show weekly cloud backups, uptime monitoring and routine WordPress updates. Any additional security, malware removal, recovery or response-time commitment must be confirmed in the scope."],
-    ["Can you also help with SEO or a new website?", "Yes. OMH also provides WordPress development, SEO and paid marketing services. Those services are scoped separately from the maintenance allowance."],
-    ["Do you manage hosting and domain renewals?", "The current service page says hosting and domain support can be provided, but the exact offer and charges should be confirmed during the consultation."],
-    ["Is there a warranty or money-back guarantee?", "The current page refers to both a 30-day warranty and a money-back guarantee. The written coverage, exclusions and claim process must be confirmed before either promise is published as a package term."],
+    ["Can you also help with SEO or a new website?", "Yes. We also provide [WordPress development](/wordpress-development), [SEO](/search-engine-optimisation) and [Google Ads management](/google-adwords-ppc). Those services are scoped separately from the maintenance allowance."],
+    ["Do you manage hosting and domain renewals?", "Hosting and domain support can be provided, but the exact offer and charges should be confirmed during the consultation."],
+    ["Is there a warranty or money-back guarantee?", "Both a 30-day warranty and a money-back guarantee are referenced. The written coverage, exclusions and claim process must be confirmed before either promise is published as a package term."],
   ],
 };

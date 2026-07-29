@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ServiceJsonLd } from "@/lib/schema";
 import {
   PpcCapabilityGrid,
   PpcFAQAccordion,
@@ -44,6 +45,7 @@ const relatedServices = [
 export default function GoogleAdwordsPpcPage() {
   return (
     <div className="service-page service-page-ppc">
+      <ServiceJsonLd path="/google-adwords-ppc" />
       <PpcHero />
       <PpcCampaignStudio />
       <PpcCapabilityGrid />
@@ -56,7 +58,7 @@ export default function GoogleAdwordsPpcPage() {
       <ServiceCaseStudies
         serviceId="google-ads"
         title="Campaign work alongside SEO and website delivery"
-        body="The source library often combines paid media with organic and website work. These pages separate the workstreams and label every result claim that still needs evidence."
+        body="Paid media rarely works in isolation. These projects show where campaign work sat alongside website and organic search delivery."
       />
       <SiteTestimonials eventPrefix="ppc" accent="bg-[#b8ef3e]" />
       <RelatedServices

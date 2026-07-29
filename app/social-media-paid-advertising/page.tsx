@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ServiceJsonLd } from "@/lib/schema";
 import { ServiceCaseStudies } from "@/components/CaseStudies";
 import { RelatedServices } from "@/components/RelatedServices";
 import {
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
 export default function SocialMediaPaidAdvertisingPage() {
   return (
     <div className="service-page service-page-paid-social">
+      <ServiceJsonLd path="/social-media-paid-advertising" />
       <PaidSocialHero />
       <PaidSocialGoals />
       <PaidSocialCapabilities />
@@ -31,7 +33,7 @@ export default function SocialMediaPaidAdvertisingPage() {
       <ServiceCaseStudies
         serviceId="paid-social"
         title="Paid social within wider acquisition campaigns"
-        body="The source case-study library connects social advertising with website, search and broader paid-media work. Results remain labelled by their published workstream."
+        body="Where paid social sat alongside website, search and wider paid-media work."
       />
       <SocialGuaranteeAndReporting />
       <SocialReviews />

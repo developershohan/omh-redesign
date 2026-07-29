@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ServiceJsonLd } from "@/lib/schema";
 import {
   ShopifyCapabilityGrid,
   ShopifyCaseStudyFeature,
@@ -18,6 +19,7 @@ import { SiteTestimonials } from "@/components/Testimonials";
 
 export const metadata: Metadata = {
   title: "Shopify Development for UK Businesses",
+  alternates: { canonical: "https://onlinemarketinghelp.co.uk/shopify-development/" },
   description:
     "Shopify stores, redesigns, migrations and integrations for UK businesses that need a clearer buying journey and a more reliable ecommerce setup.",
 };
@@ -25,6 +27,7 @@ export const metadata: Metadata = {
 export default function ShopifyDevelopmentPage() {
   return (
     <div className="service-page service-page-shopify">
+      <ServiceJsonLd path="/shopify-development" />
       <ShopifyHero />
       <ShopifyStorefrontShowcase />
       <ShopifyCapabilityGrid />
@@ -37,7 +40,7 @@ export default function ShopifyDevelopmentPage() {
       <ServiceCaseStudies
         serviceId="shopify"
         title="Ecommerce projects and organic acquisition"
-        body="Review the clothing SEO story and the conflicted ecommerce source reconstruction before planning store, catalogue and acquisition work."
+        body="Store, catalogue and acquisition work on ecommerce projects, including the online clothing business."
         limit={2}
       />
       <SiteTestimonials eventPrefix="shopify" accent="bg-[#e46f55]" />

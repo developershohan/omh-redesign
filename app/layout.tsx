@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Instrument_Sans, Source_Sans_3, Source_Serif_4 } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { JsonLd, SITE, organisation, website } from "@/lib/schema";
 import "./globals.css";
 
 const instrument = Instrument_Sans({
@@ -21,10 +22,12 @@ const sourceSerif = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE),
   title: {
     default: "Online Marketing Help — UK digital marketing & web development agency",
     template: "%s | Online Marketing Help",
   },
+  alternates: { canonical: "https://onlinemarketinghelp.co.uk/" },
   description:
     "We help UK service businesses and ecommerce brands grow through Google Ads, Meta Ads, SEO, and conversion-focused websites, supported by clear reporting and reliable tracking.",
 };
@@ -40,6 +43,7 @@ export default function RootLayout({
       className={`${instrument.variable} ${sourceSans.variable} ${sourceSerif.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        <JsonLd data={[organisation, website]} />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-button focus:bg-teal focus:px-4 focus:py-2 focus:text-ink"

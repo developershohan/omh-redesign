@@ -1,10 +1,11 @@
 import type { CaseMeta } from "@/components/ui/Case";
 import { caseStudies } from "@/lib/content/case-studies";
 import { featuredInsights } from "@/lib/content/insights-index";
+import { about } from "@/lib/content/about";
 
 export const hero = {
-  eyebrow: "★★★★★ UK digital marketing & web development agency",
-  headline: "Digital Marketing for Service Businesses and Ecommerce Brands",
+  eyebrow: "UK digital marketing & web development agency",
+  headline: "Digital marketing and WordPress support for UK businesses",
   standfirst:
     "We help UK companies generate qualified leads and sales through Google Ads, Meta Ads, SEO, and conversion-focused websites. You run the business, we handle the strategy, delivery, tracking, and reporting.",
   primaryCta: { label: "Book a Growth Consultation", href: "/contact" },
@@ -28,7 +29,7 @@ export const programs = [
     range: "Websites",
     title: "Conversion Website Build",
     body: "For businesses whose current site gets attention but does not turn enough visitors into enquiries, bookings, or orders.",
-    href: "/services/website-design",
+    href: "/website-designs",
   },
   {
     range: "Ongoing support",
@@ -38,10 +39,16 @@ export const programs = [
   },
 ];
 
+// Audit T-02 / brief §6: "£4M+ in marketing spend" and "150+ businesses scaled"
+// were unverifiable — invented spend and customer counts are exactly what the
+// brief forbids. Replaced with facts this repo can stand behind: the team roster,
+// the Companies House incorporation year and the service count in the nav.
+// [CONFIRM COMPANY INFORMATION] — restore a spend or client-count figure only
+// with a real number the client will put their name to.
 export const stats = [
-  { value: "£4M+", label: "In marketing spend" },
-  { value: "150+", label: "Businesses scaled" },
-  { value: "6+", label: "Years in business" },
+  { value: `${about.team.length}`, label: "Specialists in the team" },
+  { value: "13", label: "Services under one roof" },
+  { value: "Est. 2019", label: "Companies House no. 12328533" },
   { value: "100%", label: "UK business focus" },
 ];
 
@@ -103,10 +110,10 @@ export const difference = [
 export const services = [
   { label: "Google Ads", href: "/google-adwords-ppc" },
   { label: "Amazon PPC", href: "/amazon-ppc-advertising-agency-uk" },
-  { label: "Meta Ads", href: "/services/meta-ads-management" },
+  { label: "Meta Ads", href: "/social-media-paid-advertising" },
   { label: "SEO", href: "/search-engine-optimisation" },
   { label: "Local SEO", href: "/local-seo" },
-  { label: "Website Design", href: "/services/website-design" },
+  { label: "Website Design", href: "/website-designs" },
   { label: "WordPress Development", href: "/wordpress-development" },
   { label: "Website Maintenance", href: "/wordpress-website-maintenance" },
   { label: "Conversion Improvement", href: "/solutions/improve-website-conversion" },

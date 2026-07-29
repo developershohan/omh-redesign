@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { Reveal } from "@/components/Reveal";
 import { ServiceBand, type ServiceBandTone } from "@/components/services/ServiceBand";
-import { ServiceSectionIntro } from "@/components/services/ServicePrimitives";
+import { ServiceSectionIntro, withLinks } from "@/components/services/ServicePrimitives";
 import { Accordion } from "@/components/ui/Accordion";
 import { company } from "@/lib/content/nav";
 
@@ -74,7 +74,13 @@ export function ServiceFaqSection({
             </div>
           </div>
           <div className="col-span-8">
-            <Accordion group={group} items={items} />
+            <Accordion
+              group={group}
+              items={items.map((item) => ({
+                ...item,
+                a: typeof item.a === "string" ? withLinks(item.a) : item.a,
+              }))}
+            />
           </div>
         </div>
       </Reveal>

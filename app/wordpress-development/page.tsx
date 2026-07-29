@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ServiceJsonLd } from "@/lib/schema";
 import {
   CaseStudyFeature,
   FAQAccordion,
@@ -19,6 +20,7 @@ import { SiteTestimonials } from "@/components/Testimonials";
 
 export const metadata: Metadata = {
   title: "WordPress Development for UK Businesses | OMH",
+  alternates: { canonical: "https://onlinemarketinghelp.co.uk/wordpress-development/" },
   description:
     "WordPress websites built for UK businesses that need better structure, easier management, stronger performance and clearer conversion support.",
 };
@@ -26,6 +28,7 @@ export const metadata: Metadata = {
 export default function WordPressDevelopmentPage() {
   return (
     <div className="service-page service-page-wordpress">
+      <ServiceJsonLd path="/wordpress-development" />
       <ServiceHero />
       <WordPressVisualStory />
       <PainPointSection />
@@ -39,7 +42,7 @@ export default function WordPressDevelopmentPage() {
       <ServiceCaseStudies
         serviceId="wordpress"
         title="Website projects connected to wider growth"
-        body="See how website launches, information architecture, technical improvements and acquisition support were described in the original project library."
+        body="Website launches, information architecture, technical improvements and the acquisition work that followed them."
       />
       <SiteTestimonials eventPrefix="wordpress" accent="bg-amber" />
       <RelatedServices

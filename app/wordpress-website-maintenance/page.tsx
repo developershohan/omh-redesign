@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ServiceJsonLd } from "@/lib/schema";
 import {
   MaintenanceCapabilityGrid,
   MaintenanceFAQAccordion,
@@ -18,6 +19,7 @@ import { SiteTestimonials } from "@/components/Testimonials";
 
 export const metadata: Metadata = {
   title: "WordPress Website Maintenance for UK Businesses",
+  alternates: { canonical: "https://onlinemarketinghelp.co.uk/wordpress-website-maintenance/" },
   description:
     "Ongoing WordPress maintenance, updates, backups, monitoring and technical support for UK businesses that need a more reliable website.",
 };
@@ -25,6 +27,7 @@ export const metadata: Metadata = {
 export default function WordPressWebsiteMaintenancePage() {
   return (
     <div className="service-page service-page-maintenance">
+      <ServiceJsonLd path="/wordpress-website-maintenance" />
       <MaintenanceHero />
       <MaintenanceControlRoom />
       <MaintenancePricingPackages />

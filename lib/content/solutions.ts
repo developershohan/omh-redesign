@@ -390,7 +390,7 @@ export const solutions: Record<string, SolutionPageContent> = {
     },
     proof: {
       title: "See search work for location-led businesses",
-      body: "The project archive includes local and organic search work. Each page explains what the source says and where further evidence is still needed.",
+      body: "Local and organic search projects, with the work and the measured outcome set out on each page.",
       links: [
         { label: "View local-search case studies", href: "/case-studies" },
         { label: "Read the bakery search project", href: "/case-studies/bakery" },

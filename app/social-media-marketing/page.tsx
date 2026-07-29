@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ServiceJsonLd } from "@/lib/schema";
 import { ServiceCaseStudies } from "@/components/CaseStudies";
 import { RelatedServices } from "@/components/RelatedServices";
 import {
@@ -22,6 +23,7 @@ export const metadata: Metadata = {
 export default function SocialMediaMarketingPage() {
   return (
     <div className="service-page service-page-social">
+      <ServiceJsonLd path="/social-media-marketing" />
       <SocialHero />
       <SocialGoals />
       <SocialSupport />
@@ -29,7 +31,7 @@ export default function SocialMediaMarketingPage() {
       <ServiceCaseStudies
         serviceId="social-media"
         title="Social media work in a wider acquisition programme"
-        body="The source case-study library connects social media with website, search and paid campaign delivery. Published results remain labelled by their original workstream."
+        body="Where social media sat alongside website, search and paid campaign delivery."
       />
       <SocialGuaranteeAndReporting />
       <SocialReviews />

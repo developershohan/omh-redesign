@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ServiceJsonLd } from "@/lib/schema";
 import {
   AmazonAccountDiagnosis,
   AmazonCampaignMap,
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
 export default function AmazonPpcAdvertisingAgencyUkPage() {
   return (
     <div className="service-page service-page-amazon">
+      <ServiceJsonLd path="/amazon-ppc-advertising-agency-uk" />
       <AmazonPpcHero />
       <AmazonMarketplaceWorkbench />
       <AmazonAccountDiagnosis />

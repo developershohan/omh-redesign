@@ -58,7 +58,7 @@ export function SeoSignalSection() {
           <div className="col-span-4 max-lg:mb-9">
             <p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-[#3d709f]">Where SEO loses clarity</p>
             <h2 className="mt-5 max-w-[14ch] font-sans text-h2 font-semibold">Recognise the problem before choosing the task.</h2>
-            <p className="mt-5 max-w-[42ch] text-[17px] leading-relaxed text-ink/70">The source lists individual services. This version starts with the symptoms those services should resolve.</p>
+            <p className="mt-5 max-w-[42ch] text-[17px] leading-relaxed text-ink/70">Most SEO pages list services. This one starts with the symptoms those services are meant to resolve.</p>
           </div>
           <div className="col-span-8 grid grid-cols-2 gap-5 max-md:grid-cols-1">
             {content.signals.map(([title, body], index) => (
@@ -81,7 +81,7 @@ export function SeoPillarAtlas() {
       <Reveal>
         <div className="flex items-end justify-between gap-10 max-lg:block">
           <h2 className="max-w-[18ch] font-sans text-h2 font-semibold">Four connected workstreams, not nine disconnected services.</h2>
-          <p className="max-w-[50ch] text-[17px] leading-relaxed text-[#10243a]/68 max-lg:mt-5">The audit, keywords, on-page work, technical SEO, indexing, authority, branding, tracking and reporting from the original page are all retained here.</p>
+          <p className="max-w-[50ch] text-[17px] leading-relaxed text-[#10243a]/68 max-lg:mt-5">Audit, keyword research, on-page work, technical SEO, indexing, authority, branding, tracking and reporting — the whole scope, in one place.</p>
         </div>
         <div className="mt-12 grid grid-cols-2 gap-6 max-md:grid-cols-1">
           {content.pillars.map((pillar, index) => (

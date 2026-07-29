@@ -69,7 +69,7 @@ export function PpcNeedSection() {
         <div className="grid grid-cols-12 gap-x-10 gap-y-10 max-lg:block">
           <div className="col-span-4 max-lg:mb-10">
             <div className="lg:sticky lg:top-24">
-              <SectionIntro size="md" title="Getting Google Ads to work for the business" accent="work for the business" body="The original page lists the campaign tasks. This version starts with the commercial problems those tasks need to solve." />
+              <SectionIntro size="md" title="Getting Google Ads to work for the business" accent="work for the business" body="There are the campaign tasks. This version starts with the commercial problems those tasks need to solve." />
               <p className="mt-7 border-l-2 border-amber pl-5 font-serif text-[20px] leading-snug text-ink/85">More clicks are not the goal. Useful enquiries, bookings or sales—and reliable evidence of them—are what make optimisation possible.</p>
             </div>
           </div>
@@ -141,7 +141,7 @@ export function PpcProcessSteps() {
       label="How we help"
       title="A controlled route from account access to optimisation"
       titleAccent="account access to optimisation"
-      body="The process joins campaign planning, analytics, copywriting, management and reporting—the recurring work listed in the source packages."
+      body="Campaign planning, analytics, copywriting, management and reporting — the recurring work every package covers."
       steps={content.process}
       action={{ label: "Request an account review", event: "ppc_form_start" }}
     />
@@ -175,7 +175,7 @@ export function PpcPricingPackages() {
     <Band label="Packages" id="packages">
       <div data-event="ppc_pricing_view">
         <div className="grid grid-cols-12 items-end gap-x-10 gap-y-6 max-lg:block">
-          <SectionIntro className="col-span-7" title="All four published PPC packages, compared clearly" accent="compared clearly" body="The source table contains four packages and sixteen comparison points. Every published value is preserved below, including the two exclusions in PPC Seed." />
+          <SectionIntro className="col-span-7" title="All four published PPC packages, compared clearly" accent="compared clearly" body="Four packages across sixteen comparison points, including the two exclusions in PPC Seed." />
           <p className="col-span-5 text-bsm leading-relaxed text-ink/70 max-lg:mt-6">Package names do not imply a recommendation. Scope, billing frequency, VAT, ad-spend period and agreement terms should be confirmed in the written proposal.</p>
         </div>
         <div className="mt-12 hidden overflow-x-auto rounded-card border border-line bg-white xl:block">

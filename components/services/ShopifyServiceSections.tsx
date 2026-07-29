@@ -218,7 +218,7 @@ export function ShopifyPricingPackages() {
         <div className="grid grid-cols-12 items-end gap-x-10 gap-y-6 max-lg:block">
           <SectionIntro className="col-span-7" title="Website packages for different stages of ecommerce growth" accent="ecommerce growth" body="These four published packages are starting points. Migration, integrations, catalogue size and advanced functionality still need a proper scope before work begins." />
           <p className="col-span-5 text-bsm leading-relaxed text-ink/70 max-lg:mt-6">
-            Website Seed and Website Shoot are both £300 on the source page. No package has been labelled as recommended because that decision has not been confirmed.
+            Website Seed and Website Shoot are both £300. [CONFIRM PRICE] No package is marked as recommended.
           </p>
         </div>
 

@@ -266,7 +266,7 @@ export const shopifyDevelopment = {
   pricingNotes: [
     "Current published Shopify package values are £300, £300, £500 and £700.",
     "Your account manager will recommend a package after reviewing the content, functionality and commercial requirements during an initial 30-minute consultation.",
-    "The source page includes a dedicated account manager and bi-weekly or monthly progress calls.",
+    "Includes a dedicated account manager and bi-weekly or monthly progress calls.",
     "*A rolling monthly agreement is available. Packages exclude advertising spend.",
     "The current table labels pricing with ** but does not define that note. Confirm the missing pricing condition before publication.",
   ],
@@ -278,14 +278,15 @@ export const shopifyDevelopment = {
     ["Testing before launch", "Responsive layouts, forms and buying journeys are checked before the store is handed over."],
     ["Clear commercial scope", "Package values stay visible, while migrations, integrations and custom requirements are reviewed separately."],
   ],
+  // [CONFIRM SERVICE DETAIL] — verify the 30-day post-launch support term is current before publication.
   faqs: [
     ["How many people will support my Shopify project?", "A dedicated project contact keeps you updated while the appropriate technical team completes the agreed work."],
     ["How do I start a Shopify project with OMH?", "Send a project brief through the contact page, email support@onlinemarketinghelp.co.uk or call 020 3489 3934. The first discussion is used to understand the store, goals and practical options."],
     ["Can you build a new Shopify store?", "Yes. New-store work can cover structure, theme and user experience, Shopify configuration, approved integrations, testing and launch."],
     ["Can you migrate my existing ecommerce website to Shopify?", "Yes, after the current platform, catalogue, customer data, integrations, URLs and launch risks have been reviewed. Migration work is scoped separately where required."],
-    ["How much does Shopify development cost?", "The published packages on this page start at £300. Migrations, integrations, custom apps and other advanced functionality need a confirmed scope before a final proposal is issued."],
+    ["How much does Shopify development cost?", "The published packages on this page start at £300. [Recent ecommerce projects](/case-studies) give a sense of typical scope. Migrations, integrations, custom apps and other advanced functionality need a confirmed scope before a final proposal is issued."],
     ["What happens if the project scope or cost changes?", "Any requirement that changes the agreed scope should be explained and approved before extra work begins, so the commercial effect is understood."],
-    ["Do you provide Shopify support after launch?", "The source page states that 30 days of complimentary support begins at handover, with extended support available afterwards. Confirm that term is still current before publication."],
-    ["Can you support Shopify SEO and marketing?", "Yes. OMH also provides SEO and paid marketing services, so development can be planned with product discovery, landing pages and campaign tracking in mind."],
+    ["Do you provide Shopify support after launch?", "Thirty days of complimentary support begins at handover, with extended support available afterwards. Longer support is scoped alongside the project."],
+    ["Can you support Shopify SEO and marketing?", "Yes. We also provide [SEO services](/search-engine-optimisation) and [paid social advertising](/social-media-paid-advertising), so development can be planned with product discovery, landing pages and campaign tracking in mind."],
   ],
 };

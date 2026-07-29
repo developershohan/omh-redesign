@@ -99,7 +99,7 @@ export function LocalSeoBenefits() {
   return (
     <Band label="Local SEO benefits">
       <Reveal>
-        <div className="grid grid-cols-12 gap-x-10 gap-y-8 max-lg:block"><div className="col-span-5 max-lg:mb-9"><p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-[#3d709f]">What the work is there to improve</p><h2 className="mt-5 max-w-[15ch] font-sans text-h2 font-semibold">Make the business easier to find, check and contact locally.</h2><p className="mt-5 max-w-[46ch] text-[17px] leading-relaxed text-ink/70">The original page lists traffic, leads, maps, reputation, geography and visibility as the main benefits. Here is what those benefits mean in practical terms.</p></div><div className="col-span-7 grid grid-cols-2 gap-x-8 max-md:grid-cols-1">{content.benefits.map(([title, body], index) => <article key={title} className="border-t border-line py-6"><span className="text-[11px] font-semibold text-[#d56d47]">0{index + 1}</span><h3 className="mt-3 font-sans text-h4 font-semibold">{title}</h3><p className="mt-2.5 text-[16px] leading-relaxed text-ink/70">{body}</p></article>)}</div></div>
+        <div className="grid grid-cols-12 gap-x-10 gap-y-8 max-lg:block"><div className="col-span-5 max-lg:mb-9"><p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-[#3d709f]">What the work is there to improve</p><h2 className="mt-5 max-w-[15ch] font-sans text-h2 font-semibold">Make the business easier to find, check and contact locally.</h2><p className="mt-5 max-w-[46ch] text-[17px] leading-relaxed text-ink/70">Traffic, leads, maps, reputation, geography and visibility are where local SEO pays off. Here is what each one means in practice.</p></div><div className="col-span-7 grid grid-cols-2 gap-x-8 max-md:grid-cols-1">{content.benefits.map(([title, body], index) => <article key={title} className="border-t border-line py-6"><span className="text-[11px] font-semibold text-[#d56d47]">0{index + 1}</span><h3 className="mt-3 font-sans text-h4 font-semibold">{title}</h3><p className="mt-2.5 text-[16px] leading-relaxed text-ink/70">{body}</p></article>)}</div></div>
       </Reveal>
     </Band>
   );
@@ -141,7 +141,7 @@ function PackageCard({ pkg }: { pkg: Package }) {
 
 export function LocalSeoPricing() {
   return (
-    <Band label="Packages" id="packages"><Reveal><div className="grid grid-cols-12 items-end gap-x-10 gap-y-6 max-lg:block"><div className="col-span-7"><h2 className="max-w-[18ch] font-sans text-h2 font-semibold">Compare the three published Local SEO packages.</h2><p className="mt-5 max-w-[62ch] text-[17px] leading-relaxed text-ink/70">Every value from the source table is retained below. Open a card for its full list of published inclusions.</p></div><p className="col-span-5 text-[16px] leading-relaxed text-ink/65 max-lg:mt-5">The package name is not a recommendation. Confirm billing frequency, VAT, exact deliverables and agreement terms in the written proposal.</p></div><div className="mt-12 grid grid-cols-3 gap-5 max-lg:grid-cols-1">{content.packages.map((pkg) => <PackageCard key={pkg.name} pkg={pkg} />)}</div><ul className="mt-8 grid gap-2 border-l-2 border-amber pl-5 text-[14.5px] leading-relaxed text-muted">{content.notes.map((note) => <li key={note}>{note}</li>)}</ul></Reveal></Band>
+    <Band label="Packages" id="packages"><Reveal><div className="grid grid-cols-12 items-end gap-x-10 gap-y-6 max-lg:block"><div className="col-span-7"><h2 className="max-w-[18ch] font-sans text-h2 font-semibold">Compare the three published Local SEO packages.</h2><p className="mt-5 max-w-[62ch] text-[17px] leading-relaxed text-ink/70">Open a card for its full list of inclusions.</p></div><p className="col-span-5 text-[16px] leading-relaxed text-ink/65 max-lg:mt-5">The package name is not a recommendation. Confirm billing frequency, VAT, exact deliverables and agreement terms in the written proposal.</p></div><div className="mt-12 grid grid-cols-3 gap-5 max-lg:grid-cols-1">{content.packages.map((pkg) => <PackageCard key={pkg.name} pkg={pkg} />)}</div><ul className="mt-8 grid gap-2 border-l-2 border-amber pl-5 text-[14.5px] leading-relaxed text-muted">{content.notes.map((note) => <li key={note}>{note}</li>)}</ul></Reveal></Band>
   );
 }
 
@@ -150,7 +150,7 @@ export function LocalSeoReviews() {
     <SiteTestimonials
       title="What customers said about working with OMH."
       body="These eight reviews are reproduced from the original Local SEO page. They are customer comments, not evidence of a guaranteed ranking or commercial result."
-      eyebrow="Published on the original page"
+      eyebrow="Published packages"
       eventPrefix="local_seo"
       tone="navy"
     />
@@ -171,7 +171,7 @@ export function LocalSeoPromise() {
   return (
     <Band label="What we can promise" tone="mist">
       <Reveal>
-        <div className="grid grid-cols-12 gap-x-12 gap-y-8 max-lg:block"><div className="col-span-5 max-lg:mb-8"><p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-[#3d709f]">An honest replacement for the guarantee</p><h2 className="mt-5 max-w-[15ch] font-sans text-h2 font-semibold">Clear work and communication—not a guaranteed Google position.</h2></div><div className="col-span-7"><p className="text-lead leading-relaxed text-[#10243a]/72">The original page contains both a money-back guarantee section and an FAQ explaining that rankings cannot be guaranteed. Those statements conflict, so no money-back claim is included here. Any future guarantee would need clear, verified terms before publication.</p><ul className="mt-7 grid grid-cols-2 gap-x-8 border-t border-[#c7d7e7] pt-5 max-sm:grid-cols-1">{["The agreed audit and package tasks", "A named contact and scheduled communication", "Reporting against the agreed measures", "Clear notice when scope or access blocks work"].map((item) => <li key={item} className="flex gap-3 border-b border-[#c7d7e7] py-3 text-[15px]"><Check className="mt-0.5 size-4 shrink-0 text-[#d56d47]" />{item}</li>)}</ul></div></div>
+        <div className="grid grid-cols-12 gap-x-12 gap-y-8 max-lg:block"><div className="col-span-5 max-lg:mb-8"><p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-[#3d709f]">An honest replacement for the guarantee</p><h2 className="mt-5 max-w-[15ch] font-sans text-h2 font-semibold">Clear work and communication—not a guaranteed Google position.</h2></div><div className="col-span-7"><p className="text-lead leading-relaxed text-[#10243a]/72">Rankings cannot be guaranteed, so no money-back claim is included here. Any future guarantee would need clear, verified terms before publication.</p><ul className="mt-7 grid grid-cols-2 gap-x-8 border-t border-[#c7d7e7] pt-5 max-sm:grid-cols-1">{["The agreed audit and package tasks", "A named contact and scheduled communication", "Reporting against the agreed measures", "Clear notice when scope or access blocks work"].map((item) => <li key={item} className="flex gap-3 border-b border-[#c7d7e7] py-3 text-[15px]"><Check className="mt-0.5 size-4 shrink-0 text-[#d56d47]" />{item}</li>)}</ul></div></div>
       </Reveal>
     </Band>
   );

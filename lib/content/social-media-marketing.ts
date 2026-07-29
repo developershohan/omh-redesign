@@ -25,7 +25,7 @@ export const socialMediaMarketing = {
   ],
   faqs: [
     { q: "What other services do you offer?", a: "We are a full-service website development and online marketing agency. Our social specialists cover strategy, content creation and ongoing management, with standard packages or a customised scope." },
-    { q: "How long will it take to start seeing results?", a: "Paid social can generate clicks and views almost immediately, while conversions take time to optimise. The source guidance suggests many paid campaigns begin to produce a steadier flow after four to six weeks; organic engagement usually takes longer. We shape the approach around your budget and goals." },
+    { q: "How long will it take to start seeing results?", a: "Paid social can generate clicks and views almost immediately, while conversions take time to optimise. Many paid campaigns begin to produce a steadier flow after four to six weeks; organic engagement usually takes longer. We shape the approach around your budget and goals." },
     { q: "How many times do you post content?", a: "Posting frequency depends on the package agreed with your account manager. We recommend a level appropriate to your business and goals, and can adapt a core piece of content for relevant channels." },
     { q: "What kind of content do you post?", a: "We research your business and industry, then combine brand messaging, designed graphics, calls to action, hashtags and relevant links. Content is sent to you for approval before publishing." },
     { q: "Can I review the content before you post?", a: "Yes. We send newly designed social posts for approval before scheduling and confirm once the campaign has been scheduled." },

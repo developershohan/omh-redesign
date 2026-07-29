@@ -6,6 +6,7 @@ import { company } from "@/lib/content/nav";
 
 export const metadata: Metadata = {
   title: "Contact",
+  alternates: { canonical: "https://onlinemarketinghelp.co.uk/contact-us/" },
   description:
     "Tell us what you need your website or marketing to do and we'll recommend the most practical next step. UK-based, marketing and development under one roof.",
 };
