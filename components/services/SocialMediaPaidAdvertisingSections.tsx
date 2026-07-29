@@ -1,0 +1,76 @@
+import { Reveal } from "@/components/Reveal";
+import { ServiceBand, type ServiceBandTone } from "@/components/services/ServiceBand";
+import { CheckIcon as Check } from "@/components/services/ServicePrimitives";
+import { Button } from "@/components/ui/Button";
+import { Eyebrow, VerifiedSlot } from "@/components/ui/Proof";
+import { socialMediaPaidAdvertising as content } from "@/lib/content/social-media-paid-advertising";
+
+function Band({ tone = "white", ...props }: Omit<Parameters<typeof ServiceBand>[0], "accent" | "tone"> & { tone?: ServiceBandTone }) {
+  return <ServiceBand {...props} tone={tone} accent="bg-[#ef8067]" />;
+}
+
+function PaidCampaignVisual() {
+  return (
+    <div
+      className="service-media-frame relative w-full min-w-0 max-w-full overflow-hidden rounded-card border border-[#b8cde3] bg-[#10243a] p-5 text-white shadow-xl"
+      role="img"
+      aria-label="Illustrated paid social advertising performance dashboard"
+    >
+      <div className="flex items-center justify-between border-b border-white/10 pb-4">
+        <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#9bc3f3]">
+          Paid social control room
+        </span>
+        <span className="rounded-full bg-[#ef8067]/20 px-2.5 py-1 text-[10px] font-semibold text-[#ffb5a5]">
+          Live campaign
+        </span>
+      </div>
+      <div className="mt-5 rounded-xl bg-white p-5 text-[#10243a]">
+        <div className="flex items-end justify-between gap-4 max-sm:block">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#3d709f]">
+              Performance signal
+            </p>
+            <p className="mt-2 font-sans text-[30px] font-semibold">ROAS</p>
+          </div>
+          <div className="flex h-20 items-end gap-2 max-sm:mt-4 max-sm:gap-1">
+            {[35, 52, 43, 68, 58, 82].map((height, index) => (
+              <span
+                key={index}
+                style={{ height: `${height}%` }}
+                className={`w-5 rounded-t max-sm:w-3 ${index === 5 ? "bg-[#ef8067]" : "bg-[#76a9e8]"}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="mt-4 grid grid-cols-3 gap-3 max-sm:grid-cols-1">
+        {[["Audience", "Defined"], ["Creative", "Testing"], ["Budget", "Optimised"]].map(([label, value]) => (
+          <div key={label} className="rounded-xl border border-white/12 bg-white/[0.04] p-4">
+            <p className="text-[9px] uppercase tracking-[0.12em] text-white/45">{label}</p>
+            <p className="mt-2 text-[12px] font-semibold">{value}</p>
+          </div>
+        ))}
+      </div>
+      <div className="mt-4 flex items-center gap-3 text-[11px] text-white/48">
+        <span className="size-2 shrink-0 rounded-full bg-[#65c4ba]" />
+        Facebook · Instagram · TikTok · LinkedIn
+      </div>
+    </div>
+  );
+}
+
+export function PaidSocialHero() {
+  return <section className="border-b border-line bg-[radial-gradient(circle_at_86%_28%,rgba(239,128,103,.2),transparent_27%),linear-gradient(145deg,#fff_0%,#f2f0f8_100%)]"><div className="container-omh pb-[clamp(56px,38px+2.9vw,88px)] pt-[clamp(48px,34px+2.3vw,80px)]"><div className="grid grid-cols-12 items-center gap-x-12 gap-y-12 max-lg:block"><Reveal className="col-span-7 max-lg:mb-12"><Eyebrow>{content.hero.eyebrow}</Eyebrow><h1 className="mb-6 mt-7 max-w-[18ch] font-sans text-h1 font-semibold text-balance">{content.hero.title}</h1><p className="mb-9 max-w-[59ch] text-lead leading-relaxed text-ink/75">{content.hero.body}</p><div className="flex flex-wrap gap-3.5 max-sm:flex-col"><Button href="/contact" arrow data-event="paid_social_hero_cta_click">Book a Free Consultation</Button><Button href="#packages" variant="secondary" data-event="paid_social_packages_click">View Pricing</Button></div><dl className="mt-10 grid max-w-[660px] grid-cols-3 border-t border-line pt-7 max-sm:grid-cols-1 max-sm:gap-5">{[["Packages from","£850"],["Minimum ad spend","£1,000"],["Published term","3 months"]].map(([label,value])=><div key={label} className="border-l border-line pl-5 first:border-l-0 first:pl-0 max-sm:border-l-0 max-sm:pl-0"><dt className="text-[11.5px] font-semibold uppercase tracking-[0.13em] text-muted">{label}</dt><dd className="mt-1.5 font-sans text-h4 font-semibold">{value}</dd></div>)}</dl></Reveal><Reveal className="col-span-5"><PaidCampaignVisual /><div className="mt-5 flex flex-wrap gap-2"><VerifiedSlot>Paid-social case study — pending</VerifiedSlot><VerifiedSlot>Platform credentials — pending</VerifiedSlot></div></Reveal></div></div></section>;
+}
+
+export function PaidSocialGoals() {
+  return <Band label="Define the goal" tone="navy"><Reveal><div className="grid grid-cols-12 gap-x-12 gap-y-10 max-lg:block"><div className="col-span-5 max-lg:mb-10"><p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-[#9bc3f3]">Brand visibility, interaction, visits and conversions</p><h2 className="mt-5 max-w-[14ch] font-sans text-h2 font-semibold">Make the platform, audience and budget answer the business goal.</h2><p className="mt-5 max-w-[48ch] text-[17px] leading-relaxed text-white/68">We create tailored strategies across Facebook, Instagram, TikTok and LinkedIn, using paid campaigns to increase relevant reach, engagement, website traffic and conversions.</p></div><div className="col-span-7"><p className="mb-5 text-[14px] leading-relaxed text-white/58">The source page frames three questions that should be answered before campaign launch:</p><ol className="grid gap-4">{content.strategyQuestions.map((question,index)=><li key={question} className="flex gap-5 rounded-card border border-white/12 bg-white/[0.04] p-6"><span className="text-[11px] font-semibold text-[#ef8067]">0{index+1}</span><p className="text-[17px] leading-relaxed text-white/82">{question}</p></li>)}</ol></div></div><div className="mt-10 border-t border-white/12 pt-6"><p className="max-w-[88ch] text-[13px] leading-relaxed text-white/46"><strong className="text-white/70">Migrated source-page context:</strong> the original page states that more than nine million advertisers use Facebook paid advertising. This historic platform figure should be revalidated before publication.</p></div></Reveal></Band>;
+}
+
+export function PaidSocialCapabilities() {
+  return <Band label="How we can help" tone="mist"><Reveal><div className="flex items-end justify-between gap-10 max-lg:block"><h2 className="max-w-[17ch] font-sans text-h2 font-semibold">Six connected levers for better paid-social decisions.</h2><p className="max-w-[50ch] text-[17px] leading-relaxed text-[#10243a]/68 max-lg:mt-5">Audience, creative, measurement, budget, experiments and ongoing optimisation are treated as one campaign system.</p></div><div className="mt-11 grid grid-cols-2 gap-5 max-md:grid-cols-1">{content.capabilities.map((item,index)=><article key={item.title} className={`${index===0 || index===5 ? "bg-[#10243a] text-white" : "bg-white text-[#10243a]"} surface-card rounded-card border border-[#bfd1e3] p-7`}><div className="flex items-start justify-between gap-4"><span className={`text-[11px] font-semibold ${index===0 || index===5 ? "text-[#ffac99]" : "text-[#d56d47]"}`}>0{index+1}</span><span className={`h-px w-12 ${index===0 || index===5 ? "bg-white/15" : "bg-[#bfd1e3]"}`} /></div><h3 className="mt-5 font-sans text-h4 font-semibold">{item.title}</h3><p className={`mt-3 text-[16px] leading-relaxed ${index===0 || index===5 ? "text-white/68" : "text-ink/70"}`}>{item.body}</p></article>)}</div></Reveal></Band>;
+}
+
+export function PaidSocialPricing() {
+  return <Band label="Published packages" id="packages"><Reveal><div className="grid grid-cols-12 items-end gap-x-10 gap-y-6 max-lg:block"><div className="col-span-7"><h2 className="max-w-[17ch] font-sans text-h2 font-semibold">Transparent paid-social packages for businesses ready to grow.</h2></div><p className="col-span-5 text-[17px] leading-relaxed text-ink/68 max-lg:mt-5">Management price, minimum advertising spend and every source-table inclusion are shown separately.</p></div><div className="mt-11 grid grid-cols-3 gap-6 max-lg:grid-cols-1">{content.packages.map((pkg,index)=><article key={pkg.name} className={`rounded-card border p-7 ${index===1 ? "border-[#ef8067] bg-[#fff7f4]" : "border-line bg-white"}`}><p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[#3d709f]">0{index+1} · Paid social</p><h3 className="mt-4 font-sans text-h3 font-semibold">{pkg.name}</h3><p className="mt-2 text-[15px] leading-relaxed text-muted">{pkg.bestFor}</p><div className="mt-6 grid grid-cols-2 border-y border-line py-5"><div><p className="text-[10px] uppercase tracking-[0.12em] text-muted">Management</p><p className="mt-1 font-sans text-[29px] font-semibold">{pkg.price}</p></div><div className="border-l border-line pl-4"><p className="text-[10px] uppercase tracking-[0.12em] text-muted">Minimum ad spend</p><p className="mt-1 font-sans text-[29px] font-semibold">{pkg.adSpend}</p></div></div><ul className="mt-5 grid gap-2.5">{pkg.features.map(feature=><li key={feature} className="flex gap-3 text-[14px] leading-relaxed text-ink/74"><Check className="mt-0.5 size-4 shrink-0 text-amber-deep" />{feature}</li>)}</ul><div className="mt-7"><Button href="/contact" small data-event="paid_social_package_select" data-package={pkg.name}>Discuss {pkg.name}</Button></div></article>)}</div><div className="mt-8 rounded-card border border-line bg-warm p-6 text-[14.5px] leading-relaxed text-muted"><p>Packages include copywriting and content creation aligned to your existing brand. If you need a new brand palette, the account manager can explain the separate branding packages available.</p><p className="mt-3">Social creative includes one review. Assets may be adapted across platforms and optimised for each placement. The published packages have a minimum three-month term.</p></div></Reveal></Band>;
+}

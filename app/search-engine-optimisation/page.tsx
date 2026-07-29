@@ -13,6 +13,7 @@ import {
 import { RelatedServices } from "@/components/RelatedServices";
 import { ServiceCaseStudies } from "@/components/CaseStudies";
 import { SeoSearchLandscape } from "@/components/ServiceMedia";
+import { SiteTestimonials } from "@/components/Testimonials";
 
 export const metadata: Metadata = {
   title: "Search Engine Optimisation Services UK",
@@ -40,6 +41,7 @@ export default function SearchEngineOptimisationPage() {
         body="These reconstructed studies connect audits, local visibility, content, technical improvements and measurement to the project that needed them. Published figures remain clearly labelled until verified."
         limit={4}
       />
+      <SiteTestimonials eventPrefix="seo" accent="bg-[#ee8c67]" />
       <RelatedServices
         eventPrefix="seo"
         title="Connect organic visibility with the website and acquisition around it"

@@ -14,11 +14,11 @@ export const primaryNav: NavItem[] = [
     columns: [
       {
         links: [
-          { label: "Generate More Qualified Leads", href: "/solutions/generate-qualified-leads" },
-          { label: "Increase Ecommerce Sales", href: "/solutions/increase-ecommerce-sales" },
-          { label: "Improve Website Conversion", href: "/solutions/improve-website-conversion" },
-          { label: "Grow Local Visibility", href: "/solutions/grow-local-visibility" },
-          { label: "Outsource Your Digital Marketing", href: "/solutions/outsource-digital-marketing" },
+          { label: "Generate More Qualified Leads", href: "/solutions/generate-qualified-leads", ready: true },
+          { label: "Increase Ecommerce Sales", href: "/solutions/increase-ecommerce-sales", ready: true },
+          { label: "Improve Website Conversion", href: "/solutions/improve-website-conversion", ready: true },
+          { label: "Grow Local Visibility", href: "/solutions/grow-local-visibility", ready: true },
+          { label: "Outsource Your Digital Marketing", href: "/solutions/outsource-digital-marketing", ready: true },
         ],
       },
     ],
@@ -30,7 +30,6 @@ export const primaryNav: NavItem[] = [
         heading: "Websites",
         links: [
           { label: "WordPress Development", href: "/wordpress-development", ready: true },
-          { label: "Website Design", href: "/services/website-design" },
           { label: "Shopify Development", href: "/shopify-development", ready: true },
           { label: "Website Maintenance", href: "/wordpress-website-maintenance", ready: true },
         ],
@@ -39,32 +38,28 @@ export const primaryNav: NavItem[] = [
         heading: "Paid Advertising",
         links: [
           { label: "Google Ads Management", href: "/google-adwords-ppc", ready: true },
-          { label: "Meta Ads Management", href: "/services/meta-ads-management" },
           { label: "Amazon PPC Advertising", href: "/amazon-ppc-advertising-agency-uk", ready: true },
-          { label: "Paid Social Advertising", href: "/services/paid-social-advertising" },
+          { label: "Paid Social Advertising", href: "/social-media-paid-advertising", ready: true },
         ],
       },
       {
         heading: "Organic Growth",
         links: [
           { label: "Search Engine Optimisation", href: "/search-engine-optimisation", ready: true },
-          { label: "Local SEO", href: "/services/local-seo" },
-          { label: "Content Writing", href: "/services/content-writing" },
+          { label: "Local SEO", href: "/local-seo", ready: true },
         ],
       },
       {
         heading: "Creative & Social",
         links: [
-          { label: "Social Media Management", href: "/services/social-media-management" },
-          { label: "Logo Design", href: "/services/logo-design" },
-          { label: "Brochure Design", href: "/services/brochure-design" },
+          { label: "Social Media Management", href: "/social-media-marketing", ready: true },
         ],
       },
     ],
   },
   { label: "Industries", href: "/industries" },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "About", href: "/about" },
+  { label: "About", href: "/about-us" },
   { label: "Insights", href: "/insights" },
 ];
 
@@ -77,8 +72,18 @@ export const readyPages: NavLink[] = [
   { label: "Google Ads PPC", href: "/google-adwords-ppc", ready: true },
   { label: "Amazon PPC Advertising", href: "/amazon-ppc-advertising-agency-uk", ready: true },
   { label: "Search Engine Optimisation", href: "/search-engine-optimisation", ready: true },
+  { label: "Local SEO", href: "/local-seo", ready: true },
+  { label: "Social Media Marketing", href: "/social-media-marketing", ready: true },
+  { label: "Paid Social Advertising", href: "/social-media-paid-advertising", ready: true },
+  { label: "About", href: "/about-us", ready: true },
   { label: "Case Studies", href: "/case-studies", ready: true },
+  { label: "Insights", href: "/insights", ready: true },
   { label: "Contact", href: "/contact", ready: true },
+  { label: "Generate More Qualified Leads", href: "/solutions/generate-qualified-leads", ready: true },
+  { label: "Increase Ecommerce Sales", href: "/solutions/increase-ecommerce-sales", ready: true },
+  { label: "Improve Website Conversion", href: "/solutions/improve-website-conversion", ready: true },
+  { label: "Grow Local Visibility", href: "/solutions/grow-local-visibility", ready: true },
+  { label: "Outsource Your Digital Marketing", href: "/solutions/outsource-digital-marketing", ready: true },
 ];
 
 // href → friendly label, so the coming-soon page can title itself correctly.
@@ -122,14 +127,17 @@ export const footerCols = [
       { label: "Amazon PPC", href: "/amazon-ppc-advertising-agency-uk" },
       { label: "Meta Ads", href: "/services/meta-ads-management" },
       { label: "SEO", href: "/search-engine-optimisation" },
+      { label: "Local SEO", href: "/local-seo" },
       { label: "Shopify Development", href: "/shopify-development" },
       { label: "Website Maintenance", href: "/wordpress-website-maintenance" },
+      { label: "Social Media Marketing", href: "/social-media-marketing" },
+      { label: "Paid Social Advertising", href: "/social-media-paid-advertising" },
     ],
   },
   {
     heading: "Company",
     links: [
-      { label: "About", href: "/about" },
+      { label: "About", href: "/about-us" },
       { label: "Case Studies", href: "/case-studies" },
       { label: "Insights", href: "/insights" },
       { label: "Contact", href: "/contact" },

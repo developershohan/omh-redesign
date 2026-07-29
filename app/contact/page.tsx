@@ -25,7 +25,7 @@ export default function ContactPage() {
           <div className="col-span-5 max-lg:mb-12">
             <Eyebrow>Contact</Eyebrow>
             <h1 className="mb-5 mt-6 max-w-[18ch] font-sans text-h1 font-semibold text-balance">
-              Tell us what you need and we&apos;ll recommend <span className="text-teal">the next step</span>
+              Tell us what you need and we&apos;ll recommend <span className="text-amber-deep">the next step</span>
             </h1>
             <p className="max-w-[52ch] text-lead leading-relaxed text-ink/75">
               Whether it&apos;s a new website, a redesign, WordPress support or wider marketing,
@@ -42,7 +42,7 @@ export default function ContactPage() {
                   <a
                     href={company.phoneHref}
                     data-event="wpdev_phone_click"
-                    className="font-sans text-h4 font-semibold hover:text-teal"
+                    className="font-sans text-h4 font-semibold hover:text-amber-deep"
                   >
                     {company.phoneDisplay}
                   </a>
@@ -56,7 +56,7 @@ export default function ContactPage() {
                   <a
                     href={`mailto:${company.email}`}
                     data-event="wpdev_email_click"
-                    className="break-all font-sans text-[18px] font-semibold hover:text-teal"
+                    className="break-all font-sans text-[18px] font-semibold hover:text-amber-deep"
                   >
                     {company.email}
                   </a>
@@ -81,7 +81,7 @@ export default function ContactPage() {
                   <li key={step} className="grid grid-cols-[auto_1fr] items-start gap-3.5">
                     <span
                       aria-hidden
-                      className="flex size-7 items-center justify-center rounded-full border border-line bg-white font-sans text-[13px] font-semibold tabular-nums text-teal"
+                      className="flex size-7 items-center justify-center rounded-full border border-line bg-white font-sans text-[13px] font-semibold tabular-nums text-amber-deep"
                     >
                       {i + 1}
                     </span>
@@ -97,7 +97,7 @@ export default function ContactPage() {
             <ContactForm />
             <p className="mt-5 text-bsm text-muted">
               Prefer email? Write to{" "}
-              <Link href={`mailto:${company.email}`} className="font-semibold text-teal underline underline-offset-4">
+              <Link href={`mailto:${company.email}`} className="font-semibold text-amber-deep underline underline-offset-4">
                 {company.email}
               </Link>
               .

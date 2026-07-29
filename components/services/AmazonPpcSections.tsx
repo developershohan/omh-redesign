@@ -3,8 +3,12 @@ import type { ReactNode } from "react";
 import { Pointer } from "@/components/Pointer";
 import { Reveal } from "@/components/Reveal";
 import { MediaFrame } from "@/components/ServiceMedia";
+import { ServiceFaqSection } from "@/components/services/ServiceFaqSection";
 import { ServiceBand } from "@/components/services/ServiceBand";
-import { Accordion } from "@/components/ui/Accordion";
+import {
+  CheckIcon as Check,
+  FeatureValue,
+} from "@/components/services/ServicePrimitives";
 import { Button, TextLink } from "@/components/ui/Button";
 import { Eyebrow, VerifiedSlot } from "@/components/ui/Proof";
 import { amazonPpc as content } from "@/lib/content/amazon-ppc";
@@ -27,31 +31,6 @@ function SectionShell({
     <ServiceBand label={label} id={id} tone={dark ? "dark" : "white"} accent="bg-[#ff9900]">
       {children}
     </ServiceBand>
-  );
-}
-
-function Check({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden className={className}>
-      <path d="m5 13 4.5 4.5L19 7" />
-    </svg>
-  );
-}
-
-function Minus({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" aria-hidden className={className}>
-      <path d="M6 12h12" />
-    </svg>
-  );
-}
-
-function FeatureValue({ value }: { value: boolean | string }) {
-  if (typeof value === "string") return <span>{value}</span>;
-  return value ? (
-    <span className="inline-flex items-center gap-1.5 text-[#805000]"><Check className="size-4" /><span className="sr-only">Included</span></span>
-  ) : (
-    <span className="inline-flex items-center gap-1.5 text-muted/55"><Minus className="size-4" /><span className="sr-only">Not included</span></span>
   );
 }
 
@@ -197,7 +176,7 @@ function PackageCard({ pkg, index }: { pkg: Package; index: number }) {
             <div key={group.label} className="border-t border-line py-4 first:border-t-0 first:pt-0">
               <p className="mb-2 text-[10.5px] font-semibold uppercase tracking-[0.13em] text-muted">{group.label}</p>
               {group.rows.map(([label, key]) => (
-                <div key={label} className="flex items-baseline justify-between gap-4 py-1.5 text-[13.5px]"><dt className="text-muted">{label}</dt><dd className="text-right font-semibold"><FeatureValue value={pkg.features[key]} /></dd></div>
+                <div key={label} className="flex items-baseline justify-between gap-4 py-1.5 text-[13.5px]"><dt className="text-muted">{label}</dt><dd className="text-right font-semibold"><FeatureValue value={pkg.features[key]} includedClassName="text-[#805000]" /></dd></div>
               ))}
             </div>
           ))}
@@ -255,20 +234,17 @@ export function AmazonProofGuide() {
 
 export function AmazonFAQ() {
   return (
-    <SectionShell label="Amazon PPC FAQ">
-      <Reveal>
-        <div className="grid grid-cols-12 gap-x-12 gap-y-8 max-lg:block">
-          <div className="col-span-4 max-lg:mb-8">
-            <div className="lg:sticky lg:top-24">
-              <h2 className="max-w-[13ch] font-sans text-h2 font-semibold">Questions before appointing an Amazon PPC agency.</h2>
-              <p className="mt-5 max-w-[40ch] text-[16.5px] leading-relaxed text-ink/70">Confirm access, ownership, ad spend, VAT, agreement length, platform eligibility and attribution definitions in the written proposal.</p>
-              <p className="mt-5"><Link href={company.phoneHref} data-event="amazon_phone_click" className="font-semibold text-teal underline underline-offset-4">{company.phoneDisplay}</Link></p>
-            </div>
-          </div>
-          <div className="col-span-8"><Accordion group="amazon-faq" items={content.faqs.map(([q, a]) => ({ q, a }))} /></div>
-        </div>
-      </Reveal>
-    </SectionShell>
+    <ServiceFaqSection
+      label="Amazon PPC FAQ"
+      title="Questions before appointing an Amazon PPC agency."
+      description="Confirm access, ownership, ad spend, VAT, agreement length, platform eligibility and attribution definitions in the written proposal."
+      items={content.faqs.map(([q, a]) => ({ q, a }))}
+      group="amazon-faq"
+      phoneEvent="amazon_phone_click"
+      headingSize="lg"
+      headingMaxWidthClassName="max-w-[13ch]"
+      bandAccent="bg-[#ff9900]"
+    />
   );
 }
 

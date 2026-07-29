@@ -11,6 +11,7 @@ import {
 } from "@/components/services/AmazonPpcSections";
 import { RelatedServices } from "@/components/RelatedServices";
 import { AmazonMarketplaceWorkbench } from "@/components/ServiceMedia";
+import { SiteTestimonials } from "@/components/Testimonials";
 
 export const metadata: Metadata = {
   title: "Amazon PPC Advertising Agency UK",
@@ -31,6 +32,7 @@ export default function AmazonPpcAdvertisingAgencyUkPage() {
       <AmazonProcess />
       <AmazonPricing />
       <AmazonProofGuide />
+      <SiteTestimonials eventPrefix="amazon" accent="bg-[#ff9900]" />
       <RelatedServices
         eventPrefix="amazon"
         title="Connect marketplace advertising with wider ecommerce growth"

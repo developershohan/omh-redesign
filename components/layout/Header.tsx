@@ -5,19 +5,6 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { primaryNav, company, type NavLink } from "@/lib/content/nav";
 
-// Ready = designed in this preview; Soon = falls through to the coming-soon page.
-function Tag({ ready }: { ready?: boolean }) {
-  return ready ? (
-    <span className="shrink-0 rounded-full border border-teal/30 bg-teal/10 px-1.5 py-px text-[10px] font-semibold uppercase tracking-[0.06em] text-teal">
-      Ready
-    </span>
-  ) : (
-    <span className="shrink-0 rounded-full border border-line bg-warm px-1.5 py-px text-[10px] font-semibold uppercase tracking-[0.06em] text-muted/75">
-      Soon
-    </span>
-  );
-}
-
 function Chevron({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden className={className}>
@@ -31,10 +18,9 @@ function MenuLink({ link, onClick }: { link: NavLink; onClick?: () => void }) {
     <Link
       href={link.href}
       onClick={onClick}
-      className="flex items-center justify-between gap-3 rounded-button px-2.5 py-2 text-[14.5px] transition-colors hover:bg-warm"
+      className="block rounded-button px-2.5 py-2 text-[14.5px] font-medium text-ink transition-colors hover:bg-warm hover:text-amber-deep"
     >
-      <span className={link.ready ? "font-medium text-ink" : "text-muted"}>{link.label}</span>
-      <Tag ready={link.ready} />
+      {link.label}
     </Link>
   );
 }
@@ -53,7 +39,11 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMenu(null);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setMenu(null);
+      setOpen(false);
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
@@ -109,7 +99,7 @@ export function Header() {
                     <div
                       className={`rounded-card border border-line bg-white p-4 shadow-[0_24px_50px_-28px_rgb(16_24_40/0.5)] ${
                         item.columns.length > 1
-                          ? "grid w-[720px] grid-cols-4 gap-x-5"
+                          ? "grid w-[680px] grid-cols-4 gap-x-6"
                           : "w-[320px]"
                       }`}
                     >
@@ -179,7 +169,7 @@ export function Header() {
                 <details key={item.label} name="mobile-nav" className="group border-b border-line">
                   <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between py-3 font-sans text-[17px] font-semibold [&::-webkit-details-marker]:hidden">
                     {item.label}
-                    <Chevron className="size-5 text-teal transition-transform group-open:rotate-180" />
+                    <Chevron className="size-5 text-amber-deep transition-transform group-open:rotate-180" />
                   </summary>
                   <div className="pb-3">
                     {item.columns.map((col) => (
@@ -204,13 +194,12 @@ export function Header() {
                   className="flex min-h-12 items-center justify-between border-b border-line py-3 font-sans text-[17px] font-semibold"
                 >
                   {item.label}
-                  <Tag />
                 </Link>
               ),
             )}
             <div className="flex flex-col gap-3 py-5">
-              <Button href="/contact">Book a Growth Consultation</Button>
-              <a href={company.phoneHref} className="text-center text-bsm text-muted">
+              <Button href="/contact" onClick={() => setOpen(false)}>Book a Growth Consultation</Button>
+              <a href={company.phoneHref} onClick={() => setOpen(false)} className="text-center text-bsm text-muted">
                 {company.phoneDisplay}
               </a>
             </div>

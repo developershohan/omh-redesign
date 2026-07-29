@@ -15,6 +15,7 @@ import {
 import { RelatedServices } from "@/components/RelatedServices";
 import { ServiceCaseStudies } from "@/components/CaseStudies";
 import { WordPressVisualStory } from "@/components/ServiceMedia";
+import { SiteTestimonials } from "@/components/Testimonials";
 
 export const metadata: Metadata = {
   title: "WordPress Development for UK Businesses | OMH",
@@ -40,6 +41,7 @@ export default function WordPressDevelopmentPage() {
         title="Website projects connected to wider growth"
         body="See how website launches, information architecture, technical improvements and acquisition support were described in the original project library."
       />
+      <SiteTestimonials eventPrefix="wordpress" accent="bg-amber" />
       <RelatedServices
         eventPrefix="wordpress"
         title="Support the website after it launches"

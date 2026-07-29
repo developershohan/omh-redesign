@@ -1,0 +1,2596 @@
+{
+  "version": 1,
+  "source": {
+    "format": "wordpress-wxr",
+    "file": "onlinemarketinghelp.WordPress.2026-07-29.xml",
+    "exportedAt": "2026-07-29T10:33:01.000Z",
+    "siteUrl": "https://onlinemarketinghelp.co.uk"
+  },
+  "categories": [
+    {
+      "slug": "websites-ecommerce",
+      "name": "Websites & Ecommerce",
+      "postCount": 25
+    },
+    {
+      "slug": "seo",
+      "name": "SEO",
+      "postCount": 15
+    },
+    {
+      "slug": "strategy-measurement",
+      "name": "Strategy & Measurement",
+      "postCount": 11
+    },
+    {
+      "slug": "social-content",
+      "name": "Social & Content",
+      "postCount": 8
+    },
+    {
+      "slug": "paid-advertising",
+      "name": "Paid Advertising",
+      "postCount": 7
+    },
+    {
+      "slug": "agency-news",
+      "name": "Agency News",
+      "postCount": 1
+    }
+  ],
+  "posts": [
+    {
+      "id": "30776",
+      "slug": "digital-marketing-is-transforming-the-way-we-shop-for-ceiling-lamps",
+      "status": "published",
+      "title": "How Digital Marketing Is Transforming the Way We Shop for Ceiling Lamps",
+      "publishedAt": "2025-06-17T15:07:26Z",
+      "modifiedAt": "2025-06-18T09:04:25Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Discover how digital marketing is changing how Argentinians shop for ceiling lamps online. Learn tips for SEO, social media, and sales growth.",
+      "excerpt": "Online Marketing Help.co.uk",
+      "topic": {
+        "slug": "strategy-measurement",
+        "name": "Strategy & Measurement"
+      },
+      "categories": [
+        {
+          "slug": "artificial-intelligence",
+          "name": "Artificial Intelligence (AI)"
+        }
+      ],
+      "readingTime": 6,
+      "featured": false,
+      "featuredImage": {
+        "id": "30785",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2025/06/How-Digital-Marketing-Is-Transforming.png",
+        "alt": "How Digital Marketing Is Transforming",
+        "title": "How Digital Marketing Is Transforming",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/digital-marketing-is-transforming-the-way-we-shop-for-ceiling-lamps/"
+    },
+    {
+      "id": "30149",
+      "slug": "zero-click-searches-ai-overviews-and-featured-snippets",
+      "status": "published",
+      "title": "Zero-click searches, AI Overviews and featured snippets: How to win position zero",
+      "publishedAt": "2025-06-14T12:12:43Z",
+      "modifiedAt": "2025-12-17T11:11:21Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Discover how to win Position Zero on Google by mastering zero-click searches, AI Overviews, and featured snippets. Boost visibility and drive traffic with smart SEO strategies.",
+      "excerpt": "Online Marketing Help.co.uk",
+      "topic": {
+        "slug": "seo",
+        "name": "SEO"
+      },
+      "categories": [
+        {
+          "slug": "artificial-intelligence",
+          "name": "Artificial Intelligence (AI)"
+        },
+        {
+          "slug": "seo",
+          "name": "SEO"
+        }
+      ],
+      "readingTime": 10,
+      "featured": true,
+      "featuredImage": {
+        "id": "30184",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2025/06/Zero-click-searches-ai-overview.png",
+        "alt": "Zero-click searches, AI Overviews and featured snippets: How to win position zero",
+        "title": "Zero-click searches, ai overview",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/zero-click-searches-ai-overviews-and-featured-snippets/"
+    },
+    {
+      "id": "30107",
+      "slug": "ai-powered-email-marketing-personalisation-at-scale-for-higher-conversions",
+      "status": "published",
+      "title": "AI-Powered Email Marketing: Personalisation at Scale for Higher Conversions",
+      "publishedAt": "2025-05-07T09:39:49Z",
+      "modifiedAt": "2025-05-07T14:59:45Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Discover how AI-powered email marketing delivers personalisation at scale to boost engagement and drive higher conversions for your business.",
+      "excerpt": "Online Marketing Help.co.uk",
+      "topic": {
+        "slug": "social-content",
+        "name": "Social & Content"
+      },
+      "categories": [
+        {
+          "slug": "artificial-intelligence",
+          "name": "Artificial Intelligence (AI)"
+        },
+        {
+          "slug": "email-marketing",
+          "name": "Email Marketing"
+        },
+        {
+          "slug": "marketing",
+          "name": "Marketing"
+        }
+      ],
+      "readingTime": 9,
+      "featured": false,
+      "featuredImage": {
+        "id": "30118",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2025/05/AI-Powered-Email-Marketing.png",
+        "alt": "AI-Powered Email Marketing",
+        "title": "AI-Powered Email Marketing",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/ai-powered-email-marketing-personalisation-at-scale-for-higher-conversions/"
+    },
+    {
+      "id": "30081",
+      "slug": "navigating-the-world-of-hashtags-in-social-media-marketing",
+      "status": "published",
+      "title": "Navigating the World of Hashtags in Social Media Marketing",
+      "publishedAt": "2025-04-30T12:21:01Z",
+      "modifiedAt": "2025-04-30T12:35:21Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Discover how to use hashtags effectively in social media marketing to boost reach, engagement, and brand visibility across platforms.",
+      "excerpt": "Online Marketing Help.co.uk",
+      "topic": {
+        "slug": "social-content",
+        "name": "Social & Content"
+      },
+      "categories": [
+        {
+          "slug": "social-media-marketing",
+          "name": "Social Media Marketing (SMM)"
+        }
+      ],
+      "readingTime": 4,
+      "featured": false,
+      "featuredImage": {
+        "id": "30087",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2025/04/Navigating-the-World-of-Hashtags-in-Social-Media-Marketing.jpg",
+        "alt": "Navigating the World of Hashtags in Social Media Marketing",
+        "title": "Navigating the World of Hashtags in Social Media Marketing",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/navigating-the-world-of-hashtags-in-social-media-marketing/"
+    },
+    {
+      "id": "30061",
+      "slug": "maximising-roi-with-targeted-marketing-strategies",
+      "status": "published",
+      "title": "Maximising ROI with Targeted Marketing Strategies",
+      "publishedAt": "2025-03-27T17:29:08Z",
+      "modifiedAt": "2025-05-07T15:00:04Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Maximising ROI with targeted marketing strategies. Learn expert tips to optimise campaigns & drive results.",
+      "excerpt": "Online Marketing Help.co.uk",
+      "topic": {
+        "slug": "strategy-measurement",
+        "name": "Strategy & Measurement"
+      },
+      "categories": [
+        {
+          "slug": "artificial-intelligence",
+          "name": "Artificial Intelligence (AI)"
+        }
+      ],
+      "readingTime": 4,
+      "featured": false,
+      "featuredImage": {
+        "id": "30066",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2025/03/Maximising-ROI-with-Targeted-Marketing-Strategies.jpg",
+        "alt": "Maximising ROI with Targeted Marketing Strategies",
+        "title": "Maximising ROI with Targeted Marketing Strategies",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/maximising-roi-with-targeted-marketing-strategies/"
+    },
+    {
+      "id": "29962",
+      "slug": "best-seo-optimised-wordpress-themes-for-higher-rankings",
+      "status": "published",
+      "title": "10 Best SEO-Optimised WordPress Themes for Higher Rankings",
+      "publishedAt": "2024-12-02T10:12:00Z",
+      "modifiedAt": "2025-06-14T12:22:43Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Boost your site’s rankings with the best SEO-optimised WordPress themes. Choose the right theme for better visibility and higher rankings.",
+      "excerpt": "Online Marketing Help.co.uk",
+      "topic": {
+        "slug": "seo",
+        "name": "SEO"
+      },
+      "categories": [
+        {
+          "slug": "seo",
+          "name": "SEO"
+        },
+        {
+          "slug": "websites-themes-and-plugins",
+          "name": "Websites Themes and Plugins"
+        },
+        {
+          "slug": "wordpress",
+          "name": "WordPress"
+        }
+      ],
+      "readingTime": 9,
+      "featured": false,
+      "featuredImage": {
+        "id": "29989",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2024/10/10-Best-SEO-Optimised-WordPress-Themes-for-Higher-Rankings.webp",
+        "alt": "10 Best SEO-Optimised WordPress Themes",
+        "title": "10 Best SEO-Optimised WordPress Themes for Higher Rankings",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/best-seo-optimised-wordpress-themes-for-higher-rankings/"
+    },
+    {
+      "id": "29956",
+      "slug": "how-to-create-a-profitable-membership-site-with-wordpress",
+      "status": "published",
+      "title": "How to Create a Profitable Membership Site with WordPress",
+      "publishedAt": "2024-11-25T10:10:00Z",
+      "modifiedAt": "2024-10-26T12:52:47Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Learn how to create a profitable membership site with WordPress, offering flexible, scalable solutions to generate reliable, recurring revenue.",
+      "excerpt": "Online Marketing Help.co.uk",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "web-desgin",
+          "name": "Web Design"
+        },
+        {
+          "slug": "websites-themes-and-plugins",
+          "name": "Websites Themes and Plugins"
+        },
+        {
+          "slug": "wordpress",
+          "name": "WordPress"
+        },
+        {
+          "slug": "wordpress-website-agency",
+          "name": "WordPress Website Agency"
+        }
+      ],
+      "readingTime": 13,
+      "featured": false,
+      "featuredImage": {
+        "id": "29985",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2024/10/How-to-Create-a-Profitable-Membership-Site-with-WordPress.webp",
+        "alt": "How to Create a Profitable Membership Site with WordPress",
+        "title": "How to Create a Profitable Membership Site with WordPress",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/how-to-create-a-profitable-membership-site-with-wordpress/"
+    },
+    {
+      "id": "29945",
+      "slug": "best-wordpress-development-companies-in-the-uk",
+      "status": "published",
+      "title": "10 Best WordPress Development Companies in the UK for 2024",
+      "publishedAt": "2024-11-18T10:13:00Z",
+      "modifiedAt": "2024-10-26T12:49:19Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Discover the top 10 WordPress development companies in the UK, offering tailored solutions to enhance your online presence. Find the best fit for your business.",
+      "excerpt": "Online Marketing Help.co.uk",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "agency",
+          "name": "Agency"
+        },
+        {
+          "slug": "websites-themes-and-plugins",
+          "name": "Websites Themes and Plugins"
+        },
+        {
+          "slug": "wordpress",
+          "name": "WordPress"
+        }
+      ],
+      "readingTime": 8,
+      "featured": false,
+      "featuredImage": {
+        "id": "29981",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2024/10/10-Best-WordPress-Development-Companies-in-the-UK-for-2024.webp",
+        "alt": "10 Best WordPress Development Companies in the UK for 2024",
+        "title": "10 Best WordPress Development Companies in the UK for 2024",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/best-wordpress-development-companies-in-the-uk/"
+    },
+    {
+      "id": "29911",
+      "slug": "best-content-delivery-network-providers",
+      "status": "published",
+      "title": "10 Best Content Delivery Network (CDN) Providers in 2024",
+      "publishedAt": "2024-11-11T10:10:00Z",
+      "modifiedAt": "2024-10-26T12:44:13Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Explore the 10 best CDN providers in 2024 that enhance website performance, security, user experience, and edge computing, tailored to various business needs.",
+      "excerpt": "Online Marketing Help.co.uk",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "technology",
+          "name": "Technology"
+        },
+        {
+          "slug": "wordpress",
+          "name": "WordPress"
+        }
+      ],
+      "readingTime": 10,
+      "featured": false,
+      "featuredImage": {
+        "id": "29977",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2024/10/10-Best-Content-Delivery-Network-CDN-Providers-in-2024.webp",
+        "alt": "10 Best Content Delivery Network (CDN) Providers in 2024",
+        "title": "10 Best Content Delivery Network (CDN) Providers in 2024",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/best-content-delivery-network-providers/"
+    },
+    {
+      "id": "29879",
+      "slug": "can-wordpress-handle-millions-of-users",
+      "status": "published",
+      "title": "Can WordPress Handle Millions of Users?",
+      "publishedAt": "2024-11-04T10:10:00Z",
+      "modifiedAt": "2025-06-18T09:09:14Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "WordPress can handle millions of users with the right optimisations, including caching, upgraded hosting, and database enhancements.",
+      "excerpt": "WordPress scales to millions of users with proper architecture, caching, optimised databases, and enhanced hosting, proving it's capable of powering high-traffic sites like TechCrunch and The New Yorker.",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "content-strategy-and-management",
+          "name": "Content Strategy and Management"
+        },
+        {
+          "slug": "web-desgin",
+          "name": "Web Design"
+        },
+        {
+          "slug": "websites-themes-and-plugins",
+          "name": "Websites Themes and Plugins"
+        }
+      ],
+      "readingTime": 13,
+      "featured": false,
+      "featuredImage": {
+        "id": "29973",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2024/10/Can-WordPress-Handle-Millions-of-Users.webp",
+        "alt": "Can WordPress Handle Millions of Users",
+        "title": "Can WordPress Handle Millions of Users",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/can-wordpress-handle-millions-of-users/"
+    },
+    {
+      "id": "29631",
+      "slug": "benefits-of-custom-wordpress-development-for-uk-business",
+      "status": "published",
+      "title": "10 Benefits of Custom WordPress Development for UK Business",
+      "publishedAt": "2024-10-28T10:10:00Z",
+      "modifiedAt": "2024-10-29T11:07:27Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Unlock the full potential of your UK business with custom WordPress development, offering unique designs, enhanced functionality, and superior performance.",
+      "excerpt": "Customise your Shopify website to reflect your brand using themes, apps, and advanced tools. This comprehensive guide covers key strategies for enhancing design, functionality, and user experience.",
+      "topic": {
+        "slug": "strategy-measurement",
+        "name": "Strategy & Measurement"
+      },
+      "categories": [
+        {
+          "slug": "marketing",
+          "name": "Marketing"
+        }
+      ],
+      "readingTime": 8,
+      "featured": false,
+      "featuredImage": {
+        "id": "29969",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2024/08/10-Benefits-of-Custom-WordPress-Development-for-UK-Business.webp",
+        "alt": "10 Benefits of Custom WordPress Development for UK Business",
+        "title": "10 Benefits of Custom WordPress Development for UK Business",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/benefits-of-custom-wordpress-development-for-uk-business/"
+    },
+    {
+      "id": "29845",
+      "slug": "importance-of-page-speed-image-compression",
+      "status": "published",
+      "title": "The Importance of Page Speed, Image Compression, and Resizing",
+      "publishedAt": "2024-09-30T19:16:44Z",
+      "modifiedAt": "2024-10-07T12:46:16Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Is your website slow? Find out how optimising page speed through image compression and resizing can enhance user satisfaction and elevate your SEO performance. Read more!",
+      "excerpt": "Online Marketing Help.co.uk",
+      "topic": {
+        "slug": "seo",
+        "name": "SEO"
+      },
+      "categories": [
+        {
+          "slug": "seo",
+          "name": "SEO"
+        },
+        {
+          "slug": "wordpress",
+          "name": "WordPress"
+        }
+      ],
+      "readingTime": 5,
+      "featured": false,
+      "featuredImage": {
+        "id": "29852",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2024/09/OMH-Blog-header-images-YouTube-Thumbnail.png",
+        "alt": "The Importance of Page Speed, Image Compression, and Resizing create a blog outline",
+        "title": "OMH Blog header images (YouTube Thumbnail)",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/importance-of-page-speed-image-compression/"
+    },
+    {
+      "id": "19682",
+      "slug": "customising-your-shopify-website-a-comprehensive-guide",
+      "status": "published",
+      "title": "Customising Your Shopify Website: A Comprehensive Guide",
+      "publishedAt": "2024-08-03T09:48:02Z",
+      "modifiedAt": "2024-12-15T10:54:39Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Customise your Shopify website with themes, apps, and advanced features to stand out. This guide covers essentials for creating a unique online store.",
+      "excerpt": "Customise your Shopify website to reflect your brand using themes, apps, and advanced tools. This comprehensive guide covers key strategies for enhancing design, functionality, and user experience.",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "shopify",
+          "name": "Shopify"
+        },
+        {
+          "slug": "web-desgin",
+          "name": "Web Design"
+        }
+      ],
+      "readingTime": 7,
+      "featured": false,
+      "featuredImage": {
+        "id": "19759",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2024/08/Customising-Your-Shopify-Website-A-Comprehensive-Guide.webp",
+        "alt": "Customising Your Shopify Website - A Comprehensive Guide | Online Marketing Help.",
+        "title": "Customising Your Shopify Website - A Comprehensive Guide",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/customising-your-shopify-website-a-comprehensive-guide/"
+    },
+    {
+      "id": "18133",
+      "slug": "unknown-benefits-of-advertising-on-social-media",
+      "status": "published",
+      "title": "What Are the Benefits of Advertising on Social Media",
+      "publishedAt": "2024-07-25T11:55:58Z",
+      "modifiedAt": "2024-12-19T11:19:44Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Discover the Benefits of Advertising on Social Media: reach a vast audience, target precisely, and boost engagement cost-effectively | Online Marketing Help.",
+      "excerpt": "Explore the Benefits of Advertising on Social Media: achieve massive reach, precise targeting, and increased brand engagement. Learn actionable tips for effective social media ad campaigns.",
+      "topic": {
+        "slug": "social-content",
+        "name": "Social & Content"
+      },
+      "categories": [
+        {
+          "slug": "marketing",
+          "name": "Marketing"
+        },
+        {
+          "slug": "social-media-marketing",
+          "name": "Social Media Marketing (SMM)"
+        }
+      ],
+      "readingTime": 13,
+      "featured": false,
+      "featuredImage": {
+        "id": "19685",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2024/07/What-Are-the-Benefits-of-Advertising-on-Social-Media.webp",
+        "alt": "What Are the Benefits of Advertising on Social Media | Online Marketing Help.",
+        "title": "What Are the Benefits of Advertising on Social Media",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/unknown-benefits-of-advertising-on-social-media/"
+    },
+    {
+      "id": "18140",
+      "slug": "select-the-best-advertising-platform-for-your-business",
+      "status": "published",
+      "title": "How Should You Select the Best Advertising Platform for Your Business in 2024?",
+      "publishedAt": "2024-07-18T11:55:19Z",
+      "modifiedAt": "2024-08-17T08:50:17Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Choosing the right advertising platform is crucial in 2024. Understand trends, AI, and the best advertising platform strengths to align with your business goals",
+      "excerpt": "Selecting the best advertising platform in 2024 involves understanding emerging trends like AI, voice-activated ads, and new formats. Align platforms with your goals and target audience for optimal results.",
+      "topic": {
+        "slug": "paid-advertising",
+        "name": "Paid Advertising"
+      },
+      "categories": [
+        {
+          "slug": "google-ads-ppc",
+          "name": "Google Ads (PPC)"
+        },
+        {
+          "slug": "marketing",
+          "name": "Marketing"
+        },
+        {
+          "slug": "social-media-marketing",
+          "name": "Social Media Marketing (SMM)"
+        }
+      ],
+      "readingTime": 13,
+      "featured": false,
+      "featuredImage": {
+        "id": "18136",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2024/06/Select-the-Best-Advertising-Platform-for-Your-Business.jpg",
+        "alt": "How Should You Select the Best Advertising Platform for Your Business | Featured Image | Online Marketing Help.",
+        "title": "Select the Best Advertising Platform for Your Business",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/select-the-best-advertising-platform-for-your-business/"
+    },
+    {
+      "id": "17691",
+      "slug": "speeding-up-wordpress-caching-cdns-and-optimisation",
+      "status": "published",
+      "title": "Boosting WordPress Website's Performance: Caching, CDNs, and Optimisation Techniques",
+      "publishedAt": "2024-05-20T11:55:00Z",
+      "modifiedAt": "2024-08-17T08:50:40Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Boost your WordPress website's performance with caching, CDNs, and optimisation techniques, ensuring lightning-fast load times and improved user experience.",
+      "excerpt": "Speeding up WordPress: Comprehensive guide about caching techniques like page, object and database caching as well as optimizing media files, using CDNs and other tips to boost a WordPress site's performance.",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "web-desgin",
+          "name": "Web Design"
+        },
+        {
+          "slug": "wordpress",
+          "name": "WordPress"
+        },
+        {
+          "slug": "wordpress-website-agency",
+          "name": "WordPress Website Agency"
+        }
+      ],
+      "readingTime": 25,
+      "featured": false,
+      "featuredImage": {
+        "id": "17704",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2024/05/Speeding-Up-WordPress-Caching-CDNs-and-Optimisation.jpg",
+        "alt": "Boosting WordPress Website's Performance: Caching, CDNs, and Optimisation Techniques | Online Marketing Help.",
+        "title": "Speeding Up WordPress - Caching, CDNs, and Optimisation",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/speeding-up-wordpress-caching-cdns-and-optimisation/"
+    },
+    {
+      "id": "17678",
+      "slug": "building-a-strong-online-brand-top-10-strategies-for-success",
+      "status": "published",
+      "title": "Building a Strong Online Brand: Top 10 Strategies for Success in 2024",
+      "publishedAt": "2024-05-13T11:55:20Z",
+      "modifiedAt": "2024-07-31T18:49:48Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Learn how to build a strong online brand with these top 10 strategies, including social media, content marketing, and staying up-to-date with industry trends.",
+      "excerpt": "Get top strategies for building a strong online brand through optimising your website, social media presence, content marketing, customer experience, and more all while staying authentic and adapting to trends.",
+      "topic": {
+        "slug": "strategy-measurement",
+        "name": "Strategy & Measurement"
+      },
+      "categories": [
+        {
+          "slug": "marketing",
+          "name": "Marketing"
+        },
+        {
+          "slug": "strategy",
+          "name": "Strategy for You"
+        }
+      ],
+      "readingTime": 11,
+      "featured": false,
+      "featuredImage": {
+        "id": "17686",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2024/05/Building-a-Strong-Online-Brand-10-Strategies-for-Success.jpg",
+        "alt": "Building a Strong Online Brand: Top 10 Strategies for Success | Online Marketing Help.",
+        "title": "Building a Strong Online Brand - 10 Strategies for Success",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/building-a-strong-online-brand-top-10-strategies-for-success/"
+    },
+    {
+      "id": "19732",
+      "slug": "google-ads-how-to-add-your-agency-to-google-ads",
+      "status": "published",
+      "title": "Google Ads: How to Add Your Agency to Google Ads",
+      "publishedAt": "2024-03-02T11:40:02Z",
+      "modifiedAt": "2024-08-02T11:50:31Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "This article will show you how to set up Google Analytics 4 on your WordPress website. The installation of GA4 is broken down into a few straightforward stages.",
+      "excerpt": "This article will show you how to set up Google Analytics 4 on your WordPress website. The installation of GA4 is broken down into a few straightforward stages.",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "wordpress",
+          "name": "WordPress"
+        }
+      ],
+      "readingTime": 2,
+      "featured": false,
+      "featuredImage": {
+        "id": "19734",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2024/03/How-to-add-my-agency-to-google-ads.jpg",
+        "alt": "How to add my agency to google ads",
+        "title": "How to add my agency to google ads",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/google-ads-how-to-add-your-agency-to-google-ads/"
+    },
+    {
+      "id": "19721",
+      "slug": "google-analytics-4-how-to-add-your-agency-to-ga4",
+      "status": "published",
+      "title": "Google Analytics 4: How to Add Your Agency to GA4",
+      "publishedAt": "2024-03-02T11:17:00Z",
+      "modifiedAt": "2024-08-02T11:40:36Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "This article will show you how to set up Google Analytics 4 on your WordPress website. The installation of GA4 is broken down into a few straightforward stages.",
+      "excerpt": "This article will show you how to set up Google Analytics 4 on your WordPress website. The installation of GA4 is broken down into a few straightforward stages.",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "wordpress",
+          "name": "WordPress"
+        }
+      ],
+      "readingTime": 2,
+      "featured": false,
+      "featuredImage": {
+        "id": "19724",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2024/08/Add-you-agency-to-GA4.jpg",
+        "alt": "Add you agency to GA4",
+        "title": "Add you agency to GA4",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/google-analytics-4-how-to-add-your-agency-to-ga4/"
+    },
+    {
+      "id": "17502",
+      "slug": "the-ultimate-guide-to-researching-your-target-audience",
+      "status": "published",
+      "title": "Know Your Customer: The Ultimate 2024 Guide to Researching Your Target Audience",
+      "publishedAt": "2024-02-28T11:55:22Z",
+      "modifiedAt": "2024-12-15T10:53:16Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "The ultimate guide to researching your target audience in 2024 and beyond. Know the basics, set goals, and use mixed methods for success in finding your consumer.",
+      "excerpt": "Comprehensive guide to conducting impactful audience research for your business and applying insights to marketing strategies through using modern methodologies and continuous monitoring to stay ahead of customer changes.",
+      "topic": {
+        "slug": "strategy-measurement",
+        "name": "Strategy & Measurement"
+      },
+      "categories": [
+        {
+          "slug": "marketing",
+          "name": "Marketing"
+        },
+        {
+          "slug": "strategy",
+          "name": "Strategy for You"
+        }
+      ],
+      "readingTime": 25,
+      "featured": false,
+      "featuredImage": {
+        "id": "17556",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2024/02/The-Ultimate-Guide-to-Researching-Your-Target-Audience.jpg",
+        "alt": "The Ultimate Guide to Researching Your Target Audience | Online Marketing Help.",
+        "title": "The Ultimate Guide to Researching Your Target Audience",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/the-ultimate-guide-to-researching-your-target-audience/"
+    },
+    {
+      "id": "17476",
+      "slug": "why-you-should-partner-with-a-digital-marketing-agency",
+      "status": "published",
+      "title": "Hire the Pros: Why Partnering With a Digital Marketing Agency Will Boost Your Sales",
+      "publishedAt": "2024-02-20T11:55:40Z",
+      "modifiedAt": "2024-12-15T10:57:26Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Partnering with a digital marketing agency can boost sales by providing expertise, advanced tools, and strategic planning to reach target audiences effectively.",
+      "excerpt": "Partnering with a digital marketing agency provides expertise, technologies, and capabilities to boost brand visibility, customer engagement, conversions and sales through innovative data-driven strategies across channels.",
+      "topic": {
+        "slug": "agency-news",
+        "name": "Agency News"
+      },
+      "categories": [
+        {
+          "slug": "agency",
+          "name": "Agency"
+        },
+        {
+          "slug": "marketing",
+          "name": "Marketing"
+        }
+      ],
+      "readingTime": 26,
+      "featured": false,
+      "featuredImage": {
+        "id": "17514",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2024/02/Why-You-Should-Partner-With-a-Digital-Marketing-Agency.jpg",
+        "alt": "Why You Should Partner With a Digital Marketing Agency | Online Marketing Help.",
+        "title": "Why You Should Partner With a Digital Marketing Agency",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/why-you-should-partner-with-a-digital-marketing-agency/"
+    },
+    {
+      "id": "17475",
+      "slug": "how-your-websites-theme-affects-seo-and-rankings",
+      "status": "published",
+      "title": "How Your Website’s Theme Affects SEO And Rankings",
+      "publishedAt": "2024-01-25T11:55:48Z",
+      "modifiedAt": "2024-07-14T15:47:44Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "The choice of website theme greatly affects SEO and rankings. Factors to consider include design, speed, structure, and compatibility with SEO tools.",
+      "excerpt": "Choosing an SEO-friendly website theme is critical as themes impact user experience, site speed, HTML markup, structured data, and API integration, all of which influence SEO performance. Developers play a key role through optimized coding practices.",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "websites-themes-and-plugins",
+          "name": "Websites Themes and Plugins"
+        }
+      ],
+      "readingTime": 6,
+      "featured": false,
+      "featuredImage": {
+        "id": "17492",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2024/01/How-Your-Websites-Theme-Affects-SEO-And-Rankings.jpg",
+        "alt": "How Your Website’s Theme Affects SEO And Rankings | Online Marketing Help.",
+        "title": "How Your Website’s Theme Affects SEO And Rankings",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/how-your-websites-theme-affects-seo-and-rankings/"
+    },
+    {
+      "id": "17421",
+      "slug": "how-to-redesign-your-website-without-impacting-seo",
+      "status": "published",
+      "title": "Website Redesign: How to Safely Do It Without Impacting Your Search Engine Rankings",
+      "publishedAt": "2024-01-18T11:55:25Z",
+      "modifiedAt": "2025-08-11T10:47:50Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Learn how to redesign your website without negatively impacting search rankings. Follow these steps to safely update your site without losing traffic.",
+      "excerpt": "Website Redesign outlines crucial steps like setting up redirects, noindexing test sites, conducting audits and testing new sites to safely redesign websites without harming SEO rankings through search impacts or link/traffic loss.",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "web-desgin",
+          "name": "Web Design"
+        }
+      ],
+      "readingTime": 4,
+      "featured": true,
+      "featuredImage": {
+        "id": "17481",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2024/01/How-to-Redesign-Your-Website-without-Impacting-SEO.jpg",
+        "alt": "Website Redesign: How to Safely Do It Without Impacting Your Search Engine Rankings | Online Marketing Help",
+        "title": "How to Redesign Your Website without Impacting SEO",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/how-to-redesign-your-website-without-impacting-seo/"
+    },
+    {
+      "id": "17420",
+      "slug": "what-is-online-reputation-management-orm-in-digital-marketing",
+      "status": "published",
+      "title": "A Guide to Online Reputation Management (ORM) for Digital Marketers",
+      "publishedAt": "2024-01-06T23:55:00Z",
+      "modifiedAt": "2024-07-14T15:51:58Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Learn how Online Reputation Management (ORM) impacts digital marketing. Discover strategies to build trust, enhance brand reputation, and boost customer engagement.",
+      "excerpt": "This guide covers the fundamentals of online reputation management (ORM) including monitoring, analysing, and engaging with customer conversations online to proactively manage a brand's image and build trust with target audiences.",
+      "topic": {
+        "slug": "strategy-measurement",
+        "name": "Strategy & Measurement"
+      },
+      "categories": [
+        {
+          "slug": "marketing",
+          "name": "Marketing"
+        }
+      ],
+      "readingTime": 14,
+      "featured": false,
+      "featuredImage": {
+        "id": "17455",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/12/What-is-Online-Reputation-Management-ORM-in-Digital-Marketing.jpeg",
+        "alt": "What is Online Reputation Management (ORM) in Digital Marketing | Online Marketing Help",
+        "title": "What is Online Reputation Management (ORM) in Digital Marketing",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/what-is-online-reputation-management-orm-in-digital-marketing/"
+    },
+    {
+      "id": "17363",
+      "slug": "how-marketing-and-sales-work-together",
+      "status": "published",
+      "title": "Breaking Down the Synergy: How Marketing and Sales Orchestrate Growth in 2024",
+      "publishedAt": "2023-12-30T11:55:00Z",
+      "modifiedAt": "2024-07-14T15:52:45Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Learn how marketing and sales can work together to drive revenue growth and maximise results. Discover the benefits of an integrated approach in 2024.",
+      "excerpt": "Explore how leading companies are orchestrating effective collaboration between their marketing and sales teams to maximise revenue opportunities through integrated strategies, aligned processes, and a culture of partnership.",
+      "topic": {
+        "slug": "strategy-measurement",
+        "name": "Strategy & Measurement"
+      },
+      "categories": [
+        {
+          "slug": "marketing",
+          "name": "Marketing"
+        }
+      ],
+      "readingTime": 24,
+      "featured": false,
+      "featuredImage": {
+        "id": "17454",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/12/How-Marketing-and-Sales-Work-Together.jpg",
+        "alt": "Breaking Down the Synergy: How Marketing and Sales Orchestrate Growth in 2024 | How Marketing and Sales Work Together | Online Marketing Help",
+        "title": "How Marketing and Sales Work Together",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/how-marketing-and-sales-work-together/"
+    },
+    {
+      "id": "17338",
+      "slug": "easy-steps-to-do-market-research-for-online-business",
+      "status": "published",
+      "title": "Navigating Success: A Guide to Effective Market Research for Your Online Business",
+      "publishedAt": "2023-12-17T11:55:00Z",
+      "modifiedAt": "2024-07-14T15:52:22Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Master the art of market research for your online business with our comprehensive guide. Gain insights, define goals, and take informed action for success.",
+      "excerpt": "Discover the 8 easy steps to conduct effective market research for your online business. Uncover valuable insights about your target audience, develop strategic plans, and make data-driven decisions for long-term success. Position your business for the future of digital commerce. Start now!",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "ecommerce",
+          "name": "Ecommerce"
+        },
+        {
+          "slug": "marketing",
+          "name": "Marketing"
+        }
+      ],
+      "readingTime": 12,
+      "featured": false,
+      "featuredImage": {
+        "id": "17399",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/12/8-Easy-Steps-to-Do-Market-Research-for-Online-Business.jpg",
+        "alt": "8 Easy Steps to Do Market Research for Online Business | Online Marketing Help.",
+        "title": "8 Easy Steps to Do Market Research for Online Business",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/easy-steps-to-do-market-research-for-online-business/"
+    },
+    {
+      "id": "17306",
+      "slug": "why-your-online-marketing-strategy-is-not-working",
+      "status": "published",
+      "title": "Why Your Online Marketing Strategy Is Not Working",
+      "publishedAt": "2023-12-10T11:55:00Z",
+      "modifiedAt": "2024-07-14T15:55:14Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Discover the Secrets Behind Ineffective Online Marketing Strategies - Uncover the Reasons Why Your Online Marketing Strategy Is Not Working. Find Solutions Now!",
+      "excerpt": "Discover the top reasons why your online marketing strategy may not be working, such as lack of goals, insufficient content or SEO efforts, under-utilising social media, and more. This article discusses key challenges that undermine success and how to overcome them.",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "ecommerce",
+          "name": "Ecommerce"
+        },
+        {
+          "slug": "marketing",
+          "name": "Marketing"
+        },
+        {
+          "slug": "strategy",
+          "name": "Strategy for You"
+        }
+      ],
+      "readingTime": 19,
+      "featured": false,
+      "featuredImage": {
+        "id": "17350",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/12/Why-Your-Online-Marketing-Strategy-Is-Not-Working.jpg",
+        "alt": "Why Your Online Marketing Strategy Is Not Working | Online Marketing Help Guide |",
+        "title": "Why Your Online Marketing Strategy Is Not Working",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/why-your-online-marketing-strategy-is-not-working/"
+    },
+    {
+      "id": "15916",
+      "slug": "how-effective-is-social-media-advertising",
+      "status": "published",
+      "title": "How Effective Is Social Media Advertising?",
+      "publishedAt": "2023-12-03T11:55:32Z",
+      "modifiedAt": "2024-08-17T08:56:23Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Discover the effectiveness of social media advertising through in-depth analysis, metrics, targeting capabilities, engagement impact, and best practices.",
+      "excerpt": "This in-depth analysis evaluates the effectiveness of social media advertising through examining key metrics, targeting capabilities, impact on engagement and business goals, and best practices for campaign optimization.",
+      "topic": {
+        "slug": "social-content",
+        "name": "Social & Content"
+      },
+      "categories": [
+        {
+          "slug": "social-media-marketing",
+          "name": "Social Media Marketing (SMM)"
+        }
+      ],
+      "readingTime": 11,
+      "featured": false,
+      "featuredImage": {
+        "id": "17326",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/12/How-Effective-Is-Social-Media-Advertising.jpg",
+        "alt": "How Effective Is Social Media Advertising? Online Marketing Help Guide.",
+        "title": "How Effective Is Social Media Advertising",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/how-effective-is-social-media-advertising/"
+    },
+    {
+      "id": "15280",
+      "slug": "consider-switching-to-the-wordpress-gutenberg-block-editor",
+      "status": "published",
+      "title": "A Complete Guide on WordPress Gutenberg Block Editor: Simplifying Content Creation",
+      "publishedAt": "2023-11-08T11:55:35Z",
+      "modifiedAt": "2024-08-17T08:56:31Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Discover the benefits and challenges of WordPress Gutenberg Block Editor. Should you switch from a paid website builder? Find out in this comprehensive guide.",
+      "excerpt": "The WordPress Gutenberg block editor simplifies content creation with a user-friendly interface. Learn about its features and benefits, like improved experience, customisation options, and enhanced media capabilities, compared to the challenges of the learning curve and compatibility issues.",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "wordpress",
+          "name": "WordPress"
+        }
+      ],
+      "readingTime": 9,
+      "featured": false,
+      "featuredImage": {
+        "id": "16064",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/11/Wordpress-default-Gutenberg-block-editor-consider-switching.jpg",
+        "alt": "Wordpress default Gutenberg block editor - should you consider switching to this?",
+        "title": "Wordpress default Gutenberg block editor - consider switching",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/consider-switching-to-the-wordpress-gutenberg-block-editor/"
+    },
+    {
+      "id": "15293",
+      "slug": "how-much-should-a-typical-small-business-spend-on-advertising",
+      "status": "published",
+      "title": "How Much Should a Typical Small Business Spend on Advertising?",
+      "publishedAt": "2023-11-01T11:55:00Z",
+      "modifiedAt": "2024-08-17T08:56:48Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Discover how much a typical small business should spend on advertising. Explore factors, benchmarks, and case studies for effective advertising strategies.",
+      "excerpt": "Discover how much small businesses should spend on advertising. This comprehensive guide explores key factors, affordable options, case studies, and industry benchmarks to help you determine an effective advertising budget for your business.",
+      "topic": {
+        "slug": "paid-advertising",
+        "name": "Paid Advertising"
+      },
+      "categories": [
+        {
+          "slug": "google-ads-ppc",
+          "name": "Google Ads (PPC)"
+        },
+        {
+          "slug": "marketing",
+          "name": "Marketing"
+        }
+      ],
+      "readingTime": 14,
+      "featured": false,
+      "featuredImage": {
+        "id": "15325",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/10/How-Much-Should-a-Typical-Small-Business-Spend-on-Advertising.jpg",
+        "alt": "How Much Should a Typical Small Business Spend on Advertising | Online Marketing Help",
+        "title": "How Much Should a Typical Small Business Spend on Advertising",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/how-much-should-a-typical-small-business-spend-on-advertising/"
+    },
+    {
+      "id": "15262",
+      "slug": "the-pros-and-cons-of-artificial-intelligence-ai-in-marketing",
+      "status": "published",
+      "title": "The Pros and Cons of Artificial Intelligence (AI) in Marketing",
+      "publishedAt": "2023-10-25T11:55:00Z",
+      "modifiedAt": "2024-08-17T08:57:02Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Explore the advantages and drawbacks of artificial intelligence (AI) in marketing. Discover how AI revolutionizes personalization, automation, and analytics.",
+      "excerpt": "Discover the pros and cons of using AI in marketing. Learn how it enhances personalization, content creation, analytics, and automation. Consider challenges like cost, data bias, and job implications. Find out how AI shapes the future of marketing.",
+      "topic": {
+        "slug": "strategy-measurement",
+        "name": "Strategy & Measurement"
+      },
+      "categories": [
+        {
+          "slug": "artificial-intelligence",
+          "name": "Artificial Intelligence (AI)"
+        }
+      ],
+      "readingTime": 8,
+      "featured": false,
+      "featuredImage": {
+        "id": "15323",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/10/The-Pros-and-Cons-of-Artificial-Intelligence-AI-in-Marketing.png",
+        "alt": "The Pros and Cons of Artificial Intelligence (AI) in Marketing-Online Marketing Help",
+        "title": "The Pros and Cons of Artificial Intelligence (AI) in Marketing",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/the-pros-and-cons-of-artificial-intelligence-ai-in-marketing/"
+    },
+    {
+      "id": "14881",
+      "slug": "the-power-of-email-marketing-why-its-essential-for-business",
+      "status": "published",
+      "title": "The Power of Email Marketing: Why It's Essential for Business",
+      "publishedAt": "2023-09-28T11:55:00Z",
+      "modifiedAt": "2024-08-17T08:58:10Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Discover the importance of email marketing for your business. Increase brand awareness, drive website traffic, generate leads, and boost sales. Learn more!",
+      "excerpt": "The article discusses why email marketing is essential for businesses, providing tips on driving engagement, building relationships, best practices and tracking metrics. It explains how email delivers high ROI through increased awareness, traffic, leads, sales, and customer engagement when done correctly.",
+      "topic": {
+        "slug": "social-content",
+        "name": "Social & Content"
+      },
+      "categories": [
+        {
+          "slug": "email-marketing",
+          "name": "Email Marketing"
+        },
+        {
+          "slug": "marketing",
+          "name": "Marketing"
+        }
+      ],
+      "readingTime": 7,
+      "featured": false,
+      "featuredImage": {
+        "id": "14945",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/09/Why-Is-Email-Marketing-So-Important.jpg",
+        "alt": "The Power of Email Marketing: Why It's Essential for Business | Why Is Email Marketing So Important | Online Marketing Help.",
+        "title": "Why Is Email Marketing So Important",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/the-power-of-email-marketing-why-its-essential-for-business/"
+    },
+    {
+      "id": "14800",
+      "slug": "how-to-develop-a-content-marketing-strategy",
+      "status": "published",
+      "title": "How to Develop A Content Marketing Strategy",
+      "publishedAt": "2023-09-14T11:55:00Z",
+      "modifiedAt": "2024-08-17T08:58:29Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Discover how to develop a content marketing strategy that engages your target audience, builds trust, increase SERP visibility and drives organic traffic.",
+      "excerpt": "Know how to build an effective content marketing strategy by defining goals, understanding your audience, creating engaging content, distributing through multiple channels, and measuring performance to continually improve.",
+      "topic": {
+        "slug": "social-content",
+        "name": "Social & Content"
+      },
+      "categories": [
+        {
+          "slug": "content-strategy-and-management",
+          "name": "Content Strategy and Management"
+        },
+        {
+          "slug": "content-writing",
+          "name": "Content Writing"
+        },
+        {
+          "slug": "marketing",
+          "name": "Marketing"
+        },
+        {
+          "slug": "strategy",
+          "name": "Strategy for You"
+        }
+      ],
+      "readingTime": 25,
+      "featured": false,
+      "featuredImage": {
+        "id": "14884",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/08/How-to-Develop-A-Content-Marketing-Strategy_.jpg",
+        "alt": "How to Develop A Content Marketing Strategy - Online marketing Help",
+        "title": "How to Develop A Content Marketing Strategy_",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/how-to-develop-a-content-marketing-strategy/"
+    },
+    {
+      "id": "14826",
+      "slug": "how-to-advertise-a-business-on-facebook",
+      "status": "published",
+      "title": "How to Advertise a Business on Facebook",
+      "publishedAt": "2023-09-07T11:55:00Z",
+      "modifiedAt": "2024-08-30T17:01:47Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Boost your business on Facebook with proven advertising techniques. Discover effective targeting, compelling ad formats, and budgeting tips in this comprehensive guide.",
+      "excerpt": "Know how to effectively advertise your business on Facebook with this comprehensive guide. Features tips on audience targeting, ad formats, budgeting, campaign optimization and much more for driving engagement and conversions through Facebook ads.",
+      "topic": {
+        "slug": "social-content",
+        "name": "Social & Content"
+      },
+      "categories": [
+        {
+          "slug": "marketing",
+          "name": "Marketing"
+        },
+        {
+          "slug": "social-media-marketing",
+          "name": "Social Media Marketing (SMM)"
+        }
+      ],
+      "readingTime": 15,
+      "featured": false,
+      "featuredImage": {
+        "id": "14837",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/08/How-to-Advertise-a-Business-on-Facebook.jpg",
+        "alt": "How to Advertise a Business on Facebook - Online Marketing Help",
+        "title": "How to Advertise a Business on Facebook - Online Marketing Help",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/how-to-advertise-a-business-on-facebook/"
+    },
+    {
+      "id": "14745",
+      "slug": "how-to-advertise-my-business-on-google-for-free",
+      "status": "published",
+      "title": "How to Advertise My Business on Google for Free",
+      "publishedAt": "2023-08-31T11:55:00Z",
+      "modifiedAt": "2024-08-17T08:59:28Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Advertise on Google for free, boost visibility, connect with a wider audience, and improve brand awareness. Learn effective strategies with Google My Business.",
+      "excerpt": "Learn how to advertise your business on Google for free, boost online visibility, connect with a wider audience, and improve brand awareness. Harness the power of Google My Business, optimize your listings, and utilize effective strategies.",
+      "topic": {
+        "slug": "paid-advertising",
+        "name": "Paid Advertising"
+      },
+      "categories": [
+        {
+          "slug": "google-ads-ppc",
+          "name": "Google Ads (PPC)"
+        },
+        {
+          "slug": "marketing",
+          "name": "Marketing"
+        }
+      ],
+      "readingTime": 10,
+      "featured": false,
+      "featuredImage": {
+        "id": "14806",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/08/How-to-Advertise-My-Business-on-Google-for-Free.jpg",
+        "alt": "How to Advertise My Business on Google for Free - Online Marketing Help",
+        "title": "How to Advertise My Business on Google for Free - Online Mareting Help",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/how-to-advertise-my-business-on-google-for-free/"
+    },
+    {
+      "id": "14670",
+      "slug": "small-business-marketing-top-tips-for-success-and-seo-best-practices",
+      "status": "published",
+      "title": "Small Business Marketing: Top Tips for Success and SEO Best Practices",
+      "publishedAt": "2023-08-14T11:55:00Z",
+      "modifiedAt": "2024-07-14T15:58:40Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Looking to boost your small business's marketing efforts? In this comprehensive blog post, we share the top marketing tips for small businesses, covering everything from H1 and title tags to SEO best practices. Discover effective strategies to reach your target audience and achieve business growth.",
+      "excerpt": "Looking to boost your small business's marketing efforts? In this comprehensive blog post, we share the top marketing tips for small businesses, covering everything from H1 and title tags to SEO best practices. Discover effective strategies to reach your target audience and achieve business growth.",
+      "topic": {
+        "slug": "seo",
+        "name": "SEO"
+      },
+      "categories": [
+        {
+          "slug": "ecommerce",
+          "name": "Ecommerce"
+        },
+        {
+          "slug": "marketing",
+          "name": "Marketing"
+        },
+        {
+          "slug": "seo",
+          "name": "SEO"
+        }
+      ],
+      "readingTime": 7,
+      "featured": false,
+      "featuredImage": {
+        "id": "14699",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/06/Small-Business-Marketing-Top-Tips-and-SEO-Best-Practices.jpg",
+        "alt": "Small Business Marketing: Top Tips for Success and SEO Best Practices - Online Marketing Help.",
+        "title": "Small Business Marketing Top Tips and SEO Best Practices",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/small-business-marketing-top-tips-for-success-and-seo-best-practices/"
+    },
+    {
+      "id": "14657",
+      "slug": "a-top-notch-guide-for-optimal-work-efficiency-using-chatgpt",
+      "status": "published",
+      "title": "A Top-notch Guide for Optimal Work Efficiency using Chat GPT",
+      "publishedAt": "2023-08-07T11:55:00Z",
+      "modifiedAt": "2024-08-17T08:59:49Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Discover effective strategies and best practices for leveraging Chat GPT as an indispensable work tool. Learn how to harness its capabilities, boost productivity, and optimise your workflow for optimal results.",
+      "excerpt": "Discover effective strategies and best practices for leveraging Chat GPT as an indispensable work tool. Learn how to harness its capabilities, boost productivity, and optimise your workflow for optimal results.",
+      "topic": {
+        "slug": "strategy-measurement",
+        "name": "Strategy & Measurement"
+      },
+      "categories": [
+        {
+          "slug": "artificial-intelligence",
+          "name": "Artificial Intelligence (AI)"
+        }
+      ],
+      "readingTime": 5,
+      "featured": false,
+      "featuredImage": {
+        "id": "14672",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/06/Maximizing-the-Power-of-Chat-GPT-A-Comprehensive-Guide-for-Optimal-Work-Efficiency.jpg",
+        "alt": "Maximizing the Power of Chat GPT A Comprehensive Guide for Optimal Work Efficiency - Online Marketing Help.",
+        "title": "A Top-notch Guide for Optimal Work Efficiency using Chat GPT",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/a-top-notch-guide-for-optimal-work-efficiency-using-chatgpt/"
+    },
+    {
+      "id": "14639",
+      "slug": "google-vs-chat-gpt-the-future-of-conversational-ai-and-the-rise-of-bard",
+      "status": "published",
+      "title": "Google vs. Chat GPT: The Future of Conversational AI and the Rise of Bard",
+      "publishedAt": "2023-07-31T11:55:00Z",
+      "modifiedAt": "2024-08-17T09:00:01Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Explore the future of AI chatbots as Google takes on Chat GPT with its revolutionary Bard technology. Discover how these advancements will shape the landscape of conversational AI and revolutionise the way we interact with virtual assistants.",
+      "excerpt": "Explore the future of AI chatbots as Google takes on Chat GPT with its revolutionary Bard technology. Discover how these advancements will shape the landscape of conversational AI and revolutionise the way we interact with virtual assistants.",
+      "topic": {
+        "slug": "strategy-measurement",
+        "name": "Strategy & Measurement"
+      },
+      "categories": [
+        {
+          "slug": "artificial-intelligence",
+          "name": "Artificial Intelligence (AI)"
+        }
+      ],
+      "readingTime": 6,
+      "featured": false,
+      "featuredImage": {
+        "id": "14663",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/06/Google-vs.-Chat-GPT-The-Future-of-AI-Chatbots-and-Googles-Bard-Competition.jpg",
+        "alt": "Google vs. Chat GPT: The Future of Conversational AI and the Rise of Bard - Online Marketing Help.",
+        "title": "Google vs. Chat GPT The Future of AI Chatbots and Google's Bard Competition",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/google-vs-chat-gpt-the-future-of-conversational-ai-and-the-rise-of-bard/"
+    },
+    {
+      "id": "14616",
+      "slug": "how-ai-can-help-small-businesses-excel-in-seo-link-building",
+      "status": "published",
+      "title": "How AI Can Help Small Businesses Excel in SEO Link Building",
+      "publishedAt": "2023-07-24T11:55:00Z",
+      "modifiedAt": "2024-08-17T09:00:11Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Discover the power of AI in revolutionising SEO link building for small businesses. Learn how AI-driven strategies can help boost your website's visibility and drive organic traffic. Become an AI marketing expert and take your business to new heights.",
+      "excerpt": "Discover the power of AI in revolutionising SEO link building for small businesses. Learn how AI-driven strategies can help boost your website's visibility and drive organic traffic. Become an AI marketing expert and take your business to new heights.",
+      "topic": {
+        "slug": "seo",
+        "name": "SEO"
+      },
+      "categories": [
+        {
+          "slug": "artificial-intelligence",
+          "name": "Artificial Intelligence (AI)"
+        },
+        {
+          "slug": "ecommerce",
+          "name": "Ecommerce"
+        },
+        {
+          "slug": "seo",
+          "name": "SEO"
+        }
+      ],
+      "readingTime": 5,
+      "featured": false,
+      "featuredImage": {
+        "id": "14641",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/06/How-AI-Can-Revolutionise-SEO-Link-Building-for-Small-Businesses.jpg",
+        "alt": "How AI Can Revolutionise SEO Link Building for Small Businesses - Online Marketing Help.",
+        "title": "How AI Can Help Small Businesses Excel in SEO Link Building",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/how-ai-can-help-small-businesses-excel-in-seo-link-building/"
+    },
+    {
+      "id": "14572",
+      "slug": "ai-marketing-expert-how-ai-will-revolutionise-voice-search-in-seo",
+      "status": "published",
+      "title": "AI Marketing Expert: How AI Will Revolutionise Voice Search in SEO",
+      "publishedAt": "2023-07-17T11:55:00Z",
+      "modifiedAt": "2024-08-17T09:00:21Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Discover the future of SEO and voice search with AI. Learn how AI marketing experts will leverage advanced technologies to optimise Meta descriptions, H1 tags, and title tags, enhancing search engine visibility and delivering superior user experiences.",
+      "excerpt": "Discover the future of SEO and voice search with AI. Learn how AI marketing experts will leverage advanced technologies to optimise Meta descriptions, H1 tags, and title tags, enhancing search engine visibility and delivering superior user experiences.",
+      "topic": {
+        "slug": "seo",
+        "name": "SEO"
+      },
+      "categories": [
+        {
+          "slug": "artificial-intelligence",
+          "name": "Artificial Intelligence (AI)"
+        },
+        {
+          "slug": "seo",
+          "name": "SEO"
+        }
+      ],
+      "readingTime": 5,
+      "featured": false,
+      "featuredImage": {
+        "id": "14620",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/06/AI-Marketing-Expert-How-AI-Will-Revolutionise-Voice-Search-in-SEO.jpg",
+        "alt": "AI Marketing Expert: How AI Will Revolutionise Voice Search in SEO - Online Marketing Help.",
+        "title": "AI Marketing Expert How AI Will Revolutionise Voice Search in SEO",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/ai-marketing-expert-how-ai-will-revolutionise-voice-search-in-seo/"
+    },
+    {
+      "id": "14536",
+      "slug": "the-future-of-wordpress-development-how-ai-will-revolutionise-the-industry",
+      "status": "published",
+      "title": "The Future of WordPress Development: How AI Will Revolutionise the Industry",
+      "publishedAt": "2023-07-10T11:55:00Z",
+      "modifiedAt": "2024-08-17T09:02:25Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "AI is set to transform WordPress development by enhancing design, content creation, personalisation, security, and marketing strategies.",
+      "excerpt": "Discover how AI is set to transform WordPress development in the future. Explore the potential benefits and implications for businesses, while understanding how AI can enhance marketing strategies with the help of an AI marketing expert.",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "artificial-intelligence",
+          "name": "Artificial Intelligence (AI)"
+        },
+        {
+          "slug": "wordpress",
+          "name": "WordPress"
+        }
+      ],
+      "readingTime": 5,
+      "featured": false,
+      "featuredImage": {
+        "id": "14594",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/06/The-Future-of-WordPress-Development-How-AI-Will-Revolutionise-the-Industry.jpg",
+        "alt": "The Future of WordPress Development How AI Will Revolutionise the Industry. Online Marketing Help.",
+        "title": "The Future of WordPress Development How AI Will Revolutionise the Industry",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/the-future-of-wordpress-development-how-ai-will-revolutionise-the-industry/"
+    },
+    {
+      "id": "14500",
+      "slug": "ai-in-email-marketing-revolutionising-small-businesses",
+      "status": "published",
+      "title": "AI in Email Marketing: Revolutionising Small Businesses",
+      "publishedAt": "2023-07-03T11:55:00Z",
+      "modifiedAt": "2024-08-17T09:03:16Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Discover how AI in email marketing can transform your small business and boost your marketing efforts. Learn how to leverage AI technology to optimise campaigns and engage customers effectively.",
+      "excerpt": "Discover how AI in email marketing can transform your small business and boost your marketing efforts. Learn how to leverage AI technology to optimise campaigns and engage customers effectively.",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "artificial-intelligence",
+          "name": "Artificial Intelligence (AI)"
+        },
+        {
+          "slug": "ecommerce",
+          "name": "Ecommerce"
+        },
+        {
+          "slug": "email-marketing",
+          "name": "Email Marketing"
+        },
+        {
+          "slug": "marketing",
+          "name": "Marketing"
+        }
+      ],
+      "readingTime": 6,
+      "featured": false,
+      "featuredImage": {
+        "id": "14609",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/06/AI-in-Email-Marketing-Revolutionising-Small-Businesses.jpg",
+        "alt": "AI in Email Marketing: Revolutionising Small Businesses - Online Marketing Help",
+        "title": "AI in Email Marketing: Revolutionising Small Businesses",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/ai-in-email-marketing-revolutionising-small-businesses/"
+    },
+    {
+      "id": "14498",
+      "slug": "how-an-ai-marketing-expert-can-help-grow-your-small-business",
+      "status": "published",
+      "title": "How an AI Marketing Expert Can Help Grow Your Small Business",
+      "publishedAt": "2023-06-26T11:55:00Z",
+      "modifiedAt": "2024-08-17T09:03:27Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Discover the immense potential of AI in accelerating the growth of your small business. Learn how an AI marketing expert can leverage cutting-edge technologies to enhance your marketing strategies and drive success.",
+      "excerpt": "Discover the immense potential of AI in accelerating the growth of your small business. Learn how an AI marketing expert can leverage cutting-edge technologies to enhance your marketing strategies and drive success.",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "artificial-intelligence",
+          "name": "Artificial Intelligence (AI)"
+        },
+        {
+          "slug": "ecommerce",
+          "name": "Ecommerce"
+        }
+      ],
+      "readingTime": 4,
+      "featured": false,
+      "featuredImage": {
+        "id": "14516",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/06/How-an-AI-Marketing-Expert-Can-Help-Grow-Your-Small-Business.jpg",
+        "alt": "Harnessing the Power of AI How an AI Marketing Expert Can Help Grow Your Small Business - Online Marketing Help",
+        "title": "How an AI Marketing Expert Can Help Grow Your Small Business",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/how-an-ai-marketing-expert-can-help-grow-your-small-business/"
+    },
+    {
+      "id": "14696",
+      "slug": "how-to-advertise-your-business-on-google",
+      "status": "published",
+      "title": "How to Advertise Your Business on Google",
+      "publishedAt": "2023-06-21T16:22:06Z",
+      "modifiedAt": "2024-08-17T09:03:49Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Learn actionable tips to advertise your business on Google, from setting up ads to optimizing campaigns for maximum ROI. A must-read guide for SMBs looking to grow.",
+      "excerpt": "Learn actionable tips to advertise your business on Google, from setting up ads to optimizing campaigns for maximum ROI. A must-read guide for SMBs looking to grow.",
+      "topic": {
+        "slug": "paid-advertising",
+        "name": "Paid Advertising"
+      },
+      "categories": [
+        {
+          "slug": "google-ads-ppc",
+          "name": "Google Ads (PPC)"
+        }
+      ],
+      "readingTime": 11,
+      "featured": false,
+      "featuredImage": {
+        "id": "14791",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/06/How-to-Advertise-Your-Business-on-Google.jpg",
+        "alt": "How to Advertise Your Business on Google - Online Marketing Help",
+        "title": "How to Advertise Your Business on Google - Online Marketing Help",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/how-to-advertise-your-business-on-google/"
+    },
+    {
+      "id": "14376",
+      "slug": "how-ai-will-transform-marketing",
+      "status": "published",
+      "title": "Harnessing the Power of AI: How AI Will Transform Marketing in 2024",
+      "publishedAt": "2023-06-19T11:55:00Z",
+      "modifiedAt": "2025-06-14T12:22:41Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Discover the game-changing potential of AI for marketing experts in 2024. Learn how artificial intelligence can revolutionise marketing strategies, enhance customer experiences, and drive business growth.",
+      "excerpt": "Discover the game-changing potential of AI for marketing experts in 2024. Learn how artificial intelligence can revolutionise marketing strategies, enhance customer experiences, and drive business growth.",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "artificial-intelligence",
+          "name": "Artificial Intelligence (AI)"
+        },
+        {
+          "slug": "ecommerce",
+          "name": "Ecommerce"
+        }
+      ],
+      "readingTime": 5,
+      "featured": false,
+      "featuredImage": {
+        "id": "14382",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/06/How-Will-AI-Help-Marketing-Experts-in-2024-Unlocking-the-Power-of-Artificial-Intelligence-for-Business-Success.jpg",
+        "alt": "Harnessing the Power of AI: How AI Will Transform Marketing in 2024 - Online Marketing Help",
+        "title": "Harnessing the Power of AI: How AI Will Transform Marketing in 2024",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/how-ai-will-transform-marketing/"
+    },
+    {
+      "id": "14334",
+      "slug": "10-points-consider-choosing-good-wordpress-website-agency-near-me",
+      "status": "published",
+      "title": "10 Points to Consider When Choosing a Good WordPress Website Agency Near Me",
+      "publishedAt": "2023-06-12T11:55:46Z",
+      "modifiedAt": "2024-08-17T09:04:05Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "The article outlines 10 key factors to consider when choosing a WordPress website agency, focusing on experience, SEO, customisation, and support.",
+      "excerpt": "Looking for a reliable WordPress website agency near you? Discover the top 10 points to consider when choosing a WordPress website agency that prioritises SEO and delivers excellent results.",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "wordpress",
+          "name": "WordPress"
+        },
+        {
+          "slug": "wordpress-website-agency",
+          "name": "WordPress Website Agency"
+        }
+      ],
+      "readingTime": 5,
+      "featured": false,
+      "featuredImage": {
+        "id": "14336",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/06/10-Points-to-Consider-When-Choosing-a-Good-WordPress-Website-Agency-Near-Me.jpg",
+        "alt": "10 Points to Consider When Choosing a Good WordPress Website Agency Near Me. Online Marketing help - Online Marketing Help",
+        "title": "10 Points to Consider When Choosing a Good WordPress Website Agency Near Me",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/10-points-consider-choosing-good-wordpress-website-agency-near-me/"
+    },
+    {
+      "id": "14714",
+      "slug": "wordpress-maintenance-why-is-it-so-important",
+      "status": "published",
+      "title": "WordPress Maintenance: Why Is It So Important",
+      "publishedAt": "2023-06-03T08:42:48Z",
+      "modifiedAt": "2024-09-15T20:40:16Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Learn why WordPress maintenance is crucial for security, performance, and user experience. Protect your site and enhance credibility today!",
+      "excerpt": "Discover the importance of WordPress maintenance for your website's security, performance, and user experience. Learn how a maintenance plan can protect your site, prevent data loss, and enhance credibility.",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "artificial-intelligence",
+          "name": "Artificial Intelligence (AI)"
+        },
+        {
+          "slug": "wordpress",
+          "name": "WordPress"
+        }
+      ],
+      "readingTime": 3,
+      "featured": false,
+      "featuredImage": {
+        "id": "14720",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/07/OMH-Blog-header-images-.jpg",
+        "alt": "The Importance of a WordPress Maintenance Plan for Your Website",
+        "title": "The Importance of a WordPress Maintenance Plan for Your Website",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/wordpress-maintenance-why-is-it-so-important/"
+    },
+    {
+      "id": "13866",
+      "slug": "introduction-to-google-ads",
+      "status": "published",
+      "title": "An Introduction to Google Ads: How to Grow Your Business Online",
+      "publishedAt": "2023-04-04T05:10:43Z",
+      "modifiedAt": "2025-06-14T12:22:43Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Want to grow your business online? Google Ads can help you. From keyword research to effective ad copy, we cover all the best practices to help you succeed.",
+      "excerpt": "Want to grow your business online? Google Ads can help you. From keyword research to effective ad copy, we cover all the best practices to help you succeed.",
+      "topic": {
+        "slug": "paid-advertising",
+        "name": "Paid Advertising"
+      },
+      "categories": [
+        {
+          "slug": "google-ads-ppc",
+          "name": "Google Ads (PPC)"
+        }
+      ],
+      "readingTime": 32,
+      "featured": false,
+      "featuredImage": {
+        "id": "13868",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/04/An-Introduction-to-Google-Ads_-How-to-Grow-Your-Business-Online.jpg",
+        "alt": "An Introduction to Google Ads_ How to Grow Your Business Online - Online Marketing Help",
+        "title": "An Introduction to Google Ads_ How to Grow Your Business Online",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/introduction-to-google-ads/"
+    },
+    {
+      "id": "13626",
+      "slug": "paid-social-media-advertising",
+      "status": "published",
+      "title": "What Is Paid Social Media Advertising? A Comprehensive Guide",
+      "publishedAt": "2023-03-13T13:11:01Z",
+      "modifiedAt": "2024-12-15T10:47:01Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Boost your social media game with paid advertising. Our guide covers everything you need to know, including types, benefits, and tips for success. Don't miss out!",
+      "excerpt": "Boost your social media game with paid advertising. Our guide covers everything you need to know, including types, benefits, and tips for success. Don't miss out!",
+      "topic": {
+        "slug": "social-content",
+        "name": "Social & Content"
+      },
+      "categories": [
+        {
+          "slug": "marketing",
+          "name": "Marketing"
+        },
+        {
+          "slug": "social-media-marketing",
+          "name": "Social Media Marketing (SMM)"
+        }
+      ],
+      "readingTime": 16,
+      "featured": false,
+      "featuredImage": {
+        "id": "13623",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/03/What-Is-Paid-Social-Media-Advertising-.jpg",
+        "alt": "What Is Paid Social Media Advertising-Online Marketing help",
+        "title": "What Is Paid Social Media Advertising",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/paid-social-media-advertising/"
+    },
+    {
+      "id": "13573",
+      "slug": "writing-effective-ad-copy-tips-and-strategies",
+      "status": "published",
+      "title": "Writing Effective Ad Copy: Tips and Strategies for Boosting Your ROI",
+      "publishedAt": "2023-03-12T15:07:35Z",
+      "modifiedAt": "2024-08-17T09:03:58Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Write compelling ad copy and see your ROI soar! Discover tips for targeting your audience, using social proof, emotional triggers, urgency, and optimizing for results.",
+      "excerpt": "Write compelling ad copy and see your ROI soar! Discover tips for targeting your audience, using social proof, emotional triggers, urgency, and optimizing for results.",
+      "topic": {
+        "slug": "paid-advertising",
+        "name": "Paid Advertising"
+      },
+      "categories": [
+        {
+          "slug": "content-writing",
+          "name": "Content Writing"
+        },
+        {
+          "slug": "google-ads-ppc",
+          "name": "Google Ads (PPC)"
+        },
+        {
+          "slug": "strategy",
+          "name": "Strategy for You"
+        }
+      ],
+      "readingTime": 30,
+      "featured": true,
+      "featuredImage": {
+        "id": "13708",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/03/Writing-Effective-Ad-Copy_-Tips-and-Strategies-for-Boosting-Your-ROI-2.jpg",
+        "alt": "Writing Effective Ad Copy_ Tips and Strategies for Boosting Your ROI - Online Marketing Help",
+        "title": "Writing Effective Ad Copy_ Tips and Strategies for Boosting Your ROI",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/writing-effective-ad-copy-tips-and-strategies/"
+    },
+    {
+      "id": "13488",
+      "slug": "google-ads-beginners-guide",
+      "status": "published",
+      "title": "Google Ads ! 2023 Beginners Guide",
+      "publishedAt": "2023-03-11T13:57:30Z",
+      "modifiedAt": "2025-06-14T12:22:44Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Master Google Ads in 2023 with our comprehensive beginner's guide. Drive more traffic, increase conversions, and stay ahead of the game. Start learning today!",
+      "excerpt": "Master Google Ads in 2023 with our comprehensive beginner's guide. Drive more traffic, increase conversions, and stay ahead of the game. Start learning today!",
+      "topic": {
+        "slug": "paid-advertising",
+        "name": "Paid Advertising"
+      },
+      "categories": [
+        {
+          "slug": "google-ads-ppc",
+          "name": "Google Ads (PPC)"
+        }
+      ],
+      "readingTime": 25,
+      "featured": false,
+      "featuredImage": {
+        "id": "13674",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/03/2023-Google-Ads-Beginners-Guide.jpg",
+        "alt": "2023 Google Ads Beginners Guide-Online Marketing Help",
+        "title": "2023 Google Ads Beginners Guide",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/google-ads-beginners-guide/"
+    },
+    {
+      "id": "2611",
+      "slug": "creating-an-effective-search-engine-optimization-strategy-seo-in-2021",
+      "status": "published",
+      "title": "Creating an Effective Search Engine Optimisation Strategy (SEO) In 2023",
+      "publishedAt": "2023-02-25T12:02:37Z",
+      "modifiedAt": "2024-02-18T15:41:51Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Ready to take your website to the next level? Our 2023 SEO strategy guide will show you how to rank higher, get more traffic, and grow your business!",
+      "excerpt": "Ready to take your website to the next level? Our 2023 SEO strategy guide will show you how to rank higher, get more traffic, and grow your business!",
+      "topic": {
+        "slug": "seo",
+        "name": "SEO"
+      },
+      "categories": [
+        {
+          "slug": "seo",
+          "name": "SEO"
+        },
+        {
+          "slug": "strategy",
+          "name": "Strategy for You"
+        }
+      ],
+      "readingTime": 17,
+      "featured": false,
+      "featuredImage": {
+        "id": "11354",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2022/10/11.jpg",
+        "alt": "step-by-step SEO strategy guide",
+        "title": "Effective Search Engine Optimization Strategy (SEO) In 2020",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/creating-an-effective-search-engine-optimization-strategy-seo-in-2021/"
+    },
+    {
+      "id": "13365",
+      "slug": "value-of-a-professionally-designed-logo-and-brochure",
+      "status": "published",
+      "title": "The Value of A Professionally Designed Logo and Brochure for Your Business",
+      "publishedAt": "2023-02-16T16:21:40Z",
+      "modifiedAt": "2023-11-09T13:14:58Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Discover how a professionally designed logo and brochure can enhance your business's brand identity, attract customers, and communicate your message effectively.",
+      "excerpt": "Discover how a professionally designed logo and brochure can enhance your business's brand identity, attract customers, and communicate your message effectively.",
+      "topic": {
+        "slug": "strategy-measurement",
+        "name": "Strategy & Measurement"
+      },
+      "categories": [
+        {
+          "slug": "design",
+          "name": "Design"
+        }
+      ],
+      "readingTime": 12,
+      "featured": false,
+      "featuredImage": {
+        "id": "13378",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2023/02/The-Value-of-A-Professionally-Designed-Logo-and-Brochure-for-Your-Business_.jpg",
+        "alt": "The Value of A Professionally Designed Logo and Brochure for Your Business - Online Marketing Help.",
+        "title": "The Value of A Professionally Designed Logo and Brochure for Your Business",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/value-of-a-professionally-designed-logo-and-brochure/"
+    },
+    {
+      "id": "2489",
+      "slug": "17-smart-ways-to-improve-your-2021-seo-rankings",
+      "status": "published",
+      "title": "17 Smart Ways to Improve Your 2023 SEO Rankings",
+      "publishedAt": "2023-02-08T06:15:02Z",
+      "modifiedAt": "2024-07-14T16:07:18Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Boost your search engine rankings with our expert guide to 17 smart SEO strategies for 2023. From mobile optimization to local SEO, we've got you covered!",
+      "excerpt": "Boost your search engine rankings with our expert guide to 17 smart SEO strategies for 2023. From mobile optimization to local SEO, we've got you covered!",
+      "topic": {
+        "slug": "seo",
+        "name": "SEO"
+      },
+      "categories": [
+        {
+          "slug": "seo",
+          "name": "SEO"
+        }
+      ],
+      "readingTime": 16,
+      "featured": false,
+      "featuredImage": {
+        "id": "11356",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2022/10/13.jpg",
+        "alt": "boost SEO rankings in 2021",
+        "title": "best SEO rankings in 2021",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/17-smart-ways-to-improve-your-2021-seo-rankings/"
+    },
+    {
+      "id": "2694",
+      "slug": "googles-200-plus-ranking-tricks-the-complete-guide-for-2021",
+      "status": "published",
+      "title": "Google’s 200 Plus Ranking Tricks The Complete Guide for 2023",
+      "publishedAt": "2023-01-09T16:53:38Z",
+      "modifiedAt": "2024-07-14T16:07:44Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Dominate your local search engine rankings with our ultimate guide to Local SEO in 2023. From Google My Business to local keywords, we've got you covered!",
+      "excerpt": "Dominate your local search engine rankings with our ultimate guide to Local SEO in 2023. From Google My Business to local keywords, we've got you covered!",
+      "topic": {
+        "slug": "seo",
+        "name": "SEO"
+      },
+      "categories": [
+        {
+          "slug": "seo",
+          "name": "SEO"
+        }
+      ],
+      "readingTime": 39,
+      "featured": false,
+      "featuredImage": {
+        "id": "11353",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2022/10/10.jpg",
+        "alt": "Google’s 200 Plus Ranking Tricks",
+        "title": "Google’s Ranking Tricks The Complete Guide",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/googles-200-plus-ranking-tricks-the-complete-guide-for-2021/"
+    },
+    {
+      "id": "8979",
+      "slug": "how-to-add-a-new-wordpress-admin-user",
+      "status": "published",
+      "title": "How To Add A New WordPress Admin User",
+      "publishedAt": "2022-10-28T15:43:37Z",
+      "modifiedAt": "2024-08-17T09:21:24Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "This Blog will teach you how to add a new WordPress admin user. You will need this information if you are wanting to give someone access to your WordPress site.",
+      "excerpt": "This page will teach you how to add a new WordPress admin user. You will need this information if you are wanting to give someone access to your WordPress site.",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "wordpress",
+          "name": "WordPress"
+        }
+      ],
+      "readingTime": 1,
+      "featured": false,
+      "featuredImage": {
+        "id": "11343",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2022/10/1.jpg",
+        "alt": "WordPress Admin New User",
+        "title": "WordPress Admin New User",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/how-to-add-a-new-wordpress-admin-user/"
+    },
+    {
+      "id": "8911",
+      "slug": "google-core-algorithm-updates-everything-you-should-know",
+      "status": "published",
+      "title": "Google Core Algorithm Updates: Everything You Need to Know.",
+      "publishedAt": "2022-10-22T15:49:53Z",
+      "modifiedAt": "2025-06-14T12:22:42Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "A complete guide to Google's core algorithm updates, what they are, and how they can affect your website, core update history and recovery guidelines.",
+      "excerpt": "A complete guide to Google's core algorithm updates, what they are, and how they can affect your website, core update history, and recovery guidelines.",
+      "topic": {
+        "slug": "seo",
+        "name": "SEO"
+      },
+      "categories": [
+        {
+          "slug": "seo",
+          "name": "SEO"
+        }
+      ],
+      "readingTime": 25,
+      "featured": false,
+      "featuredImage": {
+        "id": "11345",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2022/10/2.jpg",
+        "alt": "Google Core Algorithm Updates: Everything You Need To Know.",
+        "title": "google core update-online marketing help",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/google-core-algorithm-updates-everything-you-should-know/"
+    },
+    {
+      "id": "7215",
+      "slug": "etsy-shop-ranking",
+      "status": "published",
+      "title": "Etsy SEO Tips : How To Get Your Etsy Shop Ranking Higher on Search Engines.",
+      "publishedAt": "2022-10-12T10:14:05Z",
+      "modifiedAt": "2025-06-14T12:22:41Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Want to boost your Etsy shop's SERP ranking? Our SEO tips will help you rank higher on Etsy search engines and attract more customers. Start optimising now!",
+      "excerpt": "Want to boost your Etsy shop's visibility? Our SEO tips will help you rank higher on search engines and attract more customers. Start optimizing now!",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "etsy",
+          "name": "Etsy"
+        }
+      ],
+      "readingTime": 15,
+      "featured": false,
+      "featuredImage": {
+        "id": "11351",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2022/10/8.jpg",
+        "alt": "etsy shop ranking",
+        "title": "etsy seo tips",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/etsy-shop-ranking/"
+    },
+    {
+      "id": "8611",
+      "slug": "how-to-setup-google-analytic4-wordpress",
+      "status": "published",
+      "title": "Google Analytics 4: How to Set up Google Analytics 4 on WordPress.",
+      "publishedAt": "2022-09-12T17:11:55Z",
+      "modifiedAt": "2024-08-13T15:43:40Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "This article will show you how to set up Google Analytics 4 on your WordPress website. The installation of GA4 is broken down into a few straightforward stages.",
+      "excerpt": "This article will show you how to set up Google Analytics 4 on your WordPress website. The installation of GA4 is broken down into a few straightforward stages.",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "wordpress",
+          "name": "WordPress"
+        }
+      ],
+      "readingTime": 8,
+      "featured": false,
+      "featuredImage": {
+        "id": "11346",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2022/10/3.jpg",
+        "alt": "Google Analytics 4 setup | Online Marketing Help.",
+        "title": "Google analytics 4 setup",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/how-to-setup-google-analytic4-wordpress/"
+    },
+    {
+      "id": "8533",
+      "slug": "how-to-optimize-your-wordpress-site",
+      "status": "published",
+      "title": "How to Optimise Your WordPress Site to Increase Productivity.",
+      "publishedAt": "2022-09-06T13:50:18Z",
+      "modifiedAt": "2024-08-13T10:16:00Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Boost productivity and streamline your WordPress site with our expert optimisation tips. Maximise efficiency and improve your WordPress user experience today!",
+      "excerpt": "Boost productivity and streamline your WordPress site with our expert optimization tips. Maximise efficiency and improve your WordPress user experience today!",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "wordpress",
+          "name": "WordPress"
+        }
+      ],
+      "readingTime": 7,
+      "featured": false,
+      "featuredImage": {
+        "id": "19823",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2022/09/how-to-optimise-your-wordpress-site-to-increase-productivity.webp",
+        "alt": "How to optimise your WordPress site to increase productivity | Online Marketing Help.",
+        "title": "how to optimise your wordpress site to increase productivity",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/how-to-optimize-your-wordpress-site/"
+    },
+    {
+      "id": "8133",
+      "slug": "free-seo-tools-resources",
+      "status": "published",
+      "title": "The Best 100 Free Tools & Resources for SEO",
+      "publishedAt": "2022-03-27T09:11:21Z",
+      "modifiedAt": "2025-06-14T12:22:42Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Discover the ultimate collection of free SEO tools and resources. Boost your website's rankings and traffic with our expert tips and insights. Get started now!",
+      "excerpt": "Discover the ultimate collection of free SEO tools and resources. Boost your website's rankings and traffic with our expert tips and insights. Get started now!",
+      "topic": {
+        "slug": "seo",
+        "name": "SEO"
+      },
+      "categories": [
+        {
+          "slug": "seo",
+          "name": "SEO"
+        }
+      ],
+      "readingTime": 23,
+      "featured": false,
+      "featuredImage": {
+        "id": "11348",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2022/10/5.jpg",
+        "alt": "Free-SEO-Tools-2022",
+        "title": "SEO Tool and resources",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/free-seo-tools-resources/"
+    },
+    {
+      "id": "8053",
+      "slug": "ultimate-wordpress-seo-guide-for-beginners",
+      "status": "published",
+      "title": "Ultimate WordPress SEO Guide for Beginners",
+      "publishedAt": "2022-01-31T14:11:59Z",
+      "modifiedAt": "2025-06-14T12:22:43Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Unlock the full potential of your WordPress website with our ultimate SEO guide for beginners. Learn the latest tips and strategies for boosting your rankings today!",
+      "excerpt": "Unlock the full potential of your WordPress website with our ultimate SEO guide for beginners. Learn the latest tips and strategies for boosting your rankings today!",
+      "topic": {
+        "slug": "seo",
+        "name": "SEO"
+      },
+      "categories": [
+        {
+          "slug": "seo",
+          "name": "SEO"
+        }
+      ],
+      "readingTime": 18,
+      "featured": false,
+      "featuredImage": {
+        "id": "11349",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2022/10/6.jpg",
+        "alt": "WordPress SEO guide for beginner | Online Marketing Help.",
+        "title": "WordPress SEO guide for beginner",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/ultimate-wordpress-seo-guide-for-beginners/"
+    },
+    {
+      "id": "7849",
+      "slug": "membership-plugins-to-consider",
+      "status": "published",
+      "title": "Top 5 membership plugins to consider",
+      "publishedAt": "2022-01-17T12:38:47Z",
+      "modifiedAt": "2024-08-14T16:43:51Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Looking for the best membership plugins for your WordPress site? Check out our top 5 picks and learn how they can help you generate more revenue and productivity.",
+      "excerpt": "Looking for the best membership plugins for your WordPress site? Check out our top 5 picks and learn how they can help you generate more revenue and productivity.",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "wordpress",
+          "name": "WordPress"
+        }
+      ],
+      "readingTime": 10,
+      "featured": false,
+      "featuredImage": {
+        "id": "11350",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2022/10/7.jpg",
+        "alt": "If you're looking for the best website membership plugin, then you might want to check this plugin out. | Online Marketing Help",
+        "title": "If you're looking for the best website membership plugin, then you might want to check this plugin out.",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/membership-plugins-to-consider/"
+    },
+    {
+      "id": "2777",
+      "slug": "local-search-engine-optimization-seo-the-2021-ultimate-guide",
+      "status": "published",
+      "title": "Local Search Engine Optimization (SEO) The 2023 Ultimate Guide",
+      "publishedAt": "2020-09-11T11:28:10Z",
+      "modifiedAt": "2025-06-18T09:39:36Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Dominate your local search engine rankings with our ultimate guide to Local SEO in 2023. From Google My Business to local keywords, we've got you covered!",
+      "excerpt": "Dominate your local search engine rankings with our ultimate guide to Local SEO in 2023. From Google My Business to local keywords, we've got you covered!",
+      "topic": {
+        "slug": "seo",
+        "name": "SEO"
+      },
+      "categories": [
+        {
+          "slug": "seo",
+          "name": "SEO"
+        }
+      ],
+      "readingTime": 25,
+      "featured": false,
+      "featuredImage": {
+        "id": "30492",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2020/09/Local-Search-Engine-Optimization-SEO-The-2023-Ultimate-Guide.png",
+        "alt": "Local Search Engine Optimization (SEO) The 2023 Ultimate Guide",
+        "title": "Local Search Engine Optimization (SEO) The 2023 Ultimate Guide",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/local-search-engine-optimization-seo-the-2021-ultimate-guide/"
+    },
+    {
+      "id": "2634",
+      "slug": "ecommerce-seo-the-ultimate-guide",
+      "status": "published",
+      "title": "Ecommerce SEO: The Ultimate Guide",
+      "publishedAt": "2020-09-08T15:58:26Z",
+      "modifiedAt": "2025-06-14T10:29:08Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Get more traffic and sales with our expert Ecommerce SEO guide for 2023. Learn how to optimize your ecommerce site for search engines and boost your ROI!",
+      "excerpt": "Get more traffic and sales with our expert Ecommerce SEO guide for 2023. Learn how to optimize your ecommerce site for search engines and boost your ROI!",
+      "topic": {
+        "slug": "websites-ecommerce",
+        "name": "Websites & Ecommerce"
+      },
+      "categories": [
+        {
+          "slug": "ecommerce",
+          "name": "Ecommerce"
+        }
+      ],
+      "readingTime": 27,
+      "featured": false,
+      "featuredImage": {
+        "id": "13531",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2020/09/20230312_105700_0000.jpg",
+        "alt": "Ecommerce SEO",
+        "title": "Ecommerce SEO",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/ecommerce-seo-the-ultimate-guide/"
+    },
+    {
+      "id": "2565",
+      "slug": "copywriting-the-ultimate-guide",
+      "status": "published",
+      "title": "Copywriting Content: The Ultimate Guide",
+      "publishedAt": "2020-09-08T09:32:42Z",
+      "modifiedAt": "2023-11-11T14:45:10Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Create compelling content that engages and converts with our ultimate guide to Copywriting in 2023. Learn the latest tips and strategies for getting success.",
+      "excerpt": "Create compelling content that engages and converts with our ultimate guide to Copywriting in 2023. Learn the latest tips and strategies for getting success",
+      "topic": {
+        "slug": "seo",
+        "name": "SEO"
+      },
+      "categories": [
+        {
+          "slug": "content-writing",
+          "name": "Content Writing"
+        },
+        {
+          "slug": "seo",
+          "name": "SEO"
+        }
+      ],
+      "readingTime": 36,
+      "featured": false,
+      "featuredImage": {
+        "id": "11355",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2022/10/12.jpg",
+        "alt": "good copywriting strategy",
+        "title": "The ultimate guide of copywriting",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/copywriting-the-ultimate-guide/"
+    },
+    {
+      "id": "2311",
+      "slug": "ultimate-guide-for-seo-expert",
+      "status": "published",
+      "title": "Ultimate Guide For SEO Expert",
+      "publishedAt": "2020-09-07T10:29:56Z",
+      "modifiedAt": "2025-06-14T12:22:41Z",
+      "author": {
+        "id": "5",
+        "name": "Melissa Cross"
+      },
+      "summary": "Ready to become an SEO pro? Our comprehensive guide for experts in 2023. Take your SEO skills to the next level, stay ahead of the curve and achieve your goals!",
+      "excerpt": "Ready to become an SEO pro? Our comprehensive guide for experts in 2023. Take your SEO skills to the next level, stay ahead of the curve and achieve your goals!",
+      "topic": {
+        "slug": "seo",
+        "name": "SEO"
+      },
+      "categories": [
+        {
+          "slug": "seo",
+          "name": "SEO"
+        },
+        {
+          "slug": "strategy",
+          "name": "Strategy for You"
+        }
+      ],
+      "readingTime": 19,
+      "featured": false,
+      "featuredImage": {
+        "id": "11357",
+        "src": "https://onlinemarketinghelp.co.uk/wp-content/uploads/2022/10/14.jpg",
+        "alt": "Ultimate Guide For SEO Expert",
+        "title": "",
+        "width": 1280,
+        "height": 769
+      },
+      "legacyUrl": "https://onlinemarketinghelp.co.uk/ultimate-guide-for-seo-expert/"
+    }
+  ]
+}

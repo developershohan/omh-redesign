@@ -46,7 +46,7 @@ function StarRating({ label }: { label: string }) {
 
 function CardArrow({ className = "" }: { className?: string }) {
   return (
-    <span className={`inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-line bg-warm text-teal transition-[color,background-color,border-color,box-shadow,transform] duration-500 ease-[cubic-bezier(.2,.8,.2,1)] group-hover:scale-[1.035] group-hover:border-teal group-hover:bg-teal group-hover:text-white group-hover:shadow-[0_12px_26px_-18px_rgb(15_107_99/0.8)] max-sm:size-10 ${className}`}>
+    <span className={`inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-line bg-warm text-amber-deep transition-[color,background-color,border-color,box-shadow,transform] duration-500 ease-[cubic-bezier(.2,.8,.2,1)] group-hover:scale-[1.035] group-hover:border-teal group-hover:bg-teal group-hover:text-ink group-hover:shadow-[0_12px_26px_-18px_rgb(215_154_55/0.8)] max-sm:size-10 ${className}`}>
       <ArrowRight className="size-5 transition-transform duration-500 ease-[cubic-bezier(.2,.8,.2,1)] group-hover:translate-x-0.5" />
     </span>
   );
@@ -80,7 +80,7 @@ export default function Home() {
           <Reveal className="relative z-10">
             <StarRating label="Growth-focused UK agency" />
             <h1 className="mb-7 mt-8 max-w-[14ch] font-sans text-display font-semibold max-lg:max-w-none">
-              Digital Marketing for Service Businesses and <span className="text-teal">Ecommerce Brands</span>
+              Digital Marketing for Service Businesses and <span className="text-amber-deep">Ecommerce Brands</span>
             </h1>
             <p className="mb-10 max-w-[59ch] text-[18px] leading-relaxed text-ink/75 max-lg:max-w-none">
               {hero.standfirst}
@@ -96,7 +96,7 @@ export default function Home() {
             <div className="mt-12 grid max-w-[650px] grid-cols-3 border-y border-line py-5 max-lg:max-w-none max-sm:grid-cols-1 max-sm:gap-4">
               {["Strategy first", "Senior delivery", "Clear reporting"].map((item, index) => (
                 <p key={item} className="flex items-center gap-3 text-[16px] font-semibold text-ink/65">
-                  <span className="font-sans text-[13px] text-teal">0{index + 1}</span>
+                  <span className="font-sans text-[13px] text-amber-deep">0{index + 1}</span>
                   {item}
                 </p>
               ))}
@@ -124,7 +124,7 @@ export default function Home() {
                 <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-amber">Connected delivery</p>
                 <p className="mt-2 text-[18px] font-semibold">Plan &rarr; Build &rarr; Measure</p>
               </div>
-              <div className="absolute -right-5 top-9 flex size-24 flex-col items-center justify-center rounded-[8px] bg-teal text-center text-white shadow-[0_20px_45px_-22px_rgb(15_107_99/0.75)] max-sm:right-3 max-sm:top-4 max-sm:size-20">
+              <div className="absolute -right-5 top-9 flex size-24 flex-col items-center justify-center rounded-[8px] bg-teal text-center text-ink shadow-[0_20px_45px_-22px_rgb(215_154_55/0.75)] max-sm:right-3 max-sm:top-4 max-sm:size-20">
                 <Gauge className="mb-1 size-7" aria-hidden />
                 <span className="text-[13px] font-semibold">Growth ready</span>
               </div>
@@ -142,7 +142,7 @@ export default function Home() {
                 Our programs
               </p>
               <h2 className="mt-5 font-sans text-h2 font-semibold">
-                Marketing programs <span className="text-[#5fc8bd]">built for growth</span>
+                Marketing programs <span className="text-[#f2c675]">built for growth</span>
               </h2>
               <p className="mx-auto mt-5 max-w-[850px] text-[18px] leading-relaxed text-white/68">
                 Choose the starting point that fits your business. Every program joins acquisition,
@@ -158,7 +158,7 @@ export default function Home() {
                     <div className="program-icon">
                       <ProgramIcon className="size-8" strokeWidth={1.8} aria-hidden />
                     </div>
-                    <p className="mt-7 inline-flex self-start rounded-full bg-teal/20 px-3 py-1.5 text-[13px] font-semibold uppercase tracking-[0.1em] text-[#7fd8cf]">
+                    <p className="mt-7 inline-flex self-start rounded-full bg-teal/20 px-3 py-1.5 text-[13px] font-semibold uppercase tracking-[0.1em] text-[#f5d394]">
                       {program.range}
                     </p>
                     <h3 className="mt-5 font-sans text-[clamp(25px,22px+0.45vw,31px)] font-semibold leading-tight">
@@ -181,7 +181,7 @@ export default function Home() {
         <div className="stats-grid container-omh grid grid-cols-4 divide-x divide-line max-lg:grid-cols-2 max-lg:divide-x-0 max-sm:grid-cols-1">
           {stats.map((stat) => (
             <div key={stat.label} className="stat-item px-8 py-11 first:pl-0 max-lg:px-6 max-sm:px-0">
-              <p className="font-sans text-[clamp(42px,34px+2vw,66px)] font-semibold leading-none text-teal">
+              <p className="font-sans text-[clamp(42px,34px+2vw,66px)] font-semibold leading-none text-amber-deep">
                 {stat.value}
               </p>
               <p className="mt-3 text-[18px] font-semibold text-ink/65">{stat.label}</p>
@@ -196,7 +196,7 @@ export default function Home() {
             <div className="lg:sticky lg:top-24">
               <SectionLabel>Success stories</SectionLabel>
               <h2 className="mt-6 max-w-[15ch] font-sans text-h2 font-semibold">
-                Proof should sit beside <span className="text-teal">the work, not below it</span>
+                Proof should sit beside <span className="text-amber-deep">the work, not below it</span>
               </h2>
               <p className="mt-5 text-[18px] leading-relaxed text-ink/75">
                 Campaign thinking, web design, and reporting come together in one view of what
@@ -281,7 +281,7 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
-                <div className="absolute bottom-5 right-2 flex size-28 flex-col items-center justify-center rounded-[8px] bg-teal text-center shadow-[0_0_42px_rgb(15_107_99/0.42)] max-sm:bottom-4 max-sm:size-20">
+                <div className="absolute bottom-5 right-2 flex size-28 flex-col items-center justify-center rounded-[8px] bg-teal text-center text-ink shadow-[0_0_42px_rgb(215_154_55/0.42)] max-sm:bottom-4 max-sm:size-20">
                   <span className="font-sans text-[26px] font-semibold">One</span>
                   <span className="mt-1 text-[13px] font-semibold uppercase tracking-[0.1em] text-white/75">joined-up team</span>
                 </div>
@@ -293,7 +293,7 @@ export default function Home() {
                   Why choose us
                 </p>
                 <h2 className="mt-6 font-sans text-h2 font-semibold">
-                  A senior team for <span className="text-[#5fc8bd]">connected digital growth</span>
+                  A senior team for <span className="text-[#f2c675]">connected digital growth</span>
                 </h2>
                 <p className="mt-6 text-[18px] leading-relaxed text-white/70">
                   The strongest work happens when strategy, creative, acquisition, conversion, and
@@ -311,7 +311,7 @@ export default function Home() {
                   ))}
                 </div>
                 <div className="mt-9">
-                  <Button href="/about" variant="inverse" arrow>
+                  <Button href="/about-us" variant="inverse" arrow>
                     Learn about OMH
                   </Button>
                 </div>
@@ -331,7 +331,7 @@ export default function Home() {
                   href={service.href}
                   className="service-row group grid grid-cols-[72px_1fr_auto] items-center gap-5 border-b border-line py-7 max-sm:grid-cols-[36px_1fr_auto] max-sm:gap-3"
                 >
-                  <span className="font-sans text-[16px] font-semibold text-teal">
+                  <span className="font-sans text-[16px] font-semibold text-amber-deep">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <span className="font-sans text-[clamp(22px,20px+0.5vw,29px)] font-semibold">
@@ -344,7 +344,7 @@ export default function Home() {
             <div className="order-first lg:order-last lg:sticky lg:top-24 lg:self-start">
               <SectionLabel>Services</SectionLabel>
               <h2 className="mt-6 font-sans text-h2 font-semibold">
-                Everything a <span className="text-teal">growing website</span> needs around it
+                Everything a <span className="text-amber-deep">growing website</span> needs around it
               </h2>
               <p className="mt-5 text-[18px] leading-relaxed text-ink/75">
                 Pick a specialist service or connect several disciplines around one commercial goal.
@@ -366,7 +366,7 @@ export default function Home() {
               <div>
                 <StarRating label="Client success stories" />
                 <h2 className="mt-6 max-w-[19ch] font-sans text-h2 font-semibold">
-                  What working with <span className="text-teal">OMH should feel like</span>
+                  What working with <span className="text-amber-deep">OMH should feel like</span>
                 </h2>
               </div>
               <p className="max-w-[42ch] text-[18px] leading-relaxed text-ink/70 max-lg:mt-5">
@@ -416,7 +416,7 @@ export default function Home() {
               <div>
                 <SectionLabel>Capability map</SectionLabel>
                 <h2 className="mt-6 font-sans text-h2 font-semibold">
-                  The platforms behind <span className="text-teal">connected growth</span>
+                  The platforms behind <span className="text-amber-deep">connected growth</span>
                 </h2>
                 <p className="mt-5 text-[18px] leading-relaxed text-ink/70">
                   Strategy becomes useful when every delivery channel shares the same commercial
@@ -425,13 +425,13 @@ export default function Home() {
                 <div className="mt-9 grid grid-cols-3 border-y border-line py-5">
                   {["Acquisition", "Conversion", "Measurement"].map((label, index) => (
                     <div key={label}>
-                      <p className="font-sans text-[26px] font-semibold text-teal">0{index + 1}</p>
+                      <p className="font-sans text-[26px] font-semibold text-amber-deep">0{index + 1}</p>
                       <p className="mt-1 text-[15px] font-semibold text-ink/55">{label}</p>
                     </div>
                   ))}
                 </div>
                 <div className="mt-8">
-                  <Button href="/about" variant="secondary" arrow>
+                  <Button href="/about-us" variant="secondary" arrow>
                     Learn about our approach
                   </Button>
                 </div>
@@ -460,9 +460,9 @@ export default function Home() {
             <div className="mb-12 flex items-end justify-between gap-8 max-lg:block">
               <div>
                 <SectionLabel>Latest insights</SectionLabel>
-                <h2 className="mt-6 font-sans text-h2 font-semibold">From the <span className="text-teal">OMH blog</span></h2>
+                <h2 className="mt-6 font-sans text-h2 font-semibold">From the <span className="text-amber-deep">OMH blog</span></h2>
               </div>
-              <Button href="/blog" variant="secondary" className="max-lg:mt-6">
+              <Button href="/insights" variant="secondary" className="max-lg:mt-6">
                 View all articles
               </Button>
             </div>
@@ -496,7 +496,7 @@ export default function Home() {
                     className="insight-row group grid min-h-[250px] grid-cols-[1fr_auto] content-between gap-6 border-b border-line py-8"
                   >
                     <div>
-                      <p className="text-[14px] font-semibold uppercase tracking-[0.14em] text-teal">
+                      <p className="text-[14px] font-semibold uppercase tracking-[0.14em] text-amber-deep">
                         {post.category}
                       </p>
                       <h3 className="mt-4 max-w-[24ch] font-sans text-[27px] font-semibold leading-tight">
@@ -517,7 +517,7 @@ export default function Home() {
         <div className="container-omh grid grid-cols-[1fr_0.55fr] items-center gap-12 py-[clamp(76px,8vw,124px)] max-lg:grid-cols-1">
           <Reveal>
             <h2 className="max-w-[20ch] font-sans text-h2 font-semibold">
-              Ready to make your marketing easier to measure and <span className="text-[#5fc8bd]">easier to scale?</span>
+              Ready to make your marketing easier to measure and <span className="text-[#f2c675]">easier to scale?</span>
             </h2>
             <p className="mt-5 max-w-[58ch] text-[18px] leading-relaxed text-white/75">
               {finalCta.body}

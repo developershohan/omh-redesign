@@ -46,9 +46,16 @@ export function Fpo({
   );
 }
 
-export function Eyebrow({ children }: { children: ReactNode }) {
+export function Eyebrow({ children, light = false }: { children: ReactNode; light?: boolean }) {
   return (
-    <p className="flex items-center gap-2.5 text-[13px] font-semibold uppercase tracking-[0.16em] text-muted before:h-0.5 before:w-5 before:bg-amber before:content-['']">
+    <p
+      className={`flex items-center text-[13px] font-semibold uppercase ${
+        light
+          ? "gap-3 tracking-[0.15em] text-white/60"
+          : "gap-2.5 tracking-[0.16em] text-muted"
+      }`}
+    >
+      <span aria-hidden className={`h-0.5 w-5 ${light ? "bg-[#f2c675]" : "bg-amber"}`} />
       {children}
     </p>
   );

@@ -14,6 +14,7 @@ import {
 import { RelatedServices } from "@/components/RelatedServices";
 import { ServiceCaseStudies } from "@/components/CaseStudies";
 import { MaintenanceControlRoom } from "@/components/ServiceMedia";
+import { SiteTestimonials } from "@/components/Testimonials";
 
 export const metadata: Metadata = {
   title: "WordPress Website Maintenance for UK Businesses",
@@ -39,6 +40,7 @@ export default function WordPressWebsiteMaintenancePage() {
         body="The car-showroom source describes maintenance alongside SEO, paid media and conversion work, with its result claims retained for verification."
         limit={1}
       />
+      <SiteTestimonials eventPrefix="maintenance" accent="bg-[#f2c675]" />
       <RelatedServices
         eventPrefix="maintenance"
         title="Move from routine care to the right wider service"

@@ -47,7 +47,7 @@ export function CaseStudyCard({ study, index, compact = false }: { study: CaseSt
           <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#3d709f]">{study.category} · {study.sector}</span>
           <h3 className={`mt-5 font-sans font-semibold text-balance ${compact ? "text-h4" : "text-h3"}`}>{study.title}</h3>
           {!compact && <p className="mt-4 text-[16.5px] leading-relaxed text-ink/70">{study.lede}</p>}
-          <span className="mt-6 inline-flex items-center gap-2 font-semibold text-teal">Read case study <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" /></span>
+          <span className="mt-6 inline-flex items-center gap-2 font-semibold text-amber-deep">Read case study <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" /></span>
         </div>
       </Link>
     </article>
@@ -97,7 +97,7 @@ export function CaseStudiesHub() {
 
       <section className="bg-[#76a9e8] text-[#10243a]">
         <div className="container-omh section-md grid grid-cols-12 items-center gap-10 max-lg:block">
-          <Reveal className="col-span-8"><h2 className="max-w-[20ch] font-sans text-h2 font-semibold">Want to be the next project story?</h2><p className="mt-5 max-w-[58ch] text-lead leading-relaxed text-[#10243a]/70">Tell us the objective and how you'll measure success, and we'll recommend a practical scope.</p></Reveal>
+          <Reveal className="col-span-8"><h2 className="max-w-[20ch] font-sans text-h2 font-semibold">Want to be the next project story?</h2><p className="mt-5 max-w-[58ch] text-lead leading-relaxed text-[#10243a]/70">Tell us the objective and how you’ll measure success, and we’ll recommend a practical scope.</p></Reveal>
           <Reveal className="col-span-4 max-lg:mt-8"><Button href="/contact" variant="inverse" arrow data-event="case_studies_hub_cta_click">Discuss Your Project</Button></Reveal>
         </div>
       </section>
@@ -113,7 +113,7 @@ export function CaseStudyArticle({ study }: { study: CaseStudy }) {
       <header className="border-b border-line bg-[#f4f7fa]">
         <div className="container-omh section-md">
           <Reveal>
-            <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-2 text-[13px] text-muted"><Link href="/case-studies" className="hover:text-teal hover:underline">Case Studies</Link><span aria-hidden>/</span><span>{study.shortTitle}</span></nav>
+            <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-2 text-[13px] text-muted"><Link href="/case-studies" className="hover:text-amber-deep hover:underline">Case Studies</Link><span aria-hidden>/</span><span>{study.shortTitle}</span></nav>
             <div className="grid grid-cols-12 items-center gap-x-12 gap-y-10 max-lg:block">
               <div className="col-span-7 max-lg:mb-10">
                 <span className="text-[12px] font-semibold uppercase tracking-[0.15em] text-[#3d709f]">{study.category} · {study.sector}</span>
@@ -155,8 +155,8 @@ export function CaseStudyArticle({ study }: { study: CaseStudy }) {
 
       <section className="border-b border-line bg-white">
         <div className="container-omh section-md">
-          <Reveal><div className="grid grid-cols-12 gap-x-12 gap-y-8 max-lg:block"><div className="col-span-4 max-lg:mb-8"><Eyebrow>Services connected to this study</Eyebrow><h2 className="mt-6 max-w-[15ch] font-sans text-h3 font-semibold">Follow the workstream, not just the result headline.</h2></div><div className="col-span-8 grid grid-cols-2 gap-4 max-sm:grid-cols-1">{study.serviceIds.map((serviceId) => { const service = caseStudyServices[serviceId]; return <Link key={serviceId} href={service.href} className="group rounded-card border border-line bg-warm/50 p-5 transition-colors hover:border-teal/45"><span className="flex items-center justify-between gap-3 font-sans font-semibold">{service.label}<ArrowRight className="size-4 text-teal transition-transform group-hover:translate-x-1" /></span></Link>; })}</div></div></Reveal>
-          <div className="mt-12 flex flex-wrap items-center justify-between gap-5 border-t border-line pt-7"><a href={study.sourceUrl} target="_blank" rel="noreferrer" className="text-[14px] font-semibold text-muted underline underline-offset-4 hover:text-teal">Open original source page</a><TextLink href={`/case-studies/${next.slug}`}>Next: {next.shortTitle}</TextLink></div>
+          <Reveal><div className="grid grid-cols-12 gap-x-12 gap-y-8 max-lg:block"><div className="col-span-4 max-lg:mb-8"><Eyebrow>Services connected to this study</Eyebrow><h2 className="mt-6 max-w-[15ch] font-sans text-h3 font-semibold">Follow the workstream, not just the result headline.</h2></div><div className="col-span-8 grid grid-cols-2 gap-4 max-sm:grid-cols-1">{study.serviceIds.map((serviceId) => { const service = caseStudyServices[serviceId]; return <Link key={serviceId} href={service.href} className="group rounded-card border border-line bg-warm/50 p-5 transition-colors hover:border-teal/45"><span className="flex items-center justify-between gap-3 font-sans font-semibold">{service.label}<ArrowRight className="size-4 text-amber-deep transition-transform group-hover:translate-x-1" /></span></Link>; })}</div></div></Reveal>
+          <div className="mt-12 flex flex-wrap items-center justify-between gap-5 border-t border-line pt-7"><a href={study.sourceUrl} target="_blank" rel="noreferrer" className="text-[14px] font-semibold text-muted underline underline-offset-4 hover:text-amber-deep">Open original source page</a><TextLink href={`/case-studies/${next.slug}`}>Next: {next.shortTitle}</TextLink></div>
         </div>
       </section>
 
@@ -189,7 +189,7 @@ export function ServiceCaseStudies({
           <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-[#cbd8e4] pt-6">
             <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">More related studies</span>
             {remainingStudies.map((study) => (
-              <Link key={study.slug} href={`/case-studies/${study.slug}`} className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-teal hover:underline underline-offset-4">
+              <Link key={study.slug} href={`/case-studies/${study.slug}`} className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-amber-deep hover:underline underline-offset-4">
                 {study.shortTitle}<ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
               </Link>
             ))}

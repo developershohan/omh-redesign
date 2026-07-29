@@ -1,7 +1,18 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "onlinemarketinghelp.co.uk",
+        pathname: "/wp-content/uploads/**",
+      },
+    ],
+  },
+  async redirects() {
+    return [{ source: "/blog", destination: "/insights", permanent: true }];
+  },
 };
 
 export default nextConfig;

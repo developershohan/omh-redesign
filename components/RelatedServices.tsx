@@ -46,7 +46,7 @@ export function RelatedServices({
                       href={link.href}
                       data-event={`${eventPrefix}_related_service_click`}
                       data-service={link.title}
-                      className="group inline-flex items-start gap-2 text-ink transition-colors hover:text-teal"
+                      className="group inline-flex items-start gap-2 text-ink transition-colors hover:text-amber-deep"
                     >
                       <span>{link.title}</span>
                       <ArrowRight className="mt-1 size-4 shrink-0 transition-transform duration-500 group-hover:translate-x-1" />

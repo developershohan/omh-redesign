@@ -1,13 +1,20 @@
-import Link from "next/link";
 import { Fragment } from "react";
 import { Pointer } from "@/components/Pointer";
 import { Reveal } from "@/components/Reveal";
-import { Accordion } from "@/components/ui/Accordion";
+import { ServiceFaqSection } from "@/components/services/ServiceFaqSection";
+import { ServiceFitSection as SharedServiceFitSection } from "@/components/services/ServiceFitSection";
+import { ServiceNextStepsCTA } from "@/components/services/ServiceNextStepsCTA";
+import { ServiceProcessTimeline } from "@/components/services/ServiceProcessTimeline";
+import { ServiceReasonGrid } from "@/components/services/ServiceReasonGrid";
+import {
+  CheckIcon as Check,
+  FeatureValue,
+  ServiceSectionIntro as SectionIntro,
+} from "@/components/services/ServicePrimitives";
 import { Button, TextLink } from "@/components/ui/Button";
 import { Eyebrow, Fpo, VerifiedSlot } from "@/components/ui/Proof";
 import { MediaFrame } from "@/components/ServiceMedia";
 import { ServiceBand as Band } from "@/components/services/ServiceBand";
-import { company } from "@/lib/content/nav";
 import { wordpressDevelopment as content } from "@/lib/content/wordpress-development";
 
 type Package = (typeof content.packages)[number];
@@ -20,71 +27,6 @@ type Package = (typeof content.packages)[number];
 
 /* `size="md"` steps the heading down to h3 for sections whose heading sits in a
    narrow sidebar column — at h2 those wrapped to three and four lines. */
-function SectionIntro({
-  title,
-  accent,
-  body,
-  size = "lg",
-  className = "",
-}: {
-  title: string;
-  accent?: string;
-  body?: string;
-  size?: "lg" | "md";
-  className?: string;
-}) {
-  return (
-    <div className={className}>
-      <h2
-        className={`max-w-[22ch] font-sans font-semibold text-balance ${
-          size === "md" ? "text-h3" : "text-h2"
-        }`}
-      >
-        {accent && title.includes(accent) ? (
-          <>
-            {title.slice(0, title.indexOf(accent))}
-            <span className="text-teal">{accent}</span>
-            {title.slice(title.indexOf(accent) + accent.length)}
-          </>
-        ) : title}
-      </h2>
-      {body && <p className="mt-5 max-w-[64ch] text-lead leading-relaxed text-ink/75">{body}</p>}
-    </div>
-  );
-}
-
-function Check({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden className={className}>
-      <path d="m5 13 4.5 4.5L19 7" />
-    </svg>
-  );
-}
-
-function Minus({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" aria-hidden className={className}>
-      <path d="M6 12h12" />
-    </svg>
-  );
-}
-
-// Pricing cell: booleans become included/not-included ticks, strings print as-is.
-function FeatureValue({ value }: { value: boolean | string }) {
-  if (typeof value === "string") return <>{value}</>;
-  return value ? (
-    <span className="inline-flex items-center">
-      <Check className="size-4 text-teal" />
-      <span className="sr-only">Included</span>
-    </span>
-  ) : (
-    <span className="inline-flex items-center">
-      <Minus className="size-4 text-muted/55" />
-      <span className="sr-only">Not included</span>
-    </span>
-  );
-}
-
 // ── Section 1: Hero ─────────────────────────────────────────────────────────
 // Future Elementor widget: "OMH Service Hero"
 export function ServiceHero() {
@@ -99,7 +41,7 @@ export function ServiceHero() {
                   lines and pushed the hero past the fold. U+2011 keeps "long-term"
                   from breaking across lines at its hyphen. */}
               <h1 className="mb-6 mt-7 max-w-[19ch] font-sans text-h1 font-semibold text-balance">
-                WordPress websites built to support enquiries, sales and <span className="text-teal">long-term growth</span>
+                WordPress websites built to support enquiries, sales and <span className="text-amber-deep">long-term growth</span>
               </h1>
               <p className="mb-9 max-w-[54ch] text-lead leading-relaxed text-ink/75">
                 {content.hero.body}
@@ -221,56 +163,18 @@ export function PainPointSection() {
 // Future Elementor widget: "OMH Fit Columns"
 export function FitSection() {
   return (
-    <Band label="Fit" tone="white">
-      <Reveal>
-        <SectionIntro
-          title="Built for businesses that need a serious WordPress website"
-          accent="serious WordPress website"
-          body="This service works best when there is a clear business reason for the build and enough planning time to do the work properly. If that is not where you are yet, it is better to say so early."
-        />
-        <div className="mt-12 grid grid-cols-12 gap-x-10 gap-y-8 max-lg:block">
-          {/* Weighted: the good-fit column is wider and panelled, the other recedes */}
-          <div className="col-span-7 rounded-card border border-soft-dark bg-soft/70 p-9 max-lg:mb-8 max-sm:p-6">
-            <h3 className="flex items-center gap-2.5 font-sans text-h3 font-semibold">
-              <Check className="size-5 text-teal" />
-              A good fit
-            </h3>
-            <ul className="mt-6">
-              {content.fit.good.map((item) => (
-                <li
-                  key={item}
-                  className="flex gap-3.5 border-b border-soft-dark py-3.5 text-[17px] leading-snug text-ink/85 last:border-b-0 last:pb-0"
-                >
-                  <Check className="mt-1 size-4 shrink-0 text-teal" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="col-span-5 max-lg:pt-2">
-            <h3 className="flex items-center gap-2.5 font-sans text-h3 font-semibold text-muted">
-              <Minus className="size-5" />
-              Probably not yet
-            </h3>
-            <ul className="mt-6 border-t border-line">
-              {content.fit.notFit.map((item) => (
-                <li
-                  key={item}
-                  className="border-b border-line py-3.5 text-[16.5px] leading-snug text-muted"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-bsm leading-relaxed text-ink/70">
-              Not sure which side you are on? Say so on the call and we will tell you
-              plainly.
-            </p>
-          </div>
-        </div>
-      </Reveal>
-    </Band>
+    <SharedServiceFitSection
+      title="Built for businesses that need a serious WordPress website"
+      titleAccent="serious WordPress website"
+      body="This service works best when there is a clear business reason for the build and enough planning time to do the work properly. If that is not where you are yet, it is better to say so early."
+      good={content.fit.good}
+      notFit={content.fit.notFit}
+      footer={
+        <p className="mt-6 text-bsm leading-relaxed text-ink/70">
+          Not sure which side you are on? Say so on the call and we will tell you plainly.
+        </p>
+      }
+    />
   );
 }
 
@@ -332,43 +236,14 @@ export function ServiceCapabilityGrid() {
 // which is the only reason this section is numbered.
 export function ProcessSteps() {
   return (
-    <Band label="Process" tone="white">
-      <Reveal>
-        <div className="grid grid-cols-12 gap-x-10 gap-y-10 max-lg:block">
-          <div className="col-span-4 max-lg:mb-10">
-            <div className="lg:sticky lg:top-24">
-              <SectionIntro
-                size="md"
-                title="A clear process from planning to launch"
-                accent="planning to launch"
-                body="The goal, content and design decisions are agreed before development becomes expensive to change."
-              />
-              <div className="mt-8">
-                <TextLink href="/contact" data-event="wpdev_form_start">
-                  Start at discovery
-                </TextLink>
-              </div>
-            </div>
-          </div>
-
-          <ol className="col-span-8 relative border-l border-line pl-9 max-sm:pl-7">
-            {content.process.map(([title, body], index) => (
-              <li key={title} className="group/step relative pb-10 last:pb-0">
-                {/* -left = -(spine padding + half the 30px marker), so it centres on the rule */}
-                <span
-                  aria-hidden
-                  className="absolute -left-[51px] top-0.5 flex size-[30px] items-center justify-center rounded-full border border-line bg-white font-sans text-[13px] font-semibold tabular-nums text-teal transition-colors duration-200 group-hover/step:border-teal group-hover/step:bg-teal group-hover/step:text-white max-sm:-left-[43px]"
-                >
-                  {index + 1}
-                </span>
-                <h3 className="font-sans text-h3 font-semibold">{title}</h3>
-                <p className="mt-2.5 max-w-[62ch] text-body leading-relaxed text-ink/75">{body}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </Reveal>
-    </Band>
+    <ServiceProcessTimeline
+      label="Process"
+      title="A clear process from planning to launch"
+      titleAccent="planning to launch"
+      body="The goal, content and design decisions are agreed before development becomes expensive to change."
+      steps={content.process}
+      action={{ label: "Start at discovery", event: "wpdev_form_start" }}
+    />
   );
 }
 
@@ -569,7 +444,7 @@ export function IncludedFeatures() {
                     key={item}
                     className="inline-flex items-center gap-2 rounded-full border border-line bg-white py-2 pl-3 pr-4 text-[15px] leading-none text-ink/80 transition-colors duration-200 hover:border-teal/45 hover:bg-soft/50"
                   >
-                    <Check className="size-3.5 shrink-0 text-teal" />
+                    <Check className="size-3.5 shrink-0 text-amber-deep" />
                     {item}
                   </li>
                 ))}
@@ -596,7 +471,7 @@ export function CaseStudyFeature() {
             <div className="col-span-5">
               <Eyebrow>Case study placeholder</Eyebrow>
               <h2 className="mb-5 mt-6 font-sans text-h3 font-semibold text-balance">
-                A real WordPress project, <span className="text-teal">explained properly</span>
+                A real WordPress project, <span className="text-amber-deep">explained properly</span>
               </h2>
               <p className="text-body leading-relaxed text-ink/75">
                 This slot is built for the real client name or anonymised sector, business
@@ -647,133 +522,45 @@ export function CaseStudyFeature() {
 // Future Elementor widget: "OMH Reason Rows"
 export function WhyChooseSection() {
   return (
-    <Band label="Why OMH">
-      <Reveal>
-        <SectionIntro
-          title="WordPress development connected to marketing, not separated from it"
-          accent="not separated from it"
-          body="A better website is not only a design job. It has to support the way people find the business, compare the offer and decide to enquire or buy."
-        />
-        <div className="mt-12 grid grid-cols-2 gap-x-12 max-lg:grid-cols-1">
-          {content.reasons.map(([title, body]) => (
-            <article
-              key={title}
-              className="group border-t border-line py-6 transition-colors duration-200 hover:border-teal/50"
-            >
-              <h3 className="flex items-start gap-3 font-sans text-h4 font-semibold">
-                <Check className="mt-1 size-4 shrink-0 text-teal" />
-                {title}
-              </h3>
-              <p className="mt-2.5 pl-7 text-[18px] leading-relaxed text-ink/75">{body}</p>
-            </article>
-          ))}
-        </div>
-      </Reveal>
-    </Band>
+    <ServiceReasonGrid
+      title="WordPress development connected to marketing, not separated from it"
+      titleAccent="not separated from it"
+      body="A better website is not only a design job. It has to support the way people find the business, compare the offer and decide to enquire or buy."
+      reasons={content.reasons}
+    />
   );
 }
 
 // ── Section 10: FAQ ─────────────────────────────────────────────────────────
 export function FAQAccordion() {
   return (
-    <Band label="FAQ" tone="white">
-      <Reveal>
-        <div className="grid grid-cols-12 gap-x-12 gap-y-8 max-lg:block">
-          <div className="col-span-4 max-lg:mb-8">
-            <div className="lg:sticky lg:top-24">
-              <SectionIntro size="md" title="Questions before you brief a WordPress project" accent="WordPress project" />
-              <p className="mt-5 text-bsm leading-relaxed text-ink/70">
-                If your question is not here, ask it on the consultation call and you will
-                get a straight answer.
-              </p>
-              <p className="mt-5 text-bsm">
-                <Link
-                  href={company.phoneHref}
-                  data-event="wpdev_phone_click"
-                  className="font-semibold text-teal underline underline-offset-4"
-                >
-                  {company.phoneDisplay}
-                </Link>
-              </p>
-            </div>
-          </div>
-          <div className="col-span-8">
-            <Accordion group="wpdev-faq" items={content.faqs.map(([q, a]) => ({ q, a }))} />
-          </div>
-        </div>
-      </Reveal>
-    </Band>
+    <ServiceFaqSection
+      title="Questions before you brief a WordPress project"
+      titleAccent="WordPress project"
+      description="If your question is not here, ask it on the consultation call and you will get a straight answer."
+      items={content.faqs.map(([q, a]) => ({ q, a }))}
+      group="wpdev-faq"
+      phoneEvent="wpdev_phone_click"
+    />
   );
 }
 
 // ── Section 11: Final CTA ───────────────────────────────────────────────────
 export function FinalCTA() {
   return (
-    <section className="bg-ink text-white">
-      <div className="container-omh section-md grid grid-cols-12 items-start gap-x-10 gap-y-10 max-lg:block">
-        <Reveal className="col-span-7">
-          <h2 className="mb-5 max-w-[20ch] font-serif text-[clamp(30px,24px+1.6vw,42px)] font-normal leading-tight tracking-normal">
-            Ready to improve your <span className="text-[#5fc8bd]">WordPress website?</span>
-          </h2>
-          <p className="mb-9 max-w-[56ch] text-lead leading-relaxed text-white/75">
-            Tell us what you need your website to do, what is not working now, and what you
-            want to improve. We will review the details and recommend the most practical
-            next step.
-          </p>
-          <div className="flex flex-wrap items-center gap-3.5 max-sm:flex-col max-sm:items-stretch">
-            <Button href="/contact" variant="inverse" arrow data-event="wpdev_final_cta_click">
-              Book a WordPress Consultation
-            </Button>
-            <Button href="/contact" variant="ghost-white" data-event="wpdev_form_start">
-              Send a Website Brief
-            </Button>
-          </div>
-          <p className="mt-8 text-bsm text-white/65">
-            <Link
-              href={company.phoneHref}
-              data-event="wpdev_phone_click"
-              className="underline underline-offset-4"
-            >
-              {company.phoneDisplay}
-            </Link>
-            <span aria-hidden className="px-2.5 text-white/35">
-              /
-            </span>
-            <Link
-              href={`mailto:${company.email}`}
-              data-event="wpdev_email_click"
-              className="underline underline-offset-4"
-            >
-              {company.email}
-            </Link>
-          </p>
-        </Reveal>
-
-        <Reveal className="col-span-4 col-start-9 max-lg:mt-10">
-          <div className="rounded-card border border-white/15 bg-white/[0.04] p-8 max-sm:p-6">
-            <p className="mb-6 text-[12.5px] font-semibold uppercase tracking-[0.16em] text-white/55">
-              What happens next
-            </p>
-            <ol className="grid gap-5">
-              {[
-                "Your enquiry is reviewed by a real person.",
-                "We discuss your goals, website problems and practical options.",
-                "You receive a clear recommendation on the next step.",
-              ].map((step, index) => (
-                <li key={step} className="grid grid-cols-[auto_1fr] items-start gap-4">
-                  <span
-                    aria-hidden
-                    className="flex size-7 items-center justify-center rounded-full border border-white/25 font-sans text-[13px] font-semibold tabular-nums text-white/80"
-                  >
-                    {index + 1}
-                  </span>
-                  <span className="text-[16px] leading-snug text-white/85">{step}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </Reveal>
-      </div>
-    </section>
+    <ServiceNextStepsCTA
+      title="Ready to improve your WordPress website?"
+      titleAccent="WordPress website?"
+      body="Tell us what you need your website to do, what is not working now, and what you want to improve. We will review the details and recommend the most practical next step."
+      primary={{ label: "Book a WordPress Consultation", event: "wpdev_final_cta_click" }}
+      secondary={{ label: "Send a Website Brief", event: "wpdev_form_start" }}
+      phoneEvent="wpdev_phone_click"
+      emailEvent="wpdev_email_click"
+      steps={[
+        "Your enquiry is reviewed by a real person.",
+        "We discuss your goals, website problems and practical options.",
+        "You receive a clear recommendation on the next step.",
+      ]}
+    />
   );
 }

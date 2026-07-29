@@ -7,7 +7,7 @@ export function Accordion({
   items,
   group,
 }: {
-  items: { q: string; a: ReactNode }[];
+  items: readonly { q: string; a: ReactNode }[];
   group?: string;
 }) {
   return (
@@ -22,7 +22,7 @@ export function Accordion({
               stroke="currentColor"
               strokeWidth="2"
               strokeLinecap="round"
-              className="size-5 shrink-0 text-teal transition-transform group-open:rotate-45"
+              className="size-5 shrink-0 text-amber-deep transition-transform group-open:rotate-45"
               aria-hidden
             >
               <path d="M12 5v14M5 12h14" />

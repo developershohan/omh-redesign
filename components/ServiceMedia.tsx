@@ -10,7 +10,7 @@ const themeStyles: Record<MediaTheme, { frame: string; badge: string; icon: stri
   wordpress: {
     frame: "border-ink/25 bg-[#efe8db] text-ink",
     badge: "border-ink/15 bg-white/85 text-ink/65",
-    icon: "border-ink/20 bg-white/80 text-teal",
+    icon: "border-ink/20 bg-white/80 text-amber-deep",
     line: "bg-teal",
   },
   shopify: {
@@ -20,10 +20,10 @@ const themeStyles: Record<MediaTheme, { frame: string; badge: string; icon: stri
     line: "bg-[#e46f55]",
   },
   maintenance: {
-    frame: "border-[#5fc8bd]/40 bg-[#111d2d] text-white",
+    frame: "border-[#f2c675]/40 bg-[#111d2d] text-white",
     badge: "border-white/15 bg-[#0c1624]/85 text-white/70",
-    icon: "border-[#5fc8bd]/35 bg-[#0c1624]/90 text-[#5fc8bd]",
-    line: "bg-[#5fc8bd]",
+    icon: "border-[#f2c675]/35 bg-[#0c1624]/90 text-[#f2c675]",
+    line: "bg-[#f2c675]",
   },
   ppc: {
     frame: "border-[#b8ef3e]/45 bg-[#11130f] text-white",
@@ -96,7 +96,7 @@ export function MediaFrame({
       aria-label={hasMedia ? undefined : `${kind === "video" ? "Video" : kind === "screen" ? "Screen" : "Image"} placeholder: ${title}. ${note}`}
       data-media-kind={kind}
       style={{ aspectRatio: ratio }}
-      className={`service-media-frame group relative flex min-h-[220px] items-center justify-center overflow-hidden rounded-[18px] border-2 ${styles.frame} ${className}`}
+      className={`service-media-frame group relative flex min-h-[180px] w-full min-w-0 max-w-full items-center justify-center overflow-hidden rounded-[18px] border-2 sm:min-h-[220px] ${styles.frame} ${className}`}
     >
       {source && kind === "video" ? (
         <video controls preload="metadata" poster={poster} aria-label={alt ?? title} className="absolute inset-0 size-full object-cover">
@@ -140,7 +140,7 @@ export function WordPressVisualStory() {
         <Reveal>
           <div className="grid grid-cols-12 items-end gap-x-10 gap-y-7 max-lg:block">
             <div className="col-span-5 max-lg:mb-9">
-              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-teal">WordPress build story</p>
+              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-amber-deep">WordPress build story</p>
               <h2 className="mt-5 max-w-[15ch] font-serif text-[clamp(32px,25px+1.9vw,48px)] leading-[1.05]">See the thinking, the build and the editable result.</h2>
               <p className="mt-5 max-w-[48ch] text-[17px] leading-relaxed text-ink/70">From the first wireframe to a live, editable website — the same process behind every WordPress build we deliver.</p>
             </div>
@@ -191,11 +191,11 @@ export function MaintenanceControlRoom() {
         <Reveal>
           <div className="grid grid-cols-12 gap-x-10 gap-y-8 max-lg:block">
             <div className="col-span-4 max-lg:mb-9">
-              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#5fc8bd]">Maintenance control room</p>
+              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#f2c675]">Maintenance control room</p>
               <h2 className="mt-5 max-w-[13ch] font-sans text-h2 font-semibold">Show the work that normally happens quietly.</h2>
               <p className="mt-5 max-w-[42ch] text-[17px] leading-relaxed text-white/65">Uptime monitoring, update logs and a monthly report you can actually read — the ongoing care that keeps a site reliable.</p>
               <div className="mt-8 grid gap-3 text-[13px]">
-                {["Uptime and fault alerts", "Updates and backup checks", "Monthly work summary"].map((label) => <div key={label} className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.035] px-4 py-3"><span className="size-2 rounded-full bg-[#5fc8bd] shadow-[0_0_14px_rgba(95,200,189,.65)]" />{label}</div>)}
+                {["Uptime and fault alerts", "Updates and backup checks", "Monthly work summary"].map((label) => <div key={label} className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.035] px-4 py-3"><span className="size-2 rounded-full bg-[#f2c675] shadow-[0_0_14px_rgba(242,198,117,.65)]" />{label}</div>)}
               </div>
             </div>
             <div className="col-span-8 grid grid-cols-8 gap-5">
@@ -245,7 +245,7 @@ export function AmazonMarketplaceWorkbench() {
             <div className="col-span-5 max-lg:mb-9">
               <p className="text-[12px] font-semibold uppercase tracking-[0.17em] text-[#ffb84d]">Marketplace workbench</p>
               <h2 className="mt-5 max-w-[14ch] font-sans text-[clamp(34px,27px+2vw,52px)] font-semibold leading-[1.02]">See the listing, campaign and search term together.</h2>
-              <p className="mt-6 max-w-[48ch] text-[17px] leading-relaxed text-white/68">Catalogue, campaign and listing performance reviewed together — because on Amazon they can't be managed apart.</p>
+              <p className="mt-6 max-w-[48ch] text-[17px] leading-relaxed text-white/68">Catalogue, campaign and listing performance reviewed together — because on Amazon they can’t be managed apart.</p>
             </div>
             <MediaFrame kind="video" theme="amazon" ratio="16/10" title="Amazon campaign walkthrough" note="Add a concise, anonymised account and optimisation review." className="col-span-7" />
           </div>

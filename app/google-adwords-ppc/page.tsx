@@ -14,6 +14,7 @@ import {
 import { RelatedServices } from "@/components/RelatedServices";
 import { ServiceCaseStudies } from "@/components/CaseStudies";
 import { PpcCampaignStudio } from "@/components/ServiceMedia";
+import { SiteTestimonials } from "@/components/Testimonials";
 
 export const metadata: Metadata = {
   title: "Google Ads PPC Management for UK Businesses",
@@ -57,6 +58,7 @@ export default function GoogleAdwordsPpcPage() {
         title="Campaign work alongside SEO and website delivery"
         body="The source library often combines paid media with organic and website work. These pages separate the workstreams and label every result claim that still needs evidence."
       />
+      <SiteTestimonials eventPrefix="ppc" accent="bg-[#b8ef3e]" />
       <RelatedServices
         eventPrefix="ppc"
         title="Connect paid traffic with the website it depends on"

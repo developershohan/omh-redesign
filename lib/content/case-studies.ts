@@ -3,7 +3,9 @@ export type CaseStudyServiceId =
   | "google-ads"
   | "wordpress"
   | "shopify"
-  | "maintenance";
+  | "maintenance"
+  | "social-media"
+  | "paid-social";
 
 export type CaseStudy = {
   slug: string;
@@ -33,6 +35,8 @@ export const caseStudyServices: Record<
   wordpress: { label: "WordPress Development", href: "/wordpress-development" },
   shopify: { label: "Shopify Development", href: "/shopify-development" },
   maintenance: { label: "WordPress Website Maintenance", href: "/wordpress-website-maintenance" },
+  "social-media": { label: "Social Media Marketing", href: "/social-media-marketing" },
+  "paid-social": { label: "Paid Social Advertising", href: "/social-media-paid-advertising" },
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -205,7 +209,7 @@ export const caseStudies: CaseStudy[] = [
       quote: "A reliable digital-marketing partner from the website launch through to ongoing campaigns.",
       attribution: "George Schwarz, Owner",
     },
-    serviceIds: ["wordpress", "seo", "google-ads"],
+    serviceIds: ["wordpress", "seo", "google-ads", "social-media", "paid-social"],
   },
   {
     slug: "fine-dining",
@@ -240,7 +244,7 @@ export const caseStudies: CaseStudy[] = [
       quote: "The team's SEO implementation made a real difference in a competitive restaurant market.",
       attribution: "Serg Zinki, Owner",
     },
-    serviceIds: ["seo", "google-ads", "wordpress"],
+    serviceIds: ["seo", "google-ads", "wordpress", "social-media", "paid-social"],
   },
 ];
 

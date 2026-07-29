@@ -36,7 +36,7 @@ export function ContactForm() {
         <button
           type="button"
           onClick={() => setSent(false)}
-          className="mt-6 text-[15px] font-semibold text-teal underline underline-offset-4"
+          className="mt-6 text-[15px] font-semibold text-amber-deep underline underline-offset-4"
         >
           Send another enquiry
         </button>

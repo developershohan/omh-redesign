@@ -1,5 +1,6 @@
 import type { CaseMeta } from "@/components/ui/Case";
 import { caseStudies } from "@/lib/content/case-studies";
+import { featuredInsights } from "@/lib/content/insights-index";
 
 export const hero = {
   eyebrow: "★★★★★ UK digital marketing & web development agency",
@@ -104,7 +105,7 @@ export const services = [
   { label: "Amazon PPC", href: "/amazon-ppc-advertising-agency-uk" },
   { label: "Meta Ads", href: "/services/meta-ads-management" },
   { label: "SEO", href: "/search-engine-optimisation" },
-  { label: "Local SEO", href: "/services/local-seo" },
+  { label: "Local SEO", href: "/local-seo" },
   { label: "Website Design", href: "/services/website-design" },
   { label: "WordPress Development", href: "/wordpress-development" },
   { label: "Website Maintenance", href: "/wordpress-website-maintenance" },
@@ -131,26 +132,12 @@ export const recognition = [
   "Account Support",
 ];
 
-export const insights = [
-  {
-    category: "Strategy",
-    title: "How to Tell Whether Your Marketing Is Producing the Right Leads",
-    body: "Look beyond form fills and track the quality signals that actually influence sales.",
-    href: "/blog",
-  },
-  {
-    category: "Websites",
-    title: "Why Service Pages Still Matter for SEO and Conversion",
-    body: "Dedicated pages help visitors understand your offer and help search engines rank the right topic.",
-    href: "/blog",
-  },
-  {
-    category: "Tracking",
-    title: "The Reporting Setup Every Growing Business Should Have",
-    body: "Useful reporting connects traffic, enquiries, sales value, and next actions.",
-    href: "/blog",
-  },
-];
+export const insights = featuredInsights.map((post) => ({
+  category: post.topic.name,
+  title: post.title,
+  body: post.summary,
+  href: `/${post.slug}`,
+}));
 
 export const finalCta = {
   headline: "Ready to make your marketing easier to measure and easier to scale?",

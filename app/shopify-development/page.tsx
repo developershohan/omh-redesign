@@ -14,6 +14,7 @@ import {
 import { RelatedServices } from "@/components/RelatedServices";
 import { ServiceCaseStudies } from "@/components/CaseStudies";
 import { ShopifyStorefrontShowcase } from "@/components/ServiceMedia";
+import { SiteTestimonials } from "@/components/Testimonials";
 
 export const metadata: Metadata = {
   title: "Shopify Development for UK Businesses",
@@ -39,6 +40,7 @@ export default function ShopifyDevelopmentPage() {
         body="Review the clothing SEO story and the conflicted ecommerce source reconstruction before planning store, catalogue and acquisition work."
         limit={2}
       />
+      <SiteTestimonials eventPrefix="shopify" accent="bg-[#e46f55]" />
       <RelatedServices
         eventPrefix="shopify"
         title="Connect store development with acquisition and support"

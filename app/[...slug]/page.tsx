@@ -49,7 +49,7 @@ export default async function ComingSoon({ params }: { params: Promise<{ slug: s
                   className="flex items-center justify-between gap-4 rounded-card border border-line bg-warm px-5 py-4 transition-colors hover:border-teal/40 hover:bg-soft/50"
                 >
                   <span className="font-sans text-[17px] font-semibold">{page.label}</span>
-                  <span className="text-[13px] font-semibold uppercase tracking-[0.08em] text-teal">
+                  <span className="text-[13px] font-semibold uppercase tracking-[0.08em] text-amber-deep">
                     View
                   </span>
                 </Link>

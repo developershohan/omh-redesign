@@ -1,78 +1,23 @@
-import Link from "next/link";
 import { Fragment } from "react";
 import { Pointer } from "@/components/Pointer";
 import { Reveal } from "@/components/Reveal";
-import { Accordion } from "@/components/ui/Accordion";
+import { ServiceFaqSection } from "@/components/services/ServiceFaqSection";
+import { ServiceFitSection as SharedServiceFitSection } from "@/components/services/ServiceFitSection";
+import { ServiceNextStepsCTA } from "@/components/services/ServiceNextStepsCTA";
+import { ServiceProcessTimeline } from "@/components/services/ServiceProcessTimeline";
+import { ServiceReasonGrid } from "@/components/services/ServiceReasonGrid";
+import {
+  CheckIcon as Check,
+  FeatureValue,
+  ServiceSectionIntro as SectionIntro,
+} from "@/components/services/ServicePrimitives";
 import { Button, TextLink } from "@/components/ui/Button";
 import { Eyebrow, Fpo, VerifiedSlot } from "@/components/ui/Proof";
 import { MediaFrame } from "@/components/ServiceMedia";
 import { ServiceBand as Band } from "@/components/services/ServiceBand";
-import { company } from "@/lib/content/nav";
 import { shopifyDevelopment as content } from "@/lib/content/shopify-development";
 
 type Package = (typeof content.packages)[number];
-
-function SectionIntro({
-  title,
-  accent,
-  body,
-  size = "lg",
-  className = "",
-}: {
-  title: string;
-  accent?: string;
-  body?: string;
-  size?: "lg" | "md";
-  className?: string;
-}) {
-  return (
-    <div className={className}>
-      <h2 className={`max-w-[22ch] font-sans font-semibold text-balance ${size === "md" ? "text-h3" : "text-h2"}`}>
-        {accent && title.includes(accent) ? (
-          <>
-            {title.slice(0, title.indexOf(accent))}
-            <span className="text-teal">{accent}</span>
-            {title.slice(title.indexOf(accent) + accent.length)}
-          </>
-        ) : (
-          title
-        )}
-      </h2>
-      {body && <p className="mt-5 max-w-[64ch] text-lead leading-relaxed text-ink/75">{body}</p>}
-    </div>
-  );
-}
-
-function Check({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden className={className}>
-      <path d="m5 13 4.5 4.5L19 7" />
-    </svg>
-  );
-}
-
-function Minus({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" aria-hidden className={className}>
-      <path d="M6 12h12" />
-    </svg>
-  );
-}
-
-function FeatureValue({ value }: { value: boolean | string }) {
-  if (typeof value === "string") return <>{value}</>;
-  return value ? (
-    <span className="inline-flex items-center">
-      <Check className="size-4 text-teal" />
-      <span className="sr-only">Included</span>
-    </span>
-  ) : (
-    <span className="inline-flex items-center">
-      <Minus className="size-4 text-muted/55" />
-      <span className="sr-only">Not included</span>
-    </span>
-  );
-}
 
 export function ShopifyHero() {
   return (
@@ -83,7 +28,7 @@ export function ShopifyHero() {
             <Reveal>
               <Eyebrow>{content.hero.eyebrow}</Eyebrow>
               <h1 className="mb-6 mt-7 max-w-[20ch] font-sans text-h1 font-semibold text-balance">
-                Shopify stores built to sell clearly, run reliably and <span className="text-teal">grow with the business</span>
+                Shopify stores built to sell clearly, run reliably and <span className="text-amber-deep">grow with the business</span>
               </h1>
               <p className="mb-9 max-w-[55ch] text-lead leading-relaxed text-ink/75">{content.hero.body}</p>
               <div className="flex flex-wrap items-center gap-3.5 max-sm:flex-col max-sm:items-stretch">
@@ -165,40 +110,13 @@ export function ShopifyNeedSection() {
 
 export function ShopifyFitSection() {
   return (
-    <Band label="Fit" tone="white">
-      <Reveal>
-        <SectionIntro
-          title="For businesses treating ecommerce as a serious sales channel"
-          accent="serious sales channel"
-          body="A clear commercial reason for the project makes design and development decisions easier. This section helps qualify the fit before either side commits time to a proposal."
-        />
-        <div className="mt-12 grid grid-cols-12 gap-x-10 gap-y-8 max-lg:block">
-          <div className="col-span-7 rounded-card border border-soft-dark bg-soft/70 p-9 max-lg:mb-8 max-sm:p-6">
-            <h3 className="flex items-center gap-2.5 font-sans text-h3 font-semibold">
-              <Check className="size-5 text-teal" /> A good fit
-            </h3>
-            <ul className="mt-6">
-              {content.fit.good.map((item) => (
-                <li key={item} className="flex gap-3.5 border-b border-soft-dark py-3.5 text-[17px] leading-snug text-ink/85 last:border-b-0 last:pb-0">
-                  <Check className="mt-1 size-4 shrink-0 text-teal" /> {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="col-span-5 max-lg:pt-2">
-            <h3 className="flex items-center gap-2.5 font-sans text-h3 font-semibold text-muted">
-              <Minus className="size-5" /> Probably not yet
-            </h3>
-            <ul className="mt-6 border-t border-line">
-              {content.fit.notFit.map((item) => (
-                <li key={item} className="border-b border-line py-3.5 text-[16.5px] leading-snug text-muted">{item}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </Reveal>
-    </Band>
+    <SharedServiceFitSection
+      title="For businesses treating ecommerce as a serious sales channel"
+      titleAccent="serious sales channel"
+      body="A clear commercial reason for the project makes design and development decisions easier. This section helps qualify the fit before either side commits time to a proposal."
+      good={content.fit.good}
+      notFit={content.fit.notFit}
+    />
   );
 }
 
@@ -224,7 +142,7 @@ export function ShopifyCapabilityGrid() {
             <ul className="col-span-5 col-start-8 grid gap-3 border-t border-white/15 pt-6 max-lg:mt-8">
               {featured.detail?.map((line) => (
                 <li key={line} className="flex gap-3 text-[17px] leading-snug text-white/85">
-                  <Check className="mt-0.5 size-4 shrink-0 text-[#5fc8bd]" /> {line}
+                  <Check className="mt-0.5 size-4 shrink-0 text-[#f2c675]" /> {line}
                 </li>
               ))}
             </ul>
@@ -251,32 +169,14 @@ export function ShopifyCapabilityGrid() {
 
 export function ShopifyProcessSteps() {
   return (
-    <Band label="Process" tone="white">
-      <Reveal>
-        <div className="grid grid-cols-12 gap-x-10 gap-y-10 max-lg:block">
-          <div className="col-span-4 max-lg:mb-10">
-            <div className="lg:sticky lg:top-24">
-              <SectionIntro size="md" title="A controlled route from store planning to launch" accent="planning to launch" body="Migration, integration and buying-journey risks are raised before they become last-minute launch problems." />
-              <div className="mt-8">
-                <TextLink href="/contact" data-event="shopify_form_start">Start at discovery</TextLink>
-              </div>
-            </div>
-          </div>
-
-          <ol className="relative col-span-8 border-l border-line pl-9 max-sm:pl-7">
-            {content.process.map(([title, body], index) => (
-              <li key={title} className="group/step relative pb-10 last:pb-0">
-                <span aria-hidden className="absolute -left-[51px] top-0.5 flex size-[30px] items-center justify-center rounded-full border border-line bg-white font-sans text-[13px] font-semibold tabular-nums text-teal transition-colors group-hover/step:border-teal group-hover/step:bg-teal group-hover/step:text-white max-sm:-left-[43px]">
-                  {index + 1}
-                </span>
-                <h3 className="font-sans text-h3 font-semibold">{title}</h3>
-                <p className="mt-2.5 max-w-[62ch] text-body leading-relaxed text-ink/75">{body}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </Reveal>
-    </Band>
+    <ServiceProcessTimeline
+      label="Process"
+      title="A controlled route from store planning to launch"
+      titleAccent="planning to launch"
+      body="Migration, integration and buying-journey risks are raised before they become last-minute launch problems."
+      steps={content.process}
+      action={{ label: "Start at discovery", event: "shopify_form_start" }}
+    />
   );
 }
 
@@ -394,7 +294,7 @@ export function ShopifyCaseStudyFeature() {
             <div className="col-span-5">
               <Eyebrow>Client work</Eyebrow>
               <h2 className="mb-5 mt-6 font-sans text-h3 font-semibold text-balance">
-                Show the store, the challenge and <span className="text-teal">what changed</span>
+                Show the store, the challenge and <span className="text-amber-deep">what changed</span>
               </h2>
               <p className="text-body leading-relaxed text-ink/75">
                 Every Shopify case study we publish covers the same ground: the starting problem, what we built, the timeline, and a result the client can stand behind.
@@ -439,85 +339,43 @@ export function ShopifyCaseStudyFeature() {
 
 export function ShopifyWhyChooseSection() {
   return (
-    <Band label="Why OMH">
-      <Reveal>
-        <SectionIntro title="Shopify development connected to the wider job of selling online" accent="selling online" body="A useful ecommerce build considers products, operations, customer confidence, marketing and measurement—not only the storefront theme." />
-        <div className="mt-12 grid grid-cols-2 gap-x-12 max-lg:grid-cols-1">
-          {content.reasons.map(([title, body]) => (
-            <article key={title} className="group border-t border-line py-6 transition-colors hover:border-teal/50">
-              <h3 className="flex items-start gap-3 font-sans text-h4 font-semibold"><Check className="mt-1 size-4 shrink-0 text-teal" />{title}</h3>
-              <p className="mt-2.5 pl-7 text-[18px] leading-relaxed text-ink/75">{body}</p>
-            </article>
-          ))}
-        </div>
-      </Reveal>
-    </Band>
+    <ServiceReasonGrid
+      title="Shopify development connected to the wider job of selling online"
+      titleAccent="selling online"
+      body="A useful ecommerce build considers products, operations, customer confidence, marketing and measurement—not only the storefront theme."
+      reasons={content.reasons}
+    />
   );
 }
 
 export function ShopifyFAQAccordion() {
   return (
-    <Band label="FAQ" tone="white">
-      <Reveal>
-        <div className="grid grid-cols-12 gap-x-12 gap-y-8 max-lg:block">
-          <div className="col-span-4 max-lg:mb-8">
-            <div className="lg:sticky lg:top-24">
-              <SectionIntro size="md" title="Questions before you brief a Shopify project" accent="Shopify project" />
-              <p className="mt-5 text-bsm leading-relaxed text-ink/70">Support and commercial terms carried over from the current service page are clearly marked where confirmation is still needed.</p>
-              <p className="mt-5 text-bsm">
-                <Link href={company.phoneHref} data-event="shopify_phone_click" className="font-semibold text-teal underline underline-offset-4">{company.phoneDisplay}</Link>
-              </p>
-            </div>
-          </div>
-          <div className="col-span-8">
-            <Accordion group="shopify-faq" items={content.faqs.map(([q, a]) => ({ q, a }))} />
-          </div>
-        </div>
-      </Reveal>
-    </Band>
+    <ServiceFaqSection
+      title="Questions before you brief a Shopify project"
+      titleAccent="Shopify project"
+      description="Support and commercial terms carried over from the current service page are clearly marked where confirmation is still needed."
+      items={content.faqs.map(([q, a]) => ({ q, a }))}
+      group="shopify-faq"
+      phoneEvent="shopify_phone_click"
+    />
   );
 }
 
 export function ShopifyFinalCTA() {
   return (
-    <section className="bg-ink text-white">
-      <div className="container-omh section-md grid grid-cols-12 items-start gap-x-10 gap-y-10 max-lg:block">
-        <Reveal className="col-span-7">
-          <h2 className="mb-5 max-w-[20ch] font-serif text-[clamp(30px,24px+1.6vw,42px)] font-normal leading-tight tracking-normal">
-            Ready to plan a better <span className="text-[#5fc8bd]">Shopify store?</span>
-          </h2>
-          <p className="mb-9 max-w-[56ch] text-lead leading-relaxed text-white/75">
-            Tell us what you sell, what the current setup is making difficult and what the new store needs to support. We will review the detail and recommend a practical next step.
-          </p>
-          <div className="flex flex-wrap items-center gap-3.5 max-sm:flex-col max-sm:items-stretch">
-            <Button href="/contact" variant="inverse" arrow data-event="shopify_final_cta_click">Discuss Your Shopify Project</Button>
-            <Button href="/contact" variant="ghost-white" data-event="shopify_form_start">Send a Store Brief</Button>
-          </div>
-          <p className="mt-8 text-bsm text-white/65">
-            <Link href={company.phoneHref} data-event="shopify_phone_click" className="underline underline-offset-4">{company.phoneDisplay}</Link>
-            <span aria-hidden className="px-2.5 text-white/35">/</span>
-            <Link href={`mailto:${company.email}`} data-event="shopify_email_click" className="underline underline-offset-4">{company.email}</Link>
-          </p>
-        </Reveal>
-
-        <Reveal className="col-span-4 col-start-9 max-lg:mt-10">
-          <div className="rounded-card border border-white/15 bg-white/[0.04] p-8 max-sm:p-6">
-            <p className="mb-6 text-[12.5px] font-semibold uppercase tracking-[0.16em] text-white/55">What happens next</p>
-            <ol className="grid gap-5">
-              {[
-                "Your store brief is reviewed by a real person.",
-                "We discuss the products, platform, goals and technical requirements.",
-                "You receive a recommendation on package, scope or discovery work.",
-              ].map((step, index) => (
-                <li key={step} className="grid grid-cols-[auto_1fr] items-start gap-4">
-                  <span aria-hidden className="flex size-7 items-center justify-center rounded-full border border-white/25 font-sans text-[13px] font-semibold tabular-nums text-white/80">{index + 1}</span>
-                  <span className="text-[16px] leading-snug text-white/85">{step}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </Reveal>
-      </div>
-    </section>
+    <ServiceNextStepsCTA
+      title="Ready to plan a better Shopify store?"
+      titleAccent="Shopify store?"
+      body="Tell us what you sell, what the current setup is making difficult and what the new store needs to support. We will review the detail and recommend a practical next step."
+      primary={{ label: "Discuss Your Shopify Project", event: "shopify_final_cta_click" }}
+      secondary={{ label: "Send a Store Brief", event: "shopify_form_start" }}
+      phoneEvent="shopify_phone_click"
+      emailEvent="shopify_email_click"
+      steps={[
+        "Your store brief is reviewed by a real person.",
+        "We discuss the products, platform, goals and technical requirements.",
+        "You receive a recommendation on package, scope or discovery work.",
+      ]}
+    />
   );
 }

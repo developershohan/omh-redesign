@@ -36,7 +36,7 @@ export function Footer() {
                 <Link
                   key={l.href}
                   href={l.href}
-                  className="block py-1 text-[15.5px] text-muted hover:text-teal"
+                  className="block py-1 text-[15.5px] text-muted hover:text-amber-deep"
                 >
                   {l.label}
                 </Link>

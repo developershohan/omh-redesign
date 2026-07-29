@@ -2,8 +2,12 @@ import Link from "next/link";
 import { Pointer } from "@/components/Pointer";
 import { Reveal } from "@/components/Reveal";
 import { MediaFrame } from "@/components/ServiceMedia";
+import { ServiceFaqSection } from "@/components/services/ServiceFaqSection";
 import { ServiceBand, type ServiceBandTone } from "@/components/services/ServiceBand";
-import { Accordion } from "@/components/ui/Accordion";
+import {
+  CheckIcon as Check,
+  FeatureValue,
+} from "@/components/services/ServicePrimitives";
 import { Button, TextLink, ArrowRight } from "@/components/ui/Button";
 import { Eyebrow, VerifiedSlot } from "@/components/ui/Proof";
 import { searchEngineOptimisation as content } from "@/lib/content/search-engine-optimisation";
@@ -13,19 +17,6 @@ type Package = (typeof content.packages)[number];
 
 function Band({ tone = "white", ...props }: Omit<Parameters<typeof ServiceBand>[0], "accent" | "tone"> & { tone?: ServiceBandTone }) {
   return <ServiceBand {...props} tone={tone} accent="bg-[#ee8c67]" />;
-}
-
-function Check({ className = "" }: { className?: string }) {
-  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden className={className}><path d="m5 13 4.5 4.5L19 7" /></svg>;
-}
-
-function Minus({ className = "" }: { className?: string }) {
-  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" aria-hidden className={className}><path d="M6 12h12" /></svg>;
-}
-
-function FeatureValue({ value }: { value: boolean | string }) {
-  if (typeof value === "string") return <>{value}</>;
-  return value ? <span className="inline-flex text-[#3d709f]"><Check className="size-4" /><span className="sr-only">Included</span></span> : <span className="inline-flex text-muted/50"><Minus className="size-4" /><span className="sr-only">Not included</span></span>;
 }
 
 export function SeoHero() {
@@ -175,7 +166,7 @@ function PackageRow({ pkg, index }: { pkg: Package; index: number }) {
       <div className="mb-7 rounded-card border border-[#c4d4e5] bg-white p-6">
         <div className="grid grid-cols-2 gap-x-12 max-md:grid-cols-1">
           {content.packageGroups.map((group) => (
-            <dl key={group.label}><p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">{group.label}</p>{group.rows.map(([label, key]) => <div key={label} className="flex items-baseline justify-between gap-5 border-t border-line py-2.5 text-[14px]"><dt className="text-muted">{label}</dt><dd className="font-semibold"><FeatureValue value={pkg.features[key]} /></dd></div>)}</dl>
+            <dl key={group.label}><p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">{group.label}</p>{group.rows.map(([label, key]) => <div key={label} className="flex items-baseline justify-between gap-5 border-t border-line py-2.5 text-[14px]"><dt className="text-muted">{label}</dt><dd className="font-semibold"><FeatureValue value={pkg.features[key]} includedClassName="text-[#3d709f]" excludedClassName="text-muted/50" /></dd></div>)}</dl>
           ))}
         </div>
         <div className="mt-6"><Button href="/contact" small data-event="seo_package_select" data-package={pkg.name}>Discuss this package</Button></div>
@@ -211,14 +202,17 @@ export function SeoEvidence() {
 
 export function SeoFAQ() {
   return (
-    <Band label="SEO FAQ">
-      <Reveal>
-        <div className="grid grid-cols-12 gap-x-12 gap-y-8 max-lg:block">
-          <div className="col-span-4 max-lg:mb-8"><div className="lg:sticky lg:top-24"><h2 className="max-w-[13ch] font-sans text-h2 font-semibold">Questions before starting an SEO programme.</h2><p className="mt-5 max-w-[40ch] text-[16.5px] leading-relaxed text-ink/70">Ask for clear deliverables, access, ownership, reporting definitions, agreement terms and limits on claims before signing.</p><p className="mt-5"><Link href={company.phoneHref} data-event="seo_phone_click" className="font-semibold text-teal underline underline-offset-4">{company.phoneDisplay}</Link></p></div></div>
-          <div className="col-span-8"><Accordion group="seo-faq" items={content.faqs.map(([q, a]) => ({ q, a }))} /></div>
-        </div>
-      </Reveal>
-    </Band>
+    <ServiceFaqSection
+      label="SEO FAQ"
+      title="Questions before starting an SEO programme."
+      description="Ask for clear deliverables, access, ownership, reporting definitions, agreement terms and limits on claims before signing."
+      items={content.faqs.map(([q, a]) => ({ q, a }))}
+      group="seo-faq"
+      phoneEvent="seo_phone_click"
+      headingSize="lg"
+      headingMaxWidthClassName="max-w-[13ch]"
+      bandAccent="bg-[#ee8c67]"
+    />
   );
 }
 
