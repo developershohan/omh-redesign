@@ -36,7 +36,7 @@ export function ServiceReasonGrid({
                 <CheckIcon className="mt-1 size-4 shrink-0 text-amber-deep" />
                 {reasonTitle}
               </h3>
-              <p className="mt-2.5 pl-7 text-[18px] leading-relaxed text-ink/75">
+              <p className="mt-2.5 pl-7 text-body leading-relaxed text-ink/75">
                 {reasonBody}
               </p>
             </article>

@@ -48,8 +48,8 @@ export function Field({
         required={required}
         aria-invalid={error ? true : undefined}
         aria-describedby={describedBy}
-        className={`min-h-12 w-full rounded-input border-[1.5px] bg-white px-3.5 text-body text-ink placeholder:text-muted/70
-          focus:outline-2 focus:outline-offset-2 focus:outline-teal disabled:cursor-not-allowed disabled:bg-warm disabled:text-muted
+        className={`min-h-12 w-full rounded-input border-[1.5px] bg-surface px-3.5 text-body text-ink placeholder:text-muted/70
+          disabled:cursor-not-allowed disabled:bg-warm disabled:text-muted
           ${error ? "border-error" : success ? "border-success" : "border-line"}`}
       />
       {help && !error && (

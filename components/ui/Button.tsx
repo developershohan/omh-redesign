@@ -9,10 +9,11 @@ type Variant = "primary" | "secondary" | "inverse" | "ghost-white";
    stylesheet order decided the winner and the secondary button rendered with an
    invisible border, so it read as bare text with no affordance. */
 const styles: Record<Variant, string> = {
-  primary: "border-transparent bg-teal text-white hover:bg-teal-dark",
+  primary: "border-transparent bg-teal text-white hover:bg-teal-dark hover:text-white",
   secondary: "border-ink text-ink hover:bg-ink/5",
-  inverse: "border-transparent bg-white text-ink hover:bg-soft",
-  "ghost-white": "border-white/55 text-white hover:border-white hover:bg-white/10",
+  // Sits on the dark CTA ground, so it pins to the fixed light/dark pair.
+  inverse: "border-transparent bg-oninverse text-inverse hover:bg-soft-dark",
+  "ghost-white": "border-oninverse/55 text-oninverse hover:border-oninverse hover:bg-oninverse/10",
 };
 
 export function Button({
@@ -34,7 +35,7 @@ export function Button({
       href={href}
       {...props}
       className={`button-motion group inline-flex items-center gap-2 rounded-button border-[1.5px] font-semibold leading-none
-        ${small ? "px-4.5 py-3 text-[16px]" : "px-7 py-4 text-[18px]"} ${styles[variant]} ${props.className ?? ""}`}
+        ${small ? "px-4.5 py-3 text-label" : "px-7 py-4 text-body"} ${styles[variant]} ${props.className ?? ""}`}
     >
       {children}
       {arrow && <ArrowRight className="size-4 transition-transform duration-500 ease-[cubic-bezier(.2,.8,.2,1)] group-hover:translate-x-0.5" />}

@@ -1,9 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { SiteSearch } from "@/components/layout/SiteSearch";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { Button } from "@/components/ui/Button";
-import { primaryNav, company, type NavLink } from "@/lib/content/nav";
+import type { SearchEntry } from "@/lib/content/search-index";
+import { primaryNav, company, type NavItem, type NavLink } from "@/lib/content/nav";
 
 function Chevron({ className = "" }: { className?: string }) {
   return (
@@ -18,18 +22,24 @@ function MenuLink({ link, onClick }: { link: NavLink; onClick?: () => void }) {
     <Link
       href={link.href}
       onClick={onClick}
-      className="block rounded-button px-2.5 py-2 text-[14.5px] font-medium text-ink transition-colors hover:bg-warm hover:text-amber-deep"
+      className="block rounded-button px-2.5 py-2 text-label font-medium text-ink transition-colors hover:bg-warm hover:text-amber-deep"
     >
       {link.label}
     </Link>
   );
 }
 
+function isCurrent(pathname: string, item: NavItem) {
+  if (item.href) return pathname === item.href || pathname.startsWith(`${item.href}/`);
+  return (item.columns ?? []).some((col) => col.links.some((link) => pathname === link.href));
+}
+
 // Future Elementor widget: "OMH Header".
-export function Header() {
+export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false); // mobile menu
   const [menu, setMenu] = useState<string | null>(null); // open desktop dropdown
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -50,12 +60,15 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-40 bg-warm transition-[box-shadow,border-color] duration-200 ${
-        scrolled ? "border-b border-line shadow-[0_1px_0_rgba(16,24,40,0.02)]" : "border-b border-transparent"
+      data-scrolled={scrolled ? "" : undefined}
+      className={`sticky top-0 z-40 border-b transition-[background-color,border-color,box-shadow] duration-300 ${
+        scrolled
+          ? "border-line bg-warm/85 shadow-[0_10px_30px_-24px_rgb(16_24_40/0.5)] backdrop-blur-md"
+          : "border-transparent bg-warm"
       }`}
     >
       <div
-        className={`container-omh flex items-center gap-8 transition-[height] duration-200 max-xl:gap-3 ${
+        className={`container-omh flex items-center gap-6 transition-[height] duration-300 max-xl:gap-3 ${
           scrolled ? "h-[68px]" : "h-[84px]"
         }`}
       >
@@ -69,8 +82,9 @@ export function Header() {
         </Link>
 
         <nav aria-label="Primary" className="ml-auto flex items-center gap-1 max-xl:hidden">
-          {primaryNav.map((item) =>
-            item.columns ? (
+          {primaryNav.map((item) => {
+            const current = isCurrent(pathname, item);
+            return item.columns ? (
               <div
                 key={item.label}
                 className="relative"
@@ -85,28 +99,28 @@ export function Header() {
                   aria-expanded={menu === item.label}
                   aria-haspopup="true"
                   onClick={() => setMenu(menu === item.label ? null : item.label)}
-                  className="flex items-center gap-1 px-3 py-1.5 text-[15.5px] font-medium"
+                  className={`nav-item flex cursor-pointer items-center gap-1 px-3 py-1.5 text-label font-medium ${
+                    current || menu === item.label ? "is-active" : ""
+                  }`}
                 >
                   {item.label}
                   <Chevron
-                    className={`size-4 text-muted transition-transform duration-200 ${
+                    className={`size-4 text-muted transition-transform duration-300 ${
                       menu === item.label ? "rotate-180" : ""
                     }`}
                   />
                 </button>
                 {menu === item.label && (
-                  <div className="absolute left-0 top-full z-50 pt-2.5">
+                  <div className="absolute left-0 top-full z-50 pt-3">
                     <div
-                      className={`rounded-card border border-line bg-white p-4 shadow-[0_24px_50px_-28px_rgb(16_24_40/0.5)] ${
-                        item.columns.length > 1
-                          ? "grid w-[680px] grid-cols-4 gap-x-6"
-                          : "w-[320px]"
+                      className={`menu-pop rounded-card border border-line bg-surface p-4 shadow-[0_28px_60px_-30px_rgb(16_24_40/0.55)] ${
+                        item.columns.length > 1 ? "grid w-[720px] grid-cols-4 gap-x-6" : "w-[340px]"
                       }`}
                     >
                       {item.columns.map((col) => (
                         <div key={col.heading ?? item.label}>
                           {col.heading && (
-                            <p className="mb-1.5 px-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted">
+                            <p className="mb-2 border-b border-line px-2.5 pb-2 text-[12px] font-semibold uppercase tracking-[0.12em] text-muted">
                               {col.heading}
                             </p>
                           )}
@@ -127,47 +141,54 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href!}
-                className="relative px-3 py-1.5 text-[15.5px] font-medium after:absolute after:bottom-0 after:left-3 after:h-[1.5px] after:w-0 after:bg-teal after:transition-[width] after:duration-200 hover:after:w-[calc(100%-24px)]"
+                aria-current={current ? "page" : undefined}
+                className={`nav-item px-3 py-1.5 text-label font-medium ${current ? "is-active" : ""}`}
               >
                 {item.label}
               </Link>
-            ),
-          )}
+            );
+          })}
         </nav>
 
-        <a
-          href={company.phoneHref}
-          className="whitespace-nowrap text-[15px] text-muted hover:text-ink max-xl:hidden"
-        >
-          {company.phoneDisplay}
-        </a>
-        <span className="max-xl:ml-auto max-md:hidden">
-          <Button href="/contact" small>
-            Book a Growth Consultation
-          </Button>
-        </span>
+        <div className="ml-auto flex items-center gap-2 xl:ml-6">
+          <span className="max-lg:hidden">
+            <a
+              href={company.phoneHref}
+              className="mr-2 whitespace-nowrap text-label font-medium text-muted transition-colors hover:text-ink"
+            >
+              {company.phoneDisplay}
+            </a>
+          </span>
+          <SiteSearch entries={searchEntries} />
+          <ThemeToggle />
+          <span className="max-md:hidden">
+            <Button href="/contact" small>
+              Book a Growth Consultation
+            </Button>
+          </span>
 
-        <button
-          type="button"
-          onClick={() => setOpen(!open)}
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          className="hidden size-11 items-center justify-center rounded-button max-xl:flex max-md:ml-auto"
-        >
-          <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="size-6" aria-hidden>
-            {open ? <path d="M6 6l12 12M18 6 6 18" /> : <path d="M4 7h16M4 12h16M4 17h10" />}
-          </svg>
-        </button>
+          <button
+            type="button"
+            onClick={() => setOpen(!open)}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            className="hidden size-10 cursor-pointer items-center justify-center rounded-button border border-line max-xl:flex"
+          >
+            <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="size-5" aria-hidden>
+              {open ? <path d="M6 6l12 12M18 6 6 18" /> : <path d="M4 7h16M4 12h16M4 17h10" />}
+            </svg>
+          </button>
+        </div>
       </div>
 
       {open && (
-        <div id="mobile-menu" className="border-t border-line bg-warm xl:hidden">
+        <div id="mobile-menu" className="menu-pop border-t border-line bg-warm xl:hidden">
           <div className="container-omh max-h-[calc(100dvh-84px)] overflow-y-auto py-4">
             {primaryNav.map((item) =>
               item.columns ? (
                 <details key={item.label} name="mobile-nav" className="group border-b border-line">
-                  <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between py-3 font-sans text-[17px] font-semibold [&::-webkit-details-marker]:hidden">
+                  <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between py-3 font-sans text-body font-semibold [&::-webkit-details-marker]:hidden">
                     {item.label}
                     <Chevron className="size-5 text-amber-deep transition-transform group-open:rotate-180" />
                   </summary>
@@ -175,7 +196,7 @@ export function Header() {
                     {item.columns.map((col) => (
                       <div key={col.heading ?? item.label} className="mb-1">
                         {col.heading && (
-                          <p className="px-2.5 pb-1 pt-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted">
+                          <p className="px-2.5 pb-1 pt-2 text-[12px] font-semibold uppercase tracking-[0.12em] text-muted">
                             {col.heading}
                           </p>
                         )}
@@ -191,15 +212,21 @@ export function Header() {
                   key={item.href}
                   href={item.href!}
                   onClick={() => setOpen(false)}
-                  className="flex min-h-12 items-center justify-between border-b border-line py-3 font-sans text-[17px] font-semibold"
+                  className="flex min-h-12 items-center justify-between border-b border-line py-3 font-sans text-body font-semibold"
                 >
                   {item.label}
                 </Link>
               ),
             )}
             <div className="flex flex-col gap-3 py-5">
-              <Button href="/contact" onClick={() => setOpen(false)}>Book a Growth Consultation</Button>
-              <a href={company.phoneHref} onClick={() => setOpen(false)} className="text-center text-bsm text-muted">
+              <Button href="/contact" onClick={() => setOpen(false)}>
+                Book a Growth Consultation
+              </Button>
+              <a
+                href={company.phoneHref}
+                onClick={() => setOpen(false)}
+                className="text-center text-body text-muted"
+              >
                 {company.phoneDisplay}
               </a>
             </div>

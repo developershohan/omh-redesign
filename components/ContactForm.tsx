@@ -5,7 +5,7 @@ import { Field } from "@/components/ui/Field";
 import { ArrowRight } from "@/components/ui/Button";
 
 const controlCls =
-  "min-h-12 w-full rounded-input border-[1.5px] border-line bg-white px-3.5 text-body text-ink placeholder:text-muted/70 focus:outline-2 focus:outline-offset-2 focus:outline-teal";
+  "min-h-12 w-full rounded-input border-[1.5px] border-line bg-surface px-3.5 text-body text-ink placeholder:text-muted/70";
 
 const needs = [
   "New website",
@@ -41,7 +41,7 @@ export function ContactForm() {
         <button
           type="button"
           onClick={() => setSent(false)}
-          className="mt-6 text-[15px] font-semibold text-amber-deep underline underline-offset-4"
+          className="mt-6 text-body font-semibold text-amber-deep underline underline-offset-4"
         >
           Send another enquiry
         </button>
@@ -56,7 +56,7 @@ export function ContactForm() {
         setSent(true);
       }}
       data-event="wpdev_form_submit"
-      className="rounded-card border border-line bg-white p-8 max-sm:p-6"
+      className="rounded-card border border-line bg-surface p-8 max-sm:p-6"
     >
       <div className="grid grid-cols-2 gap-5 max-sm:grid-cols-1">
         <Field label="Full name" required placeholder="Jane Smith" />
@@ -133,7 +133,7 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="button-motion group mt-7 inline-flex min-h-12 items-center gap-2 rounded-button border-[1.5px] border-transparent bg-teal px-6 py-4 text-[18px] font-semibold leading-none text-white hover:bg-teal-dark max-sm:w-full max-sm:justify-center"
+        className="button-motion group mt-7 inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-button border-[1.5px] border-transparent bg-teal px-6 py-4 text-body font-semibold leading-none text-white hover:bg-teal-dark max-sm:w-full max-sm:justify-center"
       >
         Send enquiry
         <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />

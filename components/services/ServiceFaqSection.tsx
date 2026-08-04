@@ -40,7 +40,7 @@ export function ServiceFaqSection({
   const defaultDescriptionClass =
     headingSize === "md"
       ? "text-bsm text-ink/70"
-      : "max-w-[40ch] text-[16.5px] text-ink/70";
+      : "max-w-[40ch] text-body text-ink/70";
 
   return (
     <ServiceBand label={label} tone={tone} accent={bandAccent}>

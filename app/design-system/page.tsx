@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 
 const swatches = [
   { hex: "#F7F6F2", name: "Warm White", use: "page ground, softer sections", cls: "bg-warm" },
-  { hex: "#FFFFFF", name: "White", use: "cards, forms, contrast", cls: "bg-white" },
-  { hex: "#101828", name: "Ink", use: "text, one CTA band per page", cls: "bg-ink" },
+  { hex: "#FFFFFF", name: "White", use: "cards, forms, contrast", cls: "bg-surface" },
+  { hex: "#101828", name: "Ink", use: "text, one CTA band per page", cls: "bg-inverse" },
   { hex: "#D79A37", name: "Warm Amber", use: "actions, links, active states only", cls: "bg-teal" },
   { hex: "#F8EDDC", name: "Soft Amber", use: "tinted panels, tags, hovers", cls: "bg-soft" },
   { hex: "#667085", name: "Slate", use: "secondary text, metadata", cls: "bg-muted" },
@@ -77,7 +77,7 @@ export default function DesignSystem() {
       <Spec title="Colour">
         <div className="grid grid-cols-5 gap-4 max-lg:grid-cols-3 max-sm:grid-cols-2">
           {swatches.map((s) => (
-            <div key={s.hex} className="overflow-hidden rounded-card border border-line bg-white">
+            <div key={s.hex} className="overflow-hidden rounded-card border border-line bg-surface">
               <div className={`h-16 ${s.cls}`} />
               <div className="p-3">
                 <p className="font-sans text-bsm font-semibold">
@@ -120,10 +120,10 @@ export default function DesignSystem() {
         <div className="flex flex-wrap items-center gap-4">
           <Button href="#" arrow>Primary</Button>
           <Button href="#" variant="secondary">Secondary</Button>
-          <span className="rounded-card bg-ink p-3">
+          <span className="rounded-card bg-inverse p-3">
             <Button href="#" variant="inverse" small>On ink</Button>
           </span>
-          <span className="rounded-card bg-ink p-3">
+          <span className="rounded-card bg-inverse p-3">
             <Button href="#" variant="ghost-white" small>Ghost on ink</Button>
           </span>
           <TextLink href="#">Text link with a specific label</TextLink>
@@ -135,7 +135,7 @@ export default function DesignSystem() {
       </Spec>
 
       <Spec title="Form states">
-        <div className="grid max-w-3xl grid-cols-2 gap-6 rounded-card border border-line bg-white p-8 max-sm:grid-cols-1">
+        <div className="grid max-w-3xl grid-cols-2 gap-6 rounded-card border border-line bg-surface p-8 max-sm:grid-cols-1">
           <Field label="Work email" required placeholder="name@company.co.uk" help="We reply to this address." />
           <Field label="Website" placeholder="https://" />
           <Field label="Work email" required defaultValue="name@company" error="Enter a full email address, e.g. name@company.co.uk." />

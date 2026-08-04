@@ -22,7 +22,7 @@ export function RelatedServices({
   eventPrefix: string;
 }) {
   return (
-    <section className="border-y border-line bg-white" aria-labelledby={`${eventPrefix}-related-title`}>
+    <section className="border-y border-line bg-surface" aria-labelledby={`${eventPrefix}-related-title`}>
       <div className="container-omh section-md">
         <Reveal>
           <div className="grid grid-cols-12 gap-x-10 gap-y-8 max-lg:block">
@@ -33,7 +33,7 @@ export function RelatedServices({
               <h2 id={`${eventPrefix}-related-title`} className="mt-6 max-w-[18ch] font-sans text-h3 font-semibold text-balance">
                 {title}
               </h2>
-              <p className="mt-5 max-w-[40ch] text-[17px] leading-relaxed text-ink/70">{body}</p>
+              <p className="mt-5 max-w-[40ch] text-body leading-relaxed text-ink/70">{body}</p>
             </div>
             <div className="col-span-8 grid grid-cols-3 gap-5 max-md:grid-cols-1">
               {links.map((link, index) => (
@@ -52,7 +52,7 @@ export function RelatedServices({
                       <ArrowRight className="mt-1 size-4 shrink-0 transition-transform duration-500 group-hover:translate-x-1" />
                     </Link>
                   </h3>
-                  <p className="mt-3 text-[16px] leading-relaxed text-ink/70">{link.body}</p>
+                  <p className="mt-3 text-body leading-relaxed text-ink/70">{link.body}</p>
                 </article>
               ))}
             </div>

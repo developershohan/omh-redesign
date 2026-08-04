@@ -19,7 +19,11 @@ export function Reveal({ className = "", children }: { className?: string; child
           }
         });
       },
-      { threshold: 0.12 },
+      // threshold must stay 0: a percentage threshold can never be reached by an
+      // element taller than the viewport (a long article body never gets 12% of
+      // itself on screen), which left the whole post stuck at opacity 0.
+      // rootMargin does the "wait until it's properly in view" job instead.
+      { threshold: 0 },
     );
     io.observe(el);
     return () => io.disconnect();

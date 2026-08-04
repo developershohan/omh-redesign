@@ -21,7 +21,7 @@ type Package = (typeof content.packages)[number];
 
 export function MaintenanceHero() {
   return (
-    <section className="border-b border-line bg-white">
+    <section className="border-b border-line bg-surface">
       <div className="container-omh pb-[clamp(56px,38px+2.9vw,88px)] pt-[clamp(48px,34px+2.3vw,80px)]">
         <div className="grid grid-cols-12 items-center gap-x-12 gap-y-12 max-lg:block">
           <div className="col-span-7 max-lg:mb-12">
@@ -121,7 +121,7 @@ export function MaintenanceIssueSection() {
             {content.issues.map(([title, body], index) => (
               <article
                 key={title}
-                className="group border-t border-line px-3 py-6 transition-colors hover:border-teal/50 hover:bg-white"
+                className="group border-t border-line px-3 py-6 transition-colors hover:border-teal/50 hover:bg-surface"
               >
                 <div className="flex items-baseline gap-4">
                   <span className="font-sans text-[12px] font-semibold tracking-[0.1em] text-muted group-hover:text-amber">
@@ -129,7 +129,7 @@ export function MaintenanceIssueSection() {
                   </span>
                   <h3 className="font-sans text-h4 font-semibold">{title}</h3>
                 </div>
-                <p className="mt-2.5 pl-10 text-[17px] leading-relaxed text-ink/75">
+                <p className="mt-2.5 pl-10 text-body leading-relaxed text-ink/75">
                   {body}
                 </p>
               </article>
@@ -164,24 +164,24 @@ export function MaintenanceCapabilityGrid() {
           accent="practical support"
           body="The service range includes issue investigation, performance, software updates, security checks, backups, uptime monitoring and a monthly support rhythm."
         />
-        <Pointer className="pointer-spotlight relative mt-12 overflow-hidden rounded-card bg-ink p-10 text-white max-sm:p-6">
+        <Pointer className="pointer-spotlight relative mt-12 overflow-hidden rounded-card bg-inverse p-10 text-oninverse max-sm:p-6">
           <div className="relative z-10 grid grid-cols-12 items-start gap-x-10 gap-y-8 max-lg:block">
             <div className="col-span-6">
-              <p className="text-[12.5px] font-semibold uppercase tracking-[0.16em] text-white/55">
+              <p className="text-[12.5px] font-semibold uppercase tracking-[0.16em] text-oninverse/55">
                 When something is already wrong
               </p>
               <h3 className="mt-5 font-sans text-h2 font-semibold">
                 {featured.title}
               </h3>
-              <p className="mt-5 max-w-[46ch] text-lead leading-relaxed text-white/75">
+              <p className="mt-5 max-w-[46ch] text-lead leading-relaxed text-oninverse/75">
                 {featured.body}
               </p>
             </div>
-            <ul className="col-span-5 col-start-8 grid gap-3 border-t border-white/15 pt-6 max-lg:mt-8">
+            <ul className="col-span-5 col-start-8 grid gap-3 border-t border-oninverse/15 pt-6 max-lg:mt-8">
               {featured.detail?.map((line) => (
                 <li
                   key={line}
-                  className="flex gap-3 text-[17px] leading-snug text-white/85"
+                  className="flex gap-3 text-body leading-snug text-oninverse/85"
                 >
                   <Check className="mt-0.5 size-4 shrink-0 text-[#f2c675]" />
                   {line}
@@ -194,7 +194,7 @@ export function MaintenanceCapabilityGrid() {
           {rest.map((item, index) => (
             <article
               key={item.title}
-              className="group grid grid-cols-[auto_1fr] gap-x-5 border-t border-line px-3 py-7 transition-colors hover:border-teal/50 hover:bg-white"
+              className="group grid grid-cols-[auto_1fr] gap-x-5 border-t border-line px-3 py-7 transition-colors hover:border-teal/50 hover:bg-surface"
             >
               <span className="font-sans text-[13px] font-semibold tabular-nums tracking-[0.1em] text-muted group-hover:text-amber">
                 {String(index + 2).padStart(2, "0")}
@@ -203,7 +203,7 @@ export function MaintenanceCapabilityGrid() {
                 <h3 className="font-sans text-h4 font-semibold">
                   {item.title}
                 </h3>
-                <p className="mt-2.5 text-[17px] leading-relaxed text-ink/75">
+                <p className="mt-2.5 text-body leading-relaxed text-ink/75">
                   {item.body}
                 </p>
               </div>
@@ -230,7 +230,7 @@ export function MaintenanceProcessSteps() {
 
 function PackageCard({ pkg }: { pkg: Package }) {
   return (
-    <article className="overflow-hidden rounded-card border border-line bg-white">
+    <article className="overflow-hidden rounded-card border border-line bg-surface">
       <div className="border-b border-line bg-soft/50 p-6">
         <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">
           {pkg.stage}
@@ -298,7 +298,7 @@ export function MaintenancePricingPackages() {
             development work is already needed.
           </p>
         </div>
-        <div className="mt-12 hidden overflow-x-auto rounded-card border border-line bg-white xl:block">
+        <div className="mt-12 hidden overflow-x-auto rounded-card border border-line bg-surface xl:block">
           <table className="w-full min-w-[880px] border-collapse text-left text-bsm">
             <caption className="sr-only">
               WordPress maintenance package comparison by inclusion and price
@@ -307,7 +307,7 @@ export function MaintenancePricingPackages() {
               <tr>
                 <th
                   scope="col"
-                  className="sticky left-0 z-10 w-[250px] bg-white p-6 align-bottom"
+                  className="sticky left-0 z-10 w-[250px] bg-surface p-6 align-bottom"
                 >
                   <span className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">
                     Compare packages
@@ -332,11 +332,11 @@ export function MaintenancePricingPackages() {
                 ))}
               </tr>
               <tr>
-                <th scope="col" className="sticky left-0 z-10 bg-white" />
+                <th scope="col" className="sticky left-0 z-10 bg-surface" />
                 {content.packages.map((pkg) => (
                   <td
                     key={pkg.name}
-                    className="border-b-2 border-l border-b-ink border-line bg-soft/40 px-6 pb-6 align-top text-[15px] font-normal leading-snug text-ink/70"
+                    className="border-b-2 border-l border-b-ink border-line bg-soft/40 px-6 pb-6 align-top text-body font-normal leading-snug text-ink/70"
                   >
                     {pkg.bestFor}
                   </td>
@@ -362,7 +362,7 @@ export function MaintenancePricingPackages() {
                     >
                       <th
                         scope="row"
-                        className="sticky left-0 z-10 bg-white p-6 py-4 font-semibold"
+                        className="sticky left-0 z-10 bg-surface p-6 py-4 font-semibold"
                       >
                         {label}
                       </th>
@@ -381,7 +381,7 @@ export function MaintenancePricingPackages() {
               <tr>
                 <th
                   scope="row"
-                  className="sticky left-0 z-10 bg-white p-6 font-semibold"
+                  className="sticky left-0 z-10 bg-surface p-6 font-semibold"
                 >
                   Next step
                 </th>
@@ -406,7 +406,7 @@ export function MaintenancePricingPackages() {
             <PackageCard key={pkg.name} pkg={pkg} />
           ))}
         </div>
-        <ul className="mt-8 grid gap-2 border-l-2 border-line pl-5 text-[15px] leading-relaxed text-muted">
+        <ul className="mt-8 grid gap-2 border-l-2 border-line pl-5 text-body leading-relaxed text-muted">
           {content.pricingNotes.map((note) => (
             <li key={note}>{note}</li>
           ))}
@@ -441,7 +441,7 @@ export function MaintenanceProofSection() {
                 ].map((field) => (
                   <li
                     key={field}
-                    className="border-b border-soft-dark py-3 text-[15.5px] text-ink/70"
+                    className="border-b border-soft-dark py-3 text-body text-ink/70"
                   >
                     {field}
                   </li>
@@ -471,7 +471,7 @@ export function MaintenanceProofSection() {
                   note="Use an approved result, report or resolved screen."
                 />
               </div>
-              <div className="mt-6 rounded-card border border-soft-dark bg-white/70 p-6">
+              <div className="mt-6 rounded-card border border-soft-dark bg-surface/70 p-6">
                 <VerifiedSlot>WordPress maintenance case study — pending</VerifiedSlot>
                 <div className="mt-4 flex flex-wrap gap-3">
                   <VerifiedSlot>Verified result — pending</VerifiedSlot>

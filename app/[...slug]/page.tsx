@@ -28,7 +28,7 @@ export default async function ComingSoon({ params }: { params: Promise<{ slug: s
   const title = titleFor(slug);
 
   return (
-    <section className="border-b border-line bg-white">
+    <section className="border-b border-line bg-surface">
       <div className="container-omh section-md">
         <div className="mx-auto max-w-[640px] text-center">
           <Eyebrow>Coming soon</Eyebrow>
@@ -48,7 +48,7 @@ export default async function ComingSoon({ params }: { params: Promise<{ slug: s
                   href={page.href}
                   className="flex items-center justify-between gap-4 rounded-card border border-line bg-warm px-5 py-4 transition-colors hover:border-teal/40 hover:bg-soft/50"
                 >
-                  <span className="font-sans text-[17px] font-semibold">{page.label}</span>
+                  <span className="font-sans text-body font-semibold">{page.label}</span>
                   <span className="text-[13px] font-semibold uppercase tracking-[0.08em] text-amber-deep">
                     View
                   </span>
@@ -61,7 +61,7 @@ export default async function ComingSoon({ params }: { params: Promise<{ slug: s
             <Button href="/contact" arrow>
               Book a Growth Consultation
             </Button>
-            <a href={company.phoneHref} className="text-[15px] font-medium text-muted hover:text-ink">
+            <a href={company.phoneHref} className="text-body font-medium text-muted hover:text-ink">
               {company.phoneDisplay}
             </a>
           </div>

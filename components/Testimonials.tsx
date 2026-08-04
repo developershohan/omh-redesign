@@ -57,8 +57,8 @@ export function ServiceTestimonials({
     }
   };
 
-  const secondary = dark ? "text-white/62" : "text-ink/68";
-  const rule = dark ? "border-white/12" : "border-line";
+  const secondary = dark ? "text-oninverse/62" : "text-ink/68";
+  const rule = dark ? "border-oninverse/12" : "border-line";
 
   return (
     <ServiceBand label={label} tone={tone} accent={accent}>
@@ -75,14 +75,14 @@ export function ServiceTestimonials({
           <div className="col-span-4 max-lg:mb-10">
             <p className={`text-[12px] font-semibold uppercase tracking-[0.15em] ${dark ? "text-[#9bc3f3]" : "text-amber-deep"}`}>{eyebrow}</p>
             <h2 id={headingId} className="mt-5 max-w-[15ch] font-sans text-h2 font-semibold">{title}</h2>
-            <p className={`mt-5 max-w-[42ch] text-[16px] leading-relaxed ${secondary}`}>{body}</p>
+            <p className={`mt-5 max-w-[42ch] text-body leading-relaxed ${secondary}`}>{body}</p>
             <div className={`mt-8 flex items-center gap-3 border-t pt-5 ${rule}`}>
               <button
                 type="button"
                 onClick={() => show(current - 1)}
                 aria-label="Show previous testimonial"
                 data-event={`${eventPrefix}_testimonial_previous`}
-                className={`flex size-11 items-center justify-center rounded-full border transition-colors ${dark ? "border-white/20 text-white hover:border-white/55 hover:bg-white/10" : "border-line text-ink hover:border-teal hover:text-amber-deep"}`}
+                className={`flex size-11 items-center justify-center rounded-full border transition-colors ${dark ? "border-oninverse/20 text-oninverse hover:border-oninverse/55 hover:bg-oninverse/10" : "border-line text-ink hover:border-teal hover:text-amber-deep"}`}
               >
                 <span aria-hidden>←</span>
               </button>
@@ -91,7 +91,7 @@ export function ServiceTestimonials({
                 onClick={() => show(current + 1)}
                 aria-label="Show next testimonial"
                 data-event={`${eventPrefix}_testimonial_next`}
-                className={`flex size-11 items-center justify-center rounded-full border transition-colors ${dark ? "border-white/20 text-white hover:border-white/55 hover:bg-white/10" : "border-line text-ink hover:border-teal hover:text-amber-deep"}`}
+                className={`flex size-11 items-center justify-center rounded-full border transition-colors ${dark ? "border-oninverse/20 text-oninverse hover:border-oninverse/55 hover:bg-oninverse/10" : "border-line text-ink hover:border-teal hover:text-amber-deep"}`}
               >
                 <span aria-hidden>→</span>
               </button>
@@ -111,12 +111,12 @@ export function ServiceTestimonials({
                     aria-roledescription="slide"
                     aria-label={`${index + 1} of ${count}`}
                     aria-hidden={index === current ? undefined : true}
-                    className={`flex min-h-[360px] w-full shrink-0 flex-col rounded-card border p-[clamp(28px,4vw,48px)] ${dark ? "border-white/12 bg-white/[0.04]" : "border-line bg-white"}`}
+                    className={`flex min-h-[360px] w-full shrink-0 flex-col rounded-card border p-[clamp(28px,4vw,48px)] ${dark ? "border-oninverse/12 bg-oninverse/[0.04]" : "border-line bg-surface"}`}
                   >
                     <span className={`font-serif text-[52px] leading-none ${dark ? "text-[#9bc3f3]" : "text-amber"}`} aria-hidden>“</span>
-                    <blockquote className={`flex-1 font-serif text-[clamp(21px,1.5vw,27px)] leading-[1.38] ${dark ? "text-white/88" : "text-ink/88"}`}>{testimonialItem.quote}</blockquote>
+                    <blockquote className={`flex-1 font-serif text-[clamp(21px,1.5vw,27px)] leading-[1.38] ${dark ? "text-oninverse/88" : "text-ink/88"}`}>{testimonialItem.quote}</blockquote>
                     <footer className={`mt-8 border-t pt-5 ${rule}`}>
-                      <p className="font-sans text-[17px] font-semibold">{testimonialItem.name}</p>
+                      <p className="font-sans text-body font-semibold">{testimonialItem.name}</p>
                       {testimonialItem.context && <p className={`mt-1 text-[12px] ${secondary}`}>{testimonialItem.context}</p>}
                     </footer>
                   </article>
@@ -134,7 +134,7 @@ export function ServiceTestimonials({
                   aria-current={index === current ? "true" : undefined}
                   data-event={`${eventPrefix}_testimonial_select`}
                   data-testimonial={item.name}
-                  className={`h-1.5 rounded-full transition-all ${index === current ? `w-9 ${dark ? "bg-[#9bc3f3]" : "bg-teal"}` : `w-4 ${dark ? "bg-white/22 hover:bg-white/45" : "bg-line hover:bg-muted/45"}`}`}
+                  className={`h-1.5 rounded-full transition-all ${index === current ? `w-9 ${dark ? "bg-[#9bc3f3]" : "bg-teal"}` : `w-4 ${dark ? "bg-oninverse/22 hover:bg-surface/45" : "bg-line hover:bg-muted/45"}`}`}
                 />
               ))}
             </div>

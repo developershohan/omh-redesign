@@ -21,7 +21,7 @@ type Package = (typeof content.packages)[number];
 
 export function ShopifyHero() {
   return (
-    <section className="border-b border-line bg-white">
+    <section className="border-b border-line bg-surface">
       <div className="container-omh pb-[clamp(56px,38px+2.9vw,88px)] pt-[clamp(48px,34px+2.3vw,80px)]">
         <div className="grid grid-cols-12 items-center gap-x-12 gap-y-12 max-lg:block">
           <div className="col-span-7 max-lg:mb-12">
@@ -94,7 +94,7 @@ export function ShopifyNeedSection() {
 
           <ol className="col-span-7 col-start-6 border-t border-line">
             {content.needs.map((need, index) => (
-              <li key={need} className="group grid grid-cols-[auto_1fr] items-baseline gap-x-6 border-b border-line px-6 py-6 transition-colors hover:bg-white">
+              <li key={need} className="group grid grid-cols-[auto_1fr] items-baseline gap-x-6 border-b border-line px-6 py-6 transition-colors hover:bg-surface">
                 <span aria-hidden className="font-sans text-[13px] font-semibold tabular-nums tracking-[0.1em] text-muted transition-colors group-hover:text-amber">
                   {String(index + 1).padStart(2, "0")}
                 </span>
@@ -132,16 +132,16 @@ export function ShopifyCapabilityGrid() {
           body="The work can cover the complete store, theme changes, extensions, apps, migration, integrations, testing and ongoing improvement. Scope is shaped around the parts your business actually needs."
         />
 
-        <Pointer className="pointer-spotlight relative mt-12 overflow-hidden rounded-card bg-ink p-10 text-white max-sm:p-6">
+        <Pointer className="pointer-spotlight relative mt-12 overflow-hidden rounded-card bg-inverse p-10 text-oninverse max-sm:p-6">
           <div className="relative z-10 grid grid-cols-12 items-start gap-x-10 gap-y-8 max-lg:block">
             <div className="col-span-6">
-              <p className="text-[12.5px] font-semibold uppercase tracking-[0.16em] text-white/55">Most projects start here</p>
+              <p className="text-[12.5px] font-semibold uppercase tracking-[0.16em] text-oninverse/55">Most projects start here</p>
               <h3 className="mt-5 font-sans text-h2 font-semibold">{featured.title}</h3>
-              <p className="mt-5 max-w-[46ch] text-lead leading-relaxed text-white/75">{featured.body}</p>
+              <p className="mt-5 max-w-[46ch] text-lead leading-relaxed text-oninverse/75">{featured.body}</p>
             </div>
-            <ul className="col-span-5 col-start-8 grid gap-3 border-t border-white/15 pt-6 max-lg:mt-8">
+            <ul className="col-span-5 col-start-8 grid gap-3 border-t border-oninverse/15 pt-6 max-lg:mt-8">
               {featured.detail?.map((line) => (
-                <li key={line} className="flex gap-3 text-[17px] leading-snug text-white/85">
+                <li key={line} className="flex gap-3 text-body leading-snug text-oninverse/85">
                   <Check className="mt-0.5 size-4 shrink-0 text-[#f2c675]" /> {line}
                 </li>
               ))}
@@ -151,13 +151,13 @@ export function ShopifyCapabilityGrid() {
 
         <div className="mt-8 grid grid-cols-2 gap-x-10 max-lg:grid-cols-1">
           {rest.map((item, index) => (
-            <article key={item.title} className="group grid grid-cols-[auto_1fr] gap-x-5 border-t border-line px-3 py-7 transition-colors hover:border-teal/50 hover:bg-white">
+            <article key={item.title} className="group grid grid-cols-[auto_1fr] gap-x-5 border-t border-line px-3 py-7 transition-colors hover:border-teal/50 hover:bg-surface">
               <span className="font-sans text-[13px] font-semibold tabular-nums tracking-[0.1em] text-muted group-hover:text-amber">
                 {String(index + 2).padStart(2, "0")}
               </span>
               <div>
                 <h3 className="font-sans text-h4 font-semibold">{item.title}</h3>
-                <p className="mt-2.5 text-[17px] leading-relaxed text-ink/75">{item.body}</p>
+                <p className="mt-2.5 text-body leading-relaxed text-ink/75">{item.body}</p>
               </div>
             </article>
           ))}
@@ -182,7 +182,7 @@ export function ShopifyProcessSteps() {
 
 function PackageCard({ pkg }: { pkg: Package }) {
   return (
-    <article className="overflow-hidden rounded-card border border-line bg-white">
+    <article className="overflow-hidden rounded-card border border-line bg-surface">
       <div className="border-b border-line bg-soft/50 p-6">
         <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">{pkg.stage}</p>
         <h3 className="mt-2 font-sans text-h3 font-semibold">{pkg.name}</h3>
@@ -222,12 +222,12 @@ export function ShopifyPricingPackages() {
           </p>
         </div>
 
-        <div className="mt-12 hidden overflow-x-auto rounded-card border border-line bg-white xl:block">
+        <div className="mt-12 hidden overflow-x-auto rounded-card border border-line bg-surface xl:block">
           <table className="w-full min-w-[1000px] border-collapse text-left text-bsm">
             <caption className="sr-only">Shopify website package comparison by inclusion and price</caption>
             <thead>
               <tr>
-                <th scope="col" className="sticky left-0 z-10 w-[220px] bg-white p-6 align-bottom">
+                <th scope="col" className="sticky left-0 z-10 w-[220px] bg-surface p-6 align-bottom">
                   <span className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">Compare packages</span>
                 </th>
                 {content.packages.map((pkg) => (
@@ -239,9 +239,9 @@ export function ShopifyPricingPackages() {
                 ))}
               </tr>
               <tr>
-                <th scope="col" className="sticky left-0 z-10 bg-white" />
+                <th scope="col" className="sticky left-0 z-10 bg-surface" />
                 {content.packages.map((pkg) => (
-                  <td key={pkg.name} className="border-b-2 border-l border-b-ink border-line bg-soft/40 px-6 pb-6 align-top text-[15px] font-normal leading-snug text-ink/70">{pkg.bestFor}</td>
+                  <td key={pkg.name} className="border-b-2 border-l border-b-ink border-line bg-soft/40 px-6 pb-6 align-top text-body font-normal leading-snug text-ink/70">{pkg.bestFor}</td>
                 ))}
               </tr>
             </thead>
@@ -253,7 +253,7 @@ export function ShopifyPricingPackages() {
                   </tr>
                   {group.rows.map(([label, key]) => (
                     <tr key={label} className="border-b border-line transition-colors hover:bg-warm/60">
-                      <th scope="row" className="sticky left-0 z-10 bg-white p-6 py-4 font-semibold">{label}</th>
+                      <th scope="row" className="sticky left-0 z-10 bg-surface p-6 py-4 font-semibold">{label}</th>
                       {content.packages.map((pkg) => (
                         <td key={pkg.name} className="border-l border-line p-6 py-4 text-ink/80"><FeatureValue value={pkg.features[key]} /></td>
                       ))}
@@ -262,7 +262,7 @@ export function ShopifyPricingPackages() {
                 </Fragment>
               ))}
               <tr>
-                <th scope="row" className="sticky left-0 z-10 bg-white p-6 font-semibold">Next step</th>
+                <th scope="row" className="sticky left-0 z-10 bg-surface p-6 font-semibold">Next step</th>
                 {content.packages.map((pkg) => (
                   <td key={pkg.name} className="border-l border-line p-6">
                     <Button href="/contact" small data-event="shopify_package_select" data-package={pkg.name}>Discuss package</Button>
@@ -277,7 +277,7 @@ export function ShopifyPricingPackages() {
           {content.packages.map((pkg) => <PackageCard key={pkg.name} pkg={pkg} />)}
         </div>
 
-        <ul className="mt-8 grid gap-2 border-l-2 border-line pl-5 text-[15px] leading-relaxed text-muted">
+        <ul className="mt-8 grid gap-2 border-l-2 border-line pl-5 text-body leading-relaxed text-muted">
           {content.pricingNotes.map((note) => <li key={note}>{note}</li>)}
         </ul>
       </div>
@@ -301,7 +301,7 @@ export function ShopifyCaseStudyFeature() {
               </p>
               <ul className="mt-7 border-t border-soft-dark">
                 {["Original platform or store problem", "Theme, migration or functionality delivered", "Timeline and package or scope", "Verified commercial or usability result"].map((field) => (
-                  <li key={field} className="border-b border-soft-dark py-3 text-[15.5px] text-ink/70">{field}</li>
+                  <li key={field} className="border-b border-soft-dark py-3 text-body text-ink/70">{field}</li>
                 ))}
               </ul>
               <div className="mt-7"><TextLink href="/case-studies" data-event="shopify_case_study_click">View case studies</TextLink></div>
@@ -312,7 +312,7 @@ export function ShopifyCaseStudyFeature() {
                 <Fpo ratio="4/3" tag="Before" title="Before Shopify screenshot" note="Use the real previous store or platform." />
                 <Fpo ratio="4/3" tag="After" title="After Shopify screenshot" note="Use the real launched Shopify store." />
               </div>
-              <div className="mt-6 rounded-card border border-soft-dark bg-white/70 p-6">
+              <div className="mt-6 rounded-card border border-soft-dark bg-surface/70 p-6">
                 <VerifiedSlot>Shopify case study — pending</VerifiedSlot>
                 <div className="mt-4 flex flex-wrap gap-3">
                   <VerifiedSlot>Verified result — pending</VerifiedSlot>

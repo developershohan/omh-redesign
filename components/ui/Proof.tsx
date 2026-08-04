@@ -36,11 +36,11 @@ export function Fpo({
       style={{ aspectRatio: ratio }}
       className={`fpo-hatch relative flex items-center justify-center overflow-hidden rounded-media border border-line ${className}`}
     >
-      <span className="absolute left-3.5 top-3.5 rounded-md border border-line bg-white/85 px-2 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">
+      <span className="absolute left-3.5 top-3.5 rounded-md border border-line bg-surface/85 px-2 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">
         {tag}
       </span>
       <span className="max-w-[75%] text-center text-[14.5px] leading-snug text-muted">
-        <b className="block font-sans text-[15px] font-semibold text-ink">{title}</b>
+        <b className="block font-sans text-body font-semibold text-ink">{title}</b>
       </span>
     </div>
   );
@@ -51,7 +51,7 @@ export function Eyebrow({ children, light = false }: { children: ReactNode; ligh
     <p
       className={`flex items-center text-[13px] font-semibold uppercase ${
         light
-          ? "gap-3 tracking-[0.15em] text-white/60"
+          ? "gap-3 tracking-[0.15em] text-oninverse/60"
           : "gap-2.5 tracking-[0.16em] text-muted"
       }`}
     >

@@ -16,7 +16,7 @@ export function InsightMeta({ post, inverse = false }: { post: InsightIndexEntry
   return (
     <p
       className={`flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] font-semibold uppercase tracking-[0.1em] ${
-        inverse ? "text-white/62" : "text-muted"
+        inverse ? "text-oninverse/62" : "text-muted"
       }`}
     >
       <span className={inverse ? "text-[#f5d394]" : "text-amber-deep"}>{post.topic.name}</span>

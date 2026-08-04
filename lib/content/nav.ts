@@ -130,7 +130,6 @@ export const footerCols = [
       { label: "Shopify Development", href: "/shopify-development" },
       { label: "Website Maintenance", href: "/wordpress-website-maintenance" },
       { label: "Social Media Marketing", href: "/social-media-marketing" },
-      { label: "Paid Social Advertising", href: "/social-media-paid-advertising" },
     ],
   },
   {

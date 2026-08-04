@@ -8,37 +8,37 @@ type MediaTheme = "wordpress" | "shopify" | "maintenance" | "ppc" | "amazon" | "
 
 const themeStyles: Record<MediaTheme, { frame: string; badge: string; icon: string; line: string }> = {
   wordpress: {
-    frame: "border-ink/25 bg-[#efe8db] text-ink",
-    badge: "border-ink/15 bg-white/85 text-ink/65",
-    icon: "border-ink/20 bg-white/80 text-amber-deep",
+    frame: "border-ink/25 bg-tint-amber text-ink",
+    badge: "border-ink/15 bg-surface/85 text-ink/65",
+    icon: "border-ink/20 bg-surface/80 text-amber-deep",
     line: "bg-teal",
   },
   shopify: {
-    frame: "border-[#7fb49b]/45 bg-[#dfeee5] text-[#173d2f]",
-    badge: "border-[#173d2f]/15 bg-white/85 text-[#173d2f]/70",
-    icon: "border-[#173d2f]/20 bg-white/85 text-[#24744f]",
+    frame: "border-[#7fb49b]/45 bg-tint-green text-ink",
+    badge: "border-[#173d2f]/15 bg-surface/85 text-ink/70",
+    icon: "border-[#173d2f]/20 bg-surface/85 text-[#24744f]",
     line: "bg-[#e46f55]",
   },
   maintenance: {
-    frame: "border-[#f2c675]/40 bg-[#111d2d] text-white",
-    badge: "border-white/15 bg-[#0c1624]/85 text-white/70",
+    frame: "border-[#f2c675]/40 bg-[#111d2d] text-oninverse",
+    badge: "border-oninverse/15 bg-[#0c1624]/85 text-oninverse/70",
     icon: "border-[#f2c675]/35 bg-[#0c1624]/90 text-[#f2c675]",
     line: "bg-[#f2c675]",
   },
   ppc: {
-    frame: "border-[#b8ef3e]/45 bg-[#11130f] text-white",
+    frame: "border-[#b8ef3e]/45 bg-[#11130f] text-oninverse",
     badge: "border-[#b8ef3e]/25 bg-black/65 text-[#d7ff7b]",
     icon: "border-[#b8ef3e]/40 bg-black/70 text-[#b8ef3e]",
     line: "bg-[#b8ef3e]",
   },
   amazon: {
-    frame: "border-[#ff9900]/55 bg-[#17130e] text-white",
+    frame: "border-[#ff9900]/55 bg-[#17130e] text-oninverse",
     badge: "border-[#ffb84d]/30 bg-black/65 text-[#ffc66d]",
     icon: "border-[#ff9900]/45 bg-black/70 text-[#ffb84d]",
     line: "bg-[#ff9900]",
   },
   seo: {
-    frame: "border-[#76a9e8]/50 bg-[#0e2035] text-white",
+    frame: "border-[#76a9e8]/50 bg-[#0e2035] text-oninverse",
     badge: "border-[#9bc3f3]/25 bg-[#081626]/75 text-[#b8d8ff]",
     icon: "border-[#76a9e8]/45 bg-[#081626]/85 text-[#8fc0f7]",
     line: "bg-[#ee8c67]",
@@ -135,14 +135,14 @@ export function MediaFrame({
 
 export function WordPressVisualStory() {
   return (
-    <section className="overflow-hidden border-b border-line bg-[#eee7da]">
+    <section className="overflow-hidden border-b border-line bg-tint-amber">
       <div className="container-omh section-md">
         <Reveal>
           <div className="grid grid-cols-12 items-end gap-x-10 gap-y-7 max-lg:block">
             <div className="col-span-5 max-lg:mb-9">
               <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-amber-deep">WordPress build story</p>
               <h2 className="mt-5 max-w-[15ch] font-serif text-[clamp(32px,25px+1.9vw,48px)] leading-[1.05]">See the thinking, the build and the editable result.</h2>
-              <p className="mt-5 max-w-[48ch] text-[17px] leading-relaxed text-ink/70">From the first wireframe to a live, editable website — the same process behind every WordPress build we deliver.</p>
+              <p className="mt-5 max-w-[48ch] text-body leading-relaxed text-ink/70">From the first wireframe to a live, editable website — the same process behind every WordPress build we deliver.</p>
             </div>
             <div className="col-span-7">
               <MediaFrame kind="video" theme="wordpress" ratio="16/9" title="45-second WordPress project overview" note="Replace with a concise planning-to-launch video." />
@@ -160,7 +160,7 @@ export function WordPressVisualStory() {
 
 export function ShopifyStorefrontShowcase() {
   return (
-    <section className="overflow-hidden bg-[#16382c] text-white">
+    <section className="overflow-hidden bg-[#16382c] text-oninverse">
       <div className="container-omh section-md">
         <Reveal>
           <div className="flex items-end justify-between gap-10 max-md:block">
@@ -168,7 +168,7 @@ export function ShopifyStorefrontShowcase() {
               <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#ef9a83]">Storefront showcase</p>
               <h2 className="mt-5 max-w-[18ch] font-sans text-h2 font-semibold">Let products and buying journeys do more of the explaining.</h2>
             </div>
-            <p className="max-w-[42ch] text-[17px] leading-relaxed text-white/68 max-md:mt-5">From product discovery through to a completed checkout — every step of the storefront built to convert.</p>
+            <p className="max-w-[42ch] text-body leading-relaxed text-oninverse/68 max-md:mt-5">From product discovery through to a completed checkout — every step of the storefront built to convert.</p>
           </div>
           <div className="mt-11 grid grid-cols-12 gap-5 max-md:block">
             <MediaFrame kind="image" theme="shopify" ratio="3/4" title="Product page" note="Approved product or collection image." className="col-span-3 max-md:mb-5" />
@@ -176,7 +176,7 @@ export function ShopifyStorefrontShowcase() {
             <MediaFrame kind="image" theme="shopify" ratio="3/4" title="Mobile checkout" note="Approved checkout or cart screen." className="col-span-3" />
           </div>
           <div className="mt-5 grid grid-cols-3 gap-5 max-sm:grid-cols-1">
-            {["Discovery", "Product confidence", "Checkout"].map((label, index) => <div key={label} className="border-t border-white/20 pt-4"><span className="mr-3 text-[11px] font-semibold text-[#ef9a83]">0{index + 1}</span><span className="text-[14px] font-semibold uppercase tracking-[0.1em] text-white/75">{label}</span></div>)}
+            {["Discovery", "Product confidence", "Checkout"].map((label, index) => <div key={label} className="border-t border-oninverse/20 pt-4"><span className="mr-3 text-[11px] font-semibold text-[#ef9a83]">0{index + 1}</span><span className="text-[14px] font-semibold uppercase tracking-[0.1em] text-oninverse/75">{label}</span></div>)}
           </div>
         </Reveal>
       </div>
@@ -186,16 +186,16 @@ export function ShopifyStorefrontShowcase() {
 
 export function MaintenanceControlRoom() {
   return (
-    <section className="overflow-hidden bg-[#0b1523] text-white">
+    <section className="overflow-hidden bg-[#0b1523] text-oninverse">
       <div className="container-omh section-md">
         <Reveal>
           <div className="grid grid-cols-12 gap-x-10 gap-y-8 max-lg:block">
             <div className="col-span-4 max-lg:mb-9">
               <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#f2c675]">Maintenance control room</p>
               <h2 className="mt-5 max-w-[13ch] font-sans text-h2 font-semibold">Show the work that normally happens quietly.</h2>
-              <p className="mt-5 max-w-[42ch] text-[17px] leading-relaxed text-white/65">Uptime monitoring, update logs and a monthly report you can actually read — the ongoing care that keeps a site reliable.</p>
+              <p className="mt-5 max-w-[42ch] text-body leading-relaxed text-oninverse/65">Uptime monitoring, update logs and a monthly report you can actually read — the ongoing care that keeps a site reliable.</p>
               <div className="mt-8 grid gap-3 text-[13px]">
-                {["Uptime and fault alerts", "Updates and backup checks", "Monthly work summary"].map((label) => <div key={label} className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.035] px-4 py-3"><span className="size-2 rounded-full bg-[#f2c675] shadow-[0_0_14px_rgba(242,198,117,.65)]" />{label}</div>)}
+                {["Uptime and fault alerts", "Updates and backup checks", "Monthly work summary"].map((label) => <div key={label} className="flex items-center gap-3 rounded-lg border border-oninverse/10 bg-oninverse/[0.035] px-4 py-3"><span className="size-2 rounded-full bg-[#f2c675] shadow-[0_0_14px_rgba(242,198,117,.65)]" />{label}</div>)}
               </div>
             </div>
             <div className="col-span-8 grid grid-cols-8 gap-5">
@@ -212,14 +212,14 @@ export function MaintenanceControlRoom() {
 
 export function PpcCampaignStudio() {
   return (
-    <section className="overflow-hidden bg-[#090a08] text-white">
+    <section className="overflow-hidden bg-[#090a08] text-oninverse">
       <div className="container-omh section-md">
         <Reveal>
           <div className="grid grid-cols-12 items-center gap-x-12 gap-y-9 max-lg:block">
             <div className="col-span-6 max-lg:mb-9">
               <p className="text-[12px] font-semibold uppercase tracking-[0.17em] text-[#b8ef3e]">Campaign studio</p>
               <h2 className="mt-5 max-w-[13ch] font-sans text-[clamp(34px,27px+2vw,52px)] font-semibold leading-[1.02]">Watch how a search becomes a measured action.</h2>
-              <p className="mt-6 max-w-[52ch] text-[17px] leading-relaxed text-white/66">From the initial campaign structure through search-term review to the landing page it drives traffic to.</p>
+              <p className="mt-6 max-w-[52ch] text-body leading-relaxed text-oninverse/66">From the initial campaign structure through search-term review to the landing page it drives traffic to.</p>
               <div className="mt-8 flex flex-wrap gap-2.5">
                 {['Search intent', 'Ad message', 'Landing page', 'Conversion'].map((label, index) => <span key={label} className="rounded-full border border-[#b8ef3e]/25 px-3 py-2 text-[12px] font-semibold text-[#d7ff7b]"><b className="mr-2 opacity-45">0{index + 1}</b>{label}</span>)}
               </div>
@@ -238,14 +238,14 @@ export function PpcCampaignStudio() {
 
 export function AmazonMarketplaceWorkbench() {
   return (
-    <section className="overflow-hidden bg-[#17130e] text-white">
+    <section className="overflow-hidden bg-[#17130e] text-oninverse">
       <div className="container-omh section-md">
         <Reveal>
           <div className="grid grid-cols-12 items-end gap-x-12 gap-y-9 max-lg:block">
             <div className="col-span-5 max-lg:mb-9">
               <p className="text-[12px] font-semibold uppercase tracking-[0.17em] text-[#ffb84d]">Marketplace workbench</p>
               <h2 className="mt-5 max-w-[14ch] font-sans text-[clamp(34px,27px+2vw,52px)] font-semibold leading-[1.02]">See the listing, campaign and search term together.</h2>
-              <p className="mt-6 max-w-[48ch] text-[17px] leading-relaxed text-white/68">Catalogue, campaign and listing performance reviewed together — because on Amazon they can’t be managed apart.</p>
+              <p className="mt-6 max-w-[48ch] text-body leading-relaxed text-oninverse/68">Catalogue, campaign and listing performance reviewed together — because on Amazon they can’t be managed apart.</p>
             </div>
             <MediaFrame kind="video" theme="amazon" ratio="16/10" title="Amazon campaign walkthrough" note="Add a concise, anonymised account and optimisation review." className="col-span-7" />
           </div>
@@ -255,9 +255,9 @@ export function AmazonMarketplaceWorkbench() {
           </div>
           <div className="mt-6 grid grid-cols-4 gap-3 max-md:grid-cols-2 max-sm:grid-cols-1">
             {["Catalogue readiness", "Search intent", "Bid control", "Sales context"].map((label, index) => (
-              <div key={label} className="border-t border-white/15 pt-4">
+              <div key={label} className="border-t border-oninverse/15 pt-4">
                 <span className="mr-3 text-[11px] font-semibold text-[#ffb84d]">0{index + 1}</span>
-                <span className="text-[13px] font-semibold uppercase tracking-[0.1em] text-white/72">{label}</span>
+                <span className="text-[13px] font-semibold uppercase tracking-[0.1em] text-oninverse/72">{label}</span>
               </div>
             ))}
           </div>
@@ -269,14 +269,14 @@ export function AmazonMarketplaceWorkbench() {
 
 export function SeoSearchLandscape() {
   return (
-    <section className="overflow-hidden border-b border-[#cad9eb] bg-[#e8f0f8] text-[#10243a]">
+    <section className="overflow-hidden border-b border-[#cad9eb] bg-tint-blue text-ink">
       <div className="container-omh section-md">
         <Reveal>
           <div className="grid grid-cols-12 items-end gap-x-12 gap-y-9 max-lg:block">
             <div className="col-span-5 max-lg:mb-9">
-              <p className="text-[12px] font-semibold uppercase tracking-[0.17em] text-[#446f9f]">Search landscape</p>
+              <p className="text-[12px] font-semibold uppercase tracking-[0.17em] text-amber-deep">Search landscape</p>
               <h2 className="mt-5 max-w-[15ch] font-sans text-[clamp(34px,27px+2vw,52px)] font-semibold leading-[1.02]">Make the route from search to useful page visible.</h2>
-              <p className="mt-6 max-w-[48ch] text-[17px] leading-relaxed text-[#10243a]/68">How a site is crawled, how it performs in search, and how its content is structured — three views of the same picture.</p>
+              <p className="mt-6 max-w-[48ch] text-body leading-relaxed text-ink/68">How a site is crawled, how it performs in search, and how its content is structured — three views of the same picture.</p>
             </div>
             <MediaFrame kind="screen" theme="seo" ratio="16/10" title="Organic search performance view" note="Use an anonymised Search Console or reporting screen with dates and metric definitions." className="col-span-7" />
           </div>
@@ -287,8 +287,8 @@ export function SeoSearchLandscape() {
           <div className="mt-6 grid grid-cols-4 gap-3 max-md:grid-cols-2 max-sm:grid-cols-1">
             {["Discover", "Understand", "Choose a page", "Take action"].map((label, index) => (
               <div key={label} className="border-t border-[#10243a]/15 pt-4">
-                <span className="mr-3 text-[11px] font-semibold text-[#d56d47]">0{index + 1}</span>
-                <span className="text-[13px] font-semibold uppercase tracking-[0.1em] text-[#10243a]/72">{label}</span>
+                <span className="mr-3 text-[11px] font-semibold text-amber-deep">0{index + 1}</span>
+                <span className="text-[13px] font-semibold uppercase tracking-[0.1em] text-ink/72">{label}</span>
               </div>
             ))}
           </div>

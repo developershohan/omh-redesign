@@ -54,7 +54,7 @@ export function ServiceFitSection({
               {good.map((item) => (
                 <li
                   key={item}
-                  className="flex gap-3.5 border-b border-soft-dark py-3.5 text-[17px] leading-snug text-ink/85 last:border-b-0 last:pb-0"
+                  className="flex gap-3.5 border-b border-soft-dark py-3.5 text-body leading-snug text-ink/85 last:border-b-0 last:pb-0"
                 >
                   <CheckIcon className="mt-1 size-4 shrink-0 text-amber-deep" />
                   {item}
@@ -72,7 +72,7 @@ export function ServiceFitSection({
               {notFit.map((item) => (
                 <li
                   key={item}
-                  className="border-b border-line py-3.5 text-[16.5px] leading-snug text-muted"
+                  className="border-b border-line py-3.5 text-body leading-snug text-muted"
                 >
                   {item}
                 </li>

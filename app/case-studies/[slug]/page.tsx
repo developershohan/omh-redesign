@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CaseStudyArticle } from "@/components/CaseStudies";
+import { CaseStudyArticle } from "@/components/case-studies/CaseStudyArticle";
 import { caseStudies, getCaseStudy } from "@/lib/content/case-studies";
 
 type Props = {

@@ -31,7 +31,7 @@ type Package = (typeof content.packages)[number];
 // Future Elementor widget: "OMH Service Hero"
 export function ServiceHero() {
   return (
-    <section className="border-b border-line bg-white">
+    <section className="border-b border-line bg-surface">
       <div className="container-omh pb-[clamp(56px,38px+2.9vw,88px)] pt-[clamp(48px,34px+2.3vw,80px)]">
         <div className="grid grid-cols-12 items-center gap-x-12 gap-y-12 max-lg:block">
           <div className="col-span-7 max-lg:mb-12">
@@ -139,7 +139,7 @@ export function PainPointSection() {
             {content.pains.map((pain, index) => (
               <li
                 key={pain}
-                className="group grid grid-cols-[auto_1fr] items-baseline gap-x-6 border-b border-line py-6 px-6 transition-colors hover:bg-white"
+                className="group grid grid-cols-[auto_1fr] items-baseline gap-x-6 border-b border-line py-6 px-6 transition-colors hover:bg-surface"
               >
                 <span
                   aria-hidden
@@ -192,20 +192,20 @@ export function ServiceCapabilityGrid() {
           body="The scope can cover a new build, a careful redesign, technical improvements or the functionality needed to support your sales process."
         />
         <div className="mt-12 grid grid-cols-6 gap-5 max-lg:grid-cols-2 max-sm:grid-cols-1">
-          <Pointer className="pointer-spotlight relative col-span-3 row-span-2 flex flex-col justify-between overflow-hidden rounded-card bg-ink p-9 text-white max-lg:col-span-2 max-sm:col-span-1 max-sm:p-6">
+          <Pointer className="pointer-spotlight relative col-span-3 row-span-2 flex flex-col justify-between overflow-hidden rounded-card bg-inverse p-9 text-oninverse max-lg:col-span-2 max-sm:col-span-1 max-sm:p-6">
             <div className="relative z-10">
-              <p className="text-[12.5px] font-semibold uppercase tracking-[0.16em] text-white/55">
+              <p className="text-[12.5px] font-semibold uppercase tracking-[0.16em] text-oninverse/55">
                 Most projects start here
               </p>
               <h3 className="mt-5 font-sans text-h2 font-semibold">{featured.title}</h3>
-              <p className="mt-5 max-w-[42ch] text-lead leading-relaxed text-white/75">
+              <p className="mt-5 max-w-[42ch] text-lead leading-relaxed text-oninverse/75">
                 {featured.body}
               </p>
             </div>
-            <ul className="relative z-10 mt-10 grid gap-2.5 border-t border-white/15 pt-7">
+            <ul className="relative z-10 mt-10 grid gap-2.5 border-t border-oninverse/15 pt-7">
               {["Structure planned before design", "Built to be edited without a developer", "Set up for tracking from day one"].map(
                 (line) => (
-                  <li key={line} className="flex gap-3 text-[16px] leading-snug text-white/85">
+                  <li key={line} className="flex gap-3 text-body leading-snug text-oninverse/85">
                     <Check className="mt-0.5 size-4 shrink-0 text-soft" />
                     {line}
                   </li>
@@ -217,12 +217,12 @@ export function ServiceCapabilityGrid() {
           {rest.map((item) => (
             <article
               key={item.title}
-              className={`group rounded-card border border-line bg-white p-7 transition duration-200 hover:-translate-y-1 hover:border-teal/40 hover:shadow-[0_16px_34px_-24px_rgb(16_24_40/0.45)] max-lg:col-span-1 max-sm:col-span-1 max-sm:p-6 ${
+              className={`group rounded-card border border-line bg-surface p-7 transition duration-200 hover:-translate-y-1 hover:border-teal/40 hover:shadow-[0_16px_34px_-24px_rgb(16_24_40/0.45)] max-lg:col-span-1 max-sm:col-span-1 max-sm:p-6 ${
                 item.size === "medium" ? "col-span-3" : "col-span-2"
               }`}
             >
               <h3 className="font-sans text-h4 font-semibold">{item.title}</h3>
-              <p className="mt-3 text-[18px] leading-relaxed text-ink/75">{item.body}</p>
+              <p className="mt-3 text-body leading-relaxed text-ink/75">{item.body}</p>
             </article>
           ))}
         </div>
@@ -250,7 +250,7 @@ export function ProcessSteps() {
 // ── Section 6: Packages ─────────────────────────────────────────────────────
 function PackageCard({ pkg }: { pkg: Package }) {
   return (
-    <article className="overflow-hidden rounded-card border border-line bg-white">
+    <article className="overflow-hidden rounded-card border border-line bg-surface">
       <div className="border-b border-line bg-soft/50 p-6">
         <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">
           {pkg.stage}
@@ -316,14 +316,14 @@ export function PricingPackages() {
           {/* Comparison table only from xl: its 1000px minimum forced horizontal
               scrolling on the essential pricing content between 1024 and 1279,
               where the stacked cards read better anyway. */}
-          <div className="mt-12 hidden overflow-x-auto rounded-card border border-line bg-white xl:block">
+          <div className="mt-12 hidden overflow-x-auto rounded-card border border-line bg-surface xl:block">
             <table className="w-full min-w-[1000px] border-collapse text-left text-bsm">
               <caption className="sr-only">
                 WordPress website package comparison by inclusion and price
               </caption>
               <thead>
                 <tr>
-                  <th scope="col" className="sticky left-0 z-10 w-[220px] bg-white p-6 align-bottom">
+                  <th scope="col" className="sticky left-0 z-10 w-[220px] bg-surface p-6 align-bottom">
                     <span className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">
                       Compare packages
                     </span>
@@ -341,11 +341,11 @@ export function PricingPackages() {
                   ))}
                 </tr>
                 <tr>
-                  <th scope="col" className="sticky left-0 z-10 bg-white" />
+                  <th scope="col" className="sticky left-0 z-10 bg-surface" />
                   {content.packages.map((pkg) => (
                     <td
                       key={pkg.name}
-                      className="border-l border-b-2 border-b-ink border-line bg-soft/40 px-6 pb-6 align-top text-[15px] font-normal leading-snug text-ink/70"
+                      className="border-l border-b-2 border-b-ink border-line bg-soft/40 px-6 pb-6 align-top text-body font-normal leading-snug text-ink/70"
                     >
                       {pkg.bestFor}
                     </td>
@@ -366,7 +366,7 @@ export function PricingPackages() {
                     </tr>
                     {group.rows.map(([label, key]) => (
                       <tr key={label} className="border-b border-line transition-colors hover:bg-warm/60">
-                        <th scope="row" className="sticky left-0 z-10 bg-white p-6 py-4 font-semibold">
+                        <th scope="row" className="sticky left-0 z-10 bg-surface p-6 py-4 font-semibold">
                           {label}
                         </th>
                         {content.packages.map((pkg) => (
@@ -379,7 +379,7 @@ export function PricingPackages() {
                   </Fragment>
                 ))}
                 <tr>
-                  <th scope="row" className="sticky left-0 z-10 bg-white p-6 font-semibold">
+                  <th scope="row" className="sticky left-0 z-10 bg-surface p-6 font-semibold">
                     Next step
                   </th>
                   {content.packages.map((pkg) => (
@@ -406,7 +406,7 @@ export function PricingPackages() {
             ))}
           </div>
 
-          <ul className="mt-8 grid gap-2 border-l-2 border-line pl-5 text-[15px] leading-relaxed text-muted">
+          <ul className="mt-8 grid gap-2 border-l-2 border-line pl-5 text-body leading-relaxed text-muted">
             {content.pricingNotes.map((note) => (
               <li key={note}>{note}</li>
             ))}
@@ -432,7 +432,7 @@ export function IncludedFeatures() {
           {content.included.map(([title, blurb, items]) => (
             <div
               key={title}
-              className="grid grid-cols-12 gap-x-10 gap-y-4 border-b border-line py-8 px-6 transition-colors duration-200 hover:bg-white max-lg:block"
+              className="grid grid-cols-12 gap-x-10 gap-y-4 border-b border-line py-8 px-6 transition-colors duration-200 hover:bg-surface max-lg:block"
             >
               <div className="col-span-4">
                 <h3 className="font-sans text-h4 font-semibold">{title}</h3>
@@ -442,7 +442,7 @@ export function IncludedFeatures() {
                 {items.map((item) => (
                   <li
                     key={item}
-                    className="inline-flex items-center gap-2 rounded-full border border-line bg-white py-2 pl-3 pr-4 text-[15px] leading-none text-ink/80 transition-colors duration-200 hover:border-teal/45 hover:bg-soft/50"
+                    className="inline-flex items-center gap-2 rounded-full border border-line bg-surface py-2 pl-3 pr-4 text-body leading-none text-ink/80 transition-colors duration-200 hover:border-teal/45 hover:bg-soft/50"
                   >
                     <Check className="size-3.5 shrink-0 text-amber-deep" />
                     {item}
@@ -484,7 +484,7 @@ export function CaseStudyFeature() {
                   (field) => (
                     <li
                       key={field}
-                      className="border-b border-soft-dark py-3 text-[15.5px] text-ink/70"
+                      className="border-b border-soft-dark py-3 text-body text-ink/70"
                     >
                       {field}
                     </li>
@@ -503,7 +503,7 @@ export function CaseStudyFeature() {
                 <Fpo ratio="4/3" tag="Before" title="Before website screenshot" note="Use the real previous website screen." />
                 <Fpo ratio="4/3" tag="After" title="After website screenshot" note="Use the real launched website screen." />
               </div>
-              <div className="mt-6 rounded-card border border-soft-dark bg-white/70 p-6">
+              <div className="mt-6 rounded-card border border-soft-dark bg-surface/70 p-6">
                 <VerifiedSlot>WordPress case study — pending</VerifiedSlot>
                 <div className="mt-4 flex flex-wrap gap-3">
                   <VerifiedSlot>Verified result — pending</VerifiedSlot>
