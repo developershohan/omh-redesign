@@ -37,9 +37,7 @@ function SolutionHero({ content }: { content: SolutionPageContent }) {
           </div>
         </Reveal>
 
-        {/* pb reserves room for the badge below the panel — it used to overhang
-            the card and cover the closing caption on every solution page. */}
-        <Reveal className="relative z-10 pb-24 max-lg:mx-auto max-lg:w-full max-lg:max-w-[760px] max-sm:pb-20">
+        <Reveal className="relative z-10 max-lg:mx-auto max-lg:w-full max-lg:max-w-[760px]">
           <div className={`solution-signal solution-signal-${content.theme} relative aspect-[4/5] overflow-hidden rounded-[10px] border border-oninverse/10 bg-inverse p-7 text-oninverse shadow-[0_36px_90px_-44px_rgb(16_24_40/.72)] max-lg:aspect-[16/10] max-sm:aspect-auto max-sm:min-h-[520px] max-sm:p-5`}>
             <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(255,255,255,.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.07)_1px,transparent_1px)] [background-size:42px_42px]" />
             <div className="relative flex h-full flex-col justify-between">
@@ -66,10 +64,6 @@ function SolutionHero({ content }: { content: SolutionPageContent }) {
                 One connected journey. Measured against the action that matters.
               </div>
             </div>
-          </div>
-          <div className="absolute bottom-0 -left-7 rounded-[8px] bg-teal px-5 py-4 text-white shadow-[0_18px_45px_-22px_rgb(215_154_55/.8)] max-sm:left-0">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-inverse/70">Starting point</p>
-            <p className="mt-1 font-sans text-body font-semibold">Find the real constraint</p>
           </div>
         </Reveal>
       </div>

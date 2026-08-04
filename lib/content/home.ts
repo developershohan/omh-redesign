@@ -46,7 +46,7 @@ export const programs = [
 // [CONFIRM COMPANY INFORMATION] — restore a spend or client-count figure only
 // with a real number the client will put their name to.
 export const stats = [
-  { value: `${about.team.length}`, label: "Specialists in the team" },
+  { value: `${about.team.members.length}`, label: "Specialists in the team" },
   { value: "13", label: "Services under one roof" },
   { value: "Est. 2019", label: "Companies House no. 12328533" },
   { value: "100%", label: "UK business focus" },

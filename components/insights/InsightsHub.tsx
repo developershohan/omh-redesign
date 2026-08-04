@@ -110,6 +110,9 @@ function TopicNavigation({ activeTopic, query }: { activeTopic: string; query: s
             <Link
               key={topic.slug || "all"}
               href={archiveHref({ topic: topic.slug, query: query || undefined })}
+              // The filter row is already on screen when it is used; the router's
+              // default scroll-to-top threw the reader back to the hero each time.
+              scroll={false}
               aria-current={active ? "page" : undefined}
               className={`relative flex min-h-14 items-center gap-2 px-5 text-label font-semibold transition-colors first:pl-0 ${
                 active ? "text-ink" : "text-muted hover:text-amber-deep"
@@ -161,11 +164,13 @@ function ArchiveRow({ post }: { post: InsightIndexEntry }) {
 
 function Pagination({ currentPage, pageCount, topic, query }: { currentPage: number; pageCount: number; topic: string; query: string }) {
   if (pageCount <= 1) return null;
+  // Paging should land at the top of the list, not the top of the page.
+  const pageHref = (page: number) => `${archiveHref({ topic, query, page })}#archive`;
 
   return (
     <nav aria-label="Insights pagination" className="mt-10 flex flex-wrap items-center justify-between gap-5">
       {currentPage > 1 ? (
-        <TextLink href={archiveHref({ topic, query, page: currentPage - 1 })} className="[&_svg]:rotate-180">
+        <TextLink href={pageHref(currentPage - 1)} className="[&_svg]:rotate-180">
           Previous
         </TextLink>
       ) : (
@@ -175,7 +180,7 @@ function Pagination({ currentPage, pageCount, topic, query }: { currentPage: num
         {Array.from({ length: pageCount }, (_, index) => index + 1).map((page) => (
           <Link
             key={page}
-            href={archiveHref({ topic, query, page })}
+            href={pageHref(page)}
             aria-current={page === currentPage ? "page" : undefined}
             className={`flex size-10 items-center justify-center rounded-full border text-[14px] font-semibold transition-colors ${
               page === currentPage ? "border-teal bg-teal text-white" : "border-line bg-surface text-muted hover:border-teal hover:text-amber-deep"
@@ -216,20 +221,66 @@ export function InsightsHub({ topic = "", query = "", page = 1 }: { topic?: stri
 
   return (
     <>
-      <section className="overflow-hidden border-b border-line bg-soft/35">
+      <section className="hero-grid relative overflow-hidden border-b border-line bg-warm">
         <div className="container-omh section-md">
           <Reveal>
             <Eyebrow>Insights</Eyebrow>
-            <div className="mt-8 grid grid-cols-12 items-end gap-x-12 gap-y-8 max-lg:block">
-              <div className="col-span-8">
-                <h1 className="max-w-[18ch] font-sans text-h1 font-semibold text-balance">Practical thinking for better marketing decisions.</h1>
-                <p className="mt-6 max-w-[66ch] text-lead leading-relaxed text-ink/72">
-                  Plain-English guidance on websites, SEO, paid media and digital growth — written to help you judge options, ask better questions and choose the clearest next step.
+            <div className="mt-8 grid grid-cols-12 items-start gap-x-12 gap-y-10 max-lg:block">
+              <div className="col-span-7">
+                <h1 className="max-w-[16ch] font-sans text-h1 font-semibold text-balance">
+                  Practical thinking for better marketing decisions.
+                </h1>
+                <p className="mt-7 max-w-[54ch] text-lead leading-relaxed text-ink/72">
+                  Plain-English guidance on websites, SEO, paid media and digital growth — written
+                  to help you judge options, ask better questions and choose the clearest next step.
+                </p>
+                <p className="mt-8 flex items-center gap-4 border-t border-line pt-7 font-serif text-h3 leading-snug text-ink/75">
+                  <span aria-hidden className="h-px w-10 shrink-0 bg-amber" />
+                  Useful when you are planning the work — and when you need to challenge it.
                 </p>
               </div>
-              <p className="col-span-4 border-t border-line pt-6 font-serif text-[clamp(22px,19px+0.65vw,28px)] leading-snug text-ink/72">
-                Useful when you are planning the work — and when you need to challenge it.
-              </p>
+
+              {/* The right half used to be empty. It now carries the fastest
+                  route into the archive: the shape of it, and a way in. */}
+              <div className="col-span-5 max-lg:mt-10">
+                <div className="rounded-card border border-line bg-surface p-8 max-sm:p-6">
+                  <dl className="grid grid-cols-2 gap-x-8 gap-y-6">
+                    <div>
+                      <dt className="text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">
+                        Articles
+                      </dt>
+                      <dd className="mt-2 font-sans text-h2 font-semibold leading-none">
+                        {insightsIndex.length}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">
+                        Topics
+                      </dt>
+                      <dd className="mt-2 font-sans text-h2 font-semibold leading-none">
+                        {insightTopics.length}
+                      </dd>
+                    </div>
+                  </dl>
+
+                  <p className="mt-8 border-t border-line pt-6 text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">
+                    Browse by topic
+                  </p>
+                  <ul className="mt-4 flex flex-wrap gap-2">
+                    {insightTopics.slice(0, 8).map((item) => (
+                      <li key={item.slug}>
+                        <Link
+                          href={archiveHref({ topic: item.slug })}
+                          className="inline-flex items-center gap-2 rounded-full border border-line px-3.5 py-1.5 text-label text-ink/75 transition-colors hover:border-teal hover:text-amber-deep"
+                        >
+                          {item.name}
+                          <span className="text-[13px] text-muted">{item.postCount}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -237,7 +288,7 @@ export function InsightsHub({ topic = "", query = "", page = 1 }: { topic?: stri
 
       {showingCurated && currentPage === 1 && <FeaturedStories />}
 
-      <section className="bg-warm">
+      <section id="archive" className="scroll-mt-24 bg-warm">
         <TopicNavigation activeTopic={activeTopic} query={cleanQuery} />
         <div className="container-omh section-md">
           <Reveal>

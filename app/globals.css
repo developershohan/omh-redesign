@@ -163,35 +163,40 @@ body {
 /*
   Three-font system, assigned once at element level so no page can drift.
   Instrument Sans = headings/UI, Source Sans 3 = reading copy, Source Serif 4 =
-  editorial quotation only. Element selectors lose to Tailwind utilities, so a
-  component can still opt a specific element into another family deliberately.
+  editorial quotation only.
+
+  These MUST stay inside @layer base. Unlayered CSS outranks every Tailwind
+  layer, so as plain rules they beat `font-serif`/`font-sans` utilities — a
+  `<p class="font-serif">` silently rendered in Source Sans 3.
 */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-button,
-nav,
-.type-label {
-  font-family: var(--font-sans);
-}
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  button,
+  nav,
+  .type-label {
+    font-family: var(--font-sans);
+  }
 
-body,
-p,
-li,
-input,
-textarea,
-select,
-label,
-.body-copy {
-  font-family: var(--font-body);
-}
+  body,
+  p,
+  li,
+  input,
+  textarea,
+  select,
+  label,
+  .body-copy {
+    font-family: var(--font-body);
+  }
 
-blockquote,
-.editorial-quote {
-  font-family: var(--font-serif);
+  blockquote,
+  .editorial-quote {
+    font-family: var(--font-serif);
+  }
 }
 
 .hero-grid {
