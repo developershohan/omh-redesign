@@ -30,6 +30,7 @@ export const primaryNav: NavItem[] = [
         heading: "Websites",
         links: [
           { label: "WordPress Development", href: "/wordpress-development", ready: true },
+          { label: "Website Designs", href: "/website-designs", ready: true },
           { label: "Shopify Development", href: "/shopify-development", ready: true },
           { label: "Website Maintenance", href: "/wordpress-website-maintenance", ready: true },
         ],
@@ -47,25 +48,52 @@ export const primaryNav: NavItem[] = [
         links: [
           { label: "Search Engine Optimisation", href: "/search-engine-optimisation", ready: true },
           { label: "Local SEO", href: "/local-seo", ready: true },
+          { label: "Best SEO Services", href: "/best-seo-services", ready: true },
+          { label: "Best Local SEO Services", href: "/best-local-seo-services", ready: true },
         ],
       },
       {
         heading: "Creative & Social",
         links: [
           { label: "Social Media Management", href: "/social-media-marketing", ready: true },
+          { label: "Facebook Marketing", href: "/facebook-marketing-agency", ready: true },
+          { label: "Instagram Marketing", href: "/instagram-marketing-agency", ready: true },
         ],
       },
     ],
   },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "About", href: "/about-us" },
-  { label: "Insights", href: "/insights" },
+  {
+    label: "Company",
+    columns: [
+      {
+        heading: "About OMH",
+        links: [
+          { label: "About Us", href: "/about-us", ready: true },
+          { label: "Pricing", href: "/pricing", ready: true },
+          { label: "FAQ", href: "/faq", ready: true },
+          { label: "Insights", href: "/insights", ready: true },
+          { label: "Contact", href: "/contact", ready: true },
+        ],
+      },
+      {
+        heading: "Policies",
+        links: [
+          { label: "Warranty", href: "/warranty", ready: true },
+          { label: "Privacy Policy", href: "/privacy", ready: true },
+          { label: "Cookie Policy", href: "/cookies", ready: true },
+          { label: "Terms & Conditions", href: "/terms", ready: true },
+        ],
+      },
+    ],
+  },
 ];
 
 // Pages designed in this preview. The coming-soon page points visitors here.
 export const readyPages: NavLink[] = [
   { label: "Home", href: "/", ready: true },
   { label: "WordPress Development", href: "/wordpress-development", ready: true },
+  { label: "Website Designs", href: "/website-designs", ready: true },
   { label: "Shopify Development", href: "/shopify-development", ready: true },
   { label: "WordPress Maintenance", href: "/wordpress-website-maintenance", ready: true },
   { label: "Google Ads PPC", href: "/google-adwords-ppc", ready: true },
@@ -83,6 +111,16 @@ export const readyPages: NavLink[] = [
   { label: "Improve Website Conversion", href: "/solutions/improve-website-conversion", ready: true },
   { label: "Grow Local Visibility", href: "/solutions/grow-local-visibility", ready: true },
   { label: "Outsource Your Digital Marketing", href: "/solutions/outsource-digital-marketing", ready: true },
+  { label: "Pricing", href: "/pricing", ready: true },
+  { label: "FAQ", href: "/faq", ready: true },
+  { label: "Warranty", href: "/warranty", ready: true },
+  { label: "Privacy Policy", href: "/privacy", ready: true },
+  { label: "Cookie Policy", href: "/cookies", ready: true },
+  { label: "Terms & Conditions", href: "/terms", ready: true },
+  { label: "Best SEO Services", href: "/best-seo-services", ready: true },
+  { label: "Best Local SEO Services", href: "/best-local-seo-services", ready: true },
+  { label: "Facebook Marketing", href: "/facebook-marketing-agency", ready: true },
+  { label: "Instagram Marketing", href: "/instagram-marketing-agency", ready: true },
 ];
 
 // href → friendly label, so the coming-soon page can title itself correctly.

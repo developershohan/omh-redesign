@@ -5,8 +5,16 @@ import { Eyebrow } from "@/components/ui/Proof";
 import { caseStudies } from "@/lib/content/case-studies";
 
 export function CaseStudyArchive() {
-  const seoCount = caseStudies.filter((study) => study.category === "SEO").length;
-  const websiteCount = caseStudies.length - seoCount;
+  // Counted per category rather than "SEO and everything else" — Phase 4 added
+  // PPC and Design studies, which that assumption used to file under Website.
+  const byCategory = caseStudies.reduce<Record<string, number>>((acc, study) => {
+    acc[study.category] = (acc[study.category] ?? 0) + 1;
+    return acc;
+  }, {});
+  const counts: [string, number][] = [
+    ["Studies", caseStudies.length],
+    ...(Object.entries(byCategory) as [string, number][]),
+  ];
   const sectors = [...new Set(caseStudies.map((study) => study.sector))];
 
   return (
@@ -21,17 +29,13 @@ export function CaseStudyArchive() {
                   Real work, real sectors, real numbers.
                 </h1>
                 <p className="mt-6 max-w-[60ch] text-body leading-relaxed text-ink/72">
-                  A cross-section of SEO, paid media and website projects across hospitality, retail
-                  and local service businesses — what we were asked to fix, what we did, and what
-                  changed.
+                  A cross-section of SEO, paid media, website and design projects across
+                  hospitality, retail, professional services and local service businesses — what we
+                  were asked to fix, what we did, and what changed.
                 </p>
               </div>
-              <dl className="col-span-4 col-start-9 grid grid-cols-3 border-y border-line py-6 max-lg:mt-10">
-                {[
-                  ["Studies", caseStudies.length],
-                  ["SEO", seoCount],
-                  ["Website", websiteCount],
-                ].map(([label, value]) => (
+              <dl className="col-span-4 col-start-9 flex flex-wrap gap-y-4 border-y border-line py-6 max-lg:mt-10">
+                {counts.map(([label, value]) => (
                   <div key={label} className="border-l border-line px-5 first:border-l-0 first:pl-0">
                     <dt className="text-[13px] font-semibold uppercase tracking-[0.13em] text-muted">
                       {label}

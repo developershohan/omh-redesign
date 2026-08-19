@@ -44,6 +44,7 @@ export function CaseStudyRow({ study, index }: { study: CaseStudy; index: number
           </h2>
           <p className="mt-5 max-w-[52ch] text-body leading-relaxed text-ink/72">{study.lede}</p>
 
+          {metrics.length > 0 && (
           <dl className="mt-8 grid grid-cols-3 gap-x-6 gap-y-5 border-y border-line py-6 max-sm:grid-cols-1">
             {metrics.map((metric) => (
               <div key={`${metric.value}-${metric.label}`}>
@@ -54,7 +55,9 @@ export function CaseStudyRow({ study, index }: { study: CaseStudy; index: number
               </div>
             ))}
           </dl>
+          )}
 
+          {study.serviceIds.length > 0 && (
           <ul className="mt-6 flex flex-wrap gap-2">
             {study.serviceIds.map((serviceId) => (
               <li
@@ -65,6 +68,7 @@ export function CaseStudyRow({ study, index }: { study: CaseStudy; index: number
               </li>
             ))}
           </ul>
+          )}
 
           <Link
             href={`/case-studies/${study.slug}`}

@@ -15,14 +15,18 @@ export type CaseStudy = {
   sourceTitle: string;
   client: string;
   sector: string;
-  category: "SEO" | "Website";
-  duration: string;
+  category: "SEO" | "Website" | "PPC" | "Design";
+  /* Optional: the four legacy case-study pages imported in Phase 4 publish no
+     timeframe, and inventing one would be a fabricated fact. */
+  duration?: string;
   lede: string;
   objective: string;
   challenges: string[];
   work: { title: string; items: string[] }[];
   results: { value: string; label: string; context?: string }[];
-  testimonial?: { quote: string; attribution: string };
+  /* `attribution` is optional — the Phase 4 legacy pages print the client
+     recommendation with no name against it. */
+  testimonial?: { quote: string; attribution?: string };
   serviceIds: CaseStudyServiceId[];
 };
 
@@ -245,6 +249,224 @@ export const caseStudies: CaseStudy[] = [
       attribution: "Serg Zinki, Owner",
     },
     serviceIds: ["seo", "google-ads", "wordpress", "social-media", "paid-social"],
+  },
+  /*
+    Phase 4 of docs/legacy-pages-plan.md — the four standalone legacy case-study
+    pages, folded into this system on 19 Aug 2026 with their old URLs redirected
+    in next.config.ts. Copy is verbatim from the live pages, including their own
+    casing and typos ("Landig Pages", "campaginns", "Regulary", "In know time").
+
+    None of the four publishes a metric, so `results` is empty and the results
+    band does not render — the alternative would be inventing numbers.
+  */
+  {
+    slug: "fleming-verandas",
+    title: "PPC FOR FLEMING VERANDAS",
+    shortTitle: "Fleming Verandas PPC",
+    sourceUrl: "https://onlinemarketinghelp.co.uk/ppc-for-fleming-verandas-case-study/",
+    sourceTitle: "PPC for Fleming Verandas Case Study",
+    client: "FLEMING VERANDAS",
+    sector: "Veranda and awning company IN THE UK",
+    category: "PPC",
+    lede: "Fleming Verandas was a start-up, small business in the West Midlands with an experience in delivering high quality verandas and glass rooms to customers.",
+    /* ◈ Live-site defect, resolved 19 Aug 2026. The source page's "THE PROJECT"
+       paragraph is the Out Out Entry *website* brief pasted onto a PPC case study
+       ("an all encompassing multi-site … backend system that could manage incoming
+       enquiries"). The user re-sent the page HTML and it carries the same error, so
+       there is no corrected paragraph to copy. Rather than publish a website brief
+       on a Google Ads case study, the objective is now the page's own PPC sentence,
+       verbatim, from "The brief" — the second half of what used to be the lede, so
+       nothing is duplicated and nothing is invented. */
+    objective:
+      "They tasked Online Marketing Help with starting their PPC strategy and kickstarting all of their PPC campaigns to enable business growth and to encourage customer acquisition in target areas.",
+    challenges: [
+      "PPC advertising is a form of internet marketing that allows businesses to pay for ad placement on search engines and social media platforms. It’s an integral part of any well-rounded marketing strategy, but poorly thought tactics could land you in hot water.",
+      "Businesses who invest in PPC advertising need to be aware of the risks and rewards. There are many benefits to PPC advertising, such as the ability to quickly change strategies if something isn’t working. But there are also a number of pitfalls that can lead to wasted time and money.",
+      "For example, PPC ads are often expensive, so it’s important not to spend too much on ads that aren’t working or don’t have enough traffic. It’s also important not to use too many different keywords in one ad campaign because it will be more difficult to measure which keywords are working.",
+    ],
+    work: [
+      {
+        title: "The project",
+        items: [
+          "Full audit of past performance",
+          "Keyword targeting & prioritisation – Review messaging & ad structure to deliver higher CTR  & Conversion",
+          "Testing plan – to expand reach & improve performance",
+          "Daily Campaign Management",
+          "Planning & Reporting",
+          "Forecasting & Budget Spend – maximising budget",
+          "Cross Channel considerations",
+        ],
+      },
+      {
+        title: "What We Did",
+        items: [
+          "Set-up Google Tag Manager and Google Ads Manager",
+          "Set-up Review sites",
+          "A/B Tested Multiple Ads within specific campaigns",
+          "Competitor Analysis",
+          "Keyword Brainstorming",
+          "Negative Keyword Brainstorming",
+          "Google Ads Extension set-up and testing",
+          "Daily optimisation of campaigns",
+          "Remarketing campaginns",
+          "Regulary working on the right bid strategy",
+          "Quality score optimisation",
+        ],
+      },
+    ],
+    results: [],
+    testimonial: {
+      quote:
+        "Excellent service from the team with constant communication keeping us up to date, excellent results from their hard work, with a big thanks to Matt who has worked directly alongside us to give us the support needed, Matt has improved our campaign and answered any questions we have had. Great work Online Marketing Help.",
+    },
+    serviceIds: ["google-ads"],
+  },
+  {
+    slug: "california-accounting",
+    title: "Search Engine Optimisation for California Accounting",
+    shortTitle: "California Accounting SEO",
+    sourceUrl:
+      "https://onlinemarketinghelp.co.uk/search-engine-optimisation-for-california-accounting-case-study/",
+    sourceTitle: "Search Engine Optimisation for California Accounting Case Study",
+    client: "california Accounting",
+    sector: "accountancy firm in the u.s",
+    category: "SEO",
+    lede: "California Accounting is an established full solution accountancy firm that approached Online Marketing Help as they wanted to gain more organic traffic to their existing website. California Accounting wanted us to set-up a full paid ads strategy as well as using organic data to support it.",
+    objective:
+      "To offer an all encompassing Search Engine Optimisation strategy for a longstanding accountancy firm.",
+    challenges: [
+      "California Accounting had not done any Search Engine optimisation including no Google or Bing optimisation, Backlinks, Social optimisation and so on.",
+      "Online Marketing Help, started the project with the end in mind and worked backwards. The ultimate goal was to generate additional organic leads alongside a strategic paid advertising campaign.",
+    ],
+    work: [
+      {
+        title: "The project",
+        items: [
+          "Create Strong White Hat Backlinks",
+          "Create an Online Profile",
+          "Generate Organic Traffic",
+          "Strengthen Clients Domain Authority",
+          "Maximise Page Speed",
+          "Diversify High Traffic-Generating Landig Pages",
+        ],
+      },
+      {
+        title: "What We Did",
+        items: [
+          "Optimised All Existing Data on The Website.",
+          "Optimised All Social Channels.",
+          "Undertook Keyword and Competitor Analysis.",
+          "Improved on Page SEO.",
+          "Curated Weekly Blog Posts.",
+          "Graphics Design Support.",
+        ],
+      },
+    ],
+    results: [],
+    testimonial: {
+      quote:
+        "Thanks to Online Marketing Help we have seen an increase of 210% YOY growth with new clients driven by local searching. We have a much clearer communication channel with existing and new clients. We are now on page 1 for accounting firms in California, we continue to see a better ROI on our google ads spend although we have reduced this considerable due to the volume of leads we are getting organically.",
+    },
+    serviceIds: ["seo"],
+  },
+  {
+    slug: "allied-hands",
+    title: "Social Care Illustration Design Case Study",
+    shortTitle: "Allied Hands Illustration",
+    sourceUrl: "https://onlinemarketinghelp.co.uk/social-care-illustration-design-case-study/",
+    sourceTitle: "Social Care Illustration Design Case Study",
+    client: "ALLIED HANDS",
+    sector: "social and health care business",
+    category: "Design",
+    lede: "Create some unique on brand illustrations to support a recruitment campaign that Allied Hands were wanting to launch in the coming weeks. The client wanted a creative, quirky look and feel but still with an element of professionalism suitable for their target audience 50+.",
+    objective:
+      "Our client needed (in a hurry) some illustrations for their social and health care business. The task was to create a few illustrations on brand and matching to their existing brand images and illustrations.",
+    challenges: [
+      "Allied Hands didn’t really know what they wanted in terms of design but had seen some examples they liked on the internet. We wanted to add an element of creativity for this client as we knew that an engaging creative would make all the difference in them attracting high quality candidates.",
+      "We had no direct guidance from the client in terms of what or how they wanted the illustrations to look which has its advantages so we got working on some creative illustrations.",
+    ],
+    work: [
+      {
+        title: "Some of the questions we asked to help us establish  the full brief;",
+        items: [
+          "Can You Tell Me About Your Company?",
+          "What Do You Want to Achieve with the Design?",
+          "Who is Your Target Audience?”",
+        ],
+      },
+      {
+        title: "What We Did",
+        items: [
+          "Researched similar businesses",
+          "Mocked up the logo so they had a transparent file",
+          "Undertook a brand research task",
+          "Hand drew illustration",
+          "Re-worked their logo as an illustration",
+          "Designed 12 illustrations",
+          "Established their target audience",
+          "Marketing collateral creation",
+          "Optimised the images for SEO",
+          "Design preferences questionnaire",
+          "Worked within the clients budget",
+        ],
+      },
+    ],
+    results: [],
+    testimonial: {
+      quote:
+        "We really needed some illustrations for our business quick smart and found Online Marketing Help. The lady that reached out to me was professional, speedy and super friendly. In know time she really understood my business and what I was looking for. Within 24 hours of contact I had my illustrations back and I didn’t need to make any changes as they were exactly what I wanted.",
+    },
+    serviceIds: [],
+  },
+  {
+    slug: "out-out-entry",
+    title: "WEBSITE DESIGN & DEVELOPMENT for OUT OUT ENTRY",
+    shortTitle: "Out Out Entry Website",
+    sourceUrl: "https://onlinemarketinghelp.co.uk/website-design-for-out-out-entry-website-design/",
+    sourceTitle: "Web Development for Out Out Entry Website Design Case Study",
+    client: "out out entry",
+    sector: "TOUR OPERATOR IN THE UK",
+    category: "Website",
+    lede: "Out Out Entry was a start-up, small tour operator business wanting to showcase 1000’s of activities and accommodation options. They tasked Online Marketing Help with building a mobile friendly fully optimised custom built website to enable business growth and allow optimised landing pages to be used for targeted ads campaigns.",
+    objective:
+      "To create an all encompassing multi-site that offered a seamless User Experience for customers and suppliers alike with a backend system that could manage incoming enquiries.",
+    challenges: [
+      "With 1000’s of products requiring individual pages and the need for a speedy site, Online Marketing Help was tasked with making a website full of engaging content without slowing down the website speed.",
+      "Also shifting existing data from a pre-designed off the shelf Wix website onto a custom built website.",
+    ],
+    work: [
+      {
+        title: "The project",
+        items: [
+          "Transfer Data From a Wix Website",
+          "Custom Code Functionality",
+          "Creative Logo",
+          "A Fresh and Fun Look",
+          "List Of Activities Easy To Find",
+          "Super Easy Booking System",
+        ],
+      },
+      {
+        title: "What We Did",
+        items: [
+          "Shifted all existing data from Wix to WordPress",
+          "Created a Multi-site WP Site With 4 Separate Sites",
+          "Custom HTML Code Written and Implemented",
+          "Search Engine Optimisation and Meta Tags on 200+ Pages",
+          "Optimisation of local seo and Work for linkbuilding.",
+          "Delivering a New and Packaged Brand That Worked With Both Male and Female With a Wide Age Range.",
+          "Launch an E-commerce Shop.",
+          "Custom Built CRM in The Back-end.",
+          "Improving Website Security.",
+        ],
+      },
+    ],
+    results: [],
+    testimonial: {
+      quote:
+        "I had a vision for my website but I couldn’t have dreamed of achieving what the Online Marketing Help team delivered. From regular updates and consultations to the excellent delivery of my social media channels and assets alike. I had been talking with a number of web design agencies prior to starting working with Online Marketing Help and I was blown away by their professionalism from the onset.",
+    },
+    serviceIds: ["wordpress", "seo"],
   },
 ];
 

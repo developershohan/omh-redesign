@@ -254,7 +254,13 @@ export function AmazonFinalCTA() {
       titleAccent="easier to understand?"
       body="Tell us what you sell, where you advertise, your current spend and the account problem you want to solve. We will recommend a practical next step."
       primary={{ label: "Discuss Amazon PPC", event: "amazon_final_cta_click" }}
-      secondary={{ label: "Send an Account Brief", event: "amazon_brief_start" }}
+      secondary={{
+        label: "Send an Account Brief",
+        // No Amazon-specific quote form exists on the live site; the PPC one
+        // is the nearest real destination.
+        href: "/ppc-request-quote",
+        event: "amazon_brief_start",
+      }}
       contactEvents={{ phone: "amazon_phone_click", email: "amazon_email_click" }}
     />
   );

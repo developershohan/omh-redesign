@@ -2,7 +2,7 @@
 
 import { useId, useState, type KeyboardEvent } from "react";
 import { Reveal } from "@/components/Reveal";
-import { ServiceBand, type ServiceBandTone } from "@/components/services/ServiceBand";
+import { ServiceBand, type ServiceBandLabel, type ServiceBandTone } from "@/components/services/ServiceBand";
 import { siteTestimonials } from "@/lib/content/testimonials";
 
 export type Testimonial = {
@@ -20,6 +20,7 @@ export function ServiceTestimonials({
   eventPrefix,
   tone = "navy",
   accent = "bg-[#ee8c67]",
+  labelStyle = "rule",
 }: {
   testimonials: readonly Testimonial[];
   title: string;
@@ -29,6 +30,7 @@ export function ServiceTestimonials({
   eventPrefix: string;
   tone?: ServiceBandTone;
   accent?: string;
+  labelStyle?: ServiceBandLabel;
 }) {
   const [current, setCurrent] = useState(0);
   const headingId = useId();
@@ -61,7 +63,7 @@ export function ServiceTestimonials({
   const rule = dark ? "border-oninverse/12" : "border-line";
 
   return (
-    <ServiceBand label={label} tone={tone} accent={accent}>
+    <ServiceBand label={label} tone={tone} accent={accent} labelStyle={labelStyle}>
       <Reveal>
         <div
           role="region"
@@ -152,6 +154,7 @@ export function SiteTestimonials({
   eyebrow = "Published customer reviews",
   tone = "navy",
   accent,
+  labelStyle,
 }: {
   eventPrefix: string;
   title?: string;
@@ -159,6 +162,7 @@ export function SiteTestimonials({
   eyebrow?: string;
   tone?: ServiceBandTone;
   accent?: string;
+  labelStyle?: ServiceBandLabel;
 }) {
   return (
     <ServiceTestimonials
@@ -169,6 +173,7 @@ export function SiteTestimonials({
       eventPrefix={eventPrefix}
       tone={tone}
       accent={accent}
+      labelStyle={labelStyle}
     />
   );
 }

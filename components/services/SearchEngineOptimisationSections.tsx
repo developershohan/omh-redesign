@@ -223,7 +223,11 @@ export function SeoFinalCTA() {
       titleAccent="into a clearer plan?"
       body="Tell us which pages matter, what organic search currently contributes and where progress has stalled. We will review the starting point and recommend the next practical step."
       primary={{ label: "Discuss SEO Services", event: "seo_final_cta_click" }}
-      secondary={{ label: "Send an SEO Brief", event: "seo_brief_start" }}
+      secondary={{
+        label: "Send an SEO Brief",
+        href: "/seo-request-quote",
+        event: "seo_brief_start",
+      }}
       contactEvents={{ phone: "seo_phone_click", email: "seo_email_click" }}
     />
   );

@@ -274,7 +274,11 @@ export function PpcFinalCTA() {
       titleAccent="Google Ads?"
       body="Tell us what you sell, where you advertise, what you spend and what a useful conversion means. We will review the starting point and recommend a practical next step."
       primary={{ label: "Discuss Google Ads Management", event: "ppc_final_cta_click" }}
-      secondary={{ label: "Send a Campaign Brief", event: "ppc_form_start" }}
+      secondary={{
+        label: "Send a Campaign Brief",
+        href: "/ppc-request-quote",
+        event: "ppc_form_start",
+      }}
       phoneEvent="ppc_phone_click"
       emailEvent="ppc_email_click"
       steps={[

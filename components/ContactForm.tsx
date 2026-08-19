@@ -3,6 +3,7 @@
 import { useId, useState } from "react";
 import { Field } from "@/components/ui/Field";
 import { ArrowRight } from "@/components/ui/Button";
+import { Honeypot, sendEnquiry } from "@/lib/send-enquiry";
 
 const controlCls =
   "min-h-12 w-full rounded-input border-[1.5px] border-line bg-surface px-3.5 text-body text-ink placeholder:text-muted/70";
@@ -19,11 +20,13 @@ const needs = [
 const budgets = ["Under £1,000", "£1,000 – £3,000", "£3,000 – £10,000", "Over £10,000", "Monthly retainer"];
 const timings = ["As soon as possible", "Within 1–3 months", "Later this year", "Just researching"];
 
-// Demo form: no backend, so submit just confirms receipt. Wire to a real
-// endpoint (or the WordPress form plugin) before launch.
+// Posts to /api/enquiry, which emails the answers to support@. Field names are
+// the visible labels, so the email reads as the questions asked.
 // Future Elementor widget: "OMH Consultation Form".
 export function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const needId = useId();
   const msgId = useId();
   const budgetId = useId();
@@ -51,8 +54,14 @@ export function ContactForm() {
 
   return (
     <form
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault();
+        const form = e.currentTarget;
+        setSending(true);
+        setError(null);
+        const result = await sendEnquiry(form, "Contact enquiry");
+        setSending(false);
+        if (!result.ok) return setError(result.message);
         setSent(true);
       }}
       data-event="wpdev_form_submit"
@@ -71,7 +80,7 @@ export function ContactForm() {
           <label htmlFor={needId} className="text-label font-semibold text-ink">
             What do you need?
           </label>
-          <select id={needId} defaultValue="" className={controlCls}>
+          <select id={needId} name="What do you need?" defaultValue="" className={controlCls}>
             <option value="" disabled>
               Choose one
             </option>
@@ -89,7 +98,7 @@ export function ContactForm() {
           <label htmlFor={budgetId} className="text-label font-semibold text-ink">
             Rough budget
           </label>
-          <select id={budgetId} defaultValue="" className={controlCls}>
+          <select id={budgetId} name="Rough budget" defaultValue="" className={controlCls}>
             <option value="">Prefer not to say</option>
             {budgets.map((b) => (
               <option key={b} value={b}>
@@ -103,7 +112,7 @@ export function ContactForm() {
           <label htmlFor={timingId} className="text-label font-semibold text-ink">
             When do you want to start?
           </label>
-          <select id={timingId} defaultValue="" className={controlCls}>
+          <select id={timingId} name="When do you want to start?" defaultValue="" className={controlCls}>
             <option value="">Not sure yet</option>
             {timings.map((t) => (
               <option key={t} value={t}>
@@ -123,6 +132,7 @@ export function ContactForm() {
           </label>
           <textarea
             id={msgId}
+            name="What's the goal or problem?"
             required
             rows={4}
             placeholder="Tell us what&apos;s not working now and what you want the website to do."
@@ -131,13 +141,20 @@ export function ContactForm() {
         </div>
       </div>
 
+      <Honeypot />
       <button
         type="submit"
+        disabled={sending}
         className="button-motion group mt-7 inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-button border-[1.5px] border-transparent bg-teal px-6 py-4 text-body font-semibold leading-none text-white hover:bg-teal-dark max-sm:w-full max-sm:justify-center"
       >
-        Send enquiry
+        {sending ? "Sending…" : "Send enquiry"}
         <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
       </button>
+      {error && (
+        <p role="alert" className="mt-4 text-body font-medium text-error">
+          {error}
+        </p>
+      )}
       <p className="mt-4 text-bsm text-muted">
         We only use your details to respond to this enquiry.
       </p>

@@ -526,7 +526,11 @@ export function MaintenanceFinalCTA() {
       titleAccent="WordPress maintenance?"
       body="Tell us what the website does, what has been going wrong and what support you need each month. We will review the setup and recommend a practical next step."
       primary={{ label: "Discuss Website Maintenance", event: "maintenance_final_cta_click" }}
-      secondary={{ label: "Send a Website Brief", event: "maintenance_form_start" }}
+      secondary={{
+        label: "Send a Website Brief",
+        href: "/wordpress-website-maintenance-request-quote",
+        event: "maintenance_form_start",
+      }}
       phoneEvent="maintenance_phone_click"
       emailEvent="maintenance_email_click"
       steps={[

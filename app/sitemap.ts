@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { readyPages } from "@/lib/content/nav";
 import { caseStudies } from "@/lib/content/case-studies";
 import { insightPosts } from "@/lib/content/insights-posts";
+import { funnelPaths } from "@/lib/content/quote-forms";
 import { SITE } from "@/lib/schema";
 
 // Audit T-01: the live page-sitemap.xml holds 15 URLs and omits
@@ -12,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...readyPages.map((p) => p.href),
     ...caseStudies.map((c) => `/case-studies/${c.slug}`),
     ...insightPosts.map((p) => `/${p.slug}`),
+    ...funnelPaths,
   ];
 
   return paths.map((path) => ({

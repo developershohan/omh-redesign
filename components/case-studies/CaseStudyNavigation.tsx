@@ -50,17 +50,10 @@ export function CaseStudyNavigation({ study }: { study: CaseStudy }) {
           </Link>
         </div>
 
-        <p className="mt-5 text-[14px] text-muted">
-          <a
-            href={study.sourceUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="font-semibold underline underline-offset-4 hover:text-amber-deep"
-          >
-            View the live project
-          </a>{" "}
-          <span aria-hidden>·</span> Opens on onlinemarketinghelp.co.uk
-        </p>
+        {/* The "View the live project" link used to open study.sourceUrl on the
+            old WordPress site. That site is being taken down, so the link would
+            404 — and for the four legacy studies it now redirects back into this
+            page anyway. `sourceUrl` stays in the data as provenance. */}
       </div>
     </nav>
   );

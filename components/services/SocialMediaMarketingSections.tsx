@@ -83,6 +83,11 @@ export function SocialFinalCTA() {
       titleAccent="handled consistently?"
       body="Book a call at a convenient time, or speak to the team directly — we will look at what you are posting now before recommending a plan."
       primary={{ label: "Discuss Social Media Support", event: "social_final_cta_click" }}
+      secondary={{
+        label: "Request a Paid Social Quote",
+        href: "/social-media-paid-marketing-request-quote",
+        event: "social_quote_start",
+      }}
       contactEvents={{ phone: "social_phone_click", email: "social_email_click" }}
     />
   );

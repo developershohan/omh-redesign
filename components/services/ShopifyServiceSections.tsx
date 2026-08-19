@@ -368,7 +368,11 @@ export function ShopifyFinalCTA() {
       titleAccent="Shopify store?"
       body="Tell us what you sell, what the current setup is making difficult and what the new store needs to support. We will review the detail and recommend a practical next step."
       primary={{ label: "Discuss Your Shopify Project", event: "shopify_final_cta_click" }}
-      secondary={{ label: "Send a Store Brief", event: "shopify_form_start" }}
+      secondary={{
+        label: "Send a Store Brief",
+        href: "/new-website-development-quotation-questionnaire",
+        event: "shopify_form_start",
+      }}
       phoneEvent="shopify_phone_click"
       emailEvent="shopify_email_click"
       steps={[

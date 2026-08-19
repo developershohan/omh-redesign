@@ -27,6 +27,7 @@ export function CaseStudyHero({ study, index }: { study: CaseStudy; index: numbe
               </h1>
               <p className="mt-6 max-w-[54ch] text-body leading-relaxed text-ink/72">{study.lede}</p>
 
+              {study.serviceIds.length > 0 && (
               <ul className="mt-9 flex flex-wrap gap-2">
                 {study.serviceIds.map((serviceId) => (
                   <li
@@ -37,6 +38,7 @@ export function CaseStudyHero({ study, index }: { study: CaseStudy; index: numbe
                   </li>
                 ))}
               </ul>
+              )}
             </div>
 
             <div className="col-span-6">
@@ -50,13 +52,22 @@ export function CaseStudyHero({ study, index }: { study: CaseStudy; index: numbe
 }
 
 export function CaseStudyOverview({ study }: { study: CaseStudy }) {
-  const facts = [
+  const serviceByCategory = {
+    SEO: "Search Engine Optimisation",
+    Website: "Website Development",
+    PPC: "Google Ads PPC Management",
+    Design: "Graphic Design",
+  } as const;
+
+  // `duration` is optional — the legacy pages publish no timeframe, so that row
+  // is dropped rather than filled with a guess.
+  const facts: [string, string][] = [
     ["Client", study.client],
     ["Sector", study.sector],
-    ["Service", study.category === "SEO" ? "Search Engine Optimisation" : "Website Development"],
-    ["Duration", study.duration],
+    ["Service", serviceByCategory[study.category]],
+    ...(study.duration ? ([["Duration", study.duration]] as [string, string][]) : []),
     ["Objective", study.objective],
-  ] as const;
+  ];
 
   return (
     <section className="border-b border-line bg-warm" aria-label="Project overview">

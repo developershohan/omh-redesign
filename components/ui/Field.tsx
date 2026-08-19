@@ -7,6 +7,7 @@ import { useId } from "react";
 // not by colour alone, 44px+ tap target. Future Elementor widget: "OMH Form Field".
 export function Field({
   label,
+  name,
   required,
   help,
   error,
@@ -17,6 +18,9 @@ export function Field({
   defaultValue,
 }: {
   label: string;
+  /* Defaults to the visible label so submitted enquiries read as the questions
+     the visitor answered. See lib/send-enquiry.tsx. */
+  name?: string;
   required?: boolean;
   help?: string;
   error?: string;
@@ -41,6 +45,7 @@ export function Field({
       </label>
       <input
         id={id}
+        name={name ?? label}
         type={type}
         placeholder={placeholder}
         defaultValue={defaultValue}

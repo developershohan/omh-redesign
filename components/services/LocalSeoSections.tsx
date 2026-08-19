@@ -199,7 +199,11 @@ export function LocalSeoFinalCTA() {
       titleAccent="local visibility needs work."
       body="Tell us the services and locations that matter, share your website and business profile, and explain which calls, visits or enquiries you want to improve."
       primary={{ label: "Check My Local Visibility", event: "local_seo_final_cta_click" }}
-      secondary={{ label: "Send a Local SEO Brief", event: "local_seo_brief_start" }}
+      secondary={{
+        label: "Send a Local SEO Brief",
+        href: "/seo-request-quote",
+        event: "local_seo_brief_start",
+      }}
       contactEvents={{ phone: "local_seo_phone_click", email: "local_seo_email_click" }}
     />
   );

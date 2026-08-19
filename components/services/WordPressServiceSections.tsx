@@ -553,7 +553,11 @@ export function FinalCTA() {
       titleAccent="WordPress website?"
       body="Tell us what you need your website to do, what is not working now, and what you want to improve. We will review the details and recommend the most practical next step."
       primary={{ label: "Book a WordPress Consultation", event: "wpdev_final_cta_click" }}
-      secondary={{ label: "Send a Website Brief", event: "wpdev_form_start" }}
+      secondary={{
+        label: "Send a Website Brief",
+        href: "/wordpress-development-request-quote",
+        event: "wpdev_form_start",
+      }}
       phoneEvent="wpdev_phone_click"
       emailEvent="wpdev_email_click"
       steps={[

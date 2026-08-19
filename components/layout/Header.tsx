@@ -68,7 +68,7 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
       }`}
     >
       <div
-        className={`container-omh flex items-center gap-6 transition-[height] duration-300 max-xl:gap-3 ${
+        className={`container-omh flex items-center gap-6 transition-[height] duration-300 max-lg:gap-3 ${
           scrolled ? "h-[68px]" : "h-[84px]"
         }`}
       >
@@ -81,7 +81,7 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
           </span>
         </Link>
 
-        <nav aria-label="Primary" className="ml-auto flex items-center gap-1 max-xl:hidden">
+        <nav aria-label="Primary" className="ml-auto flex items-center gap-1 max-lg:hidden">
           {primaryNav.map((item) => {
             const current = isCurrent(pathname, item);
             return item.columns ? (
@@ -114,7 +114,15 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
                   <div className="absolute left-0 top-full z-50 pt-3">
                     <div
                       className={`menu-pop rounded-card border border-line bg-surface p-4 shadow-[0_28px_60px_-30px_rgb(16_24_40/0.55)] ${
-                        item.columns.length > 1 ? "grid w-[720px] grid-cols-4 gap-x-6" : "w-[340px]"
+                        // Sized by column count — "Get a Quote" has 3 columns and
+                        // used to leave an empty cell in a hardcoded 4-col grid.
+                        item.columns.length > 3
+                          ? "grid w-[720px] grid-cols-4 gap-x-6"
+                          : item.columns.length === 3
+                            ? "grid w-[600px] grid-cols-3 gap-x-6"
+                            : item.columns.length === 2
+                              ? "grid w-[440px] grid-cols-2 gap-x-6"
+                              : "w-[340px]"
                       }`}
                     >
                       {item.columns.map((col) => (
@@ -150,8 +158,10 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
           })}
         </nav>
 
-        <div className="ml-auto flex items-center gap-2 xl:ml-6">
-          <span className="max-lg:hidden">
+        <div className="ml-auto flex items-center gap-2 lg:ml-6">
+          {/* Hidden below xl so the five-item nav fits from 1024px up — the
+              number is still in the mobile menu and the footer. */}
+          <span className="max-xl:hidden">
             <a
               href={company.phoneHref}
               className="mr-2 whitespace-nowrap text-label font-medium text-muted transition-colors hover:text-ink"
@@ -172,7 +182,7 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
             onClick={() => setOpen(!open)}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            className="hidden size-10 cursor-pointer items-center justify-center rounded-button border border-line max-xl:flex"
+            className="hidden size-10 cursor-pointer items-center justify-center rounded-button border border-line max-lg:flex"
           >
             <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="size-5" aria-hidden>
@@ -183,7 +193,7 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
       </div>
 
       {open && (
-        <div id="mobile-menu" className="menu-pop border-t border-line bg-warm xl:hidden">
+        <div id="mobile-menu" className="menu-pop border-t border-line bg-warm lg:hidden">
           <div className="container-omh max-h-[calc(100dvh-84px)] overflow-y-auto py-4">
             {primaryNav.map((item) =>
               item.columns ? (

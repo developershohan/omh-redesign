@@ -5,6 +5,9 @@ import { Eyebrow } from "@/components/ui/Proof";
 import { caseStudyServices, type CaseStudy } from "@/lib/content/case-studies";
 
 export function CaseStudyResults({ study }: { study: CaseStudy }) {
+  // The four legacy studies imported in Phase 4 publish no figures. An empty
+  // "What changed." band reads as missing content, so it doesn't render at all.
+  if (!study.results.length) return null;
   return (
     <section className="bg-inverse text-oninverse">
       <div className="container-omh section-md">
@@ -50,8 +53,10 @@ export function CaseStudyTestimonial({ study }: { study: CaseStudy }) {
                 “{study.testimonial.quote}”
               </blockquote>
               <p className="mt-7 text-body font-semibold text-ink/70">
-                {study.testimonial.attribution}
-                <span className="block font-normal text-muted">{study.client}</span>
+                {study.testimonial.attribution ?? study.client}
+                {study.testimonial.attribution && (
+                  <span className="block font-normal text-muted">{study.client}</span>
+                )}
               </p>
             </div>
           </div>
@@ -62,6 +67,7 @@ export function CaseStudyTestimonial({ study }: { study: CaseStudy }) {
 }
 
 export function CaseStudyServices({ study }: { study: CaseStudy }) {
+  if (!study.serviceIds.length) return null;
   return (
     <section className="border-b border-line bg-surface">
       <div className="container-omh section-md">

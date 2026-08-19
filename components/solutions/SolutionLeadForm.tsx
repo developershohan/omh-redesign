@@ -2,6 +2,7 @@
 
 import { useId, useState } from "react";
 import { ArrowRight } from "@/components/ui/Button";
+import { Honeypot, sendEnquiry } from "@/lib/send-enquiry";
 
 const controlClass =
   "min-h-12 w-full rounded-input border-[1.5px] border-line bg-surface px-4 text-body text-ink placeholder:text-muted/65";
@@ -18,6 +19,8 @@ export function SolutionLeadForm({
   eventPrefix: string;
 }) {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const nameId = useId();
   const emailId = useId();
   const websiteId = useId();
@@ -44,8 +47,14 @@ export function SolutionLeadForm({
 
   return (
     <form
-      onSubmit={(event) => {
+      onSubmit={async (event) => {
         event.preventDefault();
+        const form = event.currentTarget;
+        setSending(true);
+        setError(null);
+        const result = await sendEnquiry(form, `Solutions enquiry — ${need}`);
+        setSending(false);
+        if (!result.ok) return setError(result.message);
         setSent(true);
       }}
       data-event={`${eventPrefix}_form_submit`}
@@ -78,13 +87,20 @@ export function SolutionLeadForm({
           <textarea id={detailId} name="details" required rows={4} className={`${controlClass} min-h-32 py-3 leading-relaxed`} />
         </div>
       </div>
+      <Honeypot />
       <button
         type="submit"
-        className="button-motion group mt-5 inline-flex min-h-12 items-center gap-2 rounded-button bg-[#f2c675] px-6 py-4 text-body font-semibold text-white hover:bg-surface max-sm:w-full max-sm:justify-center"
+        disabled={sending}
+        className="button-motion group mt-5 inline-flex min-h-12 items-center gap-2 rounded-button bg-[#f2c675] px-6 py-4 text-body font-semibold text-white hover:bg-surface disabled:cursor-wait disabled:opacity-70 max-sm:w-full max-sm:justify-center"
       >
-        {submitLabel}
+        {sending ? "Sending…" : submitLabel}
         <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
       </button>
+      {error && (
+        <p role="alert" className="mt-4 text-body font-medium text-[#ffb4a8]">
+          {error}
+        </p>
+      )}
       <p className="mt-4 text-[13.5px] leading-relaxed text-oninverse/55">
         We use your details only to respond to this enquiry. No mailing-list opt-in is assumed.
       </p>

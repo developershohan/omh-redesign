@@ -4,6 +4,9 @@ import { Button, TextLink } from "@/components/ui/Button";
 import { CaseEvidenceFpo, CaseStudyFeature } from "@/components/ui/Case";
 import { Field } from "@/components/ui/Field";
 import { Eyebrow, Fpo, VerifiedSlot } from "@/components/ui/Proof";
+import Link from "next/link";
+import { freeConsultation, quoteFormPages } from "@/lib/content/quote-forms";
+import { subscriptionThankYou, thankYouPages } from "@/lib/content/thank-you";
 
 export const metadata: Metadata = {
   title: "Design system (internal)",
@@ -73,6 +76,59 @@ export default function DesignSystem() {
           future widget name in a source comment.
         </p>
       </header>
+
+      {/* Funnel pages have no nav entry by design — the quote forms live under
+          "Get a Quote", and the thank-you pages are post-submit destinations that
+          are noindex. This index exists so they can still be reviewed in one
+          place. Derived from the content modules, so it can't drift. */}
+      <Spec title="Funnel pages (no nav entry)">
+        <div className="grid grid-cols-2 gap-10 max-md:grid-cols-1">
+          <div>
+            <p className="mb-4 text-label font-semibold text-ink">
+              Quote forms &amp; questionnaires
+              <span className="ml-2 font-normal text-muted">
+                — also in the &ldquo;Get a Quote&rdquo; menu
+              </span>
+            </p>
+            <ul className="flex flex-col">
+              {[...quoteFormPages.map((p) => ({ slug: p.slug, label: p.seo.title })), { slug: freeConsultation.slug, label: freeConsultation.seo.title }].map(
+                (page) => (
+                  <li key={page.slug} className="border-b border-line">
+                    <Link
+                      href={`/${page.slug}`}
+                      className="block py-3 text-body text-ink hover:text-amber-deep"
+                    >
+                      {page.label}
+                      <span className="block text-bsm text-muted">/{page.slug}</span>
+                    </Link>
+                  </li>
+                ),
+              )}
+            </ul>
+          </div>
+          <div>
+            <p className="mb-4 text-label font-semibold text-ink">
+              Thank-you pages
+              <span className="ml-2 font-normal text-muted">— reached after a form submits</span>
+            </p>
+            <ul className="flex flex-col">
+              {[...thankYouPages.map((p) => ({ slug: p.slug, label: p.seo.title })), { slug: subscriptionThankYou.slug, label: subscriptionThankYou.seo.title }].map(
+                (page) => (
+                  <li key={page.slug} className="border-b border-line">
+                    <Link
+                      href={`/${page.slug}`}
+                      className="block py-3 text-body text-ink hover:text-amber-deep"
+                    >
+                      {page.label}
+                      <span className="block text-bsm text-muted">/{page.slug}</span>
+                    </Link>
+                  </li>
+                ),
+              )}
+            </ul>
+          </div>
+        </div>
+      </Spec>
 
       <Spec title="Colour">
         <div className="grid grid-cols-5 gap-4 max-lg:grid-cols-3 max-sm:grid-cols-2">
