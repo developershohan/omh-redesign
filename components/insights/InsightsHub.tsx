@@ -1,13 +1,13 @@
-import Image from "next/image";
 import Link from "next/link";
-import { Search } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { ArrowRight, TextLink } from "@/components/ui/Button";
+import { ArrowRight } from "@/components/ui/Button";
 import { FinalCta } from "@/components/ui/FinalCta";
 import { Eyebrow } from "@/components/ui/Proof";
 import { InsightMeta } from "@/components/insights/InsightMeta";
+import { InsightImage } from "@/components/insights/ArchiveRow";
+import { InsightsArchive } from "@/components/insights/InsightsArchive";
 import { getFeaturedInsights, getInsightTopics, getInsightsIndex } from "@/lib/sanity/insights";
-import { insightHref, type InsightIndexEntry, type InsightTopic } from "@/lib/content/insights-types";
+import { insightHref, type InsightIndexEntry } from "@/lib/content/insights-types";
 
 const pageSize = 12;
 
@@ -20,22 +20,6 @@ function archiveHref({ topic, query, page }: { topic?: string; query?: string; p
   return search ? `/insights?${search}` : "/insights";
 }
 
-function InsightImage({ post, priority = false }: { post: InsightIndexEntry; priority?: boolean }) {
-  if (!post.featuredImage) {
-    return <span className="absolute inset-0 bg-[radial-gradient(circle_at_72%_24%,rgb(215_154_55/0.24),transparent_28%),linear-gradient(145deg,#f8eddc,#efe1c9)]" />;
-  }
-
-  return (
-    <Image
-      src={post.featuredImage.src}
-      alt={post.featuredImage.alt}
-      fill
-      priority={priority}
-      sizes="(max-width: 1024px) 100vw, 62vw"
-      className="object-cover transition-transform duration-700 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.035]"
-    />
-  );
-}
 
 function FeaturedStories({ posts }: { posts: InsightIndexEntry[] }) {
   const [lead, ...picks] = posts;
@@ -98,116 +82,8 @@ function FeaturedStories({ posts }: { posts: InsightIndexEntry[] }) {
   );
 }
 
-function TopicNavigation({
-  activeTopic,
-  query,
-  topics: insightTopics,
-  totalCount,
-}: {
-  activeTopic: string;
-  query: string;
-  topics: Array<InsightTopic & { postCount: number }>;
-  totalCount: number;
-}) {
-  const topics = [{ slug: "", name: "All", postCount: totalCount }, ...insightTopics];
 
-  return (
-    <nav aria-label="Insight topics" className="overflow-x-auto border-b border-line">
-      <div className="container-omh flex min-w-max items-stretch">
-        {topics.map((topic) => {
-          const active = topic.slug === activeTopic;
-          return (
-            <Link
-              key={topic.slug || "all"}
-              href={archiveHref({ topic: topic.slug, query: query || undefined })}
-              // The filter row is already on screen when it is used; the router's
-              // default scroll-to-top threw the reader back to the hero each time.
-              scroll={false}
-              aria-current={active ? "page" : undefined}
-              className={`relative flex min-h-14 items-center gap-2 px-5 text-label font-semibold transition-colors first:pl-0 ${
-                active ? "text-ink" : "text-muted hover:text-amber-deep"
-              }`}
-            >
-              {topic.name}
-              <span className="text-[13px] font-medium text-muted/75">{topic.postCount}</span>
-              {active && <span className="absolute inset-x-5 bottom-0 h-0.5 bg-teal first:left-0" />}
-            </Link>
-          );
-        })}
-      </div>
-    </nav>
-  );
-}
 
-function ArchiveRow({ post }: { post: InsightIndexEntry }) {
-  return (
-    <Link
-      href={insightHref(post)}
-      className="insight-row group grid grid-cols-[240px_minmax(0,1fr)_auto] items-center gap-x-9 gap-y-5 border-b border-line py-7 max-lg:grid-cols-[190px_minmax(0,1fr)_auto] max-md:grid-cols-1"
-    >
-      <span className="relative block aspect-[16/10] overflow-hidden rounded-[10px] border border-line bg-soft">
-        <InsightImage post={post} />
-      </span>
-
-      <span className="min-w-0">
-        <span className="flex flex-wrap items-center gap-x-3 gap-y-1 font-sans text-[13px] font-semibold uppercase tracking-[0.13em] text-muted">
-          <span className="text-amber-deep">{post.topic.name}</span>
-          <span aria-hidden>·</span>
-          <time dateTime={post.publishedAt}>
-            {new Intl.DateTimeFormat("en-GB", { month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(post.publishedAt))}
-          </time>
-          <span aria-hidden>·</span>
-          <span className="normal-case tracking-normal">{post.readingTime} min read</span>
-        </span>
-        <span className="mt-3 block max-w-[38ch] font-sans text-[clamp(22px,20px+0.35vw,27px)] font-semibold leading-tight text-balance">
-          {post.title}
-        </span>
-        <span className="mt-3 block max-w-[68ch] text-body leading-relaxed text-ink/66">{post.summary}</span>
-      </span>
-
-      <span className="flex size-11 items-center justify-center rounded-full border border-line text-amber-deep transition-colors group-hover:border-teal group-hover:bg-teal group-hover:text-white max-md:hidden">
-        <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-      </span>
-    </Link>
-  );
-}
-
-function Pagination({ currentPage, pageCount, topic, query }: { currentPage: number; pageCount: number; topic: string; query: string }) {
-  if (pageCount <= 1) return null;
-  // Paging should land at the top of the list, not the top of the page.
-  const pageHref = (page: number) => `${archiveHref({ topic, query, page })}#archive`;
-
-  return (
-    <nav aria-label="Insights pagination" className="mt-10 flex flex-wrap items-center justify-between gap-5">
-      {currentPage > 1 ? (
-        <TextLink href={pageHref(currentPage - 1)} className="[&_svg]:rotate-180">
-          Previous
-        </TextLink>
-      ) : (
-        <span />
-      )}
-      <div className="flex flex-wrap items-center justify-center gap-2">
-        {Array.from({ length: pageCount }, (_, index) => index + 1).map((page) => (
-          <Link
-            key={page}
-            href={pageHref(page)}
-            aria-current={page === currentPage ? "page" : undefined}
-            className={`flex size-10 items-center justify-center rounded-full border text-[14px] font-semibold transition-colors ${
-              page === currentPage ? "border-teal bg-teal text-white" : "border-line bg-surface text-muted hover:border-teal hover:text-amber-deep"
-            }`}
-          >
-            {page}
-          </Link>
-        ))}
-      </div>
-      {currentPage < pageCount ? (
-        <TextLink href={archiveHref({ topic, query, page: currentPage + 1 })}>Next</TextLink>
-      ) : (
-        <span />
-      )}
-    </nav>
-  );
-}
 
 export async function InsightsHub({ topic = "", query = "", page = 1 }: { topic?: string; query?: string; page?: number }) {
   const [insightsIndex, insightTopics, featuredInsights] = await Promise.all([
@@ -231,9 +107,6 @@ export async function InsightsHub({ topic = "", query = "", page = 1 }: { topic?
   });
   const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
   const currentPage = Math.min(Math.max(1, Number.isFinite(page) ? Math.floor(page) : 1), pageCount);
-  const pagePosts = filtered.slice((currentPage - 1) * pageSize, currentPage * pageSize);
-  const resultStart = filtered.length ? (currentPage - 1) * pageSize + 1 : 0;
-  const resultEnd = Math.min(currentPage * pageSize, filtered.length);
 
   return (
     <>
@@ -302,57 +175,14 @@ export async function InsightsHub({ topic = "", query = "", page = 1 }: { topic?
         </div>
       </section>
 
-      {showingCurated && currentPage === 1 && <FeaturedStories posts={featuredInsights} />}
-
-      <section id="archive" className="scroll-mt-24 bg-warm">
-        <TopicNavigation activeTopic={activeTopic} query={cleanQuery} topics={insightTopics} totalCount={insightsIndex.length} />
-        <div className="container-omh section-md">
-          <Reveal>
-            <div className="flex items-end justify-between gap-10 max-lg:block">
-              <div>
-                <Eyebrow>{activeTopic || cleanQuery ? "Filtered archive" : "All insights"}</Eyebrow>
-                <h2 className="mt-5 font-sans text-h2 font-semibold">
-                  {activeTopic ? insightTopics.find((candidate) => candidate.slug === activeTopic)?.name : cleanQuery ? `Results for “${cleanQuery}”` : "Browse the archive"}
-                </h2>
-                <p className="mt-3 text-body text-muted">
-                  Showing {resultStart}–{resultEnd} of {filtered.length} {filtered.length === 1 ? "article" : "articles"}
-                </p>
-              </div>
-
-              <form action="/insights" className="field-shell flex w-full max-w-[430px] items-center rounded-button border border-line bg-surface p-1.5 transition-colors max-lg:mt-7 max-lg:max-w-none">
-                {activeTopic && <input type="hidden" name="topic" value={activeTopic} />}
-                <Search className="ml-3 size-5 shrink-0 text-muted" aria-hidden />
-                <label htmlFor="insights-search" className="sr-only">Search insights</label>
-                <input
-                  id="insights-search"
-                  name="q"
-                  type="search"
-                  defaultValue={cleanQuery}
-                  placeholder="Search the archive"
-                  className="min-w-0 flex-1 bg-transparent px-3 py-2 text-body outline-none placeholder:text-muted/75"
-                />
-                <button type="submit" className="button-motion cursor-pointer rounded-button bg-inverse px-5 py-2.5 text-label font-semibold text-oninverse hover:bg-teal hover:text-white">
-                  Search
-                </button>
-              </form>
-            </div>
-
-            {pagePosts.length ? (
-              <div className="mt-10 border-t border-line">
-                {pagePosts.map((post) => <ArchiveRow key={post.slug} post={post} />)}
-              </div>
-            ) : (
-              <div className="mt-10 rounded-card border border-line bg-surface p-8">
-                <h3 className="font-sans text-h4 font-semibold">No matching insights</h3>
-                <p className="mt-3 text-ink/68">Try a broader phrase or return to the complete archive.</p>
-                <div className="mt-5"><TextLink href="/insights">View all insights</TextLink></div>
-              </div>
-            )}
-
-            <Pagination currentPage={currentPage} pageCount={pageCount} topic={activeTopic} query={cleanQuery} />
-          </Reveal>
-        </div>
-      </section>
+      <InsightsArchive
+          entries={insightsIndex}
+          topics={insightTopics}
+          activeTopic={activeTopic}
+          initialQuery={cleanQuery}
+          initialPage={currentPage}
+          featured={<FeaturedStories posts={featuredInsights} />}
+        />
 
       <FinalCta
         title="Need help applying this to your business?"

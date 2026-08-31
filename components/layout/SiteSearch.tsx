@@ -52,7 +52,7 @@ export function SiteSearch({ entries }: { entries: SearchEntry[] }) {
         <span className="sr-only">Search the site</span>
         <kbd
           aria-hidden
-          className="rounded border border-line px-1.5 py-0.5 font-sans text-[12px] font-semibold tracking-wide max-xl:hidden"
+          className="rounded border border-line px-1.5 py-0.5 font-sans text-[12px] font-semibold tracking-wide max-2xl:hidden"
         >
           ⌘K
         </kbd>
