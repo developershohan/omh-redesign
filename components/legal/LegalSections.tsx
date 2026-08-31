@@ -94,7 +94,7 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
         </nav>
 
         <div className="col-span-9 max-lg:mt-10">
-          {doc.sections.map((section, i) => (
+          {doc.sections.map((section) => (
             <section
               key={section.heading}
               id={slug(section.heading)}

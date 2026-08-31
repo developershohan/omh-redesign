@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // The Studio is a separate package with its own toolchain, and its build
+    // output is minified. Linting it here produced ~21,600 warnings that buried
+    // the handful of real ones from this app.
+    "studio/**",
   ]),
 ]);
 

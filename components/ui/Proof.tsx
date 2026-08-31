@@ -61,27 +61,3 @@ export function Eyebrow({ children, light = false }: { children: ReactNode; ligh
   );
 }
 
-// The direction's margin-label scaffold: sticky small-caps label beside content.
-// Future Elementor widget: "OMH Section" (label + content columns).
-export function Section({
-  label,
-  id,
-  children,
-}: {
-  label: string;
-  id?: string;
-  children: ReactNode;
-}) {
-  return (
-    <section id={id} className="container-omh pt-[clamp(64px,42px+3.5vw,96px)]">
-      <div className="grid grid-cols-12 gap-x-6 border-t border-line pt-14 max-lg:block">
-        <div className="col-span-2 max-lg:mb-6">
-          <p className="sticky top-6 flex items-center gap-2.5 font-sans text-[13px] font-semibold uppercase tracking-[0.16em] text-muted before:h-0.5 before:w-[18px] before:bg-amber before:content-[''] max-lg:static">
-            {label}
-          </p>
-        </div>
-        <div className="col-span-10">{children}</div>
-      </div>
-    </section>
-  );
-}

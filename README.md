@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Online Marketing Help — website
 
-## Getting Started
+Marketing site for Online Marketing Help, a UK digital marketing and WordPress
+agency. Next.js App Router, Tailwind CSS, and Sanity for the blog.
 
-First, run the development server:
+Production: https://onlinemarketinghelp.co.uk
+Preview: https://omh-redesign.vercel.app
+
+## Stack
+
+| Layer | Choice |
+| --- | --- |
+| Framework | Next.js (App Router, React Server Components) |
+| Styling | Tailwind CSS v4 + a small set of custom utilities in `app/globals.css` |
+| Blog content | Sanity (`studio/`), queried at build/ISR time |
+| Page content | TypeScript modules in `lib/content/` |
+| Email | Resend HTTP API (no SDK) via `app/api/enquiry` |
+| Hosting | Vercel |
+
+## Getting started
 
 ```bash
+npm install
+cp .env.example .env.local   # fill in the Sanity values
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The site runs at http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+See `.env.example`. The two `NEXT_PUBLIC_SANITY_*` values are required for the
+build — without them page data collection fails. `RESEND_API_KEY` is required
+for contact forms to actually send. `SANITY_REVALIDATE_SECRET` is required for
+the publish webhook.
 
-## Learn More
+## Commands
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run dev     # development server
+npm run build   # production build
+npm run start   # serve the production build
+npm run lint    # ESLint (the studio/ folder is linted by its own toolchain)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Content model
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Two different sources, deliberately:
 
-## Deploy on Vercel
+- **Marketing pages** — content lives in `lib/content/*.ts` as typed modules and
+  is compiled into the build. These pages change rarely and benefit from being
+  reviewable in pull requests.
+- **Blog / Insights** — content lives in Sanity and is fetched through
+  `lib/sanity/`. Queries are cached under the `posts` tag; publishing calls
+  `/api/revalidate`, which clears that tag so the change appears without a
+  redeploy.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## The Studio
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`studio/` is a standalone Sanity Studio with its own `package.json`. It is not
+part of the Next.js build — it just lives in the same repository.
+
+```bash
+cd studio
+npm install
+npm run dev            # http://localhost:3333
+npm run deploy-schema  # register schema changes with Sanity
+npm run deploy         # publish the hosted Studio for the client
+```
+
+See `studio/README.md` for details, including why some imported posts keep their
+body as a raw HTML block.
+
+## Architecture notes
+
+- `app/` — routes only. Pages stay thin and delegate to a section component.
+- `components/` — grouped by feature (`services/`, `insights/`, `case-studies/`)
+  with shared primitives in `components/ui/`.
+- `lib/content/` — page copy and data, one module per page or feature.
+- `lib/sanity/` — Sanity client, cached queries, Portable Text serialisation.
+- `lib/schema.tsx` — JSON-LD builders. Every JSON-LD block escapes `<` so CMS or
+  page copy cannot break out of the `<script>` tag.
+
+Most components are Server Components. `"use client"` is used only where there
+is real interactivity — forms, the header, theme toggle, search, and the
+insights archive filter.

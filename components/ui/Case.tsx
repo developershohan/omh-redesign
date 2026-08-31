@@ -1,6 +1,5 @@
-import { ArrowRight, TextLink } from "@/components/ui/Button";
+import { TextLink } from "@/components/ui/Button";
 import { Fpo, VerifiedSlot } from "@/components/ui/Proof";
-import Link from "next/link";
 
 export type CaseMeta = {
   sector: string;
@@ -39,21 +38,6 @@ export function CaseStudyFeature({ c, media }: { c: CaseMeta; media: React.React
         </div>
       </div>
     </div>
-  );
-}
-
-// Future Elementor widget: "OMH Case Study Row"
-export function CaseStudyRow({ c }: { c: CaseMeta }) {
-  return (
-    <Link
-      href={c.href}
-      className="grid grid-cols-[2fr_5fr_3fr_auto] items-center gap-5 border-b border-line px-1 py-5 transition-colors hover:bg-surface/75 max-sm:grid-cols-1 max-sm:gap-1.5"
-    >
-      <span className="font-sans text-body font-semibold">{c.sector}</span>
-      <span className="text-body leading-snug text-muted">{c.work}</span>
-      <span>{c.result ?? <VerifiedSlot>Verified result — pending</VerifiedSlot>}</span>
-      <ArrowRight className="size-4 max-sm:hidden" />
-    </Link>
   );
 }
 

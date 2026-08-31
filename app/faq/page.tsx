@@ -27,7 +27,7 @@ function FaqJsonLd() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity }),
+        __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity }).replace(/</g, "\\u003c"),
       }}
     />
   );

@@ -50,7 +50,7 @@ export const website = {
   inLanguage: "en-GB",
 };
 
-export function serviceSchema(name: string, description: string, path: string) {
+function serviceSchema(name: string, description: string, path: string) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -66,7 +66,7 @@ export function serviceSchema(name: string, description: string, path: string) {
 type Faqs = readonly (readonly string[] | { readonly q: string; readonly a: string })[];
 
 /** Only ever pass FAQs that are visible on the page (brief §25). */
-export function faqSchema(faqs: Faqs) {
+function faqSchema(faqs: Faqs) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",

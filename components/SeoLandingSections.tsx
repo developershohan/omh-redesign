@@ -77,7 +77,7 @@ function HeroCopy({ page, event }: { page: SeoLanding; event: string }) {
   );
 }
 
-export function SeoLandingHero({ page, event, variant }: Props) {
+function SeoLandingHero({ page, event, variant }: Props) {
   const local = variant === "local";
   return (
     <section className="hero-grid border-b border-line bg-warm">
@@ -121,7 +121,7 @@ export function SeoLandingHero({ page, event, variant }: Props) {
 
 // National: heading rail, copy and claims in three measured columns.
 // Local: a portrait photograph leads, claims run as a two-column strip beneath.
-export function SeoLandingAbout({ page, variant }: Omit<Props, "event">) {
+function SeoLandingAbout({ page, variant }: Omit<Props, "event">) {
   const local = variant === "local";
 
   if (local) {
@@ -197,7 +197,7 @@ export function SeoLandingAbout({ page, variant }: Omit<Props, "event">) {
 }
 
 // National: a wide performance strip. Local: three narrow views of local search.
-export function SeoLandingMedia({ variant }: { variant: SeoVariant }) {
+function SeoLandingMedia({ variant }: { variant: SeoVariant }) {
   if (variant === "local") {
     return (
       <ServiceBand label="Local search" tone="navy" accent="bg-[#9bc3f3]" labelStyle={labelStyle(variant)}>
@@ -253,7 +253,7 @@ export function SeoLandingMedia({ variant }: { variant: SeoVariant }) {
 
 // A single statement line — the shortest section on the page, so it reads as a
 // breath between the two dense ones either side of it.
-export function SeoLandingOffering({ page, variant }: Omit<Props, "event">) {
+function SeoLandingOffering({ page, variant }: Omit<Props, "event">) {
   const local = variant === "local";
   return (
     <ServiceBand label={page.offering.eyebrow} tone="warm" accent="bg-amber" labelStyle={labelStyle(variant)}>
@@ -280,7 +280,7 @@ export function SeoLandingOffering({ page, variant }: Omit<Props, "event">) {
 
 // Signature device: the free-checklist offer is a priced bundle on the live page,
 // so it is set as a value ledger — line items, values, struck-through total.
-export function SeoLandingChecklist({ page, event, variant }: Props) {
+function SeoLandingChecklist({ page, event, variant }: Props) {
   const local = variant === "local";
 
   const ledger = (
@@ -360,7 +360,7 @@ export function SeoLandingChecklist({ page, event, variant }: Props) {
   );
 }
 
-export function SeoLandingTestimonials({ page, event, variant }: Props) {
+function SeoLandingTestimonials({ page, event, variant }: Props) {
   return (
     <ServiceTestimonials
       testimonials={page.testimonials.items}
@@ -376,7 +376,7 @@ export function SeoLandingTestimonials({ page, event, variant }: Props) {
   );
 }
 
-export function SeoLandingCta({ page, event }: Omit<Props, "variant">) {
+function SeoLandingCta({ page, event }: Omit<Props, "variant">) {
   return (
     <FinalCta
       title={page.cta.title}

@@ -27,7 +27,7 @@ export type SocialVariant = "facebook" | "instagram";
 const labelStyle = (v: SocialVariant): ServiceBandLabel => (v === "instagram" ? "plain" : "dot");
 type V = { variant: SocialVariant; event: string };
 
-export function SocialHero({ variant, event }: V) {
+function SocialHero({ variant, event }: V) {
   const insta = variant === "instagram";
 
   const actions = (
@@ -109,7 +109,7 @@ export function SocialHero({ variant, event }: V) {
   );
 }
 
-export function SocialJumpNav({ event }: { event: string }) {
+function SocialJumpNav({ event }: { event: string }) {
   return (
     <nav aria-label="Sections on this page" className="border-b border-line bg-surface">
       <div className="container-omh flex flex-wrap items-center gap-x-8 gap-y-3 py-5">
@@ -128,7 +128,7 @@ export function SocialJumpNav({ event }: { event: string }) {
   );
 }
 
-export function SocialGoals({ variant }: { variant: SocialVariant }) {
+function SocialGoals({ variant }: { variant: SocialVariant }) {
   const insta = variant === "instagram";
   const questions = (
     <ul
@@ -200,7 +200,7 @@ export function SocialGoals({ variant }: { variant: SocialVariant }) {
   );
 }
 
-export function SocialHelp({ variant }: { variant: SocialVariant }) {
+function SocialHelp({ variant }: { variant: SocialVariant }) {
   // Facebook: ruled definition list. Instagram: a card grid — the same six items
   // should not arrive in the same shape on both pages.
   if (variant === "instagram") {
@@ -250,7 +250,7 @@ export function SocialHelp({ variant }: { variant: SocialVariant }) {
   );
 }
 
-export function SocialMediaBand({ variant }: { variant: SocialVariant }) {
+function SocialMediaBand({ variant }: { variant: SocialVariant }) {
   if (variant === "instagram") {
     return (
       <ServiceBand label="Creative" tone="dark" accent="bg-[#ffb84d]" labelStyle={labelStyle(variant)}>
@@ -303,7 +303,7 @@ export function SocialMediaBand({ variant }: { variant: SocialVariant }) {
   );
 }
 
-export function SocialGetInTouch({ variant, event }: V) {
+function SocialGetInTouch({ variant, event }: V) {
   return (
     <ServiceBand
       label={page.getInTouch.label}
@@ -330,7 +330,7 @@ export function SocialGetInTouch({ variant, event }: V) {
   );
 }
 
-export function SocialPackages({ variant, event }: V) {
+function SocialPackages({ variant, event }: V) {
   const insta = variant === "instagram";
   return (
     <ServiceBand
@@ -391,7 +391,7 @@ export function SocialPackages({ variant, event }: V) {
 
 // Real case studies rather than a heading with a button — the live page's own
 // carousel here is unedited placeholder text, so this is the honest substitute.
-export function SocialCaseStudies() {
+function SocialCaseStudies() {
   return (
     <div id="case-studies">
       <ServiceCaseStudies
@@ -403,7 +403,7 @@ export function SocialCaseStudies() {
   );
 }
 
-export function SocialGuarantee({ variant }: { variant: SocialVariant }) {
+function SocialGuarantee({ variant }: { variant: SocialVariant }) {
   const insta = variant === "instagram";
   return (
     <ServiceBand
@@ -442,7 +442,7 @@ export function SocialGuarantee({ variant }: { variant: SocialVariant }) {
   );
 }
 
-export function SocialResources({ variant }: { variant: SocialVariant }) {
+function SocialResources({ variant }: { variant: SocialVariant }) {
   const insta = variant === "instagram";
   return (
     <ServiceBand
@@ -484,7 +484,7 @@ export function SocialResources({ variant }: { variant: SocialVariant }) {
   );
 }
 
-export function SocialReviews({ variant, event }: V) {
+function SocialReviews({ variant, event }: V) {
   return (
     <SiteTestimonials
       eventPrefix={event}
@@ -497,7 +497,7 @@ export function SocialReviews({ variant, event }: V) {
   );
 }
 
-export function SocialFaq({ variant }: { variant: SocialVariant }) {
+function SocialFaq({ variant }: { variant: SocialVariant }) {
   const insta = variant === "instagram";
   return (
     <ServiceBand label={page.faq.label} tone={insta ? "warm" : "white"} accent="bg-amber" labelStyle={labelStyle(variant)}>
@@ -545,7 +545,7 @@ export function SocialFaq({ variant }: { variant: SocialVariant }) {
 
 // Neither variant repeats the full-width ruled link list: Facebook gets numbered
 // tiles with a rule above each label, Instagram gets bordered cards with arrows.
-export function SocialSolutions({ variant, event }: V) {
+function SocialSolutions({ variant, event }: V) {
   const insta = variant === "instagram";
   return (
     <ServiceBand
@@ -598,7 +598,7 @@ const quoteCta = {
   instagram: { label: "Request a Paid Social Quote", href: "/social-media-paid-marketing-request-quote" },
 } as const;
 
-export function SocialCta({ variant, event }: V) {
+function SocialCta({ variant, event }: V) {
   const quote = quoteCta[variant];
   return (
     <FinalCta
@@ -612,7 +612,7 @@ export function SocialCta({ variant, event }: V) {
   );
 }
 
-export function SocialFaqJsonLd() {
+function SocialFaqJsonLd() {
   const mainEntity = page.faq.items.map((item) => ({
     "@type": "Question",
     name: item.q,
@@ -622,7 +622,7 @@ export function SocialFaqJsonLd() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity }),
+        __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity }).replace(/</g, "\\u003c"),
       }}
     />
   );

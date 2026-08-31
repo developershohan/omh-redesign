@@ -13,7 +13,7 @@ import {
   The related-work block reused across service pages. The archive and the single
   case study now live in components/case-studies/ (brief §9).
 */
-export function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
+function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
   return (
     <article className="surface-card group flex h-full flex-col overflow-hidden rounded-card border border-line bg-surface">
       <Link
