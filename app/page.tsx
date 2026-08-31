@@ -25,7 +25,6 @@ import {
   featuredCase,
   finalCta,
   hero,
-  insights,
   programs,
   recognition,
   services,
@@ -33,6 +32,8 @@ import {
   supportingCases,
   testimonials,
 } from "@/lib/content/home";
+import { getFeaturedInsights } from "@/lib/sanity/insights";
+import { insightHref } from "@/lib/content/insights-types";
 
 function StarRating({ label }: { label: string }) {
   return (
@@ -74,7 +75,15 @@ const recognitionIcons: LucideIcon[] = [
   Layers3,
 ];
 
-export default function Home() {
+export default async function Home() {
+  const featured = await getFeaturedInsights();
+  const insights = featured.map((post) => ({
+    category: post.topic.name,
+    title: post.title,
+    body: post.summary,
+    href: insightHref(post),
+  }));
+
   return (
     <>
       <section className="hero-grid relative overflow-x-clip border-b border-line bg-warm">

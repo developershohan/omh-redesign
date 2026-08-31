@@ -1,3 +1,5 @@
+// Shapes returned by lib/sanity/insights.ts. Kept separate from the queries so
+// components depend on the data contract, not on Sanity.
 export type InsightTopic = {
   slug: string;
   name: string;
@@ -44,25 +46,6 @@ export type InsightPost = InsightIndexEntry & {
     focusKeywords: string[];
     score: number | null;
   };
-};
-
-export type InsightSource = {
-  format: string;
-  file: string;
-  exportedAt: string;
-  siteUrl: string;
-};
-
-export type InsightIndexDataset = {
-  version: number;
-  source: InsightSource;
-  categories: Array<InsightTopic & { postCount: number }>;
-  posts: InsightIndexEntry[];
-};
-
-export type InsightPostsDataset = Omit<InsightIndexDataset, "posts"> & {
-  authors: Array<{ id: string; name: string }>;
-  posts: InsightPost[];
 };
 
 export function insightHref(post: Pick<InsightIndexEntry, "slug">) {

@@ -155,7 +155,7 @@ export function PriceTables() {
           >
             <h2 className="mb-8 max-w-[24ch] font-sans text-h2 font-semibold">{table.title}</h2>
             {table.rows.length > 0 && <ComparisonTable table={table} />}
-            <div className="mt-8 max-w-[74ch] border-t border-line pt-7">
+            <div className="mt-8 border-t border-line pt-7">
               {table.notes.map((note) => (
                 <p key={note} className="mt-3 text-[15px] leading-relaxed text-ink/70 first:mt-0">
                   {note}

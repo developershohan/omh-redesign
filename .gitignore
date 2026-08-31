@@ -2,6 +2,10 @@
 
 # dependencies
 /node_modules
+# the standalone Studio manages its own dependencies
+studio/node_modules
+studio/dist
+studio/.sanity
 /.pnp
 .pnp.*
 .yarn/*

@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
         hostname: "onlinemarketinghelp.co.uk",
         pathname: "/wp-content/uploads/**",
       },
+      // Blog images uploaded through Sanity Studio.
+      { protocol: "https", hostname: "cdn.sanity.io", pathname: "/images/**" },
     ],
   },
   async redirects() {

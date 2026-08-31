@@ -1,19 +1,22 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { InsightArticle } from "@/components/insights/InsightArticle";
-import { getInsight, insightPosts } from "@/lib/content/insights-posts";
+import { getInsight, getInsightSlugs } from "@/lib/sanity/insights";
 
 type Props = { params: Promise<{ slug: string }> };
 
-export const dynamicParams = false;
+// New posts published in Sanity render on first request rather than needing a
+// redeploy; existing ones are still pre-rendered at build time.
+export const dynamicParams = true;
 
-export function generateStaticParams() {
-  return insightPosts.map((post) => ({ slug: post.slug }));
+export async function generateStaticParams() {
+  const slugs = await getInsightSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = getInsight(slug);
+  const post = await getInsight(slug);
   if (!post) return {};
   return {
     title: post.title,
@@ -33,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function InsightPostPage({ params }: Props) {
   const { slug } = await params;
-  const post = getInsight(slug);
+  const post = await getInsight(slug);
   if (!post) notFound();
   return <InsightArticle post={post} />;
 }

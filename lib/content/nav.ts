@@ -63,6 +63,8 @@ export const primaryNav: NavItem[] = [
     ],
   },
   { label: "Case Studies", href: "/case-studies" },
+  { label: "Insights", href: "/insights" },
+  { label: "Pricing", href: "/pricing" },
   {
     label: "Company",
     columns: [
@@ -70,9 +72,7 @@ export const primaryNav: NavItem[] = [
         heading: "About OMH",
         links: [
           { label: "About Us", href: "/about-us", ready: true },
-          { label: "Pricing", href: "/pricing", ready: true },
           { label: "FAQ", href: "/faq", ready: true },
-          { label: "Insights", href: "/insights", ready: true },
           { label: "Contact", href: "/contact", ready: true },
         ],
       },
@@ -175,6 +175,8 @@ export const footerCols = [
     links: [
       { label: "About", href: "/about-us" },
       { label: "Case Studies", href: "/case-studies" },
+  { label: "Insights", href: "/insights" },
+  { label: "Pricing", href: "/pricing" },
       { label: "Insights", href: "/insights" },
       { label: "Contact", href: "/contact" },
     ],
@@ -184,6 +186,5 @@ export const footerCols = [
 export const legalLinks = [
   { label: "Privacy", href: "/privacy" },
   { label: "Cookies", href: "/cookies" },
-  { label: "Terms", href: "/terms" },
-  { label: "Accessibility", href: "/accessibility" },
+  { label: "Terms", href: "/terms" }
 ];

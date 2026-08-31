@@ -6,8 +6,8 @@ import { ArrowRight, TextLink } from "@/components/ui/Button";
 import { FinalCta } from "@/components/ui/FinalCta";
 import { Eyebrow } from "@/components/ui/Proof";
 import { InsightMeta } from "@/components/insights/InsightMeta";
-import { featuredInsights, insightTopics, insightsIndex } from "@/lib/content/insights-index";
-import { insightHref, type InsightIndexEntry } from "@/lib/content/insights-types";
+import { getFeaturedInsights, getInsightTopics, getInsightsIndex } from "@/lib/sanity/insights";
+import { insightHref, type InsightIndexEntry, type InsightTopic } from "@/lib/content/insights-types";
 
 const pageSize = 12;
 
@@ -37,8 +37,8 @@ function InsightImage({ post, priority = false }: { post: InsightIndexEntry; pri
   );
 }
 
-function FeaturedStories() {
-  const [lead, ...picks] = featuredInsights;
+function FeaturedStories({ posts }: { posts: InsightIndexEntry[] }) {
+  const [lead, ...picks] = posts;
   if (!lead) return null;
 
   return (
@@ -98,8 +98,18 @@ function FeaturedStories() {
   );
 }
 
-function TopicNavigation({ activeTopic, query }: { activeTopic: string; query: string }) {
-  const topics = [{ slug: "", name: "All", postCount: insightsIndex.length }, ...insightTopics];
+function TopicNavigation({
+  activeTopic,
+  query,
+  topics: insightTopics,
+  totalCount,
+}: {
+  activeTopic: string;
+  query: string;
+  topics: Array<InsightTopic & { postCount: number }>;
+  totalCount: number;
+}) {
+  const topics = [{ slug: "", name: "All", postCount: totalCount }, ...insightTopics];
 
   return (
     <nav aria-label="Insight topics" className="overflow-x-auto border-b border-line">
@@ -199,7 +209,13 @@ function Pagination({ currentPage, pageCount, topic, query }: { currentPage: num
   );
 }
 
-export function InsightsHub({ topic = "", query = "", page = 1 }: { topic?: string; query?: string; page?: number }) {
+export async function InsightsHub({ topic = "", query = "", page = 1 }: { topic?: string; query?: string; page?: number }) {
+  const [insightsIndex, insightTopics, featuredInsights] = await Promise.all([
+    getInsightsIndex(),
+    getInsightTopics(),
+    getFeaturedInsights(),
+  ]);
+
   const activeTopic = insightTopics.some((candidate) => candidate.slug === topic) ? topic : "";
   const cleanQuery = query.trim();
   const needle = cleanQuery.toLocaleLowerCase("en-GB");
@@ -286,10 +302,10 @@ export function InsightsHub({ topic = "", query = "", page = 1 }: { topic?: stri
         </div>
       </section>
 
-      {showingCurated && currentPage === 1 && <FeaturedStories />}
+      {showingCurated && currentPage === 1 && <FeaturedStories posts={featuredInsights} />}
 
       <section id="archive" className="scroll-mt-24 bg-warm">
-        <TopicNavigation activeTopic={activeTopic} query={cleanQuery} />
+        <TopicNavigation activeTopic={activeTopic} query={cleanQuery} topics={insightTopics} totalCount={insightsIndex.length} />
         <div className="container-omh section-md">
           <Reveal>
             <div className="flex items-end justify-between gap-10 max-lg:block">

@@ -7,11 +7,11 @@ import { ArrowRight, TextLink } from "@/components/ui/Button";
 import { FinalCta } from "@/components/ui/FinalCta";
 import { Eyebrow } from "@/components/ui/Proof";
 import { withContents } from "@/lib/content/insight-toc";
-import { getRelatedInsights } from "@/lib/content/insights-posts";
+import { getRelatedInsights } from "@/lib/sanity/insights";
 import { insightHref, type InsightPost } from "@/lib/content/insights-types";
 
-export function InsightArticle({ post }: { post: InsightPost }) {
-  const related = getRelatedInsights(post);
+export async function InsightArticle({ post }: { post: InsightPost }) {
+  const related = await getRelatedInsights(post);
   const wasUpdated = post.modifiedAt.slice(0, 10) !== post.publishedAt.slice(0, 10);
   const { html, items } = withContents(post.contentHtml);
 

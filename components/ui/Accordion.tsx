@@ -28,7 +28,7 @@ export function Accordion({
               <path d="M12 5v14M5 12h14" />
             </svg>
           </summary>
-          <div className="max-w-[70ch] pb-5 text-body text-ink/85">{item.a}</div>
+          <div className="pb-5 text-body text-ink/85">{item.a}</div>
         </details>
       ))}
     </div>

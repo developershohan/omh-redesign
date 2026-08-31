@@ -3,7 +3,7 @@ import { Instrument_Sans, Source_Sans_3, Source_Serif_4 } from "next/font/google
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollTop } from "@/components/layout/ScrollTop";
-import { searchIndex } from "@/lib/content/search-index";
+import { getSearchIndex } from "@/lib/content/search-index";
 import { JsonLd, SITE, organisation, website } from "@/lib/schema";
 import "./globals.css";
 
@@ -34,11 +34,13 @@ export const metadata: Metadata = {
     "We help UK service businesses and ecommerce brands grow through Google Ads, Meta Ads, SEO, and conversion-focused websites, supported by clear reporting and reliable tracking.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const searchEntries = await getSearchIndex();
+
   return (
     <html
       lang="en-GB"
@@ -63,7 +65,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <Header searchEntries={searchIndex} />
+        <Header searchEntries={searchEntries} />
         <main id="main" className="flex-1">
           {children}
         </main>

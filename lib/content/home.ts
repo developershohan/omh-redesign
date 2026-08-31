@@ -1,6 +1,5 @@
 import type { CaseMeta } from "@/components/ui/Case";
 import { caseStudies } from "@/lib/content/case-studies";
-import { featuredInsights } from "@/lib/content/insights-index";
 import { about } from "@/lib/content/about";
 
 export const hero = {
@@ -138,13 +137,6 @@ export const recognition = [
   "Technical SEO",
   "Account Support",
 ];
-
-export const insights = featuredInsights.map((post) => ({
-  category: post.topic.name,
-  title: post.title,
-  body: post.summary,
-  href: `/${post.slug}`,
-}));
 
 export const finalCta = {
   headline: "Ready to make your marketing easier to measure and easier to scale?",
