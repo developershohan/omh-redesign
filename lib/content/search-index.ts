@@ -1,7 +1,7 @@
 import { caseStudies } from "@/lib/content/case-studies";
 import { readyPages } from "@/lib/content/nav";
 import { freeConsultation, quoteFormPages } from "@/lib/content/quote-forms";
-import { getInsightsIndex } from "@/lib/sanity/insights";
+import { getInsightSearchEntries } from "@/lib/sanity/insights";
 
 export type SearchEntry = {
   title: string;
@@ -13,7 +13,7 @@ export type SearchEntry = {
 // Titles only — the client filters a flat list in memory instead of calling a
 // search service. Async because the blog titles now come from Sanity.
 export async function getSearchIndex(): Promise<SearchEntry[]> {
-  const insights = await getInsightsIndex();
+  const insights = await getInsightSearchEntries();
 
   return [
     ...readyPages.map((page) => ({ title: page.label, href: page.href, group: "Page" as const })),
@@ -35,7 +35,7 @@ export async function getSearchIndex(): Promise<SearchEntry[]> {
       title: post.title,
       href: `/${post.slug}`,
       group: "Insight" as const,
-      hint: post.topic.name,
+      hint: post.topic,
     })),
   ];
 }

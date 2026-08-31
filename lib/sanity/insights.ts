@@ -1,5 +1,5 @@
 import { groq } from "next-sanity";
-import { client, revalidate } from "@/lib/sanity/client";
+import { cacheOptions, client } from "@/lib/sanity/client";
 import { toArticleHtml } from "@/lib/sanity/portable-text";
 import type {
   InsightIndexEntry,
@@ -10,8 +10,6 @@ import type {
 // Sanity is the only source of blog content. These helpers return the same
 // shapes the site has always rendered, so components did not need rewriting
 // when the JSON files were removed.
-
-const fetchOptions = { next: { revalidate } };
 
 const indexFields = groq`
   "id": _id,
@@ -60,7 +58,7 @@ export async function getInsightsIndex(): Promise<InsightIndexEntry[]> {
   const rows = await client.fetch<RawEntry[]>(
     groq`*[${published}] | order(publishedAt desc){ ${indexFields} }`,
     {},
-    fetchOptions,
+    cacheOptions,
   );
   return rows.map(toEntry);
 }
@@ -73,7 +71,7 @@ export async function getInsightTopics(): Promise<Array<InsightTopic & { postCou
       "postCount": count(*[${published} && topic._ref == ^._id])
     }`,
     {},
-    fetchOptions,
+    cacheOptions,
   );
   return topics
     .filter((topic) => topic.postCount > 0)
@@ -84,13 +82,29 @@ export async function getFeaturedInsights(): Promise<InsightIndexEntry[]> {
   const rows = await client.fetch<RawEntry[]>(
     groq`*[${published} && featured == true] | order(publishedAt desc){ ${indexFields} }`,
     {},
-    fetchOptions,
+    cacheOptions,
   );
   return rows.map(toEntry);
 }
 
+// The header search only needs a title, a link and a hint, so it deliberately
+// avoids the full index projection — this runs on every page via the layout.
+export async function getInsightSearchEntries(): Promise<
+  Array<{ title: string; slug: string; topic: string }>
+> {
+  return client.fetch(
+    groq`*[${published}] | order(publishedAt desc){
+      title,
+      "slug": slug.current,
+      "topic": topic->name
+    }`,
+    {},
+    cacheOptions,
+  );
+}
+
 export async function getInsightSlugs(): Promise<string[]> {
-  return client.fetch<string[]>(groq`*[${published}].slug.current`, {}, fetchOptions);
+  return client.fetch<string[]>(groq`*[${published}].slug.current`, {}, cacheOptions);
 }
 
 export async function getInsight(slug: string): Promise<InsightPost | null> {
@@ -104,7 +118,7 @@ export async function getInsight(slug: string): Promise<InsightPost | null> {
       body[]{ ..., _type == "image" => { ..., "src": asset->url } }
     }`,
     { slug },
-    fetchOptions,
+    cacheOptions,
   );
 
   if (!raw) return null;
@@ -130,7 +144,7 @@ export async function getRelatedInsights(post: InsightPost, limit = 3): Promise<
       "sameTopic": topic->slug.current == $topic
     } | order(sameTopic desc, publishedAt desc)[0...$limit]`,
     { slug: post.slug, topic: post.topic?.slug ?? "", limit },
-    fetchOptions,
+    cacheOptions,
   );
   return rows.map(toEntry);
 }
