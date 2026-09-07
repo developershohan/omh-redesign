@@ -124,8 +124,8 @@ export function AboutStory() {
             <div className="col-span-5 max-lg:mb-10">
               <div className="relative aspect-[4/5] overflow-hidden rounded-media border border-line bg-soft max-lg:aspect-[16/10]">
                 <Image
-                  src="/images/home/campaign-review.png"
-                  alt="Reviewing website and campaign performance with a client"
+                  src="/images/Solutions/2.jpg"
+                  alt="Two of the team mapping channels and priorities against a marketing plan on a whiteboard"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover"

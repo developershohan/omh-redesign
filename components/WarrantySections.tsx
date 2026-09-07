@@ -35,6 +35,8 @@ export function WarrantyHero() {
                 ratio="4/3"
                 title="Warranty cover in practice"
                 note="Replace with a photograph of the support team or an approved support-desk screen."
+                source="/images/Services/website maintenance.jpg"
+                alt="Miniature maintenance figures at work on a laptop keyboard, standing in for the ongoing repair work covered by the warranty."
               />
             </div>
           </div>
@@ -81,6 +83,8 @@ export function WarrantyCoverage() {
                 ratio="4/3"
                 title="Support request handled under warranty"
                 note="Use an anonymised support ticket or resolution log."
+                source="/images/Services/website maintenance 1.jpg"
+                alt="A website showing an under-construction screen while fixes are carried out, with the job notes beside it."
                 className="mt-8"
               />
             </div>
@@ -89,7 +93,7 @@ export function WarrantyCoverage() {
             <div className="border-t border-[#10243a]/15">
               {warranty.covers.map((item, index) => (
                 <div key={item} className="flex items-baseline gap-6 border-b border-[#10243a]/15 py-5">
-                  <span className="font-sans text-[13px] font-semibold tabular-nums text-amber-deep">
+                  <span className="font-sans text-[18px] font-semibold tabular-nums text-amber-deep">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <p className="text-body leading-relaxed text-ink/80">{item}</p>
@@ -116,16 +120,16 @@ export function WarrantyPricing() {
               key={plan.term}
               className="flex flex-col rounded-card border border-oninverse/15 bg-oninverse/[0.04] p-8 max-sm:p-6"
             >
-              <span aria-hidden className="text-[12px] font-semibold tabular-nums text-[#f2c675]">
+              <span aria-hidden className="text-[18px] font-semibold tabular-nums text-[#f2c675]">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <p className="mt-4 text-[13px] font-semibold uppercase tracking-[0.14em] text-oninverse/60">
+              <p className="mt-4 text-[14px] font-semibold uppercase tracking-[0.14em] text-oninverse/60">
                 {plan.term}
               </p>
               <p className="mt-4 font-sans text-[clamp(34px,28px+1.4vw,46px)] font-semibold leading-none">
                 {plan.price}
               </p>
-              <p className="mt-6 border-t border-oninverse/15 pt-5 text-[15px] leading-relaxed text-oninverse/70">
+              <p className="mt-6 border-t border-oninverse/15 pt-5 text-[18px] leading-relaxed text-oninverse/70">
                 {plan.note}
               </p>
             </div>
@@ -133,13 +137,13 @@ export function WarrantyPricing() {
         </div>
 
         <div className="mt-10 flex flex-wrap items-center gap-3 border-t border-oninverse/15 pt-8">
-          <span className="text-[13px] font-semibold uppercase tracking-[0.14em] text-oninverse/55">
+          <span className="text-[14px] font-semibold uppercase tracking-[0.14em] text-oninverse/55">
             Exclusions
           </span>
           {warranty.exclusions.map((item) => (
             <span
               key={item}
-              className="rounded-full border border-oninverse/25 px-3.5 py-1.5 text-[14px] text-oninverse/75"
+              className="rounded-full border border-oninverse/25 px-3.5 py-1.5 text-[18px] text-oninverse/75"
             >
               {item}
             </span>

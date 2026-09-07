@@ -28,7 +28,11 @@ export type SolutionPageContent = {
     body: string;
     videoTitle: string;
     imageTitle: string;
+    imageSrc?: string;
+    imageAlt?: string;
     screenTitle: string;
+    screenSrc?: string;
+    screenAlt?: string;
   };
   approach: {
     title: string;
@@ -100,7 +104,11 @@ export const solutions: Record<string, SolutionPageContent> = {
       body: "Use this section for a short campaign walkthrough, an approved landing-page image and an anonymised reporting screen.",
       videoTitle: "Lead-generation campaign walkthrough",
       imageTitle: "Campaign landing-page example",
+      imageSrc: "/images/Solutions/1.jpg",
+      imageAlt: "A lead-generation landing page being reviewed on screen alongside a marketing plan.",
       screenTitle: "Lead quality reporting view",
+      screenSrc: "/images/Services/Images on the pages/Search-term and budget view.png",
+      screenAlt: "Illustrative search terms and budget report showing which queries produced enquiries over a dated period."
     },
     approach: {
       title: "What we would review first",
@@ -187,7 +195,11 @@ export const solutions: Record<string, SolutionPageContent> = {
       body: "Use approved store screens and a short journey walkthrough here to demonstrate how acquisition and development decisions connect.",
       videoTitle: "Mobile shopping-journey walkthrough",
       imageTitle: "Product and collection page example",
+      imageSrc: "/images/Services/Images on the pages/Shopify development after.png",
+      imageAlt: "A demo storefront homepage with collections, featured products and checkout links laid out on desktop.",
       screenTitle: "Ecommerce performance dashboard",
+      screenSrc: "/images/Services/Images on the pages/Search-term and ACoS view Amazon PPC.png",
+      screenAlt: "Illustrative marketplace advertising report showing spend, sales, ACoS and ROAS by search term."
     },
     approach: {
       title: "A commercially grounded ecommerce review",
@@ -274,7 +286,11 @@ export const solutions: Record<string, SolutionPageContent> = {
       body: "This section is ready for an approved page walkthrough, a before-and-after screen and an anonymised user-journey view.",
       videoTitle: "Conversion review walkthrough",
       imageTitle: "Before-and-after page comparison",
+      imageSrc: "/images/Services/Images on the pages/Shopify development before.png",
+      imageAlt: "A dated storefront layout before a conversion-focused rebuild.",
       screenTitle: "User journey and conversion view",
+      screenSrc: "/images/Services/Images on the pages/Organic search performance view SEO.png",
+      screenAlt: "Illustrative performance report showing the pages and queries people arrive on before converting."
     },
     approach: {
       title: "How we find a practical conversion priority",
@@ -361,7 +377,11 @@ export const solutions: Record<string, SolutionPageContent> = {
       body: "Use an approved profile screen, location-page example and a short local search review in this visual section.",
       videoTitle: "Local visibility review walkthrough",
       imageTitle: "Service-area page example",
+      imageSrc: "/images/Services/local seo 2.jpg",
+      imageAlt: "A service-area page being reviewed for a local business.",
       screenTitle: "Google Business Profile view",
+      screenSrc: "/images/Services/Images on the pages/Google Business Profile and local performance local SEO.png",
+      screenAlt: "Illustrative Google Business Profile performance view showing calls, direction requests and website clicks."
     },
     approach: {
       title: "A local visibility plan based on your real service area",
@@ -448,7 +468,11 @@ export const solutions: Record<string, SolutionPageContent> = {
       body: "This section can hold an approved planning-session video, a delivery-board image and an anonymised monthly report.",
       videoTitle: "Monthly strategy and performance review",
       imageTitle: "Shared priority and delivery plan",
+      imageSrc: "/images/Solutions/2.jpg",
+      imageAlt: "Two marketers planning channels and priorities against a digital marketing map on a whiteboard.",
       screenTitle: "Plain-English reporting view",
+      screenSrc: "/images/Services/Images on the pages/Verified PPC result after.png",
+      screenAlt: "Illustrative campaign report showing conversions, cost per conversion, conversion value and ROAS against the previous period."
     },
     approach: {
       title: "How an outsourced marketing relationship is set up",

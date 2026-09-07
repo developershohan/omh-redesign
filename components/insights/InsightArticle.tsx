@@ -24,7 +24,7 @@ export async function InsightArticle({ post }: { post: InsightPost }) {
           <Reveal>
             <nav
               aria-label="Breadcrumb"
-              className="mb-10 flex flex-wrap items-center gap-2 text-[14px] text-muted"
+              className="mb-10 flex flex-wrap items-center gap-2 text-[18px] text-muted"
             >
               <Link href="/insights" className="hover:text-amber-deep hover:underline underline-offset-4">
                 Insights
@@ -33,7 +33,7 @@ export async function InsightArticle({ post }: { post: InsightPost }) {
               <span>{post.topic.name}</span>
             </nav>
 
-            <p className="flex flex-wrap items-center gap-x-3 gap-y-2 font-sans text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">
+            <p className="flex flex-wrap items-center gap-x-3 gap-y-2 font-sans text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
               <span className="text-amber-deep">{post.topic.name}</span>
               <span aria-hidden>·</span>
               <time dateTime={post.publishedAt}>{formatInsightDate(post.publishedAt)}</time>
@@ -103,7 +103,7 @@ export async function InsightArticle({ post }: { post: InsightPost }) {
                   <nav aria-labelledby="article-contents" className="border-t border-line pt-5">
                     <p
                       id="article-contents"
-                      className="text-[13px] font-semibold uppercase tracking-[0.15em] text-muted"
+                      className="text-[14px] font-semibold uppercase tracking-[0.15em] text-muted"
                     >
                       On this page
                     </p>
@@ -123,7 +123,7 @@ export async function InsightArticle({ post }: { post: InsightPost }) {
                 )}
 
                 <div className="mt-8 border-t border-line pt-5">
-                  <p className="text-[13px] font-semibold uppercase tracking-[0.15em] text-muted">
+                  <p className="text-[14px] font-semibold uppercase tracking-[0.15em] text-muted">
                     Filed under
                   </p>
                   <p className="mt-2 font-sans text-body font-semibold text-amber-deep">
@@ -168,7 +168,7 @@ export async function InsightArticle({ post }: { post: InsightPost }) {
                   href={insightHref(item)}
                   className="surface-card group flex flex-col rounded-card border border-line bg-surface p-7"
                 >
-                  <p className="font-sans text-[13px] font-semibold uppercase tracking-[0.14em] text-amber-deep">
+                  <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.14em] text-amber-deep">
                     {item.topic.name}
                   </p>
                   <h3 className="mt-4 font-sans text-h4 font-semibold leading-snug text-balance">

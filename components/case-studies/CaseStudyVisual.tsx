@@ -73,10 +73,10 @@ export function CaseStudyVisual({
       />
 
       <div className="relative flex items-start justify-between gap-6">
-        <p className={`font-sans text-[13px] font-semibold uppercase tracking-[0.16em] ${tone.label}`}>
+        <p className={`font-sans text-[14px] font-semibold uppercase tracking-[0.16em] ${tone.label}`}>
           {study.category}
         </p>
-        <p className={`font-sans text-[13px] font-semibold tabular-nums ${tone.index}`}>
+        <p className={`font-sans text-[18px] font-semibold tabular-nums ${tone.index}`}>
           {String(index + 1).padStart(2, "0")}
         </p>
       </div>

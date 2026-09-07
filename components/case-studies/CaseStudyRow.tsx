@@ -28,7 +28,7 @@ export function CaseStudyRow({ study, index }: { study: CaseStudy; index: number
         </div>
 
         <div className={`col-span-6 max-lg:mt-9 ${flipped ? "lg:order-1" : ""}`}>
-          <p className="font-sans text-[13px] font-semibold uppercase tracking-[0.16em] text-amber-deep">
+          <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.16em] text-amber-deep">
             {study.category}
             <span className="text-muted"> · {study.sector}</span>
           </p>
@@ -62,7 +62,7 @@ export function CaseStudyRow({ study, index }: { study: CaseStudy; index: number
             {study.serviceIds.map((serviceId) => (
               <li
                 key={serviceId}
-                className="rounded-full border border-line bg-surface px-3.5 py-1.5 text-[14px] font-medium text-ink/70"
+                className="rounded-full border border-line bg-surface px-3.5 py-1.5 text-[18px] font-medium text-ink/70"
               >
                 {caseStudyServices[serviceId].label}
               </li>

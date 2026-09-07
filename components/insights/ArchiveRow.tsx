@@ -35,7 +35,7 @@ export function ArchiveRow({ post }: { post: InsightIndexEntry }) {
       </span>
 
       <span className="min-w-0">
-        <span className="flex flex-wrap items-center gap-x-3 gap-y-1 font-sans text-[13px] font-semibold uppercase tracking-[0.13em] text-muted">
+        <span className="flex flex-wrap items-center gap-x-3 gap-y-1 font-sans text-[14px] font-semibold uppercase tracking-[0.13em] text-muted">
           <span className="text-amber-deep">{post.topic.name}</span>
           <span aria-hidden>·</span>
           <time dateTime={post.publishedAt}>

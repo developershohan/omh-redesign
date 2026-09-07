@@ -37,7 +37,7 @@ export function CaseStudyArchive() {
               <dl className="col-span-4 col-start-9 flex flex-wrap gap-y-4 border-y border-line py-6 max-lg:mt-10">
                 {counts.map(([label, value]) => (
                   <div key={label} className="border-l border-line px-5 first:border-l-0 first:pl-0">
-                    <dt className="text-[13px] font-semibold uppercase tracking-[0.13em] text-muted">
+                    <dt className="text-[14px] font-semibold uppercase tracking-[0.13em] text-muted">
                       {label}
                     </dt>
                     <dd className="mt-1.5 font-sans text-h3 font-semibold">{value}</dd>
@@ -45,7 +45,7 @@ export function CaseStudyArchive() {
                 ))}
               </dl>
             </div>
-            <p className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-line pt-6 text-[14px] text-muted">
+            <p className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-line pt-6 text-[18px] text-muted">
               <span className="font-sans font-semibold uppercase tracking-[0.14em] text-ink/70">
                 Sectors
               </span>

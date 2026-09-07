@@ -78,6 +78,8 @@ export function MaintenanceHero() {
                   ratio="16/11"
                   title="WordPress maintenance report"
                   note="Replace with a real approved report, update log or monitoring screen with sensitive details removed."
+                  source="/images/Services/Images on the pages/After website maintenance.png"
+                  alt="WordPress admin dashboard after maintenance, with core, plugins and themes up to date and site health reporting no critical issues."
                 />
               </div>
             </Pointer>
@@ -124,7 +126,7 @@ export function MaintenanceIssueSection() {
                 className="group border-t border-line px-3 py-6 transition-colors hover:border-teal/50 hover:bg-surface"
               >
                 <div className="flex items-baseline gap-4">
-                  <span className="font-sans text-[12px] font-semibold tracking-[0.1em] text-muted group-hover:text-amber">
+                  <span className="font-sans text-[14px] font-semibold tracking-[0.1em] text-muted group-hover:text-amber">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <h3 className="font-sans text-h4 font-semibold">{title}</h3>
@@ -196,7 +198,7 @@ export function MaintenanceCapabilityGrid() {
               key={item.title}
               className="group grid grid-cols-[auto_1fr] gap-x-5 border-t border-line px-3 py-7 transition-colors hover:border-teal/50 hover:bg-surface"
             >
-              <span className="font-sans text-[13px] font-semibold tabular-nums tracking-[0.1em] text-muted group-hover:text-amber">
+              <span className="font-sans text-[18px] font-semibold tabular-nums tracking-[0.1em] text-muted group-hover:text-amber">
                 {String(index + 2).padStart(2, "0")}
               </span>
               <div>
@@ -350,7 +352,7 @@ export function MaintenancePricingPackages() {
                     <th
                       scope="colgroup"
                       colSpan={4}
-                      className="border-b border-t border-line bg-warm/50 px-6 py-2.5 text-left text-[12px] font-semibold uppercase tracking-[0.14em] text-muted"
+                      className="border-b border-t border-line bg-warm/50 px-6 py-2.5 text-left text-[14px] font-semibold uppercase tracking-[0.14em] text-muted"
                     >
                       {group.label}
                     </th>
@@ -482,7 +484,7 @@ export function MaintenanceProofSection() {
           </div>
         </div>
         <div className="mt-8 rounded-card border border-line bg-warm/60 p-7">
-          <p className="font-sans text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">Trust signals</p>
+          <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">Trust signals</p>
           <div className="mt-4 flex flex-wrap gap-3">
             <VerifiedSlot>24/7 support & monitoring terms — pending</VerifiedSlot>
             <VerifiedSlot>Two-hour response terms — pending</VerifiedSlot>

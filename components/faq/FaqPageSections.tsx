@@ -25,7 +25,7 @@ export function FaqHero() {
               {/* A contents list, not a stock paragraph — on a page this long the
                   useful thing at the top is a way to reach the right group. */}
               <nav aria-label="Question categories" className="mt-9">
-                <p className="mb-4 text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">
+                <p className="mb-4 text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
                   Jump to
                 </p>
                 <ul className="flex flex-wrap gap-2">
@@ -33,7 +33,7 @@ export function FaqHero() {
                     <li key={group.heading}>
                       <a
                         href={`#${slug(group.heading)}`}
-                        className="inline-block rounded-full border border-line bg-surface px-3.5 py-1.5 text-[14px] text-ink/75 transition-colors hover:border-teal hover:text-ink"
+                        className="inline-block rounded-full border border-line bg-surface px-3.5 py-1.5 text-[18px] text-ink/75 transition-colors hover:border-teal hover:text-ink"
                       >
                         {group.heading}
                       </a>
@@ -73,7 +73,7 @@ export function FaqGroups() {
             id={slug(group.heading)}
             tone={groupTones[index % groupTones.length]}
             accent={index % 2 ? "bg-teal" : "bg-amber"}
-            labelStyle="pill"
+            labelStyle="none"
           >
             <Reveal>
               <div className="grid grid-cols-12 gap-x-12 gap-y-7 max-lg:block">
@@ -82,9 +82,6 @@ export function FaqGroups() {
                     <h2 className="max-w-[14ch] font-sans text-h2 font-semibold text-balance">
                       {group.heading}
                     </h2>
-                    <p className="mt-4 text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">
-                      {String(group.items.length).padStart(2, "0")} questions
-                    </p>
                   </div>
                 </div>
                 <div className="col-span-8 max-lg:mt-7">

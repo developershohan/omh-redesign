@@ -52,7 +52,7 @@ export function SiteSearch({ entries }: { entries: SearchEntry[] }) {
         <span className="sr-only">Search the site</span>
         <kbd
           aria-hidden
-          className="rounded border border-line px-1.5 py-0.5 font-sans text-[12px] font-semibold tracking-wide max-2xl:hidden"
+          className="rounded border border-line px-1.5 py-0.5 font-sans text-[14px] font-semibold tracking-wide max-2xl:hidden"
         >
           ⌘K
         </kbd>
@@ -82,7 +82,7 @@ export function SiteSearch({ entries }: { entries: SearchEntry[] }) {
           <button
             type="button"
             onClick={() => dialogRef.current?.close()}
-            className="cursor-pointer rounded border border-line px-2 py-1 text-[12px] font-semibold text-muted transition-colors hover:text-ink"
+            className="cursor-pointer rounded border border-line px-2 py-1 text-[14px] font-semibold text-muted transition-colors hover:text-ink"
           >
             Esc
           </button>
@@ -98,7 +98,7 @@ export function SiteSearch({ entries }: { entries: SearchEntry[] }) {
                   className="flex items-baseline justify-between gap-5 rounded-button px-3 py-2.5 transition-colors hover:bg-warm"
                 >
                   <span className="min-w-0 text-body leading-snug">{entry.title}</span>
-                  <span className="shrink-0 font-sans text-[12px] font-semibold uppercase tracking-[0.12em] text-muted">
+                  <span className="shrink-0 font-sans text-[14px] font-semibold uppercase tracking-[0.12em] text-muted">
                     {entry.group}
                   </span>
                 </Link>

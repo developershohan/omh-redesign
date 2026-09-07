@@ -40,7 +40,7 @@ function ComparisonTable({ table }: { table: PriceTable }) {
           <tr className="border-b border-line">
             <th
               scope="col"
-              className="sticky left-0 z-10 bg-surface px-5 py-4 text-[13px] font-semibold uppercase tracking-[0.12em] text-muted"
+              className="sticky left-0 z-10 bg-surface px-5 py-4 text-[14px] font-semibold uppercase tracking-[0.12em] text-muted"
             >
               Feature
             </th>
@@ -48,7 +48,7 @@ function ComparisonTable({ table }: { table: PriceTable }) {
               <th
                 key={tier}
                 scope="col"
-                className="px-5 py-4 text-center font-sans text-[15px] font-semibold text-ink"
+                className="px-5 py-4 text-center font-sans text-[18px] font-semibold text-ink"
               >
                 {tier}
               </th>
@@ -63,14 +63,14 @@ function ComparisonTable({ table }: { table: PriceTable }) {
             >
               <th
                 scope="row"
-                className={`sticky left-0 z-10 px-5 py-3.5 text-left text-[15px] font-normal text-ink/80 ${isPricing(row.label) ? "bg-warm font-semibold text-ink" : "bg-surface"}`}
+                className={`sticky left-0 z-10 px-5 py-3.5 text-left text-[18px] font-normal text-ink/80 ${isPricing(row.label) ? "bg-warm font-semibold text-ink" : "bg-surface"}`}
               >
                 {row.label}
               </th>
               {row.values.map((value, index) => (
                 <td
                   key={`${row.label}-${table.tiers[index] ?? index}`}
-                  className={`px-5 py-3.5 text-center text-[15px] ${isPricing(row.label) ? "font-sans text-[19px] font-semibold text-amber-deep" : "text-ink/80"}`}
+                  className={`px-5 py-3.5 text-center text-[18px] ${isPricing(row.label) ? "font-sans text-[19px] font-semibold text-amber-deep" : "text-ink/80"}`}
                 >
                   <Value value={value} label={row.label} />
                 </td>
@@ -109,11 +109,13 @@ export function PriceListHero() {
               ratio="4/3"
               title="What a quote looks like"
               note="Replace with an anonymised proposal or package summary."
+              source="/images/Services/Amazon PPC 1 (2).png"
+              alt="A scoped proposal being talked through on screen with printed performance summaries on the desk."
               className="col-span-6 max-lg:mt-10"
             />
           </div>
           <nav aria-label="Services on this page" className="mt-12 border-t border-line pt-8">
-            <p className="mb-4 text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">
+            <p className="mb-4 text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
               Jump to a service
             </p>
             <ul className="grid grid-cols-4 gap-x-8 max-lg:grid-cols-2 max-sm:grid-cols-1">
@@ -157,7 +159,7 @@ export function PriceTables() {
             {table.rows.length > 0 && <ComparisonTable table={table} />}
             <div className="mt-8 border-t border-line pt-7">
               {table.notes.map((note) => (
-                <p key={note} className="mt-3 text-[15px] leading-relaxed text-ink/70 first:mt-0">
+                <p key={note} className="mt-3 text-[18px] leading-relaxed text-ink/70 first:mt-0">
                   {note}
                 </p>
               ))}

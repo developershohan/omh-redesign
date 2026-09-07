@@ -18,7 +18,8 @@ export type ServiceBandLabel =
   | "centered" // hairline — caps — hairline, centred
   | "underline" // caps above a short thick accent bar
   | "topline" // full-width hairline above, caps beneath
-  | "dot"; // filled accent dot + caps
+  | "dot" // filled accent dot + caps
+  | "none"; // no label band — content supplies its own heading
 
 const toneClass: Record<ServiceBandTone, string> = {
   warm: "",
@@ -48,7 +49,7 @@ export function ServiceBand({
   children: ReactNode;
 }) {
   const dark = darkTones.includes(tone);
-  const caps = `text-[12px] font-semibold uppercase tracking-[0.17em] ${dark ? "text-oninverse/55" : "text-muted"}`;
+  const caps = `text-[14px] font-semibold uppercase tracking-[0.17em] ${dark ? "text-oninverse/55" : "text-muted"}`;
   const hair = dark ? "bg-oninverse/12" : "bg-line";
   const border = dark ? "border-oninverse/25" : "border-line";
   const accentText = dark ? "text-oninverse/70" : "text-amber-deep";
@@ -56,7 +57,7 @@ export function ServiceBand({
   return (
     <section id={id} className={toneClass[tone] || undefined}>
       <div className="container-omh section-md">
-        <div className="mb-11">
+        <div className={labelStyle === "none" ? undefined : "mb-11"}>
           {labelStyle === "rule" && (
             <div className={`flex items-center gap-4 ${caps}`}>
               <span aria-hidden className={`h-0.5 w-7 shrink-0 ${accent}`} />

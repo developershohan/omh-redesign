@@ -27,7 +27,7 @@ export function RelatedServices({
         <Reveal>
           <div className="grid grid-cols-12 gap-x-10 gap-y-8 max-lg:block">
             <div className="col-span-4 max-lg:mb-10">
-              <p className="flex items-center gap-2.5 text-[13px] font-semibold uppercase tracking-[0.16em] text-muted before:h-0.5 before:w-5 before:bg-amber before:content-['']">
+              <p className="flex items-center gap-2.5 text-[14px] font-semibold uppercase tracking-[0.16em] text-muted before:h-0.5 before:w-5 before:bg-amber before:content-['']">
                 Related services
               </p>
               <h2 id={`${eventPrefix}-related-title`} className="mt-6 max-w-[18ch] font-sans text-h3 font-semibold text-balance">
@@ -38,7 +38,7 @@ export function RelatedServices({
             <div className="col-span-8 grid grid-cols-3 gap-5 max-md:grid-cols-1">
               {links.map((link, index) => (
                 <article key={link.href} className="surface-card flex min-h-full flex-col rounded-card border border-line bg-warm/55 p-6">
-                  <span className="text-[12px] font-semibold tabular-nums tracking-[0.12em] text-amber">
+                  <span className="text-[18px] font-semibold tabular-nums tracking-[0.12em] text-amber">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <h3 className="mt-5 font-sans text-h4 font-semibold">

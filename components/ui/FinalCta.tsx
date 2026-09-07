@@ -94,7 +94,7 @@ export function FinalCta({
                 <li key={step} className="grid grid-cols-[auto_1fr] items-start gap-4">
                   <span
                     aria-hidden
-                    className="flex size-8 shrink-0 items-center justify-center rounded-full border border-oninverse/25 font-sans text-[13px] font-semibold tabular-nums text-[#f2c675]"
+                    className="flex size-8 shrink-0 items-center justify-center rounded-full border border-oninverse/25 font-sans text-[18px] font-semibold tabular-nums text-[#f2c675]"
                   >
                     {String(index + 1).padStart(2, "0")}
                   </span>

@@ -23,7 +23,7 @@ export function CaseStudyChallenges({ study }: { study: CaseStudy }) {
             <ul className="col-span-6 col-start-7 border-t border-line">
               {study.challenges.map((challenge, index) => (
                 <li key={challenge} className="grid grid-cols-[auto_1fr] gap-6 border-b border-line py-6">
-                  <span className="font-sans text-[14px] font-semibold tabular-nums text-amber-deep">
+                  <span className="font-sans text-[18px] font-semibold tabular-nums text-amber-deep">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <span className="text-body leading-relaxed text-ink/75">{challenge}</span>
@@ -64,7 +64,7 @@ export function CaseStudyWorkSection({ study, index }: { study: CaseStudy; index
                   <div
                     className={`col-span-6 max-lg:mt-9 ${flipped ? "lg:order-1 lg:col-start-1" : "lg:col-start-7"}`}
                   >
-                    <p className="font-sans text-[14px] font-semibold tabular-nums text-amber-deep">
+                    <p className="font-sans text-[18px] font-semibold tabular-nums text-amber-deep">
                       {String(groupIndex + 1).padStart(2, "0")}
                     </p>
                     <h3 className="mt-4 max-w-[20ch] font-sans text-h3 font-semibold text-balance">

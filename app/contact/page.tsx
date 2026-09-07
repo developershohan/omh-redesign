@@ -82,7 +82,7 @@ export default function ContactPage() {
                   <li key={step} className="grid grid-cols-[auto_1fr] items-start gap-3.5">
                     <span
                       aria-hidden
-                      className="flex size-7 items-center justify-center rounded-full border border-line bg-surface font-sans text-[13px] font-semibold tabular-nums text-amber-deep"
+                      className="flex size-7 items-center justify-center rounded-full border border-line bg-surface font-sans text-[18px] font-semibold tabular-nums text-amber-deep"
                     >
                       {i + 1}
                     </span>

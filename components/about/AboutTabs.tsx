@@ -32,7 +32,7 @@ export function AboutTabs({
           >
             <span
               aria-hidden
-              className={`font-sans text-[13px] font-semibold tabular-nums ${
+              className={`font-sans text-[18px] font-semibold tabular-nums ${
                 active === index ? "text-amber-deep" : "text-muted"
               }`}
             >
@@ -55,7 +55,7 @@ export function AboutTabs({
             <p className="font-sans text-[clamp(44px,34px+2.4vw,72px)] font-semibold leading-none text-amber-deep">
               {item.stat}
             </p>
-            <p className="mt-3 text-[13px] font-semibold uppercase tracking-[0.15em] text-muted">
+            <p className="mt-3 text-[14px] font-semibold uppercase tracking-[0.15em] text-muted">
               {item.statLabel}
             </p>
             <div className="mt-8 grid gap-5 border-t border-line pt-7">

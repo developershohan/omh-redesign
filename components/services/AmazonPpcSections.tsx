@@ -60,7 +60,7 @@ export function AmazonPpcHero() {
           <Reveal className="col-span-5">
             <Pointer>
               <div className="pointer-parallax">
-                <MediaFrame kind="screen" theme="amazon" ratio="16/11" title="Amazon advertising account view" note="Replace with an approved, anonymised account showing date range, spend and attributed sales." />
+                <MediaFrame kind="screen" theme="amazon" ratio="16/11" title="Amazon advertising account view" note="Replace with an approved, anonymised account showing date range, spend and attributed sales." source="/images/Services/Amazon PPC 1 (1).png" alt="An Amazon PPC account diagnosis open on a laptop while printed performance charts are reviewed alongside it." />
               </div>
             </Pointer>
             <div className="mt-6 flex flex-wrap gap-2.5 border-t border-line pt-5">
@@ -80,7 +80,7 @@ export function AmazonAccountDiagnosis() {
       <Reveal>
         <div className="grid grid-cols-12 gap-x-12 gap-y-9 max-lg:block">
           <div className="col-span-4 max-lg:mb-9">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-amber-deep">Is the account learning?</p>
+            <p className="text-[14px] font-semibold uppercase tracking-[0.15em] text-amber-deep">Is the account learning?</p>
             <h2 className="mt-5 max-w-[14ch] font-sans text-h2 font-semibold">Six signs Amazon advertising needs attention.</h2>
             <p className="mt-5 max-w-[42ch] text-body leading-relaxed text-ink/70">Dozens of tasks sit under Amazon PPC. This diagnosis groups them around the problems a seller can actually recognise.</p>
             <div className="mt-8"><TextLink href="/contact" data-event="amazon_account_review_click">Request an account review</TextLink></div>
@@ -120,7 +120,7 @@ export function AmazonCampaignMap() {
               </div>
               <p className="mt-4 max-w-[55ch] text-body leading-relaxed text-oninverse/68">{item.body}</p>
               <ul className="mt-6 flex flex-wrap gap-2">
-                {item.detail.map((detail) => <li key={detail} className="rounded-full border border-oninverse/12 px-3 py-1.5 text-[14px] font-medium text-oninverse/72">{detail}</li>)}
+                {item.detail.map((detail) => <li key={detail} className="rounded-full border border-oninverse/12 px-3 py-1.5 text-[18px] font-medium text-oninverse/72">{detail}</li>)}
               </ul>
             </article>
           ))}
@@ -143,7 +143,7 @@ export function AmazonProcess() {
             {content.process.map(([title, body], index) => (
               <li key={title} className={`${index === content.process.length - 1 ? "md:col-span-2" : ""} border-t border-line py-6`}>
                 <div className="flex gap-5">
-                  <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-tint-amber text-[12px] font-semibold text-amber-deep">{index + 1}</span>
+                  <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-tint-amber text-[14px] font-semibold text-amber-deep">{index + 1}</span>
                   <div><h3 className="font-sans text-h4 font-semibold">{title}</h3><p className="mt-2.5 text-body leading-relaxed text-ink/70">{body}</p></div>
                 </div>
               </li>
@@ -213,7 +213,7 @@ export function AmazonProofGuide() {
       <Reveal>
         <div className="grid grid-cols-12 items-center gap-x-12 gap-y-10 max-lg:block">
           <div className="col-span-5 max-lg:mb-9">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-[#ffb84d]">Before increasing spend</p>
+            <p className="text-[14px] font-semibold uppercase tracking-[0.15em] text-[#ffb84d]">Before increasing spend</p>
             <h2 className="mt-5 max-w-[15ch] font-sans text-h2 font-semibold">Use a real account story, with the measurement explained.</h2>
             <p className="mt-5 text-body leading-relaxed text-oninverse/68">An approved Amazon example belongs here, stating the products, date range, spend, attribution window and commercial context. [VERIFIED CASE STUDY REQUIRED]</p>
             <ul className="mt-7 grid gap-3 border-t border-oninverse/12 pt-5 text-body text-oninverse/72">
@@ -222,7 +222,7 @@ export function AmazonProofGuide() {
             <div className="mt-7"><TextLink href="/case-studies" className="text-[#ffb84d] hover:text-[#ffc96f]" data-event="amazon_case_study_click">View case studies</TextLink></div>
           </div>
           <div className="col-span-7">
-            <MediaFrame kind="image" theme="amazon" ratio="16/10" title="Verified Amazon PPC case study" note="Replace with approved product imagery and a comparable before-and-after account view." />
+            <MediaFrame kind="image" theme="amazon" ratio="16/10" title="Verified Amazon PPC case study" note="Replace with approved product imagery and a comparable before-and-after account view." source="/images/Services/Images on the pages/Verified Amazon PPC case study.png" alt="An Amazon PPC case-study summary showing spend, sales, ACoS, orders and ROAS for a single product over a 30-day period." />
             <div className="mt-5 flex flex-wrap gap-2"><VerifiedSlot>Client approval — pending</VerifiedSlot><VerifiedSlot>Result method — pending</VerifiedSlot></div>
           </div>
         </div>

@@ -8,7 +8,7 @@ export function CaseStudyHero({ study, index }: { study: CaseStudy; index: numbe
     <header className="border-b border-line bg-surface">
       <div className="container-omh section-md">
         <Reveal>
-          <nav aria-label="Breadcrumb" className="mb-9 flex items-center gap-2 text-[14px] text-muted">
+          <nav aria-label="Breadcrumb" className="mb-9 flex items-center gap-2 text-[18px] text-muted">
             <Link href="/case-studies" className="hover:text-amber-deep hover:underline underline-offset-4">
               Case Studies
             </Link>
@@ -18,7 +18,7 @@ export function CaseStudyHero({ study, index }: { study: CaseStudy; index: numbe
 
           <div className="grid grid-cols-12 items-center gap-x-12 gap-y-10 max-lg:block">
             <div className="col-span-6 max-lg:mb-10">
-              <p className="font-sans text-[13px] font-semibold uppercase tracking-[0.16em] text-amber-deep">
+              <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.16em] text-amber-deep">
                 {study.category}
                 <span className="text-muted"> · {study.sector}</span>
               </p>
@@ -32,7 +32,7 @@ export function CaseStudyHero({ study, index }: { study: CaseStudy; index: numbe
                 {study.serviceIds.map((serviceId) => (
                   <li
                     key={serviceId}
-                    className="rounded-full border border-line bg-warm px-3.5 py-1.5 text-[14px] font-medium text-ink/70"
+                    className="rounded-full border border-line bg-warm px-3.5 py-1.5 text-[18px] font-medium text-ink/70"
                   >
                     {caseStudyServices[serviceId].label}
                   </li>
@@ -80,7 +80,7 @@ export function CaseStudyOverview({ study }: { study: CaseStudy }) {
                 label === "Objective" ? "col-span-2 max-lg:col-span-full" : ""
               }`}
             >
-              <dt className="text-[13px] font-semibold uppercase tracking-[0.13em] text-muted">
+              <dt className="text-[14px] font-semibold uppercase tracking-[0.13em] text-muted">
                 {label}
               </dt>
               <dd className="mt-2 text-body leading-snug font-medium text-ink/85">{value}</dd>

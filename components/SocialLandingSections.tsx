@@ -50,7 +50,7 @@ function SocialHero({ variant, event }: V) {
         <div className="container-omh section-md">
           <Reveal>
             <div className="mx-auto max-w-[68ch] text-center">
-              <p className="text-[13px] font-semibold uppercase tracking-[0.18em] text-muted">
+              <p className="text-[14px] font-semibold uppercase tracking-[0.18em] text-muted">
                 {page.eyebrow}
               </p>
               <h1 className="mx-auto mt-7 max-w-[16ch] font-sans text-display font-semibold text-balance">
@@ -65,10 +65,10 @@ function SocialHero({ variant, event }: V) {
               {actions}
             </div>
             <div className="mt-14 grid grid-cols-4 gap-6 max-md:grid-cols-2">
-              <MediaFrame kind="image" theme="amazon" ratio="4/5" title="Feed post" note="Approved branded feed image." />
+              <MediaFrame kind="image" theme="amazon" ratio="4/5" title="Feed post" note="Approved branded feed image." source="/images/Services/social media marketing 1.jpg" alt="A branded social feed post shown on a phone." />
               <MediaFrame kind="video" theme="amazon" ratio="4/5" title="Reel" note="Short vertical video for Reels or Stories." />
-              <MediaFrame kind="image" theme="amazon" ratio="4/5" title="Carousel" note="Multi-slide carousel creative." />
-              <MediaFrame kind="screen" theme="amazon" ratio="4/5" title="Profile grid" note="Anonymised profile showing the grid layout." />
+              <MediaFrame kind="image" theme="amazon" ratio="4/5" title="Carousel" note="Multi-slide carousel creative." source="/images/Services/social media marketing 1(1).jpg" alt="A multi-slide social carousel creative." />
+              <MediaFrame kind="screen" theme="amazon" ratio="4/5" title="Profile grid" note="Anonymised profile showing the grid layout." source="/images/Services/social media marketing 1(2).jpg" alt="A social profile grid showing recent posts laid out in a consistent style." />
             </div>
           </Reveal>
         </div>
@@ -118,7 +118,7 @@ function SocialJumpNav({ event }: { event: string }) {
             key={item.href}
             href={item.href}
             data-event={`${event}_jump_click`}
-            className="text-[14px] font-semibold text-ink/70 transition-colors hover:text-amber-deep"
+            className="text-[18px] font-semibold text-ink/70 transition-colors hover:text-amber-deep"
           >
             {item.label}
           </a>
@@ -161,7 +161,7 @@ function SocialGoals({ variant }: { variant: SocialVariant }) {
           </div>
           <div className="mt-12">{questions}</div>
           <div className="mt-12 border-y border-line py-10 text-center">
-            <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">
+            <p className="text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
               {page.goals.didYouKnow.heading}
             </p>
             <p className="mx-auto mt-5 max-w-[46ch] font-serif text-[clamp(21px,1.7vw,28px)] leading-[1.35] text-ink/85">
@@ -186,7 +186,7 @@ function SocialGoals({ variant }: { variant: SocialVariant }) {
           </div>
           <aside className="col-span-5 max-lg:mt-10">
             <div className="rounded-card border border-line bg-warm p-8 max-sm:p-6">
-              <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">
+              <p className="text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
                 {page.goals.didYouKnow.heading}
               </p>
               <p className="mt-5 font-serif text-[clamp(19px,1.4vw,24px)] leading-[1.4] text-ink/85">
@@ -213,11 +213,11 @@ function SocialHelp({ variant }: { variant: SocialVariant }) {
           <div className="mt-12 grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-sm:grid-cols-1">
             {page.help.items.map((item, i) => (
               <article key={item.term} className="rounded-card border border-line bg-surface p-7 max-sm:p-6">
-                <span aria-hidden className="text-[12px] font-semibold tabular-nums text-amber-deep">
+                <span aria-hidden className="text-[18px] font-semibold tabular-nums text-amber-deep">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-3 font-sans text-h4 font-semibold text-balance">{item.term}</h3>
-                <p className="mt-3.5 text-[15px] leading-relaxed text-ink/75">{item.body}</p>
+                <p className="mt-3.5 text-[18px] leading-relaxed text-ink/75">{item.body}</p>
               </article>
             ))}
           </div>
@@ -273,7 +273,7 @@ function SocialMediaBand({ variant }: { variant: SocialVariant }) {
                 asset resized.
               </p>
               <div className="mt-10 grid grid-cols-2 gap-6 max-sm:grid-cols-1">
-                <MediaFrame kind="image" theme="amazon" ratio="16/10" title="Carousel frames" note="Approved multi-slide creative." />
+                <MediaFrame kind="image" theme="amazon" ratio="16/10" title="Carousel frames" note="Approved multi-slide creative." source="/images/Services/social media paid advertising.jpg" alt="Paid social ad creative frames prepared for a campaign." />
                 <MediaFrame kind="screen" theme="amazon" ratio="16/10" title="Engagement report" note="Anonymised monthly analytics screen." />
               </div>
             </div>
@@ -296,7 +296,7 @@ function SocialMediaBand({ variant }: { variant: SocialVariant }) {
         </div>
         <div className="mt-12 grid grid-cols-12 gap-6">
           <MediaFrame kind="screen" theme="seo" ratio="16/9" title="Campaign manager view" note="Anonymised ad-set and audience screen." className="col-span-7 max-md:col-span-12" />
-          <MediaFrame kind="image" theme="seo" ratio="5/4" title="Ad creative set" note="Approved branded post and ad designs." className="col-span-5 max-md:col-span-12" />
+          <MediaFrame kind="image" theme="seo" ratio="5/4" title="Ad creative set" note="Approved branded post and ad designs." source="/images/Services/social media paid advertising 1.jpg" alt="A set of branded paid social ad designs." className="col-span-5 max-md:col-span-12" />
         </div>
       </Reveal>
     </ServiceBand>
@@ -352,7 +352,7 @@ function SocialPackages({ variant, event }: V) {
             </div>
             <div className="mt-12 grid grid-cols-2 gap-x-12 border-t border-[#10243a]/15 pt-9 max-md:grid-cols-1">
               {page.packages.notes.map((note) => (
-                <p key={note} className="text-[15px] leading-relaxed text-ink/70 max-md:mt-4 max-md:first:mt-0">
+                <p key={note} className="text-[18px] leading-relaxed text-ink/70 max-md:mt-4 max-md:first:mt-0">
                   {note}
                 </p>
               ))}
@@ -376,7 +376,7 @@ function SocialPackages({ variant, event }: V) {
             <div className="col-span-6 max-lg:mt-10">
               <div className="border-t border-line pt-8">
                 {page.packages.notes.map((note) => (
-                  <p key={note} className="mt-5 max-w-[56ch] text-[15px] leading-relaxed text-ink/70 first:mt-0">
+                  <p key={note} className="mt-5 max-w-[56ch] text-[18px] leading-relaxed text-ink/70 first:mt-0">
                     {note}
                   </p>
                 ))}
@@ -509,7 +509,7 @@ function SocialFaq({ variant }: { variant: SocialVariant }) {
                 <h2 className="max-w-[14ch] font-sans text-h2 font-semibold text-balance">
                   {page.faq.title}
                 </h2>
-                <p className="mt-4 text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">
+                <p className="mt-4 text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
                   {page.faq.items.length} questions
                 </p>
               </div>
@@ -575,7 +575,7 @@ function SocialSolutions({ variant, event }: V) {
                 data-event={`${event}_solution_click`}
                 className="group border-t-2 border-line pt-5 transition-colors hover:border-teal"
               >
-                <span aria-hidden className="text-[12px] font-semibold tabular-nums text-amber-deep">
+                <span aria-hidden className="text-[18px] font-semibold tabular-nums text-amber-deep">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="mt-3 block font-sans text-h4 font-semibold transition-colors group-hover:text-amber-deep">

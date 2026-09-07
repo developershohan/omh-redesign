@@ -46,7 +46,7 @@ export function PpcHero() {
             </Reveal>
           </div>
           <Reveal className="col-span-5 col-start-8">
-            <Pointer><div className="pointer-parallax"><MediaFrame kind="screen" theme="ppc" ratio="16/11" title="Google Ads campaign view" note="Replace with a real, anonymised account view with spend, date range and conversion definition visible." /></div></Pointer>
+            <Pointer><div className="pointer-parallax"><MediaFrame kind="screen" theme="ppc" ratio="16/11" title="Google Ads campaign view" note="Replace with a real, anonymised account view with spend, date range and conversion definition visible." source="/images/Services/Images on the pages/Account baseline Before.png" alt="Illustrative Google Ads account overview showing clicks, impressions, average CPC, cost, conversions and budget pacing for a dated month." /></div></Pointer>
             <div className="mt-6 border-t border-line pt-5">
               <p className="mb-3.5 text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">Proof to verify before launch</p>
               <div className="flex flex-wrap gap-2.5">
@@ -77,7 +77,7 @@ export function PpcNeedSection() {
             {content.problems.map(([title, body], index) => (
               <article key={title} className="group border-t border-line px-3 py-6 transition-colors hover:border-teal/50 hover:bg-surface">
                 <div className="flex items-baseline gap-4">
-                  <span className="font-sans text-[12px] font-semibold tracking-[0.1em] text-muted group-hover:text-amber">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="font-sans text-[14px] font-semibold tracking-[0.1em] text-muted group-hover:text-amber">{String(index + 1).padStart(2, "0")}</span>
                   <h3 className="font-sans text-h4 font-semibold">{title}</h3>
                 </div>
                 <p className="mt-2.5 pl-10 text-body leading-relaxed text-ink/75">{body}</p>
@@ -124,7 +124,7 @@ export function PpcCapabilityGrid() {
         <div className="mt-8 grid grid-cols-3 gap-5 max-lg:grid-cols-1">
           {rest.map((item, index) => (
             <article key={item.title} className="surface-card rounded-card border border-line bg-surface p-7">
-              <span className="text-[12px] font-semibold tracking-[0.12em] text-amber">{String(index + 2).padStart(2, "0")}</span>
+              <span className="text-[14px] font-semibold tracking-[0.12em] text-amber">{String(index + 2).padStart(2, "0")}</span>
               <h3 className="mt-5 font-sans text-h4 font-semibold">{item.title}</h3>
               <p className="mt-3 text-body leading-relaxed text-ink/75">{item.body}</p>
             </article>
@@ -184,7 +184,7 @@ export function PpcPricingPackages() {
             <thead>
               <tr>
                 <th scope="col" className="sticky left-0 z-10 w-[240px] bg-surface p-6 align-bottom"><span className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">Compare packages</span></th>
-                {content.packages.map((pkg) => <th key={pkg.name} scope="col" className="border-l border-line bg-soft/40 p-5 align-bottom"><span className="block text-[12px] font-semibold uppercase tracking-[0.14em] text-muted">{pkg.stage}</span><span className="mt-2 block font-sans text-h4 font-semibold">{pkg.name}</span><span className="mt-4 block font-sans text-[32px] font-semibold leading-none tracking-[-0.02em]">{pkg.price}</span></th>)}
+                {content.packages.map((pkg) => <th key={pkg.name} scope="col" className="border-l border-line bg-soft/40 p-5 align-bottom"><span className="block text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">{pkg.stage}</span><span className="mt-2 block font-sans text-h4 font-semibold">{pkg.name}</span><span className="mt-4 block font-sans text-[32px] font-semibold leading-none tracking-[-0.02em]">{pkg.price}</span></th>)}
               </tr>
               <tr>
                 <th scope="col" className="sticky left-0 z-10 bg-surface" />
@@ -194,7 +194,7 @@ export function PpcPricingPackages() {
             <tbody>
               {content.packageGroups.map((group) => (
                 <Fragment key={group.label}>
-                  <tr><th scope="colgroup" colSpan={5} className="border-b border-t border-line bg-warm/50 px-6 py-2.5 text-left text-[12px] font-semibold uppercase tracking-[0.14em] text-muted">{group.label}</th></tr>
+                  <tr><th scope="colgroup" colSpan={5} className="border-b border-t border-line bg-warm/50 px-6 py-2.5 text-left text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">{group.label}</th></tr>
                   {group.rows.map(([label, key]) => <tr key={label} className="border-b border-line transition-colors hover:bg-warm/60"><th scope="row" className="sticky left-0 z-10 bg-surface p-6 py-4 font-semibold">{label}</th>{content.packages.map((pkg) => <td key={pkg.name} className="border-l border-line p-5 py-4 text-ink/80"><FeatureValue value={pkg.features[key]} /></td>)}</tr>)}
                 </Fragment>
               ))}

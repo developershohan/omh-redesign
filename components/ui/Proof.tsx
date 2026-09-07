@@ -49,7 +49,7 @@ export function Fpo({
 export function Eyebrow({ children, light = false }: { children: ReactNode; light?: boolean }) {
   return (
     <p
-      className={`flex items-center text-[13px] font-semibold uppercase ${
+      className={`flex items-center text-[14px] font-semibold uppercase ${
         light
           ? "gap-3 tracking-[0.15em] text-oninverse/60"
           : "gap-2.5 tracking-[0.16em] text-muted"

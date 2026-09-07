@@ -45,7 +45,7 @@ export function CaseStudyTestimonial({ study }: { study: CaseStudy }) {
       <div className="container-omh section-md">
         <Reveal>
           <div className="grid grid-cols-12 gap-x-12 gap-y-8 max-lg:block">
-            <p className="col-span-3 text-[13px] font-semibold uppercase tracking-[0.16em] text-muted">
+            <p className="col-span-3 text-[14px] font-semibold uppercase tracking-[0.16em] text-muted">
               In their words
             </p>
             <div className="col-span-8 max-lg:mt-8">

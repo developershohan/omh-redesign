@@ -29,10 +29,13 @@ function SolutionHero({ content }: { content: SolutionPageContent }) {
           </div>
           <div className="mt-11 grid max-w-[760px] grid-cols-3 border-y border-line max-sm:grid-cols-1 max-sm:divide-y max-sm:divide-line">
             {content.heroPoints.map((point, index) => (
-              <p key={point} className="flex min-h-20 items-center gap-3 pr-5 text-body font-semibold text-ink/68 max-sm:min-h-14 max-sm:py-3">
-                <span className="text-[12px] tabular-nums text-amber-deep">0{index + 1}</span>
-                {point}
-              </p>
+              <div
+                key={point}
+                className="grid grid-cols-[28px_1fr] items-start gap-3 py-6 pr-5 text-body font-semibold text-ink/68 max-sm:py-4"
+              >
+                <span className="text-[18px] leading-[1.55] tabular-nums text-amber-deep">0{index + 1}</span>
+                <span>{point}</span>
+              </div>
             ))}
           </div>
         </Reveal>
@@ -41,7 +44,7 @@ function SolutionHero({ content }: { content: SolutionPageContent }) {
           <div className={`solution-signal solution-signal-${content.theme} relative aspect-[4/5] overflow-hidden rounded-[10px] border border-oninverse/10 bg-inverse p-7 text-oninverse shadow-[0_36px_90px_-44px_rgb(16_24_40/.72)] max-lg:aspect-[16/10] max-sm:aspect-auto max-sm:min-h-[520px] max-sm:p-5`}>
             <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(255,255,255,.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.07)_1px,transparent_1px)] [background-size:42px_42px]" />
             <div className="relative flex h-full flex-col justify-between">
-              <div className="flex items-center justify-between border-b border-oninverse/12 pb-4 text-[12px] uppercase tracking-[0.14em] text-oninverse/55">
+              <div className="flex items-center justify-between border-b border-oninverse/12 pb-4 text-[14px] uppercase tracking-[0.14em] text-oninverse/55">
                 <span>Growth path</span>
                 <span className="size-2 rounded-full bg-[#f2c675] shadow-[0_0_0_6px_rgb(242_198_117/.12)]" />
               </div>
@@ -54,13 +57,13 @@ function SolutionHero({ content }: { content: SolutionPageContent }) {
                       <span className="font-sans text-[clamp(19px,2vw,26px)] font-semibold first-letter:uppercase">
                         {item}
                       </span>
-                      <span className="text-[12px] tabular-nums text-[#f5d394]">0{index + 1}</span>
+                      <span className="text-[18px] tabular-nums text-[#f5d394]">0{index + 1}</span>
                     </div>
                     {index < all.length - 1 && <div className="ml-7 h-8 w-px bg-[#f2c675]/55" />}
                   </div>
                 ))}
               </div>
-              <div className="border-t border-oninverse/12 pt-4 text-[14px] leading-relaxed text-oninverse/55">
+              <div className="border-t border-oninverse/12 pt-4 text-[18px] leading-relaxed text-oninverse/55">
                 One connected journey. Measured against the action that matters.
               </div>
             </div>
@@ -85,7 +88,7 @@ function ProblemSection({ content }: { content: SolutionPageContent }) {
             <div className="col-span-7 border-t border-line">
               {content.problem.symptoms.map((item, index) => (
                 <article key={item.title} className="grid grid-cols-[56px_1fr] gap-5 border-b border-line py-8 max-sm:grid-cols-[38px_1fr]">
-                  <span className="pt-1 font-sans text-[13px] font-semibold tabular-nums text-amber">0{index + 1}</span>
+                  <span className="pt-1 font-sans text-[18px] font-semibold tabular-nums text-amber">0{index + 1}</span>
                   <div>
                     <h3 className="font-sans text-h4 font-semibold">{item.title}</h3>
                     <p className="mt-3 max-w-[58ch] text-body leading-relaxed text-ink/68">{item.body}</p>
@@ -113,7 +116,7 @@ function OutcomesSection({ content }: { content: SolutionPageContent }) {
           <div className="mt-14 grid grid-cols-3 gap-0 border-y border-oninverse/15 max-md:grid-cols-1 max-md:divide-y max-md:divide-oninverse/15">
             {content.outcomes.items.map((item) => (
               <article key={item.number} className="min-h-[320px] border-r border-oninverse/15 px-8 py-9 first:pl-0 last:border-r-0 max-md:min-h-0 max-md:border-r-0 max-md:px-0">
-                <span className="font-sans text-[13px] font-semibold text-[#f5d394]">{item.number}</span>
+                <span className="font-sans text-[18px] font-semibold text-[#f5d394]">{item.number}</span>
                 <h3 className="mt-16 max-w-[15ch] font-sans text-[clamp(24px,2vw,31px)] font-semibold leading-tight max-md:mt-7">{item.title}</h3>
                 <p className="mt-5 max-w-[40ch] text-body leading-relaxed text-oninverse/62">{item.body}</p>
               </article>
@@ -139,8 +142,8 @@ function MediaSection({ content }: { content: SolutionPageContent }) {
             <MediaFrame kind="video" theme={content.theme} ratio="16/10" title={content.media.videoTitle} note="Video placeholder for approved project media." className="col-span-7" />
           </div>
           <div className="mt-6 grid grid-cols-12 gap-6">
-            <MediaFrame kind="image" theme={content.theme} ratio="5/4" title={content.media.imageTitle} note="Image placeholder for approved project media." className="col-span-5 max-md:col-span-12" />
-            <MediaFrame kind="screen" theme={content.theme} ratio="16/8" title={content.media.screenTitle} note="Screen placeholder for approved, anonymised reporting media." className="col-span-7 max-md:col-span-12" />
+            <MediaFrame kind="image" theme={content.theme} ratio="5/4" title={content.media.imageTitle} note="Image placeholder for approved project media." source={content.media.imageSrc} alt={content.media.imageAlt} className="col-span-5 max-md:col-span-12" />
+            <MediaFrame kind="screen" theme={content.theme} ratio="16/8" title={content.media.screenTitle} note="Screen placeholder for approved, anonymised reporting media." source={content.media.screenSrc} alt={content.media.screenAlt} className="col-span-7 max-md:col-span-12" />
           </div>
         </Reveal>
       </div>
@@ -162,7 +165,7 @@ function ApproachSection({ content }: { content: SolutionPageContent }) {
             <ol className="col-span-8 border-t border-line">
               {content.approach.steps.map((step, index) => (
                 <li key={step.title} className="group grid grid-cols-[64px_0.7fr_1fr] gap-5 border-b border-line py-7 transition-colors hover:bg-surface/55 max-md:grid-cols-[42px_1fr]">
-                  <span className="font-sans text-[13px] font-semibold tabular-nums text-amber-deep">0{index + 1}</span>
+                  <span className="font-sans text-[18px] font-semibold tabular-nums text-amber-deep">0{index + 1}</span>
                   <h3 className="font-sans text-[21px] font-semibold max-md:col-start-2">{step.title}</h3>
                   <p className="text-body leading-relaxed text-ink/68 max-md:col-start-2">{step.body}</p>
                 </li>
@@ -191,7 +194,7 @@ function ServicesSection({ content }: { content: SolutionPageContent }) {
             {content.services.items.map((item, index) => (
               <Link key={item.href} href={item.href} className="group min-h-[230px] border-b border-r border-line p-7 transition-colors duration-300 hover:bg-soft/45">
                 <div className="flex items-start justify-between gap-5">
-                  <span className="text-[12px] font-semibold tabular-nums text-amber">0{index + 1}</span>
+                  <span className="text-[18px] font-semibold tabular-nums text-amber">0{index + 1}</span>
                   <ArrowUpRight className="size-5 text-amber-deep transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
                 </div>
                 <h3 className="mt-12 font-sans text-[26px] font-semibold">{item.title}</h3>
@@ -245,7 +248,7 @@ function ProofSection({ content }: { content: SolutionPageContent }) {
           <div className="grid grid-cols-[1fr_1.1fr] items-end gap-16 max-lg:grid-cols-1 max-lg:gap-8">
             <div>
               <Eyebrow>Relevant proof</Eyebrow>
-              <h2 className="mt-6 max-w-[17ch] font-serif text-[clamp(34px,3.8vw,52px)] leading-[1.08] text-balance">{content.proof.title}</h2>
+              <h2 className="mt-6 max-w-[17ch] font-sans text-[clamp(34px,3.8vw,52px)] font-semibold leading-[1.08] text-balance">{content.proof.title}</h2>
             </div>
             <div>
               <p className="max-w-[60ch] text-body leading-relaxed text-ink/68">{content.proof.body}</p>
@@ -280,7 +283,7 @@ function FaqAndNext({ content }: { content: SolutionPageContent }) {
             <div className="col-span-8"><Accordion items={content.faq} group={`${content.slug}-faq`} /></div>
           </div>
           <div className="mt-20 border-t border-line pt-9">
-            <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">You may also be trying to</p>
+            <p className="text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">You may also be trying to</p>
             <div className="mt-5 grid grid-cols-2 gap-5 max-md:grid-cols-1">
               {nextSlugs.map((slug) => {
                 const item = solutions[slug];

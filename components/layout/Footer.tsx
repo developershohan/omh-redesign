@@ -5,7 +5,7 @@ import { company, footerCols, legalLinks } from "@/lib/content/nav";
 const linkClass =
   "footer-link block py-1 text-label leading-snug text-oninverse/62 transition-colors hover:text-oninverse focus-visible:text-oninverse";
 const headingClass =
-  "mb-4 font-sans text-[13px] font-semibold uppercase tracking-[0.14em] text-oninverse";
+  "mb-4 font-sans text-[14px] font-semibold uppercase tracking-[0.14em] text-oninverse";
 
 /*
   The footer carries the last impression, so it runs on the same ink ground as
@@ -22,7 +22,7 @@ export function Footer() {
         {/* Contact strip: the two things people actually come down here for. */}
         <div className="grid grid-cols-2 gap-x-10 gap-y-8 border-b border-oninverse/12 py-12 max-md:grid-cols-1 max-md:py-9">
           <div>
-            <p className="font-sans text-[13px] font-semibold uppercase tracking-[0.16em] text-amber">
+            <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.16em] text-amber">
               Start a conversation
             </p>
             <a
@@ -33,7 +33,7 @@ export function Footer() {
             </a>
           </div>
           <div className="md:justify-self-end md:text-right">
-            <p className="font-sans text-[13px] font-semibold uppercase tracking-[0.16em] text-oninverse/50">
+            <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.16em] text-oninverse/50">
               Or send the brief
             </p>
             <a
@@ -54,7 +54,7 @@ export function Footer() {
             <p className="font-sans text-[21px] font-bold leading-none tracking-tight">
               OMH<i className="not-italic text-amber">.</i>
             </p>
-            <p className="mt-2 text-[13px] uppercase tracking-[0.14em] text-oninverse/50">
+            <p className="mt-2 text-[14px] uppercase tracking-[0.14em] text-oninverse/50">
               {company.name}
             </p>
             <p className="mt-5 max-w-[38ch] text-body leading-relaxed text-oninverse/62">
@@ -93,7 +93,7 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3 border-t border-oninverse/12 py-7 text-[14px] text-oninverse/50">
+        <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3 border-t border-oninverse/12 py-7 text-[18px] text-oninverse/50">
           <span>
             © {new Date().getFullYear()} {company.name} · Company No. {company.companyNo}
           </span>

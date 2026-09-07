@@ -139,7 +139,7 @@ export default function DesignSystem() {
                 <p className="font-sans text-bsm font-semibold">
                   {s.name} <span className="font-normal text-muted">{s.hex}</span>
                 </p>
-                <p className="mt-0.5 text-[13px] leading-snug text-muted">{s.use}</p>
+                <p className="mt-0.5 text-[14px] leading-snug text-muted">{s.use}</p>
               </div>
             </div>
           ))}

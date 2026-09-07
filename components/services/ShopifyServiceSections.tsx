@@ -57,7 +57,7 @@ export function ShopifyHero() {
           <Reveal className="col-span-5 col-start-8">
             <Pointer>
               <div className="pointer-parallax">
-                <MediaFrame kind="image" theme="shopify" ratio="4/5" title="Shopify storefront feature" note="Replace with a real product, collection or storefront view from an approved client project." />
+                <MediaFrame kind="image" theme="shopify" ratio="4/5" title="Shopify storefront feature" note="Replace with a real product, collection or storefront view from an approved client project." source="/images/Services/Shopify Development.jpg" alt="A Shopify storefront product page shown on screen." />
               </div>
             </Pointer>
             <div className="mt-6 border-t border-line pt-5">
@@ -95,7 +95,7 @@ export function ShopifyNeedSection() {
           <ol className="col-span-7 col-start-6 border-t border-line">
             {content.needs.map((need, index) => (
               <li key={need} className="group grid grid-cols-[auto_1fr] items-baseline gap-x-6 border-b border-line px-6 py-6 transition-colors hover:bg-surface">
-                <span aria-hidden className="font-sans text-[13px] font-semibold tabular-nums tracking-[0.1em] text-muted transition-colors group-hover:text-amber">
+                <span aria-hidden className="font-sans text-[18px] font-semibold tabular-nums tracking-[0.1em] text-muted transition-colors group-hover:text-amber">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <p className="font-serif text-[21px] leading-snug text-ink/90 max-sm:text-[19px]">{need}</p>
@@ -152,7 +152,7 @@ export function ShopifyCapabilityGrid() {
         <div className="mt-8 grid grid-cols-2 gap-x-10 max-lg:grid-cols-1">
           {rest.map((item, index) => (
             <article key={item.title} className="group grid grid-cols-[auto_1fr] gap-x-5 border-t border-line px-3 py-7 transition-colors hover:border-teal/50 hover:bg-surface">
-              <span className="font-sans text-[13px] font-semibold tabular-nums tracking-[0.1em] text-muted group-hover:text-amber">
+              <span className="font-sans text-[18px] font-semibold tabular-nums tracking-[0.1em] text-muted group-hover:text-amber">
                 {String(index + 2).padStart(2, "0")}
               </span>
               <div>
@@ -249,7 +249,7 @@ export function ShopifyPricingPackages() {
               {content.packageGroups.map((group) => (
                 <Fragment key={group.label}>
                   <tr>
-                    <th scope="colgroup" colSpan={5} className="border-b border-t border-line bg-warm/50 px-6 py-2.5 text-left text-[12px] font-semibold uppercase tracking-[0.14em] text-muted">{group.label}</th>
+                    <th scope="colgroup" colSpan={5} className="border-b border-t border-line bg-warm/50 px-6 py-2.5 text-left text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">{group.label}</th>
                   </tr>
                   {group.rows.map(([label, key]) => (
                     <tr key={label} className="border-b border-line transition-colors hover:bg-warm/60">
@@ -324,7 +324,7 @@ export function ShopifyCaseStudyFeature() {
         </div>
 
         <div className="mt-8 rounded-card border border-line bg-warm/60 p-7">
-          <p className="font-sans text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">Trust signals</p>
+          <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">Trust signals</p>
           <div className="mt-4 flex flex-wrap gap-3">
             <VerifiedSlot>Shopify certification — pending</VerifiedSlot>
             <VerifiedSlot>Trustpilot rating — pending</VerifiedSlot>

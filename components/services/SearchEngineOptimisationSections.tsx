@@ -41,7 +41,7 @@ export function SeoHero() {
             </dl>
           </Reveal>
           <Reveal className="col-span-5">
-            <Pointer><div className="pointer-parallax"><MediaFrame kind="screen" theme="seo" ratio="16/11" title="Organic search opportunity view" note="Replace with an approved search-performance view showing queries, pages, dates and meaningful actions." /></div></Pointer>
+            <Pointer><div className="pointer-parallax"><MediaFrame kind="screen" theme="seo" ratio="16/11" title="Organic search opportunity view" note="Replace with an approved search-performance view showing queries, pages, dates and meaningful actions." source="/images/Services/Images on the pages/Organic search performance view SEO.png" alt="Illustrative organic search performance report showing clicks, impressions, average position and the queries and pages behind them." /></div></Pointer>
             <div className="mt-6 flex flex-wrap gap-2.5 border-t border-line pt-5"><VerifiedSlot>SEO case study — pending</VerifiedSlot><VerifiedSlot>Current credentials — pending</VerifiedSlot></div>
           </Reveal>
         </div>
@@ -56,7 +56,7 @@ export function SeoSignalSection() {
       <Reveal>
         <div className="grid grid-cols-12 gap-x-12 gap-y-9 max-lg:block">
           <div className="col-span-4 max-lg:mb-9">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-amber-deep">Where SEO loses clarity</p>
+            <p className="text-[14px] font-semibold uppercase tracking-[0.15em] text-amber-deep">Where SEO loses clarity</p>
             <h2 className="mt-5 max-w-[14ch] font-sans text-h2 font-semibold">Recognise the problem before choosing the task.</h2>
             <p className="mt-5 max-w-[42ch] text-body leading-relaxed text-ink/70">Most SEO pages list services. This one starts with the symptoms those services are meant to resolve.</p>
           </div>
@@ -86,7 +86,7 @@ export function SeoPillarAtlas() {
         <div className="mt-12 grid grid-cols-2 gap-6 max-md:grid-cols-1">
           {content.pillars.map((pillar, index) => (
             <article key={pillar.title} className={`${index === 0 || index === 3 ? "bg-[#0e2035] text-oninverse" : "bg-surface text-ink"} rounded-card border border-[#b9cee5] p-8 max-sm:p-6`}>
-              <div className="flex items-start justify-between gap-5"><p className={`text-[11.5px] font-semibold uppercase tracking-[0.15em] ${index === 0 || index === 3 ? "text-[#9bc3f3]" : "text-amber-deep"}`}>{pillar.label}</p><span className={`text-[12px] font-semibold ${index === 0 || index === 3 ? "text-oninverse/30" : "text-ink/25"}`}>0{index + 1}</span></div>
+              <div className="flex items-start justify-between gap-5"><p className={`text-[11.5px] font-semibold uppercase tracking-[0.15em] ${index === 0 || index === 3 ? "text-[#9bc3f3]" : "text-amber-deep"}`}>{pillar.label}</p><span className={`text-[14px] font-semibold ${index === 0 || index === 3 ? "text-oninverse/30" : "text-ink/25"}`}>0{index + 1}</span></div>
               <h3 className="mt-5 font-sans text-h3 font-semibold">{pillar.title}</h3>
               <p className={`mt-4 text-body leading-relaxed ${index === 0 || index === 3 ? "text-oninverse/68" : "text-ink/68"}`}>{pillar.body}</p>
               <ul className={`mt-6 border-t pt-5 ${index === 0 || index === 3 ? "border-oninverse/12" : "border-[#cad9eb]"}`}>
@@ -112,7 +112,7 @@ export function SeoInternalLinkingMap() {
       <Reveal>
         <div className="grid grid-cols-12 gap-x-12 gap-y-10 max-lg:block">
           <div className="col-span-5 max-lg:mb-10">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-[#9bc3f3]">Content architecture</p>
+            <p className="text-[14px] font-semibold uppercase tracking-[0.15em] text-[#9bc3f3]">Content architecture</p>
             <h2 className="mt-5 max-w-[15ch] font-sans text-h2 font-semibold">Help people and search engines follow the relationship between pages.</h2>
             <p className="mt-5 max-w-[48ch] text-body leading-relaxed text-oninverse/66">Internal links should be contextual and useful: a clear route from a service hub to supporting services, explanations and evidence. This page now demonstrates that structure instead of leaving related pages isolated.</p>
           </div>
@@ -192,7 +192,7 @@ export function SeoEvidence() {
     <Band label="Evidence" tone="navy">
       <Reveal>
         <div className="grid grid-cols-12 items-center gap-x-12 gap-y-10 max-lg:block">
-          <div className="col-span-5 max-lg:mb-9"><p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-[#9bc3f3]">Proof before promises</p><h2 className="mt-5 max-w-[15ch] font-sans text-h2 font-semibold">Show the starting point, work and verified organic outcome.</h2><p className="mt-5 text-body leading-relaxed text-oninverse/66">Every SEO case study we publish identifies the period, market, pages changed and how the result was measured.</p><ul className="mt-7 grid gap-3 border-t border-oninverse/12 pt-5 text-body text-oninverse/72">{["Search and website baseline", "Technical and content work completed", "Comparable measurement period", "Verified visibility and commercial context"].map((item) => <li key={item} className="flex gap-3"><Check className="mt-0.5 size-4 shrink-0 text-[#ee8c67]" />{item}</li>)}</ul></div>
+          <div className="col-span-5 max-lg:mb-9"><p className="text-[14px] font-semibold uppercase tracking-[0.15em] text-[#9bc3f3]">Proof before promises</p><h2 className="mt-5 max-w-[15ch] font-sans text-h2 font-semibold">Show the starting point, work and verified organic outcome.</h2><p className="mt-5 text-body leading-relaxed text-oninverse/66">Every SEO case study we publish identifies the period, market, pages changed and how the result was measured.</p><ul className="mt-7 grid gap-3 border-t border-oninverse/12 pt-5 text-body text-oninverse/72">{["Search and website baseline", "Technical and content work completed", "Comparable measurement period", "Verified visibility and commercial context"].map((item) => <li key={item} className="flex gap-3"><Check className="mt-0.5 size-4 shrink-0 text-[#ee8c67]" />{item}</li>)}</ul></div>
           <div className="col-span-7"><MediaFrame kind="video" theme="seo" ratio="16/10" title="Verified SEO case-study walkthrough" note="Replace with approved evidence and an explanation of what the metrics do and do not prove." /><div className="mt-5 flex flex-wrap gap-2"><VerifiedSlot>Client approval — pending</VerifiedSlot><VerifiedSlot>Result method — pending</VerifiedSlot></div></div>
         </div>
       </Reveal>

@@ -86,6 +86,8 @@ export function ServiceHero() {
                   ratio="16/11"
                   title="WordPress project preview"
                   note="Replace with a real project, before-and-after view or planning board."
+                  source="/images/website-designs/Brand-New-Website-Development.png"
+                  alt="A WordPress theme build shown on desktop and laptop, with the homepage, service blocks and recent-projects grid visible."
                 />
               </div>
             </Pointer>
@@ -143,7 +145,7 @@ export function PainPointSection() {
               >
                 <span
                   aria-hidden
-                  className="font-sans text-[13px] font-semibold tabular-nums tracking-[0.1em] text-muted transition-colors group-hover:text-amber"
+                  className="font-sans text-[18px] font-semibold tabular-nums tracking-[0.1em] text-muted transition-colors group-hover:text-amber"
                 >
                   {String(index + 1).padStart(2, "0")}
                 </span>
@@ -359,7 +361,7 @@ export function PricingPackages() {
                       <th
                         scope="colgroup"
                         colSpan={5}
-                        className="border-b border-t border-line bg-warm/50 px-6 py-2.5 text-left text-[12px] font-semibold uppercase tracking-[0.14em] text-muted"
+                        className="border-b border-t border-line bg-warm/50 px-6 py-2.5 text-left text-[14px] font-semibold uppercase tracking-[0.14em] text-muted"
                       >
                         {group.label}
                       </th>

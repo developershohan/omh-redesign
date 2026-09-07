@@ -75,7 +75,7 @@ export function ServiceTestimonials({
           className="grid grid-cols-12 gap-x-12 gap-y-10 outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-4 max-lg:block"
         >
           <div className="col-span-4 max-lg:mb-10">
-            <p className={`text-[12px] font-semibold uppercase tracking-[0.15em] ${dark ? "text-[#9bc3f3]" : "text-amber-deep"}`}>{eyebrow}</p>
+            <p className={`text-[14px] font-semibold uppercase tracking-[0.15em] ${dark ? "text-[#9bc3f3]" : "text-amber-deep"}`}>{eyebrow}</p>
             <h2 id={headingId} className="mt-5 max-w-[15ch] font-sans text-h2 font-semibold">{title}</h2>
             <p className={`mt-5 max-w-[42ch] text-body leading-relaxed ${secondary}`}>{body}</p>
             <div className={`mt-8 flex items-center gap-3 border-t pt-5 ${rule}`}>
@@ -97,7 +97,7 @@ export function ServiceTestimonials({
               >
                 <span aria-hidden>→</span>
               </button>
-              <p className={`ml-2 text-[12px] font-semibold tabular-nums ${secondary}`} aria-live="polite">
+              <p className={`ml-2 text-[18px] font-semibold tabular-nums ${secondary}`} aria-live="polite">
                 {String(current + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
               </p>
             </div>
@@ -119,7 +119,7 @@ export function ServiceTestimonials({
                     <blockquote className={`flex-1 font-serif text-[clamp(21px,1.5vw,27px)] leading-[1.38] ${dark ? "text-oninverse/88" : "text-ink/88"}`}>{testimonialItem.quote}</blockquote>
                     <footer className={`mt-8 border-t pt-5 ${rule}`}>
                       <p className="font-sans text-body font-semibold">{testimonialItem.name}</p>
-                      {testimonialItem.context && <p className={`mt-1 text-[12px] ${secondary}`}>{testimonialItem.context}</p>}
+                      {testimonialItem.context && <p className={`mt-1 text-[14px] ${secondary}`}>{testimonialItem.context}</p>}
                     </footer>
                   </article>
                 ))}

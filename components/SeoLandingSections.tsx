@@ -95,6 +95,8 @@ function SeoLandingHero({ page, event, variant }: Props) {
                     ratio="4/3"
                     title="Your business on the local map pack"
                     note="Replace with an approved Google Business Profile or map-pack screenshot."
+                    source="/images/Services/Images on the pages/Google Business Profile and local performance local SEO.png"
+                    alt="Illustrative Google Business Profile performance view showing calls, direction requests and website clicks for a dated period."
                     className="mt-6"
                   />
                 </aside>
@@ -135,6 +137,8 @@ function SeoLandingAbout({ page, variant }: Omit<Props, "event">) {
               ratio="3/4"
               title="The local SEO team"
               note="Add a photograph of the consultants who run local accounts."
+              source="/images/Services/local seo 1.jpg"
+              alt="Consultants reviewing local search performance together at a desk."
               className="col-span-4"
             />
             <div className="col-span-8 max-lg:mt-10">
@@ -212,8 +216,8 @@ function SeoLandingMedia({ variant }: { variant: SeoVariant }) {
             </p>
           </div>
           <div className="mt-12 grid grid-cols-3 gap-6 max-md:grid-cols-1">
-            <MediaFrame kind="image" theme="seo" ratio="4/3" title="Business profile" note="Approved Google Business Profile view." />
-            <MediaFrame kind="screen" theme="seo" ratio="4/3" title="Local queries" note="Anonymised local search-term report." />
+            <MediaFrame kind="image" theme="seo" ratio="4/3" title="Business profile" note="Approved Google Business Profile view." source="/images/Services/Local SEO.png" alt="A local business owner reviewing their Google Business Profile listing." />
+            <MediaFrame kind="screen" theme="seo" ratio="4/3" title="Local queries" note="Anonymised local search-term report." source="/images/Services/Images on the pages/Business details and directory review.png" alt="Illustrative directory and business-details audit showing name, address and phone consistency across listings." />
             <MediaFrame kind="video" theme="seo" ratio="4/3" title="Listing walkthrough" note="Short screen recording of a profile being optimised." />
           </div>
         </Reveal>
@@ -239,11 +243,13 @@ function SeoLandingMedia({ variant }: { variant: SeoVariant }) {
             ratio="16/10"
             title="Organic search performance view"
             note="Use an anonymised Search Console screen with dates and metric definitions."
+            source="/images/Services/Images on the pages/Organic search performance view SEO.png"
+            alt="Illustrative organic search performance report showing clicks, impressions, average position and top queries."
             className="col-span-7"
           />
         </div>
         <div className="mt-6 grid grid-cols-12 gap-6">
-          <MediaFrame kind="image" theme="seo" ratio="5/4" title="Crawl and architecture map" note="Add a real sitemap or annotated page hierarchy." className="col-span-5 max-md:col-span-12" />
+          <MediaFrame kind="image" theme="seo" ratio="5/4" title="Crawl and architecture map" note="Add a real sitemap or annotated page hierarchy." source="/images/Services/Images on the pages/Crawl and architecture map.png" alt="Illustrative site crawl and architecture map showing page hierarchy and internal linking depth." className="col-span-5 max-md:col-span-12" />
           <MediaFrame kind="video" theme="seo" ratio="16/8" title="SEO review walkthrough" note="Replace with a short audit-to-priority recording." className="col-span-7 max-md:col-span-12" />
         </div>
       </Reveal>
@@ -297,7 +303,7 @@ function SeoLandingChecklist({ page, event, variant }: Props) {
         </div>
       ))}
       <div className="flex items-baseline justify-between gap-6 pt-5">
-        <dt className="text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">
+        <dt className="text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
           {page.checklist.totalLabel}
         </dt>
         <dd className="shrink-0 font-sans text-h3 font-semibold tabular-nums text-ink line-through">
@@ -319,6 +325,8 @@ function SeoLandingChecklist({ page, event, variant }: Props) {
           ratio="16/10"
           title="Inside the checklist"
           note="Replace with a page from the downloadable checklist."
+          source="/images/Services/SEO 4.jpg"
+          alt="A hand-written SEO checklist covering titles, backlinks, images, on-page work and site structure."
           className="mt-8"
         />
       )}

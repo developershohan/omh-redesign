@@ -29,7 +29,7 @@ function FeaturedStories({ posts }: { posts: InsightIndexEntry[] }) {
     <section className="border-b border-line bg-surface">
       <div className="container-omh section-md">
         <Reveal>
-          <div className="mb-10 flex items-center gap-4 text-[12px] font-semibold uppercase tracking-[0.17em] text-muted">
+          <div className="mb-10 flex items-center gap-4 text-[14px] font-semibold uppercase tracking-[0.17em] text-muted">
             <span className="h-0.5 w-7 bg-amber" />
             Featured insight
             <span className="h-px flex-1 bg-line" />
@@ -135,7 +135,7 @@ export async function InsightsHub({ topic = "", query = "", page = 1 }: { topic?
                 <div className="rounded-card border border-line bg-surface p-8 max-sm:p-6">
                   <dl className="grid grid-cols-2 gap-x-8 gap-y-6">
                     <div>
-                      <dt className="text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">
+                      <dt className="text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
                         Articles
                       </dt>
                       <dd className="mt-2 font-sans text-h2 font-semibold leading-none">
@@ -143,7 +143,7 @@ export async function InsightsHub({ topic = "", query = "", page = 1 }: { topic?
                       </dd>
                     </div>
                     <div>
-                      <dt className="text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">
+                      <dt className="text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
                         Topics
                       </dt>
                       <dd className="mt-2 font-sans text-h2 font-semibold leading-none">
@@ -152,7 +152,7 @@ export async function InsightsHub({ topic = "", query = "", page = 1 }: { topic?
                     </div>
                   </dl>
 
-                  <p className="mt-8 border-t border-line pt-6 text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">
+                  <p className="mt-8 border-t border-line pt-6 text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
                     Browse by topic
                   </p>
                   <ul className="mt-4 flex flex-wrap gap-2">
@@ -163,7 +163,7 @@ export async function InsightsHub({ topic = "", query = "", page = 1 }: { topic?
                           className="inline-flex items-center gap-2 rounded-full border border-line px-3.5 py-1.5 text-label text-ink/75 transition-colors hover:border-teal hover:text-amber-deep"
                         >
                           {item.name}
-                          <span className="text-[13px] text-muted">{item.postCount}</span>
+                          <span className="text-[14px] text-muted">{item.postCount}</span>
                         </Link>
                       </li>
                     ))}

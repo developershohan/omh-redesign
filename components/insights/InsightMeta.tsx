@@ -15,7 +15,7 @@ export function formatInsightDate(value: string) {
 export function InsightMeta({ post, inverse = false }: { post: InsightIndexEntry; inverse?: boolean }) {
   return (
     <p
-      className={`flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] font-semibold uppercase tracking-[0.1em] ${
+      className={`flex flex-wrap items-center gap-x-3 gap-y-1 text-[14px] font-semibold uppercase tracking-[0.1em] ${
         inverse ? "text-oninverse/62" : "text-muted"
       }`}
     >

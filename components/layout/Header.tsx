@@ -17,12 +17,18 @@ function Chevron({ className = "" }: { className?: string }) {
   );
 }
 
+// The current page's link wears the hover treatment permanently, so an open
+// menu shows where you already are.
 function MenuLink({ link, onClick }: { link: NavLink; onClick?: () => void }) {
+  const current = usePathname() === link.href;
   return (
     <Link
       href={link.href}
       onClick={onClick}
-      className="block rounded-button px-2.5 py-2 text-label font-medium text-ink transition-colors hover:bg-warm hover:text-amber-deep"
+      aria-current={current ? "page" : undefined}
+      className={`block rounded-button px-2.5 py-2 text-[16px] font-medium transition-colors hover:bg-warm hover:text-amber-deep ${
+        current ? "bg-warm text-amber-deep" : "text-ink"
+      }`}
     >
       {link.label}
     </Link>
@@ -85,8 +91,11 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
         </Link>
 
         <nav aria-label="Primary" className="ml-auto flex items-center gap-0.5 max-lg:hidden xl:gap-1">
-          {primaryNav.map((item) => {
+          {primaryNav.map((item, i) => {
             const current = isCurrent(pathname, item);
+            // The last menu sits near the right edge, so its panel hangs left of
+            // the trigger instead of running off the viewport at 1024px.
+            const alignRight = i === primaryNav.length - 1;
             return item.columns ? (
               <div
                 key={item.label}
@@ -102,7 +111,7 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
                   aria-expanded={menu === item.label}
                   aria-haspopup="true"
                   onClick={() => setMenu(menu === item.label ? null : item.label)}
-                  className={`nav-item flex cursor-pointer items-center gap-1 whitespace-nowrap px-1.5 py-1.5 text-label font-medium xl:px-3 ${
+                  className={`nav-item flex cursor-pointer items-center gap-1 whitespace-nowrap px-1.5 py-1.5 text-[16px] font-medium xl:px-3 ${
                     current || menu === item.label ? "is-active" : ""
                   }`}
                 >
@@ -114,24 +123,27 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
                   />
                 </button>
                 {menu === item.label && (
-                  <div className="absolute left-0 top-full z-50 pt-3">
+                  <div className={`absolute ${alignRight ? "right-0" : "left-0"} top-full z-50 pt-3`}>
                     <div
                       className={`menu-pop rounded-card border border-line bg-surface p-4 shadow-[0_28px_60px_-30px_rgb(16_24_40/0.55)] ${
                         // Sized by column count — "Get a Quote" has 3 columns and
                         // used to leave an empty cell in a hardcoded 4-col grid.
+                        // 4-column panel drops to 3 cols at lg (1024–1279) so
+                        // the widest link stops wrapping; the 4th category
+                        // flows to a second row until xl gives it its own column.
                         item.columns.length > 3
-                          ? "grid w-[720px] grid-cols-4 gap-x-6"
+                          ? "grid w-[720px] grid-cols-3 gap-x-4 gap-y-6 xl:w-[920px] xl:grid-cols-4 xl:gap-y-0"
                           : item.columns.length === 3
-                            ? "grid w-[600px] grid-cols-3 gap-x-6"
+                            ? "grid w-[620px] grid-cols-3 gap-x-6"
                             : item.columns.length === 2
-                              ? "grid w-[440px] grid-cols-2 gap-x-6"
-                              : "w-[340px]"
+                              ? "grid w-[460px] grid-cols-2 gap-x-6"
+                              : "w-[360px]"
                       }`}
                     >
                       {item.columns.map((col) => (
                         <div key={col.heading ?? item.label}>
                           {col.heading && (
-                            <p className="mb-2 border-b border-line px-2.5 pb-2 text-[12px] font-semibold uppercase tracking-[0.12em] text-muted">
+                            <p className="mb-2 border-b border-line px-2.5 pb-2 text-[14px] font-semibold uppercase tracking-[0.12em] text-muted">
                               {col.heading}
                             </p>
                           )}
@@ -153,7 +165,7 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
                 key={item.href}
                 href={item.href!}
                 aria-current={current ? "page" : undefined}
-                className={`nav-item whitespace-nowrap px-1.5 py-1.5 text-label font-medium xl:px-3 ${current ? "is-active" : ""}`}
+                className={`nav-item whitespace-nowrap px-1.5 py-1.5 text-[16px] font-medium xl:px-3 ${current ? "is-active" : ""}`}
               >
                 {item.label}
               </Link>
@@ -168,7 +180,7 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
           <span className="max-2xl:hidden">
             <a
               href={company.phoneHref}
-              className="mr-2 whitespace-nowrap text-label font-medium text-muted transition-colors hover:text-ink"
+              className="mr-2 whitespace-nowrap text-[16px] font-medium text-muted transition-colors hover:text-ink"
             >
               {company.phoneDisplay}
             </a>
@@ -199,10 +211,15 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
       {open && (
         <div id="mobile-menu" className="menu-pop border-t border-line bg-warm lg:hidden">
           <div className="container-omh max-h-[calc(100dvh-84px)] overflow-y-auto py-4">
-            {primaryNav.map((item) =>
-              item.columns ? (
+            {primaryNav.map((item) => {
+              const current = isCurrent(pathname, item);
+              return item.columns ? (
                 <details key={item.label} name="mobile-nav" className="group border-b border-line">
-                  <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between py-3 font-sans text-body font-semibold [&::-webkit-details-marker]:hidden">
+                  <summary
+                    className={`flex min-h-12 cursor-pointer list-none items-center justify-between py-3 font-sans text-[16px] font-semibold [&::-webkit-details-marker]:hidden ${
+                      current ? "text-amber-deep" : ""
+                    }`}
+                  >
                     {item.label}
                     <Chevron className="size-5 text-amber-deep transition-transform group-open:rotate-180" />
                   </summary>
@@ -210,7 +227,7 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
                     {item.columns.map((col) => (
                       <div key={col.heading ?? item.label} className="mb-1">
                         {col.heading && (
-                          <p className="px-2.5 pb-1 pt-2 text-[12px] font-semibold uppercase tracking-[0.12em] text-muted">
+                          <p className="px-2.5 pb-1 pt-2 text-[14px] font-semibold uppercase tracking-[0.12em] text-muted">
                             {col.heading}
                           </p>
                         )}
@@ -226,12 +243,15 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
                   key={item.href}
                   href={item.href!}
                   onClick={() => setOpen(false)}
-                  className="flex min-h-12 items-center justify-between border-b border-line py-3 font-sans text-body font-semibold"
+                  aria-current={current ? "page" : undefined}
+                  className={`flex min-h-12 items-center justify-between border-b border-line py-3 font-sans text-[16px] font-semibold ${
+                    current ? "text-amber-deep" : ""
+                  }`}
                 >
                   {item.label}
                 </Link>
-              ),
-            )}
+              );
+            })}
             <div className="flex flex-col gap-3 py-5">
               <Button href="/contact" onClick={() => setOpen(false)}>
                 Book a Growth Consultation

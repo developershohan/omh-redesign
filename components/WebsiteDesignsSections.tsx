@@ -55,6 +55,8 @@ export function WebsiteDesignsPage() {
               title="Website design templates"
               note="Replaced with the real design screenshots before launch."
               ratio="4/3"
+              source="/images/website-designs/New-Website-Theme-Design.png"
+              alt="One of the Online Marketing Help website themes shown on desktop, a sample of the full library below."
             />
           </div>
         </div>
@@ -203,7 +205,7 @@ export function WebsiteDesignsPage() {
               key={study.slug}
               className="surface-card flex flex-col rounded-card border border-line bg-warm/55 p-7"
             >
-              <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-amber-deep">
+              <p className="text-[14px] font-semibold uppercase tracking-[0.14em] text-amber-deep">
                 {study.sector}
               </p>
               <h3 className="mt-4 font-sans text-h4 font-semibold">

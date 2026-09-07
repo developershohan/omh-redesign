@@ -19,13 +19,13 @@ export function CaseStudyNavigation({ study }: { study: CaseStudy }) {
               className="size-5 shrink-0 rotate-180 text-amber-deep transition-transform duration-500 group-hover:-translate-x-1"
             />
             <span className="min-w-0">
-              <span className="block text-[13px] font-semibold uppercase tracking-[0.13em] text-muted">
+              <span className="block text-[14px] font-semibold uppercase tracking-[0.13em] text-muted">
                 Previous project
               </span>
               <span className="mt-1.5 block font-sans text-h4 font-semibold">
                 {previous.shortTitle}
               </span>
-              <span className="mt-1 block text-[14px] text-muted">
+              <span className="mt-1 block text-[18px] text-muted">
                 {previous.category} · {previous.sector}
               </span>
             </span>
@@ -36,11 +36,11 @@ export function CaseStudyNavigation({ study }: { study: CaseStudy }) {
             className="group flex items-center justify-end gap-4 border-l border-line p-6 text-right transition-colors hover:bg-warm max-sm:justify-start max-sm:border-l-0 max-sm:text-left"
           >
             <span className="min-w-0 max-sm:order-first">
-              <span className="block text-[13px] font-semibold uppercase tracking-[0.13em] text-muted">
+              <span className="block text-[14px] font-semibold uppercase tracking-[0.13em] text-muted">
                 Next project
               </span>
               <span className="mt-1.5 block font-sans text-h4 font-semibold">{next.shortTitle}</span>
-              <span className="mt-1 block text-[14px] text-muted">
+              <span className="mt-1 block text-[18px] text-muted">
                 {next.category} · {next.sector}
               </span>
             </span>

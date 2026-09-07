@@ -57,7 +57,7 @@ function CardArrow({ className = "" }: { className?: string }) {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="flex items-center gap-3 font-sans text-[14px] font-semibold uppercase tracking-[0.14em] text-muted before:h-0.5 before:w-5 before:bg-amber before:content-['']">
+    <p className="flex items-center gap-3 font-sans text-[18px] font-semibold uppercase tracking-[0.14em] text-muted before:h-0.5 before:w-5 before:bg-amber before:content-['']">
       {children}
     </p>
   );
@@ -107,7 +107,7 @@ export default async function Home() {
             <div className="mt-12 grid max-w-[650px] grid-cols-3 border-y border-line py-5 max-lg:max-w-none max-sm:grid-cols-1 max-sm:gap-4">
               {["Strategy first", "Senior delivery", "Clear reporting"].map((item, index) => (
                 <p key={item} className="flex items-center gap-3 text-body font-semibold text-ink/65">
-                  <span className="font-sans text-[13px] text-amber-deep">0{index + 1}</span>
+                  <span className="font-sans text-[14px] text-amber-deep">0{index + 1}</span>
                   {item}
                 </p>
               ))}
@@ -132,12 +132,12 @@ export default async function Home() {
                 </p>
               </div>
               <div className="absolute -bottom-7 -left-8 w-[250px] rounded-[8px] border border-oninverse/15 bg-inverse p-5 text-oninverse shadow-[0_24px_60px_-24px_rgb(16_24_40/0.65)] max-sm:-bottom-10 max-sm:left-4">
-                <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-amber">Connected delivery</p>
+                <p className="text-[14px] font-semibold uppercase tracking-[0.12em] text-amber">Connected delivery</p>
                 <p className="mt-2 text-body font-semibold">Plan &rarr; Build &rarr; Measure</p>
               </div>
               <div className="absolute -right-5 top-9 flex size-24 flex-col items-center justify-center rounded-[8px] bg-teal text-center text-white shadow-[0_20px_45px_-22px_rgb(215_154_55/0.75)] max-sm:right-3 max-sm:top-4 max-sm:size-20">
                 <Gauge className="mb-1 size-7" aria-hidden />
-                <span className="text-[13px] font-semibold">Growth ready</span>
+                <span className="text-[14px] font-semibold">Growth ready</span>
               </div>
               </div>
             </Pointer>
@@ -149,7 +149,7 @@ export default async function Home() {
         <div className="container-omh">
           <Reveal>
             <div className="mx-auto max-w-[1120px] text-center">
-              <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.14em] text-amber">
+              <p className="font-sans text-[18px] font-semibold uppercase tracking-[0.14em] text-amber">
                 Our programs
               </p>
               <h2 className="mt-5 font-sans text-h2 font-semibold">
@@ -169,7 +169,7 @@ export default async function Home() {
                     <div className="program-icon">
                       <ProgramIcon className="size-8" strokeWidth={1.8} aria-hidden />
                     </div>
-                    <p className="mt-7 inline-flex self-start rounded-full bg-teal/20 px-3 py-1.5 text-[13px] font-semibold uppercase tracking-[0.1em] text-[#f5d394]">
+                    <p className="mt-7 inline-flex self-start rounded-full bg-teal/20 px-3 py-1.5 text-[14px] font-semibold uppercase tracking-[0.1em] text-[#f5d394]">
                       {program.range}
                     </p>
                     <h3 className="mt-5 font-sans text-[clamp(25px,22px+0.45vw,31px)] font-semibold leading-tight">
@@ -192,7 +192,7 @@ export default async function Home() {
         <div className="stats-grid container-omh grid grid-cols-4 divide-x divide-line max-lg:grid-cols-2 max-lg:divide-x-0 max-sm:grid-cols-1">
           {stats.map((stat) => (
             <div key={stat.label} className="stat-item px-8 py-11 first:pl-0 max-lg:px-6 max-sm:px-0">
-              <p className="font-sans text-[clamp(42px,34px+2vw,66px)] font-semibold leading-none text-amber-deep">
+              <p className="font-sans text-[clamp(38px,30px+1.6vw,54px)] font-semibold leading-none text-amber-deep whitespace-nowrap">
                 {stat.value}
               </p>
               <p className="mt-3 text-body font-semibold text-ink/65">{stat.label}</p>
@@ -224,8 +224,8 @@ export default async function Home() {
               <Pointer className="media-card group overflow-hidden rounded-[8px] bg-inverse text-oninverse">
                 <div className="image-hover-frame media-shine pointer-parallax relative aspect-[4/3] overflow-hidden">
                   <Image
-                    src="/images/home/campaign-review.png"
-                    alt="Digital strategists reviewing campaign and website performance"
+                    src="/images/Services/Amazon PPC.png"
+                    alt="Two marketers reviewing campaign performance charts together at a desk"
                     fill
                     sizes="(max-width: 1024px) 100vw, 58vw"
                     className="object-cover"
@@ -234,7 +234,7 @@ export default async function Home() {
                 </div>
                 <div className="grid grid-cols-[0.42fr_1fr] gap-8 p-8 max-sm:grid-cols-1 max-sm:p-6">
                   <div>
-                    <p className="text-[15px] font-semibold uppercase tracking-[0.12em] text-amber">
+                    <p className="text-[18px] font-semibold uppercase tracking-[0.12em] text-amber">
                       Featured work
                     </p>
                     <h3 className="mt-3 font-sans text-[28px] font-semibold">{featuredCase.sector}</h3>
@@ -285,8 +285,8 @@ export default async function Home() {
                 </div>
                 <div className="image-hover-frame media-shine absolute bottom-0 left-[-22px] h-[42%] w-[43%] overflow-hidden rounded-[8px] border-4 border-teal bg-inverse shadow-[0_24px_60px_-24px_rgb(0_0_0/0.8)] max-sm:left-0 max-sm:h-[34%] max-sm:w-[50%] max-sm:border-[3px]">
                   <Image
-                    src="/images/home/campaign-review.png"
-                    alt="Campaign review in progress"
+                    src="/images/Solutions/1.jpg"
+                    alt="A WordPress build being planned on screen beside a sitemap sketch"
                     fill
                     sizes="(max-width: 640px) 42vw, 22vw"
                     className="object-cover"
@@ -294,13 +294,13 @@ export default async function Home() {
                 </div>
                 <div className="absolute bottom-5 right-2 flex size-28 flex-col items-center justify-center rounded-[8px] bg-teal text-center text-white shadow-[0_0_42px_rgb(215_154_55/0.42)] max-sm:bottom-4 max-sm:size-20">
                   <span className="font-sans text-[26px] font-semibold">One</span>
-                  <span className="mt-1 text-[13px] font-semibold uppercase tracking-[0.1em] text-inverse/70">joined-up team</span>
+                  <span className="mt-1 text-[14px] font-semibold uppercase tracking-[0.1em] text-inverse/70">joined-up team</span>
                 </div>
                 </div>
               </Pointer>
 
               <div>
-                <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.14em] text-amber">
+                <p className="font-sans text-[18px] font-semibold uppercase tracking-[0.14em] text-amber">
                   Why choose us
                 </p>
                 <h2 className="mt-6 font-sans text-h2 font-semibold">
@@ -313,7 +313,7 @@ export default async function Home() {
                 <div className="mt-9 border-t border-oninverse/15">
                   {difference.slice(0, 3).map((item, index) => (
                     <div key={item.title} className="story-point group flex gap-5 border-b border-oninverse/15 py-5">
-                      <span className="font-sans text-[14px] font-semibold text-amber">0{index + 1}</span>
+                      <span className="font-sans text-[18px] font-semibold text-amber">0{index + 1}</span>
                       <div>
                         <h3 className="font-sans text-[21px] font-semibold">{item.title}</h3>
                         <p className="mt-2 text-body leading-relaxed text-oninverse/58">{item.body}</p>
@@ -411,7 +411,7 @@ export default async function Home() {
                       {/* ponytail: no star row — these are named, real reviewers
                           who never gave a score, so five stars would be an
                           invented rating (brief §6). */}
-                      <span className="text-[13px] font-normal text-muted">Client review</span>
+                      <span className="text-[14px] font-normal text-muted">Client review</span>
                     </figcaption>
                   </figure>
                 ))}
@@ -485,7 +485,7 @@ export default async function Home() {
                 className="surface-card group flex min-h-[520px] flex-col justify-between rounded-[8px] bg-inverse p-[clamp(28px,4vw,52px)] text-oninverse max-sm:min-h-0 max-sm:gap-20"
               >
                 <div className="flex items-center justify-between gap-4">
-                  <p className="text-[15px] font-semibold uppercase tracking-[0.14em] text-amber">
+                  <p className="text-[18px] font-semibold uppercase tracking-[0.14em] text-amber">
                     {insights[0].category}
                   </p>
                   <CardArrow />
@@ -508,7 +508,7 @@ export default async function Home() {
                     className="insight-row group grid min-h-[250px] grid-cols-[1fr_auto] content-between gap-6 border-b border-line py-8"
                   >
                     <div>
-                      <p className="text-[14px] font-semibold uppercase tracking-[0.14em] text-amber-deep">
+                      <p className="text-[18px] font-semibold uppercase tracking-[0.14em] text-amber-deep">
                         {post.category}
                       </p>
                       <h3 className="mt-4 max-w-[24ch] font-sans text-[27px] font-semibold leading-tight">

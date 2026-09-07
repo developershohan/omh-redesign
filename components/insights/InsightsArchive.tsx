@@ -54,7 +54,7 @@ function TopicNavigation({
               }`}
             >
               {topic.name}
-              <span className="text-[13px] font-medium text-muted/75">{topic.postCount}</span>
+              <span className="text-[14px] font-medium text-muted/75">{topic.postCount}</span>
               {active && <span className="absolute inset-x-5 bottom-0 h-0.5 bg-teal first:left-0" />}
             </Link>
           );
@@ -215,7 +215,7 @@ export function InsightsArchive({
                   type="button"
                   onClick={() => setPage(number)}
                   aria-current={number === currentPage ? "page" : undefined}
-                  className={`flex size-10 cursor-pointer items-center justify-center rounded-full border text-[14px] font-semibold transition-colors ${
+                  className={`flex size-10 cursor-pointer items-center justify-center rounded-full border text-[18px] font-semibold transition-colors ${
                     number === currentPage
                       ? "border-teal bg-teal text-white"
                       : "border-line bg-surface text-muted hover:border-teal hover:text-amber-deep"
