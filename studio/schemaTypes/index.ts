@@ -1,5 +1,4 @@
 import { defineField, defineType } from "sanity";
-import { enquiry } from "./enquiry";
 import { post } from "./post";
 
 const author = defineType({
@@ -45,4 +44,6 @@ const term = defineType({
   ],
 });
 
-export const schemaTypes = [post, author, topic, term, enquiry];
+// `enquiry` is deliberately absent: it belongs to the private enquiries
+// workspace in sanity.config.ts, not the public content dataset.
+export const schemaTypes = [post, author, topic, term];

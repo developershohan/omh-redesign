@@ -11,13 +11,4 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem("topic").title("Topics"),
       S.documentTypeListItem("term").title("Categories & tags"),
       S.documentTypeListItem("author").title("Authors"),
-      S.divider(),
-      // Newest first: the only order anyone reads submissions in.
-      S.listItem()
-        .title("Form submissions")
-        .child(
-          S.documentTypeList("enquiry")
-            .title("Form submissions")
-            .defaultOrdering([{ field: "submittedAt", direction: "desc" }]),
-        ),
     ]);

@@ -13,6 +13,7 @@ import { NextResponse } from "next/server";
   submissions" list is the dashboard), then emailed over SMTP. Set on the server
   (/opt/omh/.env):
     SANITY_API_WRITE_TOKEN — an Editor token from sanity.io/manage
+    SANITY_ENQUIRY_DATASET — defaults to "enquiries" (private; must exist)
     SMTP_HOST        — defaults to smtp.hostinger.com
     SMTP_PORT        — defaults to 465 (implicit TLS); use 587 for STARTTLS
     SMTP_USER        — the full mailbox address
@@ -84,7 +85,9 @@ export async function POST(request: Request) {
     try {
       await createClient({
         projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-        dataset: process.env.NEXT_PUBLIC_SANITY_DATASET ?? "production",
+        // A separate, private dataset: `production` is public so the site can
+        // read the blog with no token, which would make every lead readable too.
+        dataset: process.env.SANITY_ENQUIRY_DATASET ?? "enquiries",
         apiVersion: "2024-10-01",
         token,
         useCdn: false,
