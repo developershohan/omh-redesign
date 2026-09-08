@@ -31,10 +31,14 @@ export const enquiry = defineType({
     }),
   ],
   preview: {
-    select: { title: "form", email: "email", date: "submittedAt" },
-    prepare: ({ title, email, date }) => ({
+    select: { title: "form", page: "page", email: "email", date: "submittedAt" },
+    prepare: ({ title, page, email, date }) => ({
       title: title || "Form submission",
-      subtitle: [email, date && new Date(date).toLocaleString("en-GB")].filter(Boolean).join(" · "),
+      // Page first: with 15 forms feeding one list, where it came from is the
+      // fastest way to tell submissions apart.
+      subtitle: [page, email, date && new Date(date).toLocaleString("en-GB")]
+        .filter(Boolean)
+        .join(" · "),
     }),
   },
 });

@@ -25,6 +25,7 @@ import { NextResponse } from "next/server";
 */
 
 import { createClient } from "next-sanity";
+import { renderEnquiryEmail } from "@/lib/enquiry-email";
 import nodemailer from "nodemailer";
 
 export const runtime = "nodejs";
@@ -35,9 +36,6 @@ const TO = process.env.ENQUIRY_TO || "support@onlinemarketinghelp.co.uk";
 const FROM = process.env.ENQUIRY_FROM || undefined;
 
 type Payload = { form?: string; page?: string; fields?: Record<string, string | string[]>; hp?: string };
-
-const escape = (value: string) =>
-  value.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 
 export async function POST(request: Request) {
   let body: Payload;
@@ -64,22 +62,6 @@ export async function POST(request: Request) {
   }
 
   const formName = body.form?.slice(0, 120) ?? "Website form";
-  const rows = entries
-    .map(
-      ([label, value]) =>
-        `<tr><td style="padding:6px 14px 6px 0;vertical-align:top;color:#667085;font:14px system-ui">${escape(
-          label,
-        )}</td><td style="padding:6px 0;vertical-align:top;color:#101828;font:14px system-ui">${escape(
-          Array.isArray(value) ? value.join(", ") : String(value),
-        ).replace(/\n/g, "<br>")}</td></tr>`,
-    )
-    .join("");
-
-  const html = `<div style="font:14px system-ui;color:#101828">
-    <p style="margin:0 0 4px"><strong>${escape(formName)}</strong></p>
-    <p style="margin:0 0 18px;color:#667085">Submitted from ${escape(body.page ?? "the website")}</p>
-    <table style="border-collapse:collapse">${rows}</table>
-  </div>`;
 
   const reply = entries.find(([label]) => /e-?mail/i.test(label))?.[1];
   const email = typeof reply === "string" && reply.includes("@") ? reply : undefined;
@@ -138,13 +120,21 @@ export async function POST(request: Request) {
     auth: { user, pass },
   });
 
+  const { subject, html, text } = renderEnquiryEmail({
+    formName,
+    page: body.page,
+    entries,
+    replyTo: email,
+  });
+
   try {
     await transport.sendMail({
       from: FROM ?? user,
       to: TO,
-      subject: `${formName} — website enquiry`,
+      subject,
       html,
-      ...(typeof reply === "string" && reply.includes("@") ? { replyTo: reply } : {}),
+      text,
+      ...(email ? { replyTo: email } : {}),
     });
   } catch (error) {
     // Hostinger rejects on a bad password, an unauthorised From, or the hourly
