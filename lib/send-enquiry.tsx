@@ -17,7 +17,7 @@ export async function sendEnquiry(form: HTMLFormElement, formName: string): Prom
   const fields: Record<string, string | string[]> = {};
 
   for (const [key, value] of data.entries()) {
-    if (typeof value !== "string" || key === "company") continue;
+    if (typeof value !== "string" || key === "hp") continue;
     const existing = fields[key];
     if (existing === undefined) fields[key] = value;
     else if (Array.isArray(existing)) existing.push(value);
@@ -31,7 +31,7 @@ export async function sendEnquiry(form: HTMLFormElement, formName: string): Prom
       body: JSON.stringify({
         form: formName,
         page: window.location.pathname,
-        company: String(data.get("company") ?? ""), // honeypot
+        hp: String(data.get("hp") ?? ""), // honeypot
         fields,
       }),
     });
@@ -48,13 +48,19 @@ export async function sendEnquiry(form: HTMLFormElement, formName: string): Prom
   }
 }
 
-/* A field bots fill in and people never see. Cheaper and kinder than a captcha. */
+/*
+  A field bots fill in and people never see. Cheaper and kinder than a captcha.
+
+  The name and label must not match a real field: as `company` with a "Company"
+  label, browsers autofilled it along with the contact form's visible Company
+  box, and every one of those enquiries was dropped as spam.
+*/
 export function Honeypot() {
   return (
     <div aria-hidden className="absolute left-[-9999px] h-px w-px overflow-hidden">
       <label>
-        Company
-        <input type="text" name="company" tabIndex={-1} autoComplete="off" />
+        Leave this field empty
+        <input type="text" name="hp" tabIndex={-1} autoComplete="off" />
       </label>
     </div>
   );

@@ -32,7 +32,7 @@ export const runtime = "nodejs";
 const TO = process.env.ENQUIRY_TO ?? "support@onlinemarketinghelp.co.uk";
 const FROM = process.env.ENQUIRY_FROM;
 
-type Payload = { form?: string; page?: string; fields?: Record<string, string | string[]>; company?: string };
+type Payload = { form?: string; page?: string; fields?: Record<string, string | string[]>; hp?: string };
 
 const escape = (value: string) =>
   value.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
@@ -45,9 +45,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   }
 
-  // Honeypot: a field no human sees. Bots fill it, so accept and drop silently
-  // rather than telling them why nothing happened.
-  if (body.company) return NextResponse.json({ ok: true });
+  // Honeypot: a field no human sees. Bots fill it, so accept and drop rather
+  // than telling them why nothing happened. Named `hp`, never after a real
+  // field — while it was called `company` browsers autofilled it alongside the
+  // contact form's visible Company box and binned genuine enquiries. Logged,
+  // because a silent drop is otherwise impossible to diagnose.
+  if (body.hp) {
+    console.warn("Honeypot filled — submission dropped:", body.form);
+    return NextResponse.json({ ok: true });
+  }
 
   const fields = body.fields ?? {};
   const entries = Object.entries(fields).filter(([, v]) => (Array.isArray(v) ? v.length : String(v).trim()));
