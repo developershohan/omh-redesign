@@ -10,6 +10,9 @@ export const enquiry = defineType({
   readOnly: true,
   fields: [
     defineField({ name: "form", title: "Form", type: "string" }),
+    // Set when the honeypot was filled. Kept rather than discarded: the trap
+    // has caught real people before, so nothing is thrown away on its word.
+    defineField({ name: "spam", title: "Flagged as spam", type: "boolean" }),
     defineField({ name: "page", title: "Sent from", type: "string" }),
     defineField({ name: "submittedAt", title: "Received", type: "datetime" }),
     defineField({ name: "email", title: "Reply to", type: "string" }),
@@ -31,9 +34,9 @@ export const enquiry = defineType({
     }),
   ],
   preview: {
-    select: { title: "form", page: "page", email: "email", date: "submittedAt" },
-    prepare: ({ title, page, email, date }) => ({
-      title: title || "Form submission",
+    select: { title: "form", page: "page", email: "email", date: "submittedAt", spam: "spam" },
+    prepare: ({ title, page, email, date, spam }) => ({
+      title: `${spam ? "⚠ Spam? · " : ""}${title || "Form submission"}`,
       // Page first: with 15 forms feeding one list, where it came from is the
       // fastest way to tell submissions apart.
       subtitle: [page, email, date && new Date(date).toLocaleString("en-GB")]

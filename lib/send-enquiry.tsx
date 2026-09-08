@@ -51,16 +51,17 @@ export async function sendEnquiry(form: HTMLFormElement, formName: string): Prom
 /*
   A field bots fill in and people never see. Cheaper and kinder than a captcha.
 
-  The name and label must not match a real field: as `company` with a "Company"
-  label, browsers autofilled it along with the contact form's visible Company
-  box, and every one of those enquiries was dropped as spam.
+  `readOnly` is the part that matters: browsers do not autofill a read-only
+  input, and a person cannot type in one either — but a script setting .value
+  still trips it, which is exactly the population being caught. Renaming it away
+  from "company" was not enough on its own; browsers filled it regardless.
 */
 export function Honeypot() {
   return (
     <div aria-hidden className="absolute left-[-9999px] h-px w-px overflow-hidden">
       <label>
         Leave this field empty
-        <input type="text" name="hp" tabIndex={-1} autoComplete="off" />
+        <input type="text" name="hp" tabIndex={-1} autoComplete="off" readOnly />
       </label>
     </div>
   );

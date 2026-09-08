@@ -45,15 +45,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   }
 
-  // Honeypot: a field no human sees. Bots fill it, so accept and drop rather
-  // than telling them why nothing happened. Named `hp`, never after a real
-  // field — while it was called `company` browsers autofilled it alongside the
-  // contact form's visible Company box and binned genuine enquiries. Logged,
-  // because a silent drop is otherwise impossible to diagnose.
-  if (body.hp) {
-    console.warn("Honeypot filled — submission dropped:", body.form);
-    return NextResponse.json({ ok: true });
-  }
+  // Honeypot: a field no human sees, filled by bots. It is a flag, never a
+  // bin — browser autofill kept filling it and real enquiries vanished twice.
+  // Flagged submissions are still stored, just not emailed, so a false positive
+  // costs a look in the Studio rather than a lost lead.
+  const suspectedSpam = Boolean(body.hp);
+  if (suspectedSpam) console.warn("Honeypot filled — stored as spam, not emailed:", body.form);
 
   const fields = body.fields ?? {};
   const entries = Object.entries(fields).filter(([, v]) => (Array.isArray(v) ? v.length : String(v).trim()));
@@ -83,6 +80,7 @@ export async function POST(request: Request) {
         useCdn: false,
       }).create({
         _type: "enquiry",
+        spam: suspectedSpam,
         form: formName,
         page: body.page ?? "",
         submittedAt: new Date().toISOString(),
@@ -99,6 +97,8 @@ export async function POST(request: Request) {
       console.error("Could not store the enquiry in Sanity:", error);
     }
   }
+
+  if (suspectedSpam) return NextResponse.json({ ok: true });
 
   const user = process.env.SMTP_USER;
   const pass = process.env.SMTP_PASS;
