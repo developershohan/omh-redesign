@@ -13,7 +13,7 @@ export default defineConfig([
   {
     name: "omh",
     title: "Online Marketing Help",
-    basePath: "/",
+    basePath: "/content",
     projectId: "8wl45ar9",
     dataset: "production",
     plugins: [structureTool({ structure }), visionTool()],
