@@ -29,8 +29,10 @@ import nodemailer from "nodemailer";
 
 export const runtime = "nodejs";
 
-const TO = process.env.ENQUIRY_TO ?? "support@onlinemarketinghelp.co.uk";
-const FROM = process.env.ENQUIRY_FROM;
+// `||`, not `??`: an unset variable in a .env file arrives as an empty string,
+// and `?? ` would keep that — sending from nobody, to nobody.
+const TO = process.env.ENQUIRY_TO || "support@onlinemarketinghelp.co.uk";
+const FROM = process.env.ENQUIRY_FROM || undefined;
 
 type Payload = { form?: string; page?: string; fields?: Record<string, string | string[]>; hp?: string };
 
@@ -151,5 +153,6 @@ export async function POST(request: Request) {
     if (!stored) return NextResponse.json({ error: "Could not send." }, { status: 502 });
   }
 
+  console.log("Enquiry emailed:", formName, "->", TO);
   return NextResponse.json({ ok: true });
 }
