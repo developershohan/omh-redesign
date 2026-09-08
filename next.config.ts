@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Self-hosted on the VPS: bundle a minimal server into .next/standalone.
+  output: "standalone",
   images: {
     remotePatterns: [
       {

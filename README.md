@@ -14,7 +14,7 @@ Preview: https://omh-redesign.vercel.app
 | Styling | Tailwind CSS v4 + a small set of custom utilities in `app/globals.css` |
 | Blog content | Sanity (`studio/`), queried at build/ISR time |
 | Page content | TypeScript modules in `lib/content/` |
-| Email | Resend HTTP API (no SDK) via `app/api/enquiry` |
+| Email | Hostinger business email over SMTP via `app/api/enquiry` |
 | Hosting | Vercel |
 
 ## Getting started
@@ -30,8 +30,8 @@ The site runs at http://localhost:3000.
 ## Environment variables
 
 See `.env.example`. The two `NEXT_PUBLIC_SANITY_*` values are required for the
-build — without them page data collection fails. `RESEND_API_KEY` is required
-for contact forms to actually send. `SANITY_REVALIDATE_SECRET` is required for
+build — without them page data collection fails. `SMTP_USER` and `SMTP_PASS`
+are required for contact forms to actually send. `SANITY_REVALIDATE_SECRET` is required for
 the publish webhook.
 
 ## Commands

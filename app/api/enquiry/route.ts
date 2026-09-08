@@ -9,17 +9,24 @@ import { NextResponse } from "next/server";
   client posts whatever the form contains and this lays it out in the email. A new
   form needs no change here.
 
-  Sending goes through Resend's REST API directly — no SDK dependency for one
-  fetch. Set in the Vercel project:
-    RESEND_API_KEY   — from resend.com, after verifying the sending domain
+  Sending goes through Hostinger business email over SMTP. Set in the Vercel
+  project:
+    SMTP_HOST        — defaults to smtp.hostinger.com
+    SMTP_PORT        — defaults to 465 (implicit TLS); use 587 for STARTTLS
+    SMTP_USER        — the full mailbox address
+    SMTP_PASS        — that mailbox's password
     ENQUIRY_TO       — defaults to support@onlinemarketinghelp.co.uk
-    ENQUIRY_FROM     — must be on the verified domain
+    ENQUIRY_FROM     — defaults to the mailbox in SMTP_USER
+
+  nodejs runtime is required: the edge runtime cannot open an SMTP socket.
 */
+
+import nodemailer from "nodemailer";
 
 export const runtime = "nodejs";
 
 const TO = process.env.ENQUIRY_TO ?? "support@onlinemarketinghelp.co.uk";
-const FROM = process.env.ENQUIRY_FROM ?? "Website enquiries <enquiries@onlinemarketinghelp.co.uk>";
+const FROM = process.env.ENQUIRY_FROM;
 
 type Payload = { form?: string; page?: string; fields?: Record<string, string | string[]>; company?: string };
 
@@ -62,29 +69,38 @@ export async function POST(request: Request) {
     <table style="border-collapse:collapse">${rows}</table>
   </div>`;
 
-  const key = process.env.RESEND_API_KEY;
-  if (!key) {
+  const user = process.env.SMTP_USER;
+  const pass = process.env.SMTP_PASS;
+  if (!user || !pass) {
     // Better a visible failure than a form that silently swallows enquiries.
-    console.error("RESEND_API_KEY is not set — enquiry not sent:", formName);
+    console.error("SMTP_USER/SMTP_PASS are not set — enquiry not sent:", formName);
     return NextResponse.json({ error: "Email is not configured." }, { status: 503 });
   }
 
   const reply = entries.find(([label]) => /e-?mail/i.test(label))?.[1];
 
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      from: FROM,
-      to: [TO],
-      subject: `${formName} — website enquiry`,
-      html,
-      ...(typeof reply === "string" && reply.includes("@") ? { reply_to: reply } : {}),
-    }),
+  // ponytail: a fresh connection per request. Serverless invocations are not
+  // reused predictably, so a pooled transport would mostly go to waste.
+  const port = Number(process.env.SMTP_PORT ?? 465);
+  const transport = nodemailer.createTransport({
+    host: process.env.SMTP_HOST ?? "smtp.hostinger.com",
+    port,
+    secure: port === 465,
+    auth: { user, pass },
   });
 
-  if (!response.ok) {
-    console.error("Resend rejected the enquiry:", response.status, await response.text());
+  try {
+    await transport.sendMail({
+      from: FROM ?? user,
+      to: TO,
+      subject: `${formName} — website enquiry`,
+      html,
+      ...(typeof reply === "string" && reply.includes("@") ? { replyTo: reply } : {}),
+    });
+  } catch (error) {
+    // Hostinger rejects on a bad password, an unauthorised From, or the hourly
+    // send cap. The message says which, so log it rather than a bare status.
+    console.error("SMTP rejected the enquiry:", error);
     return NextResponse.json({ error: "Could not send." }, { status: 502 });
   }
 
