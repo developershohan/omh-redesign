@@ -177,7 +177,7 @@ export function ShopifyStorefrontShowcase() {
           <div className="mt-11 grid grid-cols-12 gap-5 max-md:block">
             <MediaFrame kind="image" theme="shopify" ratio="3/4" title="Product page" note="Approved product or collection image." source="/images/Services/Shopify Development 1.jpg" alt="A Shopify product page being reviewed on screen." className="col-span-3 max-md:mb-5" />
             <MediaFrame kind="video" theme="shopify" ratio="16/11" title="Store journey walkthrough" note="Replace with a mobile or desktop shopping-flow video." className="col-span-6 max-md:mb-5" />
-            <MediaFrame kind="image" theme="shopify" ratio="3/4" title="Mobile checkout" note="Approved checkout or cart screen." className="col-span-3" />
+            <MediaFrame kind="image" theme="shopify" ratio="3/4" title="Mobile checkout" note="Approved checkout or cart screen." source="/images/Services/shopify/mobile-checkout.png" alt="A hand holding a phone showing a simple mobile checkout with a one-item order summary and a Pay now button." className="col-span-3" />
           </div>
           <div className="mt-5 grid grid-cols-3 gap-5 max-sm:grid-cols-1">
             {["Discovery", "Product confidence", "Checkout"].map((label, index) => <div key={label} className="border-t border-oninverse/20 pt-4"><span className="mr-3 text-[11px] font-semibold text-[#ef9a83]">0{index + 1}</span><span className="text-[18px] font-semibold uppercase tracking-[0.1em] text-oninverse/75">{label}</span></div>)}

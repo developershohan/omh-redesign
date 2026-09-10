@@ -12,7 +12,7 @@ import {
   ServiceSectionIntro as SectionIntro,
 } from "@/components/services/ServicePrimitives";
 import { Button, TextLink } from "@/components/ui/Button";
-import { Eyebrow, Fpo, VerifiedSlot } from "@/components/ui/Proof";
+import { Eyebrow, VerifiedSlot } from "@/components/ui/Proof";
 import { MediaFrame } from "@/components/ServiceMedia";
 import { ServiceBand as Band } from "@/components/services/ServiceBand";
 import { shopifyDevelopment as content } from "@/lib/content/shopify-development";
@@ -28,7 +28,7 @@ export function ShopifyHero() {
             <Reveal>
               <Eyebrow>{content.hero.eyebrow}</Eyebrow>
               <h1 className="mb-6 mt-7 max-w-[20ch] font-sans text-h1 font-semibold text-balance">
-                Shopify stores built to sell clearly, run reliably and <span className="text-amber-deep">grow with the business</span>
+                Shopify Development Company for <span className="text-amber-deep">High-Performing Stores </span>
               </h1>
               <p className="mb-9 max-w-[55ch] text-lead leading-relaxed text-ink/75">{content.hero.body}</p>
               <div className="flex flex-wrap items-center gap-3.5 max-sm:flex-col max-sm:items-stretch">
@@ -82,12 +82,13 @@ export function ShopifyNeedSection() {
         <div className="grid grid-cols-12 gap-x-10 gap-y-10 max-lg:block">
           <div className="col-span-5 max-lg:mb-10">
             <div className="lg:sticky lg:top-24">
-              <SectionIntro title="A Shopify store can be easy to use and still be hard to grow" accent="hard to grow" />
+              <SectionIntro title="Common Shopify Problems We Fix" accent="We Fix" />
               <p className="mt-7 border-l-2 border-amber pl-5 font-serif text-[21px] leading-snug text-ink/85">
-                The platform is only one part of the job. The store still needs clear product information, sensible structure and a buying journey customers can trust.
+A store can look great and still be hard to grow. Confusing navigation, slow pages, a clunky checkout, a theme nobody on your team can actually edit — sound familiar? That's usually where we come in.
+
               </p>
               <div className="mt-8 max-lg:max-w-md">
-                <Fpo ratio="4/3" tag="Store review" title="Shopify friction snapshot" note="Add a real annotated mobile or desktop screen from a reviewed store." />
+                <MediaFrame kind="image" theme="shopify" ratio="4/3" title="Shopify friction snapshot" note="Add a real annotated mobile or desktop screen from a reviewed store." source="/images/Services/shopify/Shopify-friction-snapshot.png" alt="A store review on desktop and mobile, annotated with four problems: a menu that is hard to use on mobile, a slow hero image, products buried below the fold and a hidden add-to-cart button." />
               </div>
             </div>
           </div>
@@ -127,9 +128,9 @@ export function ShopifyCapabilityGrid() {
     <Band label="Build">
       <Reveal>
         <SectionIntro
-          title="Shopify development shaped around the store you need to operate"
-          accent="store you need to operate"
-          body="The work can cover the complete store, theme changes, extensions, apps, migration, integrations, testing and ongoing improvement. Scope is shaped around the parts your business actually needs."
+          title="Our Shopify Development Services"
+          accent="Shopify Development"
+          body="From a brand-new store to one tricky integration, our Shopify development services cover the full picture — builds, themes, apps, migrations and everything in between."
         />
 
         <Pointer className="pointer-spotlight relative mt-12 overflow-hidden rounded-card bg-inverse p-10 text-oninverse max-sm:p-6">
@@ -173,7 +174,7 @@ export function ShopifyProcessSteps() {
       label="Process"
       title="A controlled route from store planning to launch"
       titleAccent="planning to launch"
-      body="Migration, integration and buying-journey risks are raised before they become last-minute launch problems."
+      body="Six steps, one clear route: discovery, structure, theme and UX, development and integration, migration and testing, then launch and support."
       steps={content.process}
       action={{ label: "Start at discovery", event: "shopify_form_start" }}
     />
@@ -216,10 +217,7 @@ export function ShopifyPricingPackages() {
     <Band label="Packages" id="packages">
       <div data-event="shopify_pricing_view">
         <div className="grid grid-cols-12 items-end gap-x-10 gap-y-6 max-lg:block">
-          <SectionIntro className="col-span-7" title="Website packages for different stages of ecommerce growth" accent="ecommerce growth" body="These four published packages are starting points. Migration, integrations, catalogue size and advanced functionality still need a proper scope before work begins." />
-          <p className="col-span-5 text-bsm leading-relaxed text-ink/70 max-lg:mt-6">
-            Website Seed and Website Shoot are both £300. [CONFIRM PRICE] No package is marked as recommended.
-          </p>
+          <SectionIntro className="col-span-7" title="Website Packages" accent="Packages" body="Four packages, starting from £300, give you a sensible starting point. Migration, integrations, and catalogue size still need a proper scope before we quote." />
         </div>
 
         <div className="mt-12 hidden overflow-x-auto rounded-card border border-line bg-surface xl:block">
@@ -309,8 +307,15 @@ export function ShopifyCaseStudyFeature() {
 
             <div className="col-span-7 col-start-6 max-lg:mt-9">
               <div className="grid grid-cols-2 gap-5 max-sm:grid-cols-1">
-                <Fpo ratio="4/3" tag="Before" title="Before Shopify screenshot" note="Use the real previous store or platform." />
-                <Fpo ratio="4/3" tag="After" title="After Shopify screenshot" note="Use the real launched Shopify store." />
+                {/* The frame drops its badge once media lands, but before/after is content here, so caption it. */}
+                <figure>
+                  <MediaFrame kind="image" theme="shopify" ratio="4/3" title="Before Shopify screenshot" note="Use the real previous store or platform." source="/images/Services/shopify/before.png" alt="An outdated online store with a crowded menu, a sale banner and a newsletter pop-up covering the products." />
+                  <figcaption className="mt-3 text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">Before</figcaption>
+                </figure>
+                <figure>
+                  <MediaFrame kind="image" theme="shopify" ratio="4/3" title="After Shopify screenshot" note="Use the real launched Shopify store." source="/images/Services/shopify/after.png" alt="The same store rebuilt on Shopify with a clean header, a lifestyle hero image and a tidy row of products." />
+                  <figcaption className="mt-3 text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">After</figcaption>
+                </figure>
               </div>
               <div className="mt-6 rounded-card border border-soft-dark bg-surface/70 p-6">
                 <VerifiedSlot>Shopify case study — pending</VerifiedSlot>
@@ -340,9 +345,9 @@ export function ShopifyCaseStudyFeature() {
 export function ShopifyWhyChooseSection() {
   return (
     <ServiceReasonGrid
-      title="Shopify development connected to the wider job of selling online"
+      title="Shopify development is connected to the wider job of selling online"
       titleAccent="selling online"
-      body="A useful ecommerce build considers products, operations, customer confidence, marketing and measurement—not only the storefront theme."
+      body="Good ecommerce development thinks beyond the theme — products, operations, customer trust, marketing and measurement all matter. It's why UK businesses come to a Shopify development agency like ours instead of briefing a single freelancer for the build and hoping the rest sorts itself out."
       reasons={content.reasons}
     />
   );
@@ -366,7 +371,7 @@ export function ShopifyFinalCTA() {
     <ServiceNextStepsCTA
       title="Ready to plan a better Shopify store?"
       titleAccent="Shopify store?"
-      body="Tell us what you sell, what the current setup is making difficult and what the new store needs to support. We will review the detail and recommend a practical next step."
+      body="Tell us what you sell, what's currently getting in the way, and what the new store needs to do. As a Shopify development company built for UK businesses, we'll take a look and come back with a practical next step — no hard sell."
       primary={{ label: "Discuss Your Shopify Project", event: "shopify_final_cta_click" }}
       secondary={{
         label: "Send a Store Brief",

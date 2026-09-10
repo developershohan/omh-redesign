@@ -2,7 +2,7 @@ export const shopifyDevelopment = {
   hero: {
     eyebrow: "Shopify Development for UK Businesses",
     title: "Shopify stores built to sell clearly, run reliably and grow with the business",
-    body: "Whether you are launching a new store, improving an existing one or moving from another ecommerce platform, we plan and build Shopify websites around products, customers and the way your team needs to work.",
+    body: "Whether you're launching a new store, refreshing an existing one, or switching over from another platform, we build Shopify stores around your products, your customers, and the way your team actually works. We care as much about how the store runs after launch as how it looks on day one.",
     primary: { label: "Discuss Your Shopify Project", href: "/contact" },
     secondary: { label: "View Website Packages", href: "#packages" },
   },
@@ -280,6 +280,7 @@ export const shopifyDevelopment = {
   ],
   // [CONFIRM SERVICE DETAIL] — verify the 30-day post-launch support term is current before publication.
   faqs: [
+    ["Shopify expert or development company — which do I need?", "A single Shopify expert can be perfect for a quick fix or a small theme tweak. For a full build, a migration, or ongoing growth, a Shopify development company brings planning, development, testing, and marketing support together under one roof, instead of you managing several freelancers yourself."],
     ["How many people will support my Shopify project?", "A dedicated project contact keeps you updated while the appropriate technical team completes the agreed work."],
     ["How do I start a Shopify project with OMH?", "Send a project brief through the contact page, email support@onlinemarketinghelp.co.uk or call 020 3489 3934. The first discussion is used to understand the store, goals and practical options."],
     ["Can you build a new Shopify store?", "Yes. New-store work can cover structure, theme and user experience, Shopify configuration, approved integrations, testing and launch."],
