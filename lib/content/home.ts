@@ -113,7 +113,7 @@ export const services = [
   { label: "SEO", href: "/search-engine-optimisation" },
   { label: "Local SEO", href: "/local-seo" },
   { label: "Website Design", href: "/website-designs" },
-  { label: "WordPress Development", href: "/wordpress-development" },
+  { label: "WordPress Development Services", href: "/wordpress-development" },
   { label: "Website Maintenance", href: "/wordpress-website-maintenance" },
   { label: "Conversion Improvement", href: "/solutions/improve-website-conversion" },
 ];

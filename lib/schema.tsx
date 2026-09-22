@@ -55,6 +55,7 @@ function serviceSchema(name: string, description: string, path: string) {
     "@context": "https://schema.org",
     "@type": "Service",
     name,
+    serviceType: name,
     description,
     provider,
     areaServed: { "@type": "Country", name: "United Kingdom" },

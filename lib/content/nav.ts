@@ -159,7 +159,7 @@ export const footerCols = [
   {
     heading: "Services",
     links: [
-      { label: "WordPress Development", href: "/wordpress-development" },
+      { label: "WordPress Development Services", href: "/wordpress-development" },
       { label: "Google Ads", href: "/google-adwords-ppc" },
       { label: "Amazon PPC", href: "/amazon-ppc-advertising-agency-uk" },
       { label: "Meta Ads & Paid Social", href: "/social-media-paid-advertising" },

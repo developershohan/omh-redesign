@@ -1,8 +1,8 @@
 export const wordpressDevelopment = {
   hero: {
     eyebrow: "WordPress Development for UK Businesses",
-    title: "WordPress websites built to support enquiries, sales and long-term growth",
-    body: "Your website should be easy to manage, fast to load, secure, and built around the actions you want visitors to take. We build and improve WordPress websites for UK businesses that need a reliable site, clearer structure and better conversion support.",
+    title: "WordPress development services that drive growth",
+    body: "Fast, secure and easy to manage — websites designed around the enquiries, sales and actions you want visitors to take. New builds, redesigns and technical improvements for UK businesses.",
     primary: { label: "Book a WordPress Consultation", href: "/contact" },
     secondary: { label: "View Website Packages", href: "#packages" },
   },
@@ -324,6 +324,7 @@ export const wordpressDevelopment = {
     ["SEO-ready foundations", "Clean structure, sensible headings, fast-loading pages and a proper technical base."],
   ],
   faqs: [
+    ["What do your WordPress development services include?", "Our WordPress development services cover new builds, careful redesigns, custom plugins, WordPress Multisite, integrations, campaign landing pages, technical improvements and optional ongoing maintenance. Exact scope depends on the package you choose, starting from £200."],
     ["How much does a WordPress website cost?", "Package prices are shown on this page, starting at £200. Final scope depends on pages, content, functionality and support requirements."],
     ["How long does a WordPress website take?", "Current package turnaround times range from 4 weeks to 8 weeks where confirmed. Larger packages are marked TBC until the scope is reviewed."],
     ["Can you redesign my existing WordPress site?", "Yes, once the current site can be reviewed and the goals for the redesign are clear."],

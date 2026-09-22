@@ -19,10 +19,11 @@ import { WordPressVisualStory } from "@/components/ServiceMedia";
 import { SiteTestimonials } from "@/components/Testimonials";
 
 export const metadata: Metadata = {
-  title: "WordPress Development for UK Businesses | OMH",
+  // absolute: this title already ends in "| OMH", so skip the layout's "| Online Marketing Help".
+  title: { absolute: "Expert WordPress Development Services UK | OMH" },
   alternates: { canonical: "https://onlinemarketinghelp.co.uk/wordpress-development/" },
   description:
-    "WordPress websites built for UK businesses that need better structure, easier management, stronger performance and clearer conversion support.",
+    "Custom WordPress development services from a UK agency. New builds, redesigns, plugins & integrations from £200. Book a free consultation.",
 };
 
 export default function WordPressDevelopmentPage() {

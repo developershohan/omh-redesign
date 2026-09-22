@@ -9,6 +9,7 @@ import { ServiceReasonGrid } from "@/components/services/ServiceReasonGrid";
 import {
   CheckIcon as Check,
   FeatureValue,
+  HighlightedText,
   ServiceSectionIntro as SectionIntro,
 } from "@/components/services/ServicePrimitives";
 import { Button, TextLink } from "@/components/ui/Button";
@@ -38,10 +39,9 @@ export function ServiceHero() {
             <Reveal>
               <Eyebrow>{content.hero.eyebrow}</Eyebrow>
               {/* text-h1, not text-display: 72px in a 7-col measure wrapped to six
-                  lines and pushed the hero past the fold. U+2011 keeps "long-term"
-                  from breaking across lines at its hyphen. */}
+                  lines and pushed the hero past the fold. */}
               <h1 className="mb-6 mt-7 max-w-[19ch] font-sans text-h1 font-semibold text-balance">
-                WordPress websites built to support enquiries, sales and <span className="text-amber-deep">long-term growth</span>
+                <HighlightedText text={content.hero.title} highlight="drive growth" />
               </h1>
               <p className="mb-9 max-w-[54ch] text-lead leading-relaxed text-ink/75">
                 {content.hero.body}
@@ -87,7 +87,7 @@ export function ServiceHero() {
                   title="WordPress project preview"
                   note="Replace with a real project, before-and-after view or planning board."
                   source="/images/website-designs/Brand-New-Website-Development.png"
-                  alt="A WordPress theme build shown on desktop and laptop, with the homepage, service blocks and recent-projects grid visible."
+                  alt="WordPress development services — a custom WordPress theme build shown on desktop and laptop, with homepage, service blocks and recent projects grid visible."
                 />
               </div>
             </Pointer>
@@ -166,8 +166,8 @@ export function PainPointSection() {
 export function FitSection() {
   return (
     <SharedServiceFitSection
-      title="Built for businesses that need a serious WordPress website"
-      titleAccent="serious WordPress website"
+      title="WordPress web development agency for serious businesses"
+      titleAccent="serious businesses"
       body="This service works best when there is a clear business reason for the build and enough planning time to do the work properly. If that is not where you are yet, it is better to say so early."
       good={content.fit.good}
       notFit={content.fit.notFit}
@@ -189,8 +189,8 @@ export function ServiceCapabilityGrid() {
     <Band label="Build">
       <Reveal>
         <SectionIntro
-          title="WordPress development shaped around how your business actually works"
-          accent="business actually works"
+          title="Custom WordPress development services, built around you"
+          accent="built around you"
           body="The scope can cover a new build, a careful redesign, technical improvements or the functionality needed to support your sales process."
         />
         <div className="mt-12 grid grid-cols-6 gap-5 max-lg:grid-cols-2 max-sm:grid-cols-1">
@@ -525,8 +525,8 @@ export function CaseStudyFeature() {
 export function WhyChooseSection() {
   return (
     <ServiceReasonGrid
-      title="WordPress development connected to marketing, not separated from it"
-      titleAccent="not separated from it"
+      title="A custom WordPress development company that gets marketing"
+      titleAccent="gets marketing"
       body="A better website is not only a design job. It has to support the way people find the business, compare the offer and decide to enquire or buy."
       reasons={content.reasons}
     />
@@ -537,8 +537,8 @@ export function WhyChooseSection() {
 export function FAQAccordion() {
   return (
     <ServiceFaqSection
-      title="Questions before you brief a WordPress project"
-      titleAccent="WordPress project"
+      title="WordPress development services FAQs"
+      titleAccent="FAQs"
       description="If your question is not here, ask it on the consultation call and you will get a straight answer."
       items={content.faqs.map(([q, a]) => ({ q, a }))}
       group="wpdev-faq"
@@ -551,7 +551,7 @@ export function FAQAccordion() {
 export function FinalCTA() {
   return (
     <ServiceNextStepsCTA
-      title="Ready to improve your WordPress website?"
+      title="Ready to build a better WordPress website?"
       titleAccent="WordPress website?"
       body="Tell us what you need your website to do, what is not working now, and what you want to improve. We will review the details and recommend the most practical next step."
       primary={{ label: "Book a WordPress Consultation", event: "wpdev_final_cta_click" }}
