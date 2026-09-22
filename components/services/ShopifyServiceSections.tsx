@@ -9,6 +9,7 @@ import { ServiceReasonGrid } from "@/components/services/ServiceReasonGrid";
 import {
   CheckIcon as Check,
   FeatureValue,
+  HighlightedText,
   ServiceSectionIntro as SectionIntro,
 } from "@/components/services/ServicePrimitives";
 import { Button, TextLink } from "@/components/ui/Button";
@@ -28,7 +29,7 @@ export function ShopifyHero() {
             <Reveal>
               <Eyebrow>{content.hero.eyebrow}</Eyebrow>
               <h1 className="mb-6 mt-7 max-w-[20ch] font-sans text-h1 font-semibold text-balance">
-                Shopify Development Company for <span className="text-amber-deep">High-Performing Stores </span>
+                <HighlightedText text={content.hero.title} highlight={"high-\u2060performing stores"} />
               </h1>
               <p className="mb-9 max-w-[55ch] text-lead leading-relaxed text-ink/75">{content.hero.body}</p>
               <div className="flex flex-wrap items-center gap-3.5 max-sm:flex-col max-sm:items-stretch">
@@ -82,9 +83,9 @@ export function ShopifyNeedSection() {
         <div className="grid grid-cols-12 gap-x-10 gap-y-10 max-lg:block">
           <div className="col-span-5 max-lg:mb-10">
             <div className="lg:sticky lg:top-24">
-              <SectionIntro title="Common Shopify Problems We Fix" accent="We Fix" />
+              <SectionIntro title="Common Shopify problems we fix" accent="we fix" />
               <p className="mt-7 border-l-2 border-amber pl-5 font-serif text-[21px] leading-snug text-ink/85">
-A store can look great and still be hard to grow. Confusing navigation, slow pages, a clunky checkout, a theme nobody on your team can actually edit — sound familiar? That's usually where we come in.
+A store can look great and still be hard to grow. Confusing navigation, slow pages, a clunky checkout, a theme nobody on your team can actually edit — sound familiar? That&apos;s usually where we come in.
 
               </p>
               <div className="mt-8 max-lg:max-w-md">
@@ -128,8 +129,8 @@ export function ShopifyCapabilityGrid() {
     <Band label="Build">
       <Reveal>
         <SectionIntro
-          title="Our Shopify Development Services"
-          accent="Shopify Development"
+          title="Our Shopify development services"
+          accent="Shopify development"
           body="From a brand-new store to one tricky integration, our Shopify development services cover the full picture — builds, themes, apps, migrations and everything in between."
         />
 
@@ -217,7 +218,7 @@ export function ShopifyPricingPackages() {
     <Band label="Packages" id="packages">
       <div data-event="shopify_pricing_view">
         <div className="grid grid-cols-12 items-end gap-x-10 gap-y-6 max-lg:block">
-          <SectionIntro className="col-span-7" title="Website Packages" accent="Packages" body="Four packages, starting from £300, give you a sensible starting point. Migration, integrations, and catalogue size still need a proper scope before we quote." />
+          <SectionIntro className="col-span-7" title="Website packages" accent="packages" body="Four packages, starting from £300, give you a sensible starting point. Migration, integrations, and catalogue size still need a proper scope before we quote." />
         </div>
 
         <div className="mt-12 hidden overflow-x-auto rounded-card border border-line bg-surface xl:block">
