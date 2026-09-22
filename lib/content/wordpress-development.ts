@@ -330,7 +330,7 @@ export const wordpressDevelopment = {
     ["Can you redesign my existing WordPress site?", "Yes, once the current site can be reviewed and the goals for the redesign are clear."],
     ["Will I be able to edit the website myself?", "WordPress is built to be manageable, but advanced layouts, integrations and features may still need support."],
     ["Do you provide hosting and maintenance?", "One year of hosting is included from the Website Shoot package upwards. [WordPress maintenance](/wordpress-website-maintenance) can be added depending on the package and support requirements. The development project stays focused on the website build."],
-    ["Can you help with SEO after launch?", "Yes. We also provide [SEO services](/search-engine-optimisation) and [Google Ads management](/google-adwords-ppc), so the website can be supported after launch."],
+    ["Can you help with SEO after launch?", "Yes. We also provide [SEO services](/search-engine-optimisation) and [Google Ads management services](/google-adwords-ppc), so the website can be supported after launch."],
     ["Can you fix a website built by another developer?", "Yes, after a review of the current setup, plugins, theme and hosting."],
     ["What do you need from me before starting?", "Business goals, content, branding, website examples, required pages, required functionality and decision-maker input."],
   ],

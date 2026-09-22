@@ -231,7 +231,7 @@ export function PpcCampaignStudio() {
             <MediaFrame kind="video" theme="ppc" ratio="16/10" title="Google Ads campaign walkthrough" note="Replace with a concise, anonymised screen recording." className="col-span-6" />
           </div>
           <div className="mt-7 grid grid-cols-12 gap-5">
-            <MediaFrame kind="screen" theme="ppc" ratio="16/8" title="Search-term and budget view" note="Show the decisions, not unsupported results." source="/images/Services/Images on the pages/Search-term and budget view.png" alt="Illustrative Google Ads search terms report showing match types, clicks, CTR, average CPC and cost per conversion for a dated period." className="col-span-7 max-md:col-span-12" />
+            <MediaFrame kind="screen" theme="ppc" ratio="16/8" title="Search-term and budget view" note="Show the decisions, not unsupported results." source="/images/Services/Images on the pages/Search-term and budget view.png" alt="Illustrative Google Ads search terms report reviewed during PPC management, showing match types, CTR, average CPC and cost per conversion" className="col-span-7 max-md:col-span-12" />
             <MediaFrame kind="image" theme="ppc" ratio="5/3" title="Landing-page annotation" note="Add a real campaign page with approved callouts." source="/images/Services/Google Ads management.png" alt="A Google Ads campaign-formats page shown alongside the reporting view it feeds, with the ad formats broken out." className="col-span-5 max-md:col-span-12" />
           </div>
         </Reveal>

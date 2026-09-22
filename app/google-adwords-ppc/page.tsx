@@ -18,10 +18,12 @@ import { PpcCampaignStudio } from "@/components/ServiceMedia";
 import { SiteTestimonials } from "@/components/Testimonials";
 
 export const metadata: Metadata = {
-  title: "Google Ads PPC Management for UK Businesses",
+  // absolute: this title already ends in "| OMH", so skip the layout's "| Online Marketing Help".
+  title: { absolute: "Google Ads Agency UK | PPC Management Services | OMH" },
   description:
-    "Google Ads and PPC campaign management for UK businesses, covering Search, Display, remarketing, Shopping, tracking, optimisation and reporting.",
+    "OMH is a Google Ads agency for UK businesses, with PPC management services across Search, Shopping and remarketing. Request a scoped account review.",
   alternates: { canonical: "https://onlinemarketinghelp.co.uk/google-adwords-ppc/" },
+  openGraph: { title: "Google Ads Agency UK | PPC Management Services" },
 };
 
 const relatedServices = [

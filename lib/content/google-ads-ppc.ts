@@ -1,7 +1,7 @@
 export const googleAdsPpc = {
   hero: {
-    eyebrow: "Google Ads Management for UK Businesses",
-    body: "Search, Display, remarketing and Shopping campaigns planned around the enquiries or sales your business actually needs. We combine account structure, tracking, landing-page advice and ongoing optimisation so ad spend is easier to understand and control.",
+    eyebrow: "Google Ads management services for UK businesses",
+    body: "OMH is a Google Ads agency for UK businesses that treats every campaign as a route to a real enquiry, booking or sale. Our Google Ads and PPC management services cover Search, Shopping, Display and remarketing, planned around the actions your business actually needs. We combine account structure, conversion tracking, landing-page advice and ongoing optimisation, so your ad spend stays easier to understand and control.",
     primary: { label: "Discuss Your Google Ads", href: "/contact" },
     secondary: { label: "View PPC Packages", href: "#packages" },
   },
@@ -202,7 +202,7 @@ export const googleAdsPpc = {
     ["Limits are explained plainly", "Policy constraints, tracking gaps, uncertain terms and results that cannot be guaranteed are raised before they become surprises."],
   ],
   faqs: [
-    ["Why should I use Google Ads?", "Google Ads can place a relevant advert in front of people who are actively searching or browsing eligible inventory. It also provides campaign data that can be used to measure and improve performance, provided conversion tracking is configured correctly. Paid search usually works best alongside [SEO](/search-engine-optimisation) and a landing page built to convert — see [WordPress development](/wordpress-development)."],
+    ["Why should I use Google Ads?", "Google Ads can place a relevant advert in front of people who are actively searching or browsing eligible inventory. It also provides campaign data that can be used to measure and improve performance, provided conversion tracking is configured correctly. Paid search usually works best alongside [SEO](/search-engine-optimisation) and a [landing page](/wordpress-development) built to convert."],
     ["Can you set up my Google Ads account?", "Yes. Account or campaign set-up can be scoped using your goals, audience, budget and landing pages. Account set-up may carry an additional fee, so this should be confirmed in the proposal."],
     ["Do you offer ongoing Google Ads management?", "Yes. The published packages include management and optimisation, reporting and monthly meetings. Campaigns are reviewed regularly and commonly need an initial optimisation period."],
     ["What will I need to provide?", "You will normally provide your Google Ads customer ID and information about goals, budgets, audiences and existing measurement. Access should be granted through an approved account invitation; you should not send personal login credentials."],
@@ -210,5 +210,7 @@ export const googleAdsPpc = {
     ["Can you guarantee results, sales or leads?", "No. Campaigns can be managed toward agreed goals, but sales and leads also depend on the offer, prices, website, competition, budget and sales process. Any written traffic or performance commitment must be defined precisely in the proposal."],
     ["Is there a limit on campaign keywords?", "There is no fixed keyword limit. We focus on relevant terms that have a realistic chance of producing useful conversions rather than pursuing quantity alone."],
     ["Do you accept white-label work from agencies?", "White-label requests are considered. Agencies should contact support@onlinemarketinghelp.co.uk for the information pack."],
+    ["Do you work as a Google Ads agency across the whole UK?", "Yes. We handle Google Ads management for UK businesses remotely, so location is not a barrier. Access is granted through an approved Google Ads account invitation, and reporting plus monthly meetings keep the account under review wherever you are based."],
+    ["How should I choose a Google Ads agency in the UK?", "Ask for written confirmation of scope, account access, who owns the ad spend, billing, VAT, agreement length and how a conversion is defined. A good Google Ads agency will show you the date range and the conversion behind any published result, rather than promising a fixed number of leads or sales."],
   ],
 };

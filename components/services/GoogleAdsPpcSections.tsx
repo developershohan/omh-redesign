@@ -28,7 +28,8 @@ export function PpcHero() {
             <Reveal>
               <Eyebrow>{content.hero.eyebrow}</Eyebrow>
               <h1 className="mb-6 mt-7 max-w-[20ch] font-sans text-h1 font-semibold text-balance">
-                Google Ads management built around <span className="text-amber-deep">measurable action</span>
+                {/* &nbsp; keeps "agency UK" on one line so the keyword phrase never splits. */}
+                Google Ads agency&nbsp;UK: PPC management built around <span className="text-amber-deep">measurable action</span>
               </h1>
               <p className="mb-9 max-w-[57ch] text-lead leading-relaxed text-ink/75">{content.hero.body}</p>
               <div className="flex flex-wrap items-center gap-3.5 max-sm:flex-col max-sm:items-stretch">
@@ -46,7 +47,7 @@ export function PpcHero() {
             </Reveal>
           </div>
           <Reveal className="col-span-5 col-start-8">
-            <Pointer><div className="pointer-parallax"><MediaFrame kind="screen" theme="ppc" ratio="16/11" title="Google Ads campaign view" note="Replace with a real, anonymised account view with spend, date range and conversion definition visible." source="/images/Services/Images on the pages/Account baseline Before.png" alt="Illustrative Google Ads account overview showing clicks, impressions, average CPC, cost, conversions and budget pacing for a dated month." /></div></Pointer>
+            <Pointer><div className="pointer-parallax"><MediaFrame kind="screen" theme="ppc" ratio="16/11" title="Google Ads campaign view" note="Replace with a real, anonymised account view with spend, date range and conversion definition visible." source="/images/Services/Images on the pages/Account baseline Before.png" alt="Illustrative Google Ads account overview used by OMH, a Google Ads agency for UK businesses, showing clicks, impressions, average CPC, cost and conversions" /></div></Pointer>
             <div className="mt-6 border-t border-line pt-5">
               <p className="mb-3.5 text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">Proof to verify before launch</p>
               <div className="flex flex-wrap gap-2.5">
@@ -69,8 +70,8 @@ export function PpcNeedSection() {
         <div className="grid grid-cols-12 gap-x-10 gap-y-10 max-lg:block">
           <div className="col-span-4 max-lg:mb-10">
             <div className="lg:sticky lg:top-24">
-              <SectionIntro size="md" title="Getting Google Ads to work for the business" accent="work for the business" body="There are the campaign tasks. This version starts with the commercial problems those tasks need to solve." />
-              <p className="mt-7 border-l-2 border-amber pl-5 font-serif text-[20px] leading-snug text-ink/85">More clicks are not the goal. Useful enquiries, bookings or sales—and reliable evidence of them—are what make optimisation possible.</p>
+              <SectionIntro size="md" title="Getting Google Ads to work for your business" accent="work for your business" body="Before the task list, these are the commercial problems Google Ads management has to solve." />
+              <p className="mt-7 border-l-2 border-amber pl-5 font-serif text-[20px] leading-snug text-ink/85">More clicks are not the goal. Useful enquiries, bookings or sales, and reliable evidence of them, are what make optimisation possible.</p>
             </div>
           </div>
           <div className="col-span-8 grid grid-cols-2 gap-x-8 max-md:grid-cols-1">
@@ -108,7 +109,7 @@ export function PpcCapabilityGrid() {
   return (
     <Band label="Campaign formats">
       <Reveal>
-        <SectionIntro title="Four Google Ads formats from the original service page" accent="Four Google Ads formats" body="The right mix depends on search demand, audience eligibility, creative, product data, budget and the commercial goal." />
+        <SectionIntro title="The Google Ads formats our PPC management services cover" accent="Google Ads formats" body="The right mix depends on search demand, audience eligibility, creative, product data, budget and the commercial goal." />
         <Pointer className="pointer-spotlight relative mt-12 overflow-hidden rounded-card bg-inverse p-10 text-oninverse max-sm:p-6">
           <div className="relative z-10 grid grid-cols-12 items-start gap-x-10 gap-y-8 max-lg:block">
             <div className="col-span-6">
@@ -139,9 +140,9 @@ export function PpcProcessSteps() {
   return (
     <ServiceProcessTimeline
       label="How we help"
-      title="A controlled route from account access to optimisation"
+      title="How our Google Ads management works, from account access to optimisation"
       titleAccent="account access to optimisation"
-      body="Campaign planning, analytics, copywriting, management and reporting — the recurring work every package covers."
+      body="Our Google Ads campaign management services cover planning, analytics, copywriting, management and reporting: the recurring work in every package."
       steps={content.process}
       action={{ label: "Request an account review", event: "ppc_form_start" }}
     />
@@ -175,7 +176,7 @@ export function PpcPricingPackages() {
     <Band label="Packages" id="packages">
       <div data-event="ppc_pricing_view">
         <div className="grid grid-cols-12 items-end gap-x-10 gap-y-6 max-lg:block">
-          <SectionIntro className="col-span-7" title="All four published PPC packages, compared clearly" accent="compared clearly" body="Four packages across sixteen comparison points, including the two exclusions in PPC Seed." />
+          <SectionIntro className="col-span-7" title="Our Google Ads management packages, compared clearly" accent="compared clearly" body="Four packages across sixteen comparison points, including the two exclusions in PPC Seed." />
           <p className="col-span-5 text-bsm leading-relaxed text-ink/70 max-lg:mt-6">Package names do not imply a recommendation. Scope, billing frequency, VAT, ad-spend period and agreement terms should be confirmed in the written proposal.</p>
         </div>
         <div className="mt-12 hidden overflow-x-auto rounded-card border border-line bg-surface xl:block">
@@ -272,7 +273,7 @@ export function PpcFinalCTA() {
     <ServiceNextStepsCTA
       title="Need a clearer plan for Google Ads?"
       titleAccent="Google Ads?"
-      body="Tell us what you sell, where you advertise, what you spend and what a useful conversion means. We will review the starting point and recommend a practical next step."
+      body="Tell us what you sell, where you advertise, what you spend and what a useful conversion means. As a UK Google Ads services agency, we will review your starting point and recommend a practical next step."
       primary={{ label: "Discuss Google Ads Management", event: "ppc_final_cta_click" }}
       secondary={{
         label: "Send a Campaign Brief",
