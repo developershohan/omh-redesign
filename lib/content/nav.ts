@@ -175,9 +175,8 @@ export const footerCols = [
     links: [
       { label: "About", href: "/about-us" },
       { label: "Case Studies", href: "/case-studies" },
-  { label: "Insights", href: "/insights" },
-  { label: "Pricing", href: "/pricing" },
       { label: "Insights", href: "/insights" },
+      { label: "Pricing", href: "/pricing" },
       { label: "Contact", href: "/contact" },
     ],
   },
