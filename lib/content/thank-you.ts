@@ -1,8 +1,8 @@
 /*
   Phase 6 of docs/legacy-pages-plan.md — the eight legacy thank-you pages.
   Copy verbatim from the live pages (fetched 19 Aug 2026 through the logged-in
-  browser), including the inconsistent phone formatting ("+44 0203 4893934" on
-  some, "0203 4893934" on others) and "OUR All STARTER PACKAGES" as written.
+  browser), including "OUR All STARTER PACKAGES" as written. The exception is the
+  phone number, now written correctly: "+44 20 3489 3934" or "020 3489 3934".
 
   These are funnel pages, so they share one layout — same directive as Phase 5's
   quote forms, no per-page layout variety.
@@ -41,7 +41,7 @@ export const contactUsThankYou: ThankYouPage = {
   slug: "contact-us-thank-you",
   title: "Contact Us Thank You",
   heading: "Thank you",
-  body: ["Thank you for contacting us at Online Marketing Help.", urgent("+44 0203 4893934", "Email:")],
+  body: ["Thank you for contacting us at Online Marketing Help.", urgent("+44 20 3489 3934", "Email:")],
   seo: {
     title: "Contact Us Thank You",
     description: "Thank you for contacting Online Marketing Help. We will come back to you shortly.",
@@ -54,7 +54,7 @@ export const calendlyThankYou: ThankYouPage = {
   heading: "Thank you",
   body: [
     "Thank you for scheduling a call with us at Online Marketing Help.",
-    "If you have a project that is urgent you can either call us on 0203 4893934 Or email support@onlinemarketinghelp.co.uk",
+    "If you have a project that is urgent you can either call us on 020 3489 3934 Or email support@onlinemarketinghelp.co.uk",
     "We look forward to speaking with you at your scheduled date and time and would like to ask you to bring any information to the call that may help us to understand your project.",
   ],
   packages: { heading: "OUR All STARTER PACKAGES" },
@@ -71,7 +71,7 @@ export const localSeoThankYou: ThankYouPage = {
   heading: "Thank you",
   body: [
     "Thank you for requesting a local SEO audit from Online Marketing Help.",
-    "If you have a project that is urgent you can either call us on 0203 4893934 Or email support@onlinemarketinghelp.co.uk.",
+    "If you have a project that is urgent you can either call us on 020 3489 3934 Or email support@onlinemarketinghelp.co.uk.",
   ],
   packages: { heading: "OUR All STARTER PACKAGES" },
   seo: {
@@ -84,7 +84,7 @@ export const quotationQuestionnaireThankYou: ThankYouPage = {
   slug: "quotation-questionnaire-thank-you",
   title: "Quotation Questionnaire Thank You",
   heading: "Thank You",
-  body: ["Thank you for contacting us at Online Marketing Help.", urgent("+44 0203 4893934", "Email:")],
+  body: ["Thank you for contacting us at Online Marketing Help.", urgent("+44 20 3489 3934", "Email:")],
   seo: {
     title: "Quotation Questionnaire Thank You",
     description:
@@ -96,7 +96,7 @@ export const seoThankYou: ThankYouPage = {
   slug: "search-engine-optimisation-thank-you",
   title: "Search Engine Optimisation Thank You",
   heading: "Thank you",
-  body: ["Thank you for your request.", urgent("+44 0203 4893934", "or email")],
+  body: ["Thank you for your request.", urgent("+44 20 3489 3934", "or email")],
   seo: {
     title: "Search Engine Optimisation Thank You",
     description: "Thank you for your SEO request. We will come back to you shortly.",
@@ -108,7 +108,7 @@ export const wordpressDevelopmentThankYou: ThankYouPage = {
   title: "Wordpress Development Thank You",
   heading: "Thank You",
   body: [
-    "Thank you for contacting us at Online Marketing Help. Call us: +44 0203 4893934",
+    "Thank you for contacting us at Online Marketing Help. Call us: +44 20 3489 3934",
     "Email: support@onlinemarketinghelp.co.uk",
   ],
   linksLead: "If you already have an idea of what support you need, you can fill out either of the following:",
@@ -126,7 +126,7 @@ export const wordpressMaintenanceThankYou: ThankYouPage = {
   heading: "Thank You",
   body: [
     "Thank you for contacting us at Online Marketing Help.",
-    "Call us: +44 0203 4893934",
+    "Call us: +44 20 3489 3934",
     "Email: support@onlinemarketinghelp.co.uk",
   ],
   linksLead: "If you already have an idea of what support you need, you can fill out either of the following:",

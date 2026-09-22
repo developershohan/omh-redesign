@@ -81,7 +81,7 @@ export const socialLanding = {
   getInTouch: {
     label: "Get in touch",
     title: "Need Help With One Of Our Services?",
-    telLabel: "+4402034893934",
+    telLabel: "+44 20 3489 3934",
   },
 
   packages: {

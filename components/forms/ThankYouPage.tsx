@@ -17,7 +17,7 @@ import { subscriptionThankYou, type ThankYouPage as PageData } from "@/lib/conte
 // than sitting in their own fields, so they get linked in place instead of being
 // pulled out — the sentence stays exactly as published.
 function withContactLinks(text: string) {
-  const pattern = /(\+?44 0203 4893934|0203 4893934|support@onlinemarketinghelp\.co\.uk)/g;
+  const pattern = /(\+44 20 3489 3934|020 3489 3934|support@onlinemarketinghelp\.co\.uk)/g;
   return text.split(pattern).map((part, i) =>
     pattern.test(part) ? (
       <Link

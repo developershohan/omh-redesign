@@ -41,7 +41,7 @@ export type QuoteFormPage = {
   thankYou?: string;
 };
 
-const callHeading = "Request a Quote or Call:  +44 0203 4893934";
+const callHeading = "Request a Quote or Call: +44 20 3489 3934";
 
 const quoteNotes = [
   "* All work that we do is contractual and requires a deposit to begin.",
@@ -590,7 +590,7 @@ export const freeConsultation = {
   contactHeading: "Get In Touch",
   contactBody:
     "Need help with one of our services? Get in contact with our Customer Support Team.",
-  phone: "+44 0203 4893934",
+  phone: "+44 20 3489 3934",
   clientsHeading: "Our Happy Clients",
   clientsIntro:
     "Our experienced team cover the entire Marketing spectrum and are on hand to ensure your small business is taking full advantage of opportunities.",

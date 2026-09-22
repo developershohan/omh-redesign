@@ -166,7 +166,7 @@ export const websiteDesigns = {
   contact: {
     eyebrow: "Get in touch",
     heading: "Need help with your website?",
-    phone: "+44 020 3489 3934",
+    phone: "+44 20 3489 3934",
   },
 
   consultation: {
@@ -199,6 +199,6 @@ export const websiteDesigns = {
     // Rendered as an absolute title: it already ends in "| OMH".
     title: "Web Design Company UK | Business Website Design | OMH",
     description:
-      "Looking for a UK web design company? OMH creates professional, conversion-focused websites for businesses, from custom WordPress builds to e-commerce websites. Book a free consultation.",
+      "Looking for a UK web design company? OMH creates conversion-focused business websites, from custom WordPress to e-commerce. Book a free consultation.",
   },
 };
