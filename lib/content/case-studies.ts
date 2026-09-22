@@ -420,14 +420,14 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "out-out-entry",
-    title: "WEBSITE DESIGN & DEVELOPMENT for OUT OUT ENTRY",
+    title: "Website design & development for Out Out Entry",
     shortTitle: "Out Out Entry Website",
     sourceUrl: "https://onlinemarketinghelp.co.uk/website-design-for-out-out-entry-website-design/",
     sourceTitle: "Web Development for Out Out Entry Website Design Case Study",
     client: "out out entry",
     sector: "TOUR OPERATOR IN THE UK",
     category: "Website",
-    lede: "Out Out Entry was a start-up, small tour operator business wanting to showcase 1000’s of activities and accommodation options. They tasked Online Marketing Help with building a mobile friendly fully optimised custom built website to enable business growth and allow optimised landing pages to be used for targeted ads campaigns.",
+    lede: "Out Out Entry was a start-up tour operator that wanted to showcase thousands of activities and accommodation options. They asked Online Marketing Help to build a mobile-friendly, fully optimised custom website that could support business growth and provide dedicated landing pages for targeted advertising campaigns.",
     objective:
       "To create an all encompassing multi-site that offered a seamless User Experience for customers and suppliers alike with a backend system that could manage incoming enquiries.",
     challenges: [

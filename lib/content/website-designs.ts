@@ -1,8 +1,8 @@
 /*
   Phase 7 of docs/legacy-pages-plan.md — /website-designs, the last legacy page.
-  Copy verbatim from the live page (fetched 19 Aug 2026 through the logged-in
-  browser), including its typos ("our fait in our capabilities", "Start workint
-  with", "ecommerce Designs" in lower case).
+  Copy follows the SEO page brief (Sep 2026: focus "web design company",
+  secondary "company website design"). The gallery names and alt text are still
+  verbatim from the live page, including "ecommerce Designs" in lower case.
 
   ◈ Live-site defect: the page's "CASE STUDIES" band is unfinished — five
   identical cards reading "Hospitality / It is a long established fact that a
@@ -13,12 +13,15 @@
 
 export const websiteDesigns = {
   title: "Website Designs",
-  standfirst: "Online Marketing Help Website Designs And Templates",
+  heading: "Web design company for UK businesses",
+  standfirst: "Professional website design built around your business",
+  lead: "Online Marketing Help is a web design company creating professional, conversion-focused websites for businesses that want a stronger online presence and more enquiries.",
+  statEyebrow: "Conversion-focused website design",
   statHeading:
-    "Did you know that 70% of small businesses that have a website don’t have a clear CTA (Call To Action) on their website homepage?",
+    "Did you know that 70% of small businesses with a website do not have a clear CTA (call to action) on their homepage?",
   intro: [
-    "Call to Actions encourage users to take action which drives a conversion (a sale). At Online Marketing Help we build websites with conversions in mind. Here are some example themes and websites that we have used for existing clients.",
-    "We can build custom websites as well as using theme templates to give you the best visual representation of your business online.",
+    "Calls to action encourage visitors to take the next step, whether that is an enquiry, booking, or sale. As a web design company, Online Marketing Help builds websites with conversions in mind. Below are examples of website designs and themes we have created for existing clients.",
+    "We can build a fully custom website or professionally customise a theme template to give your business the right balance of design, usability and performance.",
   ],
   ctas: {
     consultation: "Book a free consultation",
@@ -29,7 +32,7 @@ export const websiteDesigns = {
 
   help: {
     eyebrow: "How",
-    heading: "We Can Help With WordPress Website Design Support",
+    heading: "We can help with WordPress website design",
     sectors: [
       "Construction Websites",
       "Accountancy Websites",
@@ -45,7 +48,7 @@ export const websiteDesigns = {
       "Restaurant Websites",
     ],
     tradesLead:
-      "Whether you offer Landscaping services or are an electrician we can help you create the perfect website to showcase your offering.",
+      "Whether you offer landscaping services, work as an electrician, or run a professional firm, our company website design service can help you create a website that clearly showcases what you do and makes it easy for customers to take action.",
     trades: [
       "Bricklayer",
       "Tiler",
@@ -56,13 +59,13 @@ export const websiteDesigns = {
       "Builders’ Merchant",
       "Carpenter",
       "Building Surveyor",
-      "and so much more…",
+      "and much more…",
     ],
   },
 
   gallery: {
-    eyebrow: "Just",
-    heading: "Some Of Our Websites We Have Designed",
+    eyebrow: "Portfolio",
+    heading: "Website designs we have created for UK businesses",
     /* The live page's own 38 theme screenshots — filename and alt text as
        published (except the ninth accountancy shot, where the live site repeats
        the eighth image's alt; corrected here).
@@ -152,41 +155,50 @@ export const websiteDesigns = {
 
   pricing: {
     eyebrow: "Custom Pricing",
-    heading: "Transparent Pricing That Is Perfect For Small Businesses That Want To Grow",
+    heading: "Transparent website design pricing for small businesses that want to grow",
     body: [
-      "With our web design and theme development services, we offer from scratch packages to customisation of existing themes. We do this both on a White Label basis for companies that may need this service and don’t have a development team in place, and we also do this for businesses know what they want from a website but don’t know how to make it all come together. We'll recommend the most suitable package based on your specific needs.",
-      "We specialise in crafting unique and tailor-made website themes from the ground up to perfectly align with your vision and brand identity. Our approach involves starting each project with a blank canvas, allowing us to meticulously design and develop a website theme that is exclusively yours. During the initial consultation, we prioritise understanding your specific requirements, preferences, and objectives. Based on the insights gathered, we provide a personalised pricing structure that reflects the complexity and intricacy of the theme you envision. This bespoke pricing model ensures that you only pay for the features, functionalities, and design elements that are essential to achieving your desired website aesthetics and functionality. Our goal is to deliver a website theme that not only meets but exceeds your expectations, making your online presence truly distinctive and captivating.",
+      "With our web design services, we offer everything from custom-built WordPress websites to professional theme customisation. We also work on a white-label basis for companies that need this service but do not have an in-house development team, as well as businesses that know what they want from a website but need help bringing everything together. We will recommend the most suitable package based on your specific needs.",
+      "We specialise in company website design tailored to your brand, objectives, and required functionality. Every project starts with a clear understanding of what the website needs to achieve. From there, we recommend the right design and development approach, whether that means a completely bespoke build or a carefully customised theme.",
+      "Our pricing reflects the complexity of the project and the features you actually need, so you are not paying for unnecessary functionality. The goal is to create a professional website that looks distinctive, works smoothly, and supports the way your business wants to grow online.",
     ],
   },
 
   contact: {
     eyebrow: "Get in touch",
-    heading: "Need Help With One Of Our Services?",
-    phone: "+4402034893934",
+    heading: "Need help with your website?",
+    phone: "+44 020 3489 3934",
   },
 
   consultation: {
     eyebrow: "Free Consultation",
-    heading: "Let Us Help You Book A Call At A Time Convenient For You",
+    heading: "Book a free consultation at a time that works for you.",
   },
 
   guarantee: {
     eyebrow: "Guarantee",
-    heading: "Don't Just Take Our Word For It",
+    heading: "Don't just take our word for it",
     body: [
-      "We are confident after years of experience that we will be able to deliver on our promise which is to support you in whatever way necessary with your technical support on your website. To show our fait in our capabilities at Online Marketing Help and our team our CEO wants to offer a you a money back guarantee to help make that decision to work with us a little easier.",
-      "Start workint with Online Marketing Help today to bring your business to the next level. You deserve it.",
+      "After years of experience, we are confident in the service and support we provide. Our aim is to help with the technical side of your website and give you clear, practical guidance throughout the project. To show our confidence in what we do, our CEO offers a money-back guarantee designed to make the decision to work with our web design company a little easier.",
+      "Start working with Online Marketing Help today and take the next step towards a website that supports your business goals.",
     ],
   },
 
   caseStudies: {
     eyebrow: "Case studies",
-    heading: "Websites we have built and what changed after launch.",
+    heading: "Web design projects and what changed after launch",
+  },
+
+  reviewsHeading: "What customers say about working with OMH",
+
+  finalCta: {
+    title: "Let's design the website your business actually needs.",
+    body: "Tell us what the website needs to do — sell, book, generate enquiries — and we will recommend the right approach, whether that is a custom build or professional theme customisation, with pricing that fits.",
   },
 
   seo: {
-    title: "Website Designs",
+    // Rendered as an absolute title: it already ends in "| OMH".
+    title: "Web Design Company UK | Business Website Design | OMH",
     description:
-      "Website designs and templates built with conversions in mind — custom builds and theme customisation for UK small businesses across construction, accountancy, legal, hospitality and ecommerce.",
+      "Looking for a UK web design company? OMH creates professional, conversion-focused websites for businesses, from custom WordPress builds to e-commerce websites. Book a free consultation.",
   },
 };

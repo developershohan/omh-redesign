@@ -5,6 +5,7 @@ import { SiteTestimonials } from "@/components/Testimonials";
 import { ServiceBand } from "@/components/services/ServiceBand";
 import { Button } from "@/components/ui/Button";
 import { FinalCta } from "@/components/ui/FinalCta";
+import { Eyebrow } from "@/components/ui/Proof";
 import { caseStudies } from "@/lib/content/case-studies";
 import { company } from "@/lib/content/nav";
 import { websiteDesigns as page } from "@/lib/content/website-designs";
@@ -35,10 +36,11 @@ export function WebsiteDesignsPage() {
       <ServiceBand label={page.title} tone="warm" accent={ACCENT} labelStyle={LABEL}>
         <div className="grid grid-cols-12 items-center gap-x-12 gap-y-11 max-lg:block">
           <div className="col-span-6">
-            <h1 className="font-sans text-display font-semibold text-balance">{page.title}</h1>
+            <h1 className="font-sans text-display font-semibold text-balance">{page.heading}</h1>
             <p className="mt-5 font-sans text-h3 font-semibold text-amber-deep text-balance">
               {page.standfirst}
             </p>
+            <p className="mt-5 max-w-[54ch] text-lead leading-relaxed text-ink/75">{page.lead}</p>
             <div className="mt-9 flex flex-wrap gap-3.5 max-sm:flex-col max-sm:items-stretch">
               <Button href="/omh-free-consultation" arrow data-event="website_designs_consultation_click">
                 {page.ctas.consultation}
@@ -62,9 +64,10 @@ export function WebsiteDesignsPage() {
         </div>
 
         <div className="mt-14 grid grid-cols-12 gap-x-12 gap-y-8 border-t border-line pt-12 max-lg:block">
-          <h2 className="col-span-5 font-sans text-h3 font-semibold text-balance">
-            {page.statHeading}
-          </h2>
+          <div className="col-span-5">
+            <Eyebrow>{page.statEyebrow}</Eyebrow>
+            <h2 className="mt-5 font-sans text-h3 font-semibold text-balance">{page.statHeading}</h2>
+          </div>
           <div className="col-span-6 col-start-7 max-lg:mt-8">
             {page.intro.map((paragraph) => (
               <p key={paragraph} className="mt-5 text-body leading-relaxed text-ink/75 first:mt-0">
@@ -267,12 +270,18 @@ export function WebsiteDesignsPage() {
         </div>
       </ServiceBand>
 
-      <SiteTestimonials eventPrefix="website_designs" tone="white" accent={ACCENT} labelStyle={LABEL} />
+      <SiteTestimonials
+        eventPrefix="website_designs"
+        title={page.reviewsHeading}
+        tone="white"
+        accent={ACCENT}
+        labelStyle={LABEL}
+      />
 
       <FinalCta
-        title="Let's design the site your business actually needs."
+        title={page.finalCta.title}
         titleAccent="your business actually needs."
-        body="Tell us what the website has to do — sell, book, generate enquiries — and we will recommend a custom build or a theme customisation, with the pricing that fits."
+        body={page.finalCta.body}
         primary={{ label: "Request a Website Quote", href: "/wordpress-development-request-quote", event: "website_designs_final_quote_click" }}
         secondary={{ label: "Book a Free Consultation", href: "/omh-free-consultation", event: "website_designs_final_consultation_click" }}
         contactEvents={{ phone: "website_designs_phone_click", email: "website_designs_email_click" }}
