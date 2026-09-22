@@ -50,12 +50,6 @@ export function SiteSearch({ entries }: { entries: SearchEntry[] }) {
       >
         <Search className="size-[18px]" aria-hidden />
         <span className="sr-only">Search the site</span>
-        <kbd
-          aria-hidden
-          className="rounded border border-line px-1.5 py-0.5 font-sans text-[14px] font-semibold tracking-wide max-2xl:hidden"
-        >
-          ⌘K
-        </kbd>
       </button>
 
       <dialog

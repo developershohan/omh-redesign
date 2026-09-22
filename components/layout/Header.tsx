@@ -174,7 +174,8 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
         </nav>
 
         <div className="ml-auto flex shrink-0 items-center gap-2 lg:ml-3 xl:ml-6">
-          {/* Seven top-level items leave no room for the number until 2xl; it
+          {/* The nav leaves no room for the number until 2xl, and even there only
+              because search stays icon-only (the container caps at 1344px). It
               is still in the mobile menu and the footer. The CTA is the primary
               action, so it keeps its space. */}
           <span className="max-2xl:hidden">
@@ -189,7 +190,11 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
           <ThemeToggle />
           <span className="max-md:hidden">
             <Button href="/contact" small className="whitespace-nowrap max-xl:px-3.5">
-              Book a Growth Consultation
+              {/* With the desktop nav, the full label only fits from ~1330px: at
+                  1024 it pushed the header 65px past its container and the page
+                  scrolled sideways. Below 1360 the short label keeps some slack. */}
+              <span className="lg:max-[1360px]:hidden">Book a Growth Consultation</span>
+              <span className="hidden lg:max-[1360px]:inline">Book a Call</span>
             </Button>
           </span>
 
