@@ -17,7 +17,7 @@ import { SiteTestimonials } from "@/components/Testimonials";
 export const metadata: Metadata = {
   title: "Amazon PPC Advertising Agency UK",
   description:
-    "Amazon PPC management for UK sellers, covering Sponsored Products, Sponsored Brands, Sponsored Display, Amazon DSP, listing recommendations and reporting.",
+    "A UK Amazon PPC agency managing Sponsored Products, Brands, Display and DSP, with tight control of ad spend, search terms and attributed sales.",
   alternates: {
     canonical: "https://onlinemarketinghelp.co.uk/amazon-ppc-advertising-agency-uk/",
   },

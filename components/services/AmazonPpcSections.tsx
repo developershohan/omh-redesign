@@ -40,9 +40,13 @@ export function AmazonPpcHero() {
         <div className="grid grid-cols-12 items-center gap-x-12 gap-y-12 max-lg:block">
           <Reveal className="col-span-7 max-lg:mb-12">
             <Eyebrow>{content.hero.eyebrow}</Eyebrow>
-            <h1 className="mb-6 mt-7 max-w-[19ch] font-sans text-h1 font-semibold text-balance">
-              Amazon PPC built around <span className="text-amber-deep">products, profit and control</span>
+            <h1 className="mt-7 max-w-[19ch] font-sans text-h1 font-semibold text-balance">
+              {/* &nbsp; keeps "UK Sellers" on one line so the keyword phrase never splits. */}
+              Amazon PPC Advertising Agency for UK&nbsp;Sellers
             </h1>
+            <p className="mb-6 mt-4 max-w-[30ch] font-sans text-h3 font-semibold text-balance">
+              Amazon PPC built around <span className="text-amber-deep">products, profit and control</span>
+            </p>
             <p className="mb-9 max-w-[58ch] text-lead leading-relaxed text-ink/75">{content.hero.body}</p>
             <div className="flex flex-wrap gap-3.5 max-sm:flex-col max-sm:items-stretch">
               <Button href={content.hero.primary.href} arrow data-event="amazon_hero_cta_click">{content.hero.primary.label}</Button>
@@ -60,7 +64,7 @@ export function AmazonPpcHero() {
           <Reveal className="col-span-5">
             <Pointer>
               <div className="pointer-parallax">
-                <MediaFrame kind="screen" theme="amazon" ratio="16/11" title="Amazon advertising account view" note="Replace with an approved, anonymised account showing date range, spend and attributed sales." source="/images/Services/Amazon PPC 1 (1).png" alt="An Amazon PPC account diagnosis open on a laptop while printed performance charts are reviewed alongside it." />
+                <MediaFrame kind="screen" theme="amazon" ratio="16/11" title="Amazon advertising account view" note="Replace with an approved, anonymised account showing date range, spend and attributed sales." source="/images/Services/Amazon PPC 1 (1).png" alt="Amazon PPC agency reviewing an account diagnosis on a laptop beside printed performance charts" />
               </div>
             </Pointer>
             <div className="mt-6 flex flex-wrap gap-2.5 border-t border-line pt-5">
@@ -81,7 +85,7 @@ export function AmazonAccountDiagnosis() {
         <div className="grid grid-cols-12 gap-x-12 gap-y-9 max-lg:block">
           <div className="col-span-4 max-lg:mb-9">
             <p className="text-[14px] font-semibold uppercase tracking-[0.15em] text-amber-deep">Is the account learning?</p>
-            <h2 className="mt-5 max-w-[14ch] font-sans text-h2 font-semibold">Six signs Amazon advertising needs attention.</h2>
+            <h2 className="mt-5 max-w-[14ch] font-sans text-h2 font-semibold">Six signs your Amazon PPC account needs attention</h2>
             <p className="mt-5 max-w-[42ch] text-body leading-relaxed text-ink/70">Dozens of tasks sit under Amazon PPC. This diagnosis groups them around the problems a seller can actually recognise.</p>
             <div className="mt-8"><TextLink href="/contact" data-event="amazon_account_review_click">Request an account review</TextLink></div>
           </div>
@@ -105,7 +109,10 @@ export function AmazonCampaignMap() {
     <SectionShell label="Advertising formats" dark>
       <Reveal>
         <div className="flex items-end justify-between gap-10 max-lg:block">
-          <h2 className="max-w-[18ch] font-sans text-h2 font-semibold">A campaign mix shaped around the shopper journey.</h2>
+          <div>
+            <h2 className="max-w-[18ch] font-sans text-h2 font-semibold">The Amazon PPC campaign types we manage</h2>
+            <p className="mt-4 font-serif text-[20px] leading-snug text-oninverse/85">A campaign mix shaped around the shopper journey.</p>
+          </div>
           <p className="max-w-[48ch] text-body leading-relaxed text-oninverse/65 max-lg:mt-5">Four Amazon advertising formats. Availability and suitability depend on account eligibility, catalogue, brand registration, creative and budget.</p>
         </div>
         <div className="mt-12 grid grid-cols-12 gap-5">
@@ -136,7 +143,8 @@ export function AmazonProcess() {
       <Reveal>
         <div className="grid grid-cols-12 gap-x-10 gap-y-9 max-lg:block">
           <div className="col-span-4 max-lg:mb-9">
-            <h2 className="max-w-[14ch] font-sans text-h2 font-semibold">From catalogue context to controlled optimisation.</h2>
+            <h2 className="max-w-[14ch] font-sans text-h2 font-semibold">How our Amazon PPC management works</h2>
+            <p className="mt-4 max-w-[30ch] font-serif text-[20px] leading-snug text-ink/85">From catalogue context to controlled optimisation.</p>
             <p className="mt-5 max-w-[42ch] text-body leading-relaxed text-ink/70">Each stage should end with a decision, not another page of unexplained metrics.</p>
           </div>
           <ol className="col-span-8 grid grid-cols-2 gap-x-8 max-md:grid-cols-1">
@@ -192,7 +200,7 @@ export function AmazonPricing() {
       <div className="container-omh section-md" data-event="amazon_pricing_view">
         <Reveal>
           <div className="grid grid-cols-12 items-end gap-x-10 gap-y-7 max-lg:block">
-            <div className="col-span-7"><Eyebrow>Published Amazon PPC packages</Eyebrow><h2 className="mt-6 max-w-[18ch] font-sans text-h2 font-semibold">Four tiers with the detail available on demand.</h2></div>
+            <div className="col-span-7"><Eyebrow>Published Amazon PPC packages</Eyebrow><h2 className="mt-6 max-w-[18ch] font-sans text-h2 font-semibold">Amazon PPC management packages and pricing</h2><p className="mt-4 font-serif text-[20px] leading-snug text-ink/85">Four tiers with the detail available on demand.</p></div>
             <p className="col-span-5 text-body leading-relaxed text-ink/70 max-lg:mt-5">Core figures stay visible; full inclusions expand inside each card, keeping the page easier to scan without dropping the original package content.</p>
           </div>
           <div className="mt-12 grid grid-cols-4 gap-5 max-xl:grid-cols-2 max-sm:grid-cols-1">

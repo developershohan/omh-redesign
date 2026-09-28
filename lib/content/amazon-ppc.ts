@@ -1,7 +1,7 @@
 export const amazonPpc = {
   hero: {
-    eyebrow: "Amazon PPC Advertising Agency for UK Sellers",
-    body: "Amazon advertising management for brands that need tighter control of search terms, bids, product targeting and the relationship between ad spend and attributed sales. We plan, build and optimise campaigns alongside the listings shoppers actually reach.",
+    eyebrow: "UK Amazon Advertising Management",
+    body: "We are a UK Amazon PPC agency for brands that want tighter control of search terms, bids, product targeting and the link between ad spend and attributed sales. We plan, build and optimise Sponsored Products, Sponsored Brands, Sponsored Display and Amazon DSP campaigns alongside the listings shoppers actually reach.",
     primary: { label: "Discuss Your Amazon Ads", href: "/contact" },
     secondary: { label: "Compare Packages", href: "#packages" },
   },
@@ -135,12 +135,14 @@ export const amazonPpc = {
   ],
   faqs: [
     ["What is Amazon PPC, and why appoint a UK Amazon PPC agency?", "Amazon PPC is advertising charged when an eligible shopper clicks an advert. A specialist agency can structure campaigns, manage bids and search terms, and explain performance, while your business retains responsibility for products, pricing, stock and commercial decisions."],
+    ["How much does an Amazon PPC agency cost in the UK?", "Our published Amazon PPC packages start at £750 with required ad spend from £500, rising to £3,300 for the largest tier. Amazon advertising spend is charged separately by Amazon. Confirm included hours, contract length and whether VAT applies in writing before you begin."],
     ["How long does it take to see results from Amazon PPC campaigns?", "Ads may gain visibility quickly after approval, but a reliable optimisation view takes longer. Allow roughly two to three months for meaningful learning. The actual period depends on demand, conversion volume, budget and catalogue readiness."],
     ["How do you reduce wasted Amazon ad spend?", "Typical controls include search-term reviews, negative keywords, product-target refinement, bid and placement adjustments, budget allocation and clearer campaign separation. Changes should be judged against enough data and the agreed commercial goal."],
     ["Which Amazon ad campaign types can you manage?", "We manage Sponsored Products, Sponsored Brands, Sponsored Display and advanced Amazon DSP activity. The appropriate mix depends on eligibility, catalogue, brand registration, creative, audience, budget and measurement requirements."],
     ["Will I have a dedicated account manager?", "The published package table includes an account manager at every tier and monthly meetings. Confirm contact arrangements, response times and what is included in writing before the work begins."],
     ["How do you measure Amazon campaign success?", "Reporting can include attributed sales, spend, ACoS, ROAS, conversion rate and new-to-brand measures where available. These should be interpreted alongside margin, stock, price, organic sales and the attribution window rather than in isolation."],
     ["Can you help with advanced strategies such as Amazon DSP?", "Yes — Amazon DSP and strategic insight work are in scope. Suitability, platform access, minimums, audience availability, creative production and measurement must be confirmed during scoping."],
+    ["What should I look for in the best Amazon PPC agency in the UK?", "Look for clear campaign structure, active search-term and negative-keyword management, listing input, and reporting that connects ad spend to attributed sales rather than a single efficiency figure. Ask for an approved Amazon case study, current credentials and a written scope before relying on any performance claim."],
     ["Why choose Online Marketing Help for Amazon PPC?", "The service combines campaign management, listing recommendations, research, analytics and reporting in published packages. Ask for an approved Amazon case study, current credentials and a written scope before relying on any performance claim."],
     ["I am new to selling on Amazon. Can you still help?", "Yes, subject to fit. A new seller may need catalogue, listing, operational and measurement foundations before advertising can be scaled responsibly, so the first recommendation may be to prepare those areas."],
   ],

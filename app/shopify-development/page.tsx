@@ -60,7 +60,7 @@ export default function ShopifyDevelopmentPage() {
             body: "Review the WordPress route when content, service pages or WooCommerce are a stronger platform fit.",
           },
           {
-            title: "Amazon PPC Advertising",
+            title: "Amazon PPC Management",
             href: "/amazon-ppc-advertising-agency-uk",
             body: "Connect an owned Shopify store with product advertising and demand inside the Amazon marketplace.",
           },

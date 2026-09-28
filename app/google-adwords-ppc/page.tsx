@@ -38,7 +38,7 @@ const relatedServices = [
     body: "Prepare product pages, checkout journeys and store foundations for Shopping traffic.",
   },
   {
-    title: "Amazon PPC Advertising",
+    title: "Amazon PPC Management",
     href: "/amazon-ppc-advertising-agency-uk",
     body: "Extend paid acquisition into the Amazon marketplace with product, keyword and audience campaigns.",
   },
