@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "@/components/ui/Button";
 import { company, footerCols, legalLinks } from "@/lib/content/nav";
@@ -51,12 +52,7 @@ export function Footer() {
             not five. */}
         <div className="grid grid-cols-12 gap-x-8 gap-y-12 py-14 max-lg:grid-cols-2 max-sm:grid-cols-1">
           <div className="col-span-4 max-lg:col-span-full">
-            <p className="font-sans text-[21px] font-bold leading-none tracking-tight">
-              OMH<i className="not-italic text-amber">.</i>
-            </p>
-            <p className="mt-2 text-[14px] uppercase tracking-[0.14em] text-oninverse/50">
-              {company.name}
-            </p>
+            <Image src="/images/logo-white.png" alt={company.name} width={180} height={44} className="h-auto w-[180px]" />
             <p className="mt-5 max-w-[38ch] text-body leading-relaxed text-oninverse/62">
               {company.positioning}
             </p>

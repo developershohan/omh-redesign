@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* `dark:` follows the site toggle (<html data-theme>), not the OS setting. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 /*
   OMH design tokens — single source of truth (brief §15–§18).
   Everything below maps 1:1 to future Elementor global tokens:

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -78,16 +79,11 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
           scrolled ? "h-[68px]" : "h-[84px]"
         }`}
       >
-        <Link href="/" aria-label="Online Marketing Help — home" className="flex shrink-0 flex-col gap-px">
-          <b className="font-sans text-[21px] font-bold tracking-tight leading-none">
-            OMH<i className="not-italic text-amber">.</i>
-          </b>
-          {/* The strapline is the widest part of the lockup. Between the
-              desktop nav appearing (1024px) and ~1200px there is no room for it
-              alongside seven nav items and the CTA, so only the wordmark shows. */}
-          <span className="text-[10.5px] uppercase tracking-[0.14em] text-muted max-[1200px]:hidden max-lg:block">
-            Online Marketing Help
-          </span>
+        {/* Sized by width: the two exports differ in proportion, so matching
+            widths keeps the strapline the same size in both themes. */}
+        <Link href="/" aria-label="Online Marketing Help — home" className="shrink-0">
+          <Image src="/images/logo-dark.png" alt="" width={140} height={44} priority className="h-auto w-[140px] dark:hidden" />
+          <Image src="/images/logo-white.png" alt="" width={140} height={35} priority className="hidden h-auto w-[140px] dark:block" />
         </Link>
 
         <nav aria-label="Primary" className="ml-auto flex items-center gap-0.5 max-lg:hidden xl:gap-1">
