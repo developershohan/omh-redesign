@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
 import { SocialLandingPage } from "@/components/SocialLandingSections";
+import { ServiceJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Facebook Marketing Agency",
+  title: "Facebook Marketing Agency UK",
   description:
-    "Social media marketing for businesses: SMM and SMO support that grows brand awareness, engagement and traffic across your social channels.",
+    "Facebook marketing agency for UK businesses. Page management, content creation, Facebook Ads and community growth by a dedicated team. Book a free consultation.",
   alternates: { canonical: "https://onlinemarketinghelp.co.uk/facebook-marketing-agency/" },
 };
 
 export default function FacebookMarketingPage() {
-  return <SocialLandingPage variant="facebook" event="facebook_marketing" />;
+  return (
+    <>
+      <ServiceJsonLd path="/facebook-marketing-agency" />
+      <SocialLandingPage variant="facebook" event="facebook_marketing" />
+    </>
+  );
 }

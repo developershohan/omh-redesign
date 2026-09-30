@@ -3,8 +3,8 @@
 //
 // The two live pages are byte-for-byte the same content (Elementor page IDs
 // 12307 and 12309 render an identical template with identical copy), so one
-// content object serves both routes and the pages differ only in title,
-// description and canonical.
+// content object is the verbatim base. Each route now spreads its own SEO
+// rewrite over it (`instagramLanding`, `facebookLanding` below).
 //
 // Only line-break normalisation was applied: the "packages" notes are one
 // sentence flow that Elementor splits across five <p> tags mid-clause. The
@@ -195,8 +195,7 @@ export const socialLanding = {
 } as const;
 
 // /instagram-marketing-agency carries the SEO rewrite from the Instagram
-// implementation guide (29 Sep 2026); /facebook-marketing-agency keeps the
-// verbatim copy above, so the two routes no longer share every string.
+// implementation guide (29 Sep 2026), spread over the verbatim copy above.
 export const instagramLanding = {
   ...socialLanding,
   title: "Instagram Marketing Agency for UK Businesses",
@@ -330,5 +329,160 @@ export const instagramLanding = {
     ...socialLanding.consultation,
     title: "Ready to Grow Your Business on Instagram?",
     accent: "on Instagram?",
+  },
+} as const;
+
+// /facebook-marketing-agency carries the SEO rewrite from its implementation
+// guide (28 Sep 2026). Not applied from that guide: the case-study heading and
+// the reviews sub-heading, which would present the existing (non-Facebook)
+// case studies and testimonials as Facebook results.
+export const facebookLanding = {
+  ...socialLanding,
+  title: "Facebook Marketing Agency for Growing UK Businesses",
+  standfirst:
+    "We are a Facebook marketing agency that helps UK businesses get more from their Facebook presence. Our team handles page management, content creation, Facebook Ads campaigns and community engagement so your Facebook channel drives real enquiries and revenue.",
+  ctas: { consultation: "Discuss Facebook Marketing", pricing: "View Facebook Packages" },
+
+  goals: {
+    ...socialLanding.goals,
+    title: "Defining Your Facebook Marketing Goals",
+    body: "Facebook marketing covers a wide range of activities: organic posts, Stories, Reels, Facebook Ads, group management, Messenger outreach and community engagement. Before launching a Facebook marketing campaign, your goals need to be clear. A Facebook marketing agency starts every project by asking four questions about what you want Facebook to achieve for your business.",
+    questions: [
+      "What do you want Facebook to deliver for your business: leads, sales, brand awareness or community?",
+      "Who is your ideal customer, and are they active on Facebook?",
+      "Are you looking for organic reach, paid Facebook Ads, or both?",
+      "What budget and timeline are you working with?",
+    ],
+    didYouKnow: {
+      ...socialLanding.goals.didYouKnow,
+      body: "Facebook has over 3 billion monthly active users worldwide, making it the largest social media platform by a wide margin. In the UK, 44 million people use Facebook, with the 25-44 age group representing the largest share of business decision-makers on the platform.",
+    },
+  },
+
+  help: {
+    ...socialLanding.help,
+    title: "Facebook Marketing Services We Offer",
+    intro:
+      "Everything your business needs from a dedicated Facebook marketing company, handled by our in-house team of Facebook marketing experts.",
+    items: [
+      {
+        term: "Facebook content creation",
+        body: "We write and design Facebook posts, Stories and Reels that reflect your brand and speak to your audience. Each piece of content is planned around your goals, whether that is driving traffic to your website, generating comments and shares, or promoting a product launch. Your Facebook marketing expert builds a content calendar so posting is consistent and aligned to your wider marketing activity.",
+      },
+      {
+        term: "Facebook Ads management",
+        body: "We set up, manage and optimise Facebook Ads campaigns across every objective: awareness, traffic, leads and conversions. Our Facebook ads marketing agency team handles audience building with Custom Audiences and Lookalike Audiences, ad creative design, A/B testing, budget allocation and ROAS reporting. You get a clear picture of what every pound spent returns.",
+      },
+      {
+        term: "Facebook page setup and branding",
+        body: "Your Facebook Business Page is often the first impression a potential customer has of your business. We set up or refresh your page with professional cover photos, profile images, a complete About section, call-to-action buttons, service listings and contact details. Everything is consistent with your website and other marketing materials.",
+      },
+      {
+        term: "Facebook page optimisation",
+        body: "We audit your existing Facebook presence and identify what is holding back your reach, engagement and conversions. This covers posting frequency, content mix, audience targeting, page settings, response times and how your Facebook activity connects to your website. Our Facebook marketing agency then builds a plan to fix the gaps and track improvements month over month.",
+      },
+      {
+        term: "Facebook account audit",
+        body: "If you already have a Facebook Business Page but are not seeing results, our audit identifies what is working and what needs to change. We review your page completeness score, posting history, engagement rates, audience demographics, ad account structure and Pixel setup. You receive a written report with prioritised recommendations that you can act on yourself or hand back to us to implement.",
+      },
+      {
+        term: "Facebook community management",
+        body: "We monitor and respond to comments, messages and reviews on your Facebook page in your brand voice. This includes Facebook Messenger enquiries, comment replies, review responses and Facebook Group moderation if your business runs a group. Our team flags time-sensitive issues to you directly and handles routine interactions so your page stays active and responsive without eating into your working day.",
+      },
+    ],
+  },
+
+  smallBusiness: {
+    label: "Small business",
+    title: "Facebook Marketing for Small Business",
+    intro: "A Facebook marketing agency for small business owners who need results without the enterprise price tag.",
+    body: [
+      "Most Facebook marketing companies price their services for mid-size and enterprise clients. Small businesses get left with a choice between expensive agency retainers and trying to manage Facebook themselves alongside everything else they do.",
+      "Our Facebook marketing agency was built around small business needs. We keep packages affordable, communication direct, and reporting focused on the numbers that matter to a business owner: enquiries, website visits and cost per lead. Whether you are a local service business, an online shop, or a B2B company, your Facebook marketing plan is built around your budget and your goals.",
+      "We work with small businesses across the UK, from sole traders to teams of 20-30 people. If you need a Facebook marketing firm that treats your account with the same attention as a bigger client, that is how we operate.",
+    ],
+  },
+
+  media: { title: "How We Report on Your Facebook Marketing" },
+
+  packages: {
+    ...socialLanding.packages,
+    title: "Facebook Marketing Packages and Pricing",
+    subtitle:
+      "Our Facebook marketing packages are designed for small and medium UK businesses that want professional Facebook management without a long-term lock-in. Each package includes content creation, scheduling, community management and monthly reporting.",
+    notes: [
+      "If you do not have established brand guidelines, we can help develop them as a separate project. Your account manager will discuss the options during your onboarding call.",
+      "All packages run on a minimum three-month term. Creative assets include one round of revisions, and content is optimised specifically for the Facebook platform.",
+    ],
+  },
+
+  guarantee: {
+    ...socialLanding.guarantee,
+    title: "Our Facebook Marketing Agency Guarantee",
+    body: [
+      "We are confident in the results our Facebook marketing agency delivers. Our experience managing Facebook campaigns for UK businesses gives us the confidence to back our work. To make the decision to work with us easier, our CEO offers a money-back guarantee on our Facebook marketing services.",
+      "Start working with Online Marketing Help today and let us put Facebook to work for your business.",
+    ],
+  },
+
+  resources: {
+    ...socialLanding.resources,
+    // Not in the guide: the verbatim line said "Social Media Marketing", which the
+    // guide asks to remove from this page.
+    subtitle: "Landed here because you want more information about Facebook marketing. Well look no further.",
+    items: [
+      {
+        term: "Monthly consultations",
+        body: "Your Facebook marketing account manager provides a monthly consultation call covering what has been achieved, where your objectives stand and whether the campaign is meeting or exceeding them. You are welcome to get in touch between calls, but monthly calls give us enough data to provide a meaningful overview. The longer we manage your Facebook marketing, the more we can optimise content, targeting and ad spend based on what the data shows.",
+      },
+      {
+        term: "Transparent monthly reports",
+        body: "Your monthly Facebook marketing report is tailored to the goals you set with your account manager. It covers page growth, post engagement, reach, website clicks, ad performance (if running Facebook Ads) and any community management activity. If you want deeper detail on a specific area, your account manager can expand that section for the following month.",
+      },
+    ],
+  },
+
+  reviews: {
+    ...socialLanding.reviews,
+    title: "Why Businesses Choose Us as the Best Facebook Marketing Agency",
+  },
+
+  faq: {
+    ...socialLanding.faq,
+    title: "Facebook Marketing Agency FAQs",
+    subtitle: "Common questions about working with a Facebook marketing agency.",
+    items: [
+      { q: "What Facebook marketing services do you offer?", a: "We provide a complete range of Facebook marketing services for UK businesses: Facebook Business Page setup and optimisation, content creation and scheduling (posts, Stories, Reels), Facebook Ads campaign management, audience building with Custom and Lookalike Audiences, community management and Messenger responses, Facebook Shop setup, and monthly performance reporting. Each service can be booked individually or as part of a managed Facebook marketing package." },
+      { q: "How long will it take to see results from Facebook marketing?", a: "Organic Facebook marketing typically shows measurable engagement improvements within four to eight weeks. Building a consistent following and driving regular traffic to your website usually takes three to six months. Facebook Ads campaigns can generate clicks, leads and enquiries within days of launching, with optimisation improving results over the first two to four weeks. We set benchmarks at the start of every engagement and track progress against them monthly." },
+      { q: "How much does a Facebook marketing agency charge?", a: "Our Facebook marketing packages start at an affordable entry-level price for small businesses. Pricing depends on the scope of work: organic-only packages (content creation, scheduling, community management) cost less than packages that include Facebook Ads management. Your account manager will recommend the right package based on your goals, budget and the number of services you need. Contact us for a detailed breakdown." },
+      { q: "What kind of content do you create for Facebook?", a: "We create a mix of content types tailored to your audience and goals: branded graphic posts, short-form video (Reels), photo carousels, Facebook Stories, text updates, polls and event promotions. Every post includes a clear call to action and is designed for the Facebook algorithm, which prioritises content that generates comments and shares. Before anything goes live, we send it for your review and approval." },
+      { q: "Can I review Facebook content before you post it?", a: "Yes. We send all Facebook content for your approval before scheduling. You see the post copy, images or video, hashtags and the proposed posting time. Once you approve, we schedule using Meta Business Suite and confirm it is live. If you want changes, we revise and resubmit." },
+      { q: "Will you provide Facebook marketing reports?", a: "Yes. Every Facebook marketing package includes a monthly report covering page followers, post reach and engagement, website clicks from Facebook, ad spend and ROAS (if running Facebook Ads), and community management activity. The report is built around the goals you set at the start, so you can see clearly whether your Facebook marketing is delivering." },
+      { q: "Do you manage Facebook Ads as well as organic content?", a: "Yes. Our Facebook marketing agency handles both organic Facebook content and paid Facebook Ads campaigns. Many of our clients start with organic content management and add Facebook Ads once their page is established and generating engagement. We can run both from the start if your goals require faster results. The organic content and paid campaigns are managed together to make sure messaging is consistent and the two approaches support each other." },
+      { q: "What Facebook advertising formats do you support?", a: "We create and manage Facebook Ads across all available formats: single image ads, video ads, carousel ads, collection ads, lead generation forms and Messenger ads. We also set up remarketing campaigns using the Facebook Pixel to reach people who have already visited your website. The right format depends on your campaign objective. Your Facebook marketing expert will recommend the best combination for your budget and goals." },
+      { q: "How do you build a Facebook audience for my business?", a: "We start by reviewing your existing Facebook audience and customer data. From there, we build Custom Audiences from your customer lists, website visitors (via the Facebook Pixel) and people who have engaged with your Facebook page or ads. We then create Lookalike Audiences to find new potential customers who match your existing buyers. Organic content is designed to encourage shares and comments, which extends your reach beyond the people who already follow your page." },
+      { q: "Can I request additional Facebook posts or services?", a: "Yes. We can adjust your package at any time. If you need more posts, additional Facebook Ads campaigns, a Facebook Group setup, or expanded community management, your account manager will prepare a custom proposal. Many of our Facebook marketing clients start with a standard package and scale up as they see results." },
+      { q: "How do I choose the best Facebook marketing agency?", a: "Look for an agency that manages both organic content and Facebook Ads, provides transparent monthly reporting tied to your goals, and has experience with businesses similar to yours. Ask about their pricing structure, minimum contract length, and whether you will have a dedicated account manager. A good Facebook marketing company will show you case studies or results from previous clients and be upfront about what is realistic for your budget." },
+      { q: "Is Facebook marketing worth it for small businesses?", a: "Yes. Facebook remains the largest social media platform, with 44 million UK users. For small businesses, Facebook marketing offers a low entry cost, precise audience targeting and the ability to reach local customers through location-based ads and community pages. Our Facebook marketing agency for small business clients typically sees measurable results within the first three months of a structured campaign. The key is having a clear strategy and consistent execution, which is what our packages are designed to provide." },
+      { q: "What is the difference between a Facebook marketing agency and managing Facebook yourself?", a: "A Facebook marketing agency brings three things that are hard to replicate in-house: platform expertise, creative capacity and time. Our Facebook marketing experts stay current with algorithm changes, ad policy updates and new features. We produce professional content consistently, without the stop-start pattern that happens when Facebook is managed alongside other business tasks. And we handle the daily monitoring, replies and reporting that keep a Facebook presence active. For most small and medium businesses, the cost of an agency is lower than hiring a dedicated in-house social media manager." },
+    ],
+  },
+
+  solutions: {
+    ...socialLanding.solutions,
+    title: "Services That Work Alongside Facebook Marketing",
+    subtitle: "Get more from your Facebook marketing by connecting it to your wider online presence.",
+    links: [
+      { label: "Social Media Marketing Services", href: "/social-media-marketing", body: "For businesses that want management across Facebook, Instagram, LinkedIn and X/Twitter rather than Facebook alone." },
+      { label: "Social Media Paid Advertising", href: "/social-media-paid-advertising", body: "For businesses that want paid ad campaigns across multiple social platforms, not just Facebook Ads." },
+      { label: "SEO Services", href: "/best-seo-services", body: "For businesses that want to combine Facebook traffic with organic search visibility." },
+    ],
+  },
+
+  consultation: {
+    ...socialLanding.consultation,
+    title: "Ready to Work with a Facebook Marketing Agency?",
+    accent: "a Facebook Marketing Agency?",
+    body: "Book a call at a time that suits you, or get in touch with the team directly. We start every Facebook marketing engagement with a review of your current Facebook presence and your business goals before recommending a plan.",
   },
 } as const;

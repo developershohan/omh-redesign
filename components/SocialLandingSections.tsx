@@ -10,14 +10,14 @@ import { FinalCta } from "@/components/ui/FinalCta";
 import { Eyebrow } from "@/components/ui/Proof";
 import { company } from "@/lib/content/nav";
 import { CheckIcon } from "@/components/services/ServicePrimitives";
-import { instagramLanding, socialLanding } from "@/lib/content/social-landing";
+import { facebookLanding, instagramLanding, socialLanding } from "@/lib/content/social-landing";
 
 /*
   /facebook-marketing-agency and /instagram-marketing-agency carry identical copy
   on the live site (Elementor 12307 and 12309), so the copy lives in one module
   and `variant` swaps section order, media composition and band rhythm.
-  Instagram now carries its SEO rewrite (`instagramLanding`) plus two extra
-  bands; Facebook keeps the verbatim copy.
+  Both routes now carry their own SEO rewrites (`instagramLanding`,
+  `facebookLanding`) spread over that verbatim base, each with extra bands.
 
   Scaffold rule: every section is a `ServiceBand` — symmetric vertical padding and
   a single label style. Mixing it with the margin-label `Section` was what caused
@@ -29,7 +29,7 @@ export type SocialVariant = "facebook" | "instagram";
 // One label treatment per page — the two must not share a heading bar.
 const labelStyle = (v: SocialVariant): ServiceBandLabel => (v === "instagram" ? "plain" : "dot");
 type V = { variant: SocialVariant; event: string };
-const content = (v: SocialVariant) => (v === "instagram" ? instagramLanding : socialLanding);
+const content = (v: SocialVariant) => (v === "instagram" ? instagramLanding : facebookLanding);
 
 function SocialHero({ variant, event }: V) {
   const insta = variant === "instagram";
@@ -239,6 +239,7 @@ function SocialHelp({ variant }: { variant: SocialVariant }) {
         <h2 className="max-w-[24ch] font-sans text-h2 font-semibold text-balance">
           {page.help.title}
         </h2>
+        <p className="mt-6 max-w-[62ch] text-lead leading-relaxed text-ink/75">{facebookLanding.help.intro}</p>
         <dl className="mt-11 border-t border-[#10243a]/15">
           {page.help.items.map((item) => (
             <div
@@ -294,7 +295,7 @@ function SocialMediaBand({ variant }: { variant: SocialVariant }) {
       <Reveal>
         <div className="grid grid-cols-12 items-end gap-x-12 gap-y-8 max-lg:block">
           <h2 className="col-span-5 max-w-[16ch] font-sans text-h2 font-semibold text-balance">
-            What the work actually looks like.
+            {facebookLanding.media.title}
           </h2>
           <p className="col-span-7 max-w-[52ch] text-body leading-relaxed text-oninverse/70 max-lg:mt-6">
             Content, ad creative and the reporting that shows what each post did.
@@ -538,9 +539,10 @@ function SocialFaq({ variant }: { variant: SocialVariant }) {
           </div>
         ) : (
           <>
-            <h2 className="mb-11 max-w-[20ch] font-sans text-h2 font-semibold text-balance">
+            <h2 className="max-w-[20ch] font-sans text-h2 font-semibold text-balance">
               {page.faq.title}
             </h2>
+            <p className="mb-11 mt-5 max-w-[58ch] text-body leading-relaxed text-ink/75">{facebookLanding.faq.subtitle}</p>
             <Accordion
               group="social-landing-faq"
               items={page.faq.items.map((item) => ({
@@ -569,6 +571,9 @@ function SocialSolutions({ variant, event }: V) {
         <h2 className="max-w-[20ch] font-sans text-h2 font-semibold text-balance">
           {page.solutions.title}
         </h2>
+        {!insta && (
+          <p className="mt-5 max-w-[58ch] text-body leading-relaxed text-ink/75">{facebookLanding.solutions.subtitle}</p>
+        )}
         <div className="mt-12 grid grid-cols-3 gap-6 max-md:grid-cols-2 max-sm:grid-cols-1">
           {page.solutions.links.map((link, i) =>
             insta ? (
@@ -594,6 +599,7 @@ function SocialSolutions({ variant, event }: V) {
                 <span className="mt-3 block font-sans text-h4 font-semibold transition-colors group-hover:text-amber-deep">
                   {link.label}
                 </span>
+                {"body" in link && <span className="mt-2.5 block text-body leading-relaxed text-ink/70">{link.body}</span>}
               </Link>
             ),
           )}
@@ -607,8 +613,8 @@ function SocialSolutions({ variant, event }: V) {
    goes to the paid-social quote form. The closing button used to repeat /pricing,
    which is already linked three times higher up the page. */
 const closingCta = {
-  facebook: { consultation: socialLanding.ctas.consultation, label: "Start the Facebook Ads Questionnaire", href: "/facebook-paid-ads-questionnaire" },
-  instagram: { consultation: "Book a Free Instagram Consultation", label: "Request an Instagram Ads Quote", href: "/social-media-paid-marketing-request-quote" },
+  facebook: { consultation: facebookLanding.ctas.consultation, body: facebookLanding.consultation.body, label: "Start the Facebook Ads Questionnaire", href: "/facebook-paid-ads-questionnaire" },
+  instagram: { consultation: "Book a Free Instagram Consultation", body: instagramLanding.standfirst, label: "Request an Instagram Ads Quote", href: "/social-media-paid-marketing-request-quote" },
 } as const;
 
 function SocialCta({ variant, event }: V) {
@@ -618,7 +624,7 @@ function SocialCta({ variant, event }: V) {
     <FinalCta
       title={page.consultation.title}
       titleAccent={page.consultation.accent}
-      body={page.standfirst}
+      body={quote.body}
       primary={{ label: quote.consultation, href: "/contact", event: `${event}_final_cta_click` }}
       secondary={{ label: quote.label, href: quote.href, event: `${event}_final_quote_click` }}
       contactEvents={{ phone: `${event}_footer_phone_click`, email: `${event}_footer_email_click` }}
@@ -626,7 +632,33 @@ function SocialCta({ variant, event }: V) {
   );
 }
 
-// Instagram-only bands from its SEO guide; the Facebook page has no equivalent copy.
+// Facebook-only band from its SEO guide.
+function FacebookSmallBusiness() {
+  const smb = facebookLanding.smallBusiness;
+  return (
+    <ServiceBand label={smb.label} id="small-business" tone="white" accent="bg-teal" labelStyle={labelStyle("facebook")}>
+      <Reveal>
+        <div className="grid grid-cols-12 gap-x-12 gap-y-8 max-lg:block">
+          <div className="col-span-5">
+            <h2 className="max-w-[16ch] font-sans text-h2 font-semibold text-balance">{smb.title}</h2>
+            <p className="mt-6 max-w-[30ch] font-serif text-[clamp(21px,1.7vw,28px)] leading-[1.32] text-ink/85">
+              {smb.intro}
+            </p>
+          </div>
+          <div className="col-span-7 max-lg:mt-8">
+            {smb.body.map((paragraph) => (
+              <p key={paragraph} className="mt-5 max-w-[62ch] text-body leading-relaxed text-ink/75 first:mt-0">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </div>
+      </Reveal>
+    </ServiceBand>
+  );
+}
+
+// Instagram-only bands from its SEO guide.
 function InstagramWhy() {
   const why = instagramLanding.why;
   return (
@@ -675,32 +707,14 @@ function InstagramProcess() {
   );
 }
 
-// Facebook only: Instagram's FAQPage comes from ServiceJsonLd in its route.
-function SocialFaqJsonLd() {
-  const mainEntity = socialLanding.faq.items.map((item) => ({
-    "@type": "Question",
-    name: item.q,
-    acceptedAnswer: { "@type": "Answer", text: item.a },
-  }));
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity }).replace(/</g, "\\u003c"),
-      }}
-    />
-  );
-}
-
 /* Band rhythm — no two adjacent sections share a ground:
-   facebook   warm → white → mist  → navy → warm  → white → warm(cases) → dark  → warm  → navy → white → warm → ink
+   facebook   warm → white → mist  → white(small business) → navy → warm  → white → warm(cases) → dark  → warm  → navy → white → warm → ink
    instagram  warm → dark  → white → warm  → white(why) → navy(how) → mist  → white → warm(cases) → warm* → white → dark → warm → mist → ink
    (*guarantee sits after the case-study band, which has its own border rules)  */
 export function SocialLandingPage({ variant, event }: V) {
   const v = { variant, event };
   return (
     <main>
-      {variant === "facebook" && <SocialFaqJsonLd />}
       <SocialHero {...v} />
       <SocialJumpNav event={event} />
       {variant === "instagram" ? (
@@ -717,6 +731,7 @@ export function SocialLandingPage({ variant, event }: V) {
         <>
           <SocialGoals variant={variant} />
           <SocialHelp variant={variant} />
+          <FacebookSmallBusiness />
           <SocialMediaBand variant={variant} />
           <SocialGetInTouch {...v} />
           <SocialPackages {...v} />

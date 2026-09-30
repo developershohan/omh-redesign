@@ -11,7 +11,7 @@ import { searchEngineOptimisation } from "@/lib/content/search-engine-optimisati
 import { localSeo } from "@/lib/content/local-seo";
 import { socialMediaMarketing } from "@/lib/content/social-media-marketing";
 import { socialMediaPaidAdvertising } from "@/lib/content/social-media-paid-advertising";
-import { instagramLanding } from "@/lib/content/social-landing";
+import { facebookLanding, instagramLanding } from "@/lib/content/social-landing";
 
 export const SITE = "https://onlinemarketinghelp.co.uk";
 
@@ -40,6 +40,13 @@ export const organisation = {
     addressCountry: "GB",
   },
   areaServed: { "@type": "Country", name: "United Kingdom" },
+  // Profiles as listed on the live thank-you page (lib/content/thank-you.ts).
+  sameAs: [
+    "https://www.facebook.com/onlinemarketinghelpuk/",
+    "https://www.instagram.com/onlinemarketinghelpuk/",
+    "https://www.linkedin.com/company/34580209/",
+    "https://twitter.com/MarketingHelp1",
+  ],
   // ponytail: no aggregateRating/review — brief §25 forbids it without real,
   // compliant reviews. Add only when the client supplies verified ones.
 };
@@ -100,6 +107,11 @@ const services: Record<string, { name: string; description: string; faqs: Faqs; 
     name: "Instagram Marketing",
     description: "Instagram marketing agency in Essex offering Reels content, paid Instagram ads, account management and analytics for UK businesses.",
     faqs: instagramLanding.faq.items,
+  },
+  "/facebook-marketing-agency": {
+    name: "Facebook Marketing Services",
+    description: "Facebook marketing agency for UK businesses covering page setup and optimisation, content creation, Facebook Ads management, community management and reporting.",
+    faqs: facebookLanding.faq.items,
   },
   "/wordpress-development": {
     name: "WordPress Development",

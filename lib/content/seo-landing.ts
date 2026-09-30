@@ -94,7 +94,7 @@ export const bestSeoServices: SeoLanding = {
   offering: {
     eyebrow: "We Offer",
     title: "SEO Services",
-    body: "Our professional services will drive relevant traffic, boost local leads & grow your business. [Contact us](/contact) to find out how.",
+    body: "Our professional services will drive relevant traffic, boost local leads & grow your business. [Contact us](/contact) to find out how. Combining SEO with [Facebook marketing services](/facebook-marketing-agency) creates a broader online presence, reaching potential customers through both search and social channels.",
   },
   checklist: {
     eyebrow: "SEO checklist",
