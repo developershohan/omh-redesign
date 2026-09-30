@@ -11,6 +11,7 @@ import { searchEngineOptimisation } from "@/lib/content/search-engine-optimisati
 import { localSeo } from "@/lib/content/local-seo";
 import { socialMediaMarketing } from "@/lib/content/social-media-marketing";
 import { socialMediaPaidAdvertising } from "@/lib/content/social-media-paid-advertising";
+import { instagramLanding } from "@/lib/content/social-landing";
 
 export const SITE = "https://onlinemarketinghelp.co.uk";
 
@@ -95,6 +96,11 @@ function faqSchema(faqs: Faqs) {
 // One row per service page, so name/description/FAQ markup stay in one place
 // instead of being restated in nine route files.
 const services: Record<string, { name: string; description: string; faqs: Faqs; offers?: readonly Offer[] }> = {
+  "/instagram-marketing-agency": {
+    name: "Instagram Marketing",
+    description: "Instagram marketing agency in Essex offering Reels content, paid Instagram ads, account management and analytics for UK businesses.",
+    faqs: instagramLanding.faq.items,
+  },
   "/wordpress-development": {
     name: "WordPress Development",
     description: "WordPress websites for UK businesses that need better structure, easier management, stronger performance and clearer conversion support.",

@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
 import { SocialLandingPage } from "@/components/SocialLandingSections";
+import { ServiceJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Instagram Marketing Agency",
+  title: { absolute: "Instagram Marketing Agency UK | Ads, Reels & Growth | OMH" },
   description:
-    "Social media marketing for businesses: SMM and SMO support that grows brand awareness, engagement and traffic across your social channels.",
+    "OMH is an Instagram marketing agency in Essex helping UK businesses grow with Reels, paid Instagram ads, carousels and account management. Free consultation.",
+  openGraph: { title: "Instagram Marketing Agency UK | Ads, Reels & Growth" },
   alternates: { canonical: "https://onlinemarketinghelp.co.uk/instagram-marketing-agency/" },
 };
 
 export default function InstagramMarketingPage() {
-  return <SocialLandingPage variant="instagram" event="instagram_marketing" />;
+  return (
+    <>
+      <ServiceJsonLd path="/instagram-marketing-agency" />
+      <SocialLandingPage variant="instagram" event="instagram_marketing" />
+    </>
+  );
 }

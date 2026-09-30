@@ -193,3 +193,142 @@ export const socialLanding = {
     accent: "Book A Call At A Time Convenient For You",
   },
 } as const;
+
+// /instagram-marketing-agency carries the SEO rewrite from the Instagram
+// implementation guide (29 Sep 2026); /facebook-marketing-agency keeps the
+// verbatim copy above, so the two routes no longer share every string.
+export const instagramLanding = {
+  ...socialLanding,
+  title: "Instagram Marketing Agency for UK Businesses",
+  subtitle: "Grow Your Brand on Instagram with Reels, Ads and Organic Strategy",
+  standfirst:
+    "We are an Instagram marketing agency that helps UK businesses turn Instagram into a genuine revenue channel. Our team builds Instagram ad campaigns, creates Reels and carousel content, manages your account day to day, and reports on what is actually working. Whether you need paid Instagram ads to drive leads or a consistent organic posting strategy to build your audience, we handle the lot.",
+  ctas: { consultation: "Get a Free Instagram Audit", pricing: "View Instagram Packages" },
+
+  creative: {
+    title: "Instagram Content Built for Every Format",
+    body: "Feed posts, Stories, Reels and carousels each have their own dimensions, pace and audience behaviour. We design every piece of Instagram content for the format it will appear in, so nothing looks cropped, rushed or recycled.",
+  },
+
+  goals: {
+    ...socialLanding.goals,
+    title: "DEFINING YOUR INSTAGRAM MARKETING GOALS",
+    body: "Instagram marketing covers everything from organic content (Reels, carousels, Stories, static posts) to paid Instagram ads and influencer partnerships. Before we build your Instagram strategy, we work out what success looks like for your business. Starting an Instagram campaign without a clear commercial goal behind it wastes budget and produces vanity metrics that do not convert.",
+    questions: [
+      "What commercial outcome do you want from Instagram: leads, sales, bookings or brand awareness?",
+      "Who is your target audience on Instagram, and what content format do they engage with most?",
+      "Are you looking for paid Instagram advertising, organic growth, or both?",
+      "Do you have existing Instagram content and brand assets we can build on?",
+    ],
+    didYouKnow: {
+      ...socialLanding.goals.didYouKnow,
+      body: "Instagram has over 2 billion monthly active users worldwide. In the UK alone, 35.1 million people use Instagram every month, and Reels now account for over 50% of time spent on the platform. For businesses, Instagram delivers 4x more interactions per follower than Facebook.",
+    },
+  },
+
+  help: {
+    ...socialLanding.help,
+    title: "Our Instagram Marketing Services",
+    items: [
+      {
+        term: "Instagram Reels and Content Creation",
+        body: "We plan, shoot and edit Instagram Reels, carousels and static posts that match your brand and speak to your audience. Every piece of content is designed for Instagram first, not resized from another platform. Our designers and editors produce scroll-stopping visuals that drive saves, shares and profile visits.",
+      },
+      {
+        term: "Instagram Ad Creative and Design",
+        body: "Our design team creates Instagram ad creative for Stories, Reels and feed placements. Every asset is built to Instagram’s specs, with proper safe zones, text overlay limits and aspect ratios. Whether you need a single campaign or an ongoing library of ad templates, we deliver creative that performs.",
+      },
+      {
+        term: "Instagram Profile and Bio Optimisation",
+        body: "Your Instagram profile is the first thing a potential customer sees. We optimise your bio with a clear value proposition, the right keywords and a strong call to action. We design a profile photo that is recognisable at thumbnail size and build a Highlights structure that works like a mini website for your brand.",
+      },
+      {
+        term: "Paid Instagram Ads Management",
+        body: "As an experienced Instagram ads agency, we build and manage paid campaigns across Stories, Reels, Explore and feed placements. We handle audience targeting, budget allocation, A/B testing of creative, and ongoing optimisation to bring your cost per lead or cost per sale down month on month. Every campaign is tied to a commercial goal, not just impressions.",
+      },
+      {
+        term: "Instagram Account Audit",
+        body: "Already posting but not seeing results? We carry out a full Instagram account audit covering your profile setup, content mix, posting frequency, hashtag strategy, engagement rate and follower quality. You get a written report with specific actions to fix what is underperforming, plus a benchmark against competitors in your sector.",
+      },
+      {
+        term: "Instagram Analytics and Reporting",
+        body: "We track every metric that matters: reach, engagement rate, follower growth, Story completion rate, Reel plays, link clicks and conversions. Each month you get a clear report showing what worked, what did not, and what we are changing for the next cycle. No jargon, no vanity metrics. Just the numbers that tell you whether Instagram is making your business money.",
+      },
+    ],
+  },
+
+  why: {
+    label: "Why OMH",
+    title: "Why Choose OMH as Your Instagram Marketing Agency",
+    body: [
+      "Businesses across the UK choose OMH as their Instagram marketing company because we do not treat Instagram as an afterthought bolted onto a wider social media retainer. Instagram is a standalone channel with its own algorithm, content formats and audience behaviour, and it deserves a dedicated strategy.",
+      "As an Instagram advertising agency based in Essex, we work with small and mid-sized businesses across the UK. We combine organic content (Reels, carousels, Stories) with paid Instagram advertising to build your audience and convert followers into customers.",
+    ],
+    points: [
+      "Dedicated Instagram strategist on every account, not a generalist managing five platforms at once",
+      "Content designed for Instagram first: proper aspect ratios, trending audio, native features like polls and stickers",
+      "Transparent monthly reporting tied to your commercial goals, not follower counts",
+      "Instagram ads management with clear ROAS targets and ongoing creative testing",
+      "UK-based team in Essex with direct access to your account manager by phone and email",
+    ],
+  },
+
+  process: {
+    label: "How it works",
+    title: "How Our Instagram Marketing Service Works",
+    steps: [
+      ["Instagram Audit and Strategy", "We start by reviewing your current Instagram account, competitor landscape and target audience. From there we build a strategy document covering content pillars, posting cadence, hashtag clusters and paid ad structure."],
+      ["Content Creation and Approval", "Our team creates Reels, carousels, Stories and static posts for the month ahead. Everything is sent to you for approval before it goes live. We handle the design, copywriting and scheduling."],
+      ["Publishing, Ads and Community Management", "We publish content at optimal times, launch and manage any paid Instagram ad campaigns, and handle community engagement (responding to comments and DMs in your brand voice)."],
+      ["Reporting and Optimisation", "Each month you receive a clear report showing reach, engagement, follower growth, ad spend and conversions. We use this data to refine the strategy for the following month. No long-term guesswork, just continuous improvement based on real numbers."],
+    ],
+  },
+
+  packages: {
+    ...socialLanding.packages,
+    title: "Instagram Marketing Packages for Growing Businesses",
+    // The guide's body copy, split at a sentence break into the band's intro and two notes.
+    subtitle:
+      "Our Instagram marketing packages include content creation, scheduling, community management and monthly reporting.",
+    notes: [
+      "Every piece of content is designed for Instagram and aligned with your brand. If you do not have brand guidelines in place, your account manager can walk you through setting those up as a separate project.",
+      "All Instagram creative comes with one round of revisions. We optimise content for each placement (feed, Stories, Reels) rather than posting the same asset everywhere. Packages run on a minimum three-month basis so we have enough time to test, learn and scale what works.",
+    ],
+    cta: "See Instagram Pricing",
+  },
+
+  caseStudies: {
+    title: "See the Work Behind the Results",
+    body: "Instagram, social and search projects we have delivered for UK businesses.",
+  },
+
+  guarantee: {
+    ...socialLanding.guarantee,
+    body: [
+      "We are confident in the results our Instagram marketing delivers. To show our faith in our team and process, our CEO offers a money-back guarantee to make your decision to work with us a little easier.",
+      "Start working with Online Marketing Help today and turn Instagram into a genuine growth channel for your business.",
+    ],
+  },
+
+  faq: {
+    ...socialLanding.faq,
+    items: [
+      { q: "What does an Instagram marketing agency actually do?", a: "An Instagram marketing agency handles everything your business needs on the platform: content strategy, Reels and carousel creation, paid Instagram ads, community management, analytics and reporting. At OMH, we assign a dedicated Instagram strategist to your account who builds a tailored plan, creates on-brand content, manages your ad campaigns and reports on results every month." },
+      { q: "How long does it take to see results from Instagram marketing?", a: "With paid Instagram ads, you can expect to see initial traffic and engagement within the first week. Meaningful conversion data typically builds over 4 to 6 weeks as we test audiences and creative. For organic Instagram growth, expect steady follower and engagement increases from month two onwards, with compounding results over 3 to 6 months." },
+      { q: "How many Instagram posts do you publish per week?", a: "This depends on your package. Most clients receive between 3 and 5 feed posts per week, plus daily Stories. Reels are typically produced 2 to 4 times per month. Your account manager will recommend a cadence based on your audience size, goals and budget." },
+      { q: "What kind of Instagram content do you create?", a: "We create Reels (short-form video), carousel posts (multi-image swipe posts), single-image feed posts, Stories and Story Highlights. Every piece is designed for Instagram natively, with proper dimensions, on-brand visuals and copy that includes a clear call to action and relevant hashtags. We send everything for your approval before publishing." },
+      { q: "Can I review Instagram content before it goes live?", a: "Yes. We send all content for your review and approval before scheduling. You will see the visual, caption, hashtags and posting time. Once approved, we schedule and publish everything. If you need changes, we include one round of revisions on all creative." },
+      { q: "How do you measure Instagram marketing success?", a: "We track the metrics that matter for your goals: reach, engagement rate, follower growth, Story completion rate, Reel plays, website clicks, leads and sales. You receive a monthly report with a plain-English summary of what worked, what underperformed and what we are adjusting. We also schedule a monthly call to walk through the numbers together." },
+      { q: "Do you manage paid Instagram ads as well as organic content?", a: "Yes. We are an Instagram ads agency as well as a content and management agency. We build, launch and optimise paid campaigns across Instagram Stories, Reels, Explore and feed placements. We handle audience targeting, budget pacing, creative testing and reporting. Organic content and paid ads work together in our strategy." },
+      { q: "How much does an Instagram marketing agency cost?", a: "Our Instagram marketing packages start from a level that works for small businesses and scale up depending on the volume of content, ad spend and level of account management you need. We offer transparent monthly pricing with no hidden fees. Get in touch for a custom quote based on your goals." },
+      { q: "Why should I hire an Instagram marketing agency instead of doing it in-house?", a: "Running Instagram well takes consistent content production, creative design, community management, ad management and analytics. Most small business owners do not have the time or the specialist tools to do all of that alongside running their business. An Instagram marketing company like OMH gives you a dedicated team that handles the full workload, stays on top of algorithm changes and applies what works across our other client accounts to yours." },
+      { q: "What Instagram services does OMH offer?", a: "We offer a full range of Instagram marketing services: content strategy, Reels and carousel creation, Instagram Stories, profile and bio optimisation, paid Instagram advertising, hashtag research, community management (comments and DMs), influencer collaboration support, Instagram Shopping setup, account audits and monthly analytics reporting." },
+    ],
+  },
+
+  consultation: {
+    ...socialLanding.consultation,
+    title: "Ready to Grow Your Business on Instagram?",
+    accent: "on Instagram?",
+  },
+} as const;

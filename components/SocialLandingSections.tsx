@@ -9,12 +9,15 @@ import { Accordion } from "@/components/ui/Accordion";
 import { FinalCta } from "@/components/ui/FinalCta";
 import { Eyebrow } from "@/components/ui/Proof";
 import { company } from "@/lib/content/nav";
-import { socialLanding as page } from "@/lib/content/social-landing";
+import { CheckIcon } from "@/components/services/ServicePrimitives";
+import { instagramLanding, socialLanding } from "@/lib/content/social-landing";
 
 /*
   /facebook-marketing-agency and /instagram-marketing-agency carry identical copy
   on the live site (Elementor 12307 and 12309), so the copy lives in one module
   and `variant` swaps section order, media composition and band rhythm.
+  Instagram now carries its SEO rewrite (`instagramLanding`) plus two extra
+  bands; Facebook keeps the verbatim copy.
 
   Scaffold rule: every section is a `ServiceBand` — symmetric vertical padding and
   a single label style. Mixing it with the margin-label `Section` was what caused
@@ -26,9 +29,11 @@ export type SocialVariant = "facebook" | "instagram";
 // One label treatment per page — the two must not share a heading bar.
 const labelStyle = (v: SocialVariant): ServiceBandLabel => (v === "instagram" ? "plain" : "dot");
 type V = { variant: SocialVariant; event: string };
+const content = (v: SocialVariant) => (v === "instagram" ? instagramLanding : socialLanding);
 
 function SocialHero({ variant, event }: V) {
   const insta = variant === "instagram";
+  const page = content(variant);
 
   const actions = (
     <div
@@ -65,10 +70,10 @@ function SocialHero({ variant, event }: V) {
               {actions}
             </div>
             <div className="mt-14 grid grid-cols-4 gap-6 max-md:grid-cols-2">
-              <MediaFrame kind="image" theme="amazon" ratio="4/5" title="Feed post" note="Approved branded feed image." source="/images/Services/social media marketing 1.jpg" alt="A branded social feed post shown on a phone." />
+              <MediaFrame kind="image" theme="amazon" ratio="4/5" title="Feed post" note="Approved branded feed image." source="/images/Services/social media marketing 1.jpg" alt="Three social media marketers giving a thumbs up at a planning table covered in Instagram, Facebook and LinkedIn icons." />
               <MediaFrame kind="video" theme="amazon" ratio="4/5" title="Reel" note="Short vertical video for Reels or Stories." />
-              <MediaFrame kind="image" theme="amazon" ratio="4/5" title="Carousel" note="Multi-slide carousel creative." source="/images/Services/social media marketing 1(1).jpg" alt="A multi-slide social carousel creative." />
-              <MediaFrame kind="screen" theme="amazon" ratio="4/5" title="Profile grid" note="Anonymised profile showing the grid layout." source="/images/Services/social media marketing 1(2).jpg" alt="A social profile grid showing recent posts laid out in a consistent style." />
+              <MediaFrame kind="image" theme="amazon" ratio="4/5" title="Carousel" note="Multi-slide carousel creative." source="/images/Services/social media marketing 1(1).jpg" alt="A social media team reviewing campaign charts on tablets, with Facebook, Twitter and LinkedIn icons on the table." />
+              <MediaFrame kind="screen" theme="amazon" ratio="4/5" title="Profile grid" note="Anonymised profile showing the grid layout." source="/images/Services/social media marketing 1(2).jpg" alt="A phone's social media folder with the Instagram app beside X, TikTok, LinkedIn and YouTube, and Instagram open on a screen behind." />
             </div>
           </Reveal>
         </div>
@@ -113,7 +118,7 @@ function SocialJumpNav({ event }: { event: string }) {
   return (
     <nav aria-label="Sections on this page" className="border-b border-line bg-surface">
       <div className="container-omh flex flex-wrap items-center gap-x-8 gap-y-3 py-5">
-        {page.jump.map((item) => (
+        {socialLanding.jump.map((item) => (
           <a
             key={item.href}
             href={item.href}
@@ -130,6 +135,7 @@ function SocialJumpNav({ event }: { event: string }) {
 
 function SocialGoals({ variant }: { variant: SocialVariant }) {
   const insta = variant === "instagram";
+  const page = content(variant);
   const questions = (
     <ul
       className={
@@ -201,6 +207,7 @@ function SocialGoals({ variant }: { variant: SocialVariant }) {
 }
 
 function SocialHelp({ variant }: { variant: SocialVariant }) {
+  const page = content(variant);
   // Facebook: ruled definition list. Instagram: a card grid — the same six items
   // should not arrive in the same shape on both pages.
   if (variant === "instagram") {
@@ -266,14 +273,13 @@ function SocialMediaBand({ variant }: { variant: SocialVariant }) {
             />
             <div className="col-span-8 max-lg:mt-10">
               <h2 className="max-w-[18ch] font-sans text-h2 font-semibold text-balance">
-                Creative built for the format it lands in.
+                {instagramLanding.creative.title}
               </h2>
               <p className="mt-6 max-w-[52ch] text-body leading-relaxed text-oninverse/70">
-                The same message, optimised per placement — feed, story and carousel are not one
-                asset resized.
+                {instagramLanding.creative.body}
               </p>
               <div className="mt-10 grid grid-cols-2 gap-6 max-sm:grid-cols-1">
-                <MediaFrame kind="image" theme="amazon" ratio="16/10" title="Carousel frames" note="Approved multi-slide creative." source="/images/Services/social media paid advertising.jpg" alt="Paid social ad creative frames prepared for a campaign." />
+                <MediaFrame kind="image" theme="amazon" ratio="16/10" title="Carousel frames" note="Approved multi-slide creative." source="/images/Services/social media paid advertising.jpg" alt="A marketing team reviewing paid social campaign results on a tablet, with performance charts on the table." />
                 <MediaFrame kind="screen" theme="amazon" ratio="16/10" title="Engagement report" note="Anonymised monthly analytics screen." />
               </div>
             </div>
@@ -304,6 +310,7 @@ function SocialMediaBand({ variant }: { variant: SocialVariant }) {
 }
 
 function SocialGetInTouch({ variant, event }: V) {
+  const page = content(variant);
   return (
     <ServiceBand
       label={page.getInTouch.label}
@@ -332,6 +339,7 @@ function SocialGetInTouch({ variant, event }: V) {
 
 function SocialPackages({ variant, event }: V) {
   const insta = variant === "instagram";
+  const page = content(variant);
   return (
     <ServiceBand
       label={page.packages.label}
@@ -346,7 +354,7 @@ function SocialPackages({ variant, event }: V) {
               <p className="mt-6 text-body leading-relaxed text-ink/75">{page.packages.subtitle}</p>
               <div className="mt-9">
                 <Button href="/pricing" arrow data-event={`${event}_packages_pricing_click`}>
-                  See the full price list
+                  {instagramLanding.packages.cta}
                 </Button>
               </div>
             </div>
@@ -391,20 +399,21 @@ function SocialPackages({ variant, event }: V) {
 
 // Real case studies rather than a heading with a button — the live page's own
 // carousel here is unedited placeholder text, so this is the honest substitute.
-function SocialCaseStudies() {
+function SocialCaseStudies({ variant }: { variant: SocialVariant }) {
+  const copy =
+    variant === "instagram"
+      ? instagramLanding.caseStudies
+      : { title: "See the work behind the results.", body: "Social and search projects we have delivered for UK businesses." };
   return (
     <div id="case-studies">
-      <ServiceCaseStudies
-        serviceId="social-media"
-        title="See the work behind the results."
-        body="Social and search projects we have delivered for UK businesses."
-      />
+      <ServiceCaseStudies serviceId="social-media" title={copy.title} body={copy.body} />
     </div>
   );
 }
 
 function SocialGuarantee({ variant }: { variant: SocialVariant }) {
   const insta = variant === "instagram";
+  const page = content(variant);
   return (
     <ServiceBand
       label={page.guarantee.label}
@@ -444,6 +453,7 @@ function SocialGuarantee({ variant }: { variant: SocialVariant }) {
 
 function SocialResources({ variant }: { variant: SocialVariant }) {
   const insta = variant === "instagram";
+  const page = content(variant);
   return (
     <ServiceBand
       label={page.resources.label}
@@ -485,6 +495,7 @@ function SocialResources({ variant }: { variant: SocialVariant }) {
 }
 
 function SocialReviews({ variant, event }: V) {
+  const page = content(variant);
   return (
     <SiteTestimonials
       eventPrefix={event}
@@ -499,6 +510,7 @@ function SocialReviews({ variant, event }: V) {
 
 function SocialFaq({ variant }: { variant: SocialVariant }) {
   const insta = variant === "instagram";
+  const page = content(variant);
   return (
     <ServiceBand label={page.faq.label} tone={insta ? "warm" : "white"} accent="bg-amber" labelStyle={labelStyle(variant)}>
       <Reveal>
@@ -547,6 +559,7 @@ function SocialFaq({ variant }: { variant: SocialVariant }) {
 // tiles with a rule above each label, Instagram gets bordered cards with arrows.
 function SocialSolutions({ variant, event }: V) {
   const insta = variant === "instagram";
+  const page = content(variant);
   return (
     <ServiceBand
       label={page.solutions.label}
@@ -593,27 +606,78 @@ function SocialSolutions({ variant, event }: V) {
 /* Facebook has its own questionnaire on the live site; Instagram doesn't, so it
    goes to the paid-social quote form. The closing button used to repeat /pricing,
    which is already linked three times higher up the page. */
-const quoteCta = {
-  facebook: { label: "Start the Facebook Ads Questionnaire", href: "/facebook-paid-ads-questionnaire" },
-  instagram: { label: "Request a Paid Social Quote", href: "/social-media-paid-marketing-request-quote" },
+const closingCta = {
+  facebook: { consultation: socialLanding.ctas.consultation, label: "Start the Facebook Ads Questionnaire", href: "/facebook-paid-ads-questionnaire" },
+  instagram: { consultation: "Book a Free Instagram Consultation", label: "Request an Instagram Ads Quote", href: "/social-media-paid-marketing-request-quote" },
 } as const;
 
 function SocialCta({ variant, event }: V) {
-  const quote = quoteCta[variant];
+  const page = content(variant);
+  const quote = closingCta[variant];
   return (
     <FinalCta
       title={page.consultation.title}
       titleAccent={page.consultation.accent}
       body={page.standfirst}
-      primary={{ label: page.ctas.consultation, href: "/contact", event: `${event}_final_cta_click` }}
+      primary={{ label: quote.consultation, href: "/contact", event: `${event}_final_cta_click` }}
       secondary={{ label: quote.label, href: quote.href, event: `${event}_final_quote_click` }}
       contactEvents={{ phone: `${event}_footer_phone_click`, email: `${event}_footer_email_click` }}
     />
   );
 }
 
+// Instagram-only bands from its SEO guide; the Facebook page has no equivalent copy.
+function InstagramWhy() {
+  const why = instagramLanding.why;
+  return (
+    <ServiceBand label={why.label} id="why-omh" tone="white" accent="bg-teal" labelStyle={labelStyle("instagram")}>
+      <Reveal>
+        <div className="grid grid-cols-12 gap-x-12 gap-y-10 max-lg:block">
+          <div className="col-span-6">
+            <h2 className="max-w-[20ch] font-sans text-h2 font-semibold text-balance">{why.title}</h2>
+            {why.body.map((paragraph) => (
+              <p key={paragraph} className="mt-6 max-w-[58ch] text-body leading-relaxed text-ink/75">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+          <ul className="col-span-6 self-end border-t border-line max-lg:mt-10">
+            {why.points.map((point) => (
+              <li key={point} className="flex gap-4 border-b border-line py-5 text-body leading-relaxed text-ink/80">
+                <CheckIcon className="mt-1 size-4 shrink-0 text-amber-deep" />
+                {point}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Reveal>
+    </ServiceBand>
+  );
+}
+
+function InstagramProcess() {
+  const process = instagramLanding.process;
+  return (
+    <ServiceBand label={process.label} id="how-it-works" tone="navy" accent="bg-[#9bc3f3]" labelStyle={labelStyle("instagram")}>
+      <Reveal>
+        <h2 className="max-w-[22ch] font-sans text-h2 font-semibold text-balance">{process.title}</h2>
+        <ol className="mt-12 grid grid-cols-4 gap-6 max-xl:grid-cols-2 max-sm:grid-cols-1">
+          {process.steps.map(([title, body], i) => (
+            <li key={title} className="border-t-2 border-oninverse/20 pt-6">
+              <p className="text-[14px] font-semibold uppercase tracking-[0.14em] text-[#9bc3f3]">Step {i + 1}</p>
+              <h3 className="mt-3 font-sans text-h4 font-semibold text-balance">{title}</h3>
+              <p className="mt-3.5 text-[18px] leading-relaxed text-oninverse/72">{body}</p>
+            </li>
+          ))}
+        </ol>
+      </Reveal>
+    </ServiceBand>
+  );
+}
+
+// Facebook only: Instagram's FAQPage comes from ServiceJsonLd in its route.
 function SocialFaqJsonLd() {
-  const mainEntity = page.faq.items.map((item) => ({
+  const mainEntity = socialLanding.faq.items.map((item) => ({
     "@type": "Question",
     name: item.q,
     acceptedAnswer: { "@type": "Answer", text: item.a },
@@ -630,13 +694,13 @@ function SocialFaqJsonLd() {
 
 /* Band rhythm — no two adjacent sections share a ground:
    facebook   warm → white → mist  → navy → warm  → white → warm(cases) → dark  → warm  → navy → white → warm → ink
-   instagram  warm → dark  → white → warm → mist  → white → warm(cases) → warm* → white → navy → warm → mist → ink
+   instagram  warm → dark  → white → warm  → white(why) → navy(how) → mist  → white → warm(cases) → warm* → white → dark → warm → mist → ink
    (*guarantee sits after the case-study band, which has its own border rules)  */
 export function SocialLandingPage({ variant, event }: V) {
   const v = { variant, event };
   return (
     <main>
-      <SocialFaqJsonLd />
+      {variant === "facebook" && <SocialFaqJsonLd />}
       <SocialHero {...v} />
       <SocialJumpNav event={event} />
       {variant === "instagram" ? (
@@ -644,6 +708,8 @@ export function SocialLandingPage({ variant, event }: V) {
           <SocialMediaBand variant={variant} />
           <SocialGoals variant={variant} />
           <SocialHelp variant={variant} />
+          <InstagramWhy />
+          <InstagramProcess />
           <SocialPackages {...v} />
           <SocialGetInTouch {...v} />
         </>
@@ -656,7 +722,7 @@ export function SocialLandingPage({ variant, event }: V) {
           <SocialPackages {...v} />
         </>
       )}
-      <SocialCaseStudies />
+      <SocialCaseStudies variant={variant} />
       <SocialGuarantee variant={variant} />
       <SocialResources variant={variant} />
       <SocialReviews {...v} />
