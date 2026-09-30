@@ -39,7 +39,7 @@ export const caseStudyServices: Record<
   wordpress: { label: "WordPress Development", href: "/wordpress-development" },
   shopify: { label: "Shopify Development", href: "/shopify-development" },
   maintenance: { label: "WordPress Website Maintenance", href: "/wordpress-website-maintenance" },
-  "social-media": { label: "Social Media Marketing", href: "/social-media-marketing" },
+  "social-media": { label: "Social Media Marketing", href: "/social-media-marketing-services" },
   "paid-social": { label: "Paid Social Advertising", href: "/social-media-paid-advertising" },
 };
 

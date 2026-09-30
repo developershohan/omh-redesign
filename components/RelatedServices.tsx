@@ -11,11 +11,13 @@ export type RelatedServiceLink = {
 };
 
 export function RelatedServices({
+  label = "Related services",
   title,
   body,
   links,
   eventPrefix,
 }: {
+  label?: string;
   title: string;
   body: string;
   links: RelatedServiceLink[];
@@ -28,7 +30,7 @@ export function RelatedServices({
           <div className="grid grid-cols-12 gap-x-10 gap-y-8 max-lg:block">
             <div className="col-span-4 max-lg:mb-10">
               <p className="flex items-center gap-2.5 text-[14px] font-semibold uppercase tracking-[0.16em] text-muted before:h-0.5 before:w-5 before:bg-amber before:content-['']">
-                Related services
+                {label}
               </p>
               <h2 id={`${eventPrefix}-related-title`} className="mt-6 max-w-[18ch] font-sans text-h3 font-semibold text-balance">
                 {title}

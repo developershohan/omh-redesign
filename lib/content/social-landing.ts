@@ -178,7 +178,7 @@ export const socialLanding = {
     label: "Solutions",
     title: "Our Services Are Goal Focussed",
     links: [
-      { label: "Social Media Management", href: "/social-media-marketing" },
+      { label: "Social Media Management", href: "/social-media-marketing-services" },
       { label: "Google Paid Advertising", href: "/google-adwords-ppc" },
       { label: "Graphic Design", href: "/logo-design" },
       { label: "Search Engine Optimisation", href: "/search-engine-optimisation" },
@@ -473,7 +473,7 @@ export const facebookLanding = {
     title: "Services That Work Alongside Facebook Marketing",
     subtitle: "Get more from your Facebook marketing by connecting it to your wider online presence.",
     links: [
-      { label: "Social Media Marketing Services", href: "/social-media-marketing", body: "For businesses that want management across Facebook, Instagram, LinkedIn and X/Twitter rather than Facebook alone." },
+      { label: "Social Media Marketing Services", href: "/social-media-marketing-services", body: "For businesses that want management across Facebook, Instagram, LinkedIn and X/Twitter rather than Facebook alone." },
       { label: "Social Media Paid Advertising", href: "/social-media-paid-advertising", body: "For businesses that want paid ad campaigns across multiple social platforms, not just Facebook Ads." },
       { label: "SEO Services", href: "/best-seo-services", body: "For businesses that want to combine Facebook traffic with organic search visibility." },
     ],

@@ -41,11 +41,13 @@ function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
 
 export function ServiceCaseStudies({
   serviceId,
+  eyebrow = "Related case studies",
   title,
   body,
   limit = 3,
 }: {
   serviceId: CaseStudyServiceId;
+  eyebrow?: string;
   title: string;
   body: string;
   limit?: number;
@@ -62,7 +64,7 @@ export function ServiceCaseStudies({
           <div className="flex items-end justify-between gap-10 max-lg:block">
             <div>
               <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.16em] text-amber-deep">
-                Related case studies
+                {eyebrow}
               </p>
               <h2
                 id={`${serviceId}-case-studies-title`}

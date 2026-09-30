@@ -44,7 +44,7 @@ export default function SocialMediaPaidAdvertisingPage() {
         title="Connect paid-social campaigns with content, search and landing pages"
         body="Campaign performance depends on the organic presence around the advert and the experience people reach after clicking."
         links={[
-          { title: "Social Media Management", href: "/social-media-marketing", body: "Support paid reach with consistent organic content and community activity." },
+          { title: "Social Media Management", href: "/social-media-marketing-services", body: "Support paid reach with consistent organic content and community activity." },
           { title: "Google Ads Management", href: "/google-adwords-ppc", body: "Coordinate social demand generation with high-intent paid search campaigns." },
           { title: "WordPress Development", href: "/wordpress-development", body: "Build or improve the landing pages that turn paid-social clicks into enquiries." },
         ]}

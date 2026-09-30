@@ -1,8 +1,8 @@
 export const socialMediaMarketing = {
   hero: {
     eyebrow: "Social media marketing for businesses",
-    title: "Turn social channels into a consistent part of your growth plan.",
-    body: "Our social media specialists help businesses grow brand awareness, engagement and relevant traffic with organised content, clear goals and paid or organic campaign support.",
+    title: "Social Media Marketing Services for Growing UK Businesses",
+    body: "Our social media marketing services help UK businesses grow brand awareness, engagement and relevant traffic. We plan organised content, set clear goals and manage your accounts so your social channels work alongside your website and search campaigns.",
   },
   goals: [
     "What are you hoping to achieve through social media marketing?",
@@ -23,17 +23,45 @@ export const socialMediaMarketing = {
     { name: "Shoot", price: "£700", bestFor: "A broader programme with brand creation and Instagram.", features: ["Brand creation included", "3-month contract", "10 Facebook posts", "12 X / Twitter posts", "10 Instagram posts", "2 LinkedIn posts", "0 Google posts", "1 social media page created", "2 social media pages optimised", "Monthly meeting", "24-hour onboarding", "Hashtag research", "Organic following strategy included", "Monthly reporting"] },
     { name: "Sapling", price: "£900", bestFor: "The most complete published package across core channels.", features: ["Brand creation included", "3-month contract", "12 Facebook posts", "15 X / Twitter posts", "12 Instagram posts", "3 LinkedIn posts", "2 Google posts", "2 social media pages created", "3 social media pages optimised", "Monthly meeting", "24-hour onboarding", "Hashtag research", "Organic following strategy included", "Monthly reporting"] },
   ],
+  guarantee: {
+    label: "Our social media marketing services guarantee",
+    body: "Our experience delivering social media marketing services for UK businesses gives us confidence in the work we deliver.",
+  },
+  reporting: {
+    title: "Social media marketing services reporting tied to your goals.",
+    body: [
+      "Your account manager provides regular monthly updates and a consultation call covering what has been achieved, where your objectives stand and whether the campaign is meeting or exceeding them.",
+      "Your social media marketing services report is tailored to the goals you set, without burying you in irrelevant detail. If you want to understand a specific part of the work, use the monthly call to ask. The purpose is to make achievements, results and month-on-month progress clear for your business.",
+    ],
+  },
+  reviewsLabel: "Why Businesses Rate Us as the Best Social Media Marketing Services",
+  faq: {
+    label: "Social Media Marketing Services FAQs",
+    title: "Common questions about our social media marketing services and packages.",
+    description: "The fourteen questions we are asked most often.",
+  },
+  finalCta: {
+    title: "Want your social media marketing services handled by a UK agency?",
+    titleAccent: "handled by a UK agency?",
+    body: "Book a call at a convenient time, or speak to the team directly. We review what you are posting now and recommend a social media marketing services plan that fits your budget and goals.",
+    primaryLabel: "Discuss Social Media Marketing Services",
+    secondary: { label: "View Social Media Packages", href: "#packages", event: "social_final_packages_click" },
+    stepsHeading: "What happens next with your social media marketing services",
+  },
   faqs: [
-    { q: "What other services do you offer?", a: "We are a full-service website development and online marketing agency. Our social specialists cover strategy, content creation and ongoing management, with standard packages or a customised scope. For a deeper focus on one platform, see our [Facebook marketing agency](/facebook-marketing-agency) service or [our Instagram marketing services](/instagram-marketing-agency)." },
-    { q: "How long will it take to start seeing results?", a: "Paid social can generate clicks and views almost immediately, while conversions take time to optimise. Many paid campaigns begin to produce a steadier flow after four to six weeks; organic engagement usually takes longer. We shape the approach around your budget and goals." },
+    { q: "What other services do you offer?", a: "We are a full-service website development and online marketing agency. Our social media marketing services cover strategy, content creation and ongoing management, with standard packages starting from £450/mo or a customised scope. We also offer [Google Ads management](/google-adwords-ppc), [SEO](/search-engine-optimisation), [WordPress development](/wordpress-development) and [website maintenance](/wordpress-website-maintenance). For a deeper focus on one platform, see our [Facebook marketing agency](/facebook-marketing-agency) service or [our Instagram marketing services](/instagram-marketing-agency)." },
+    { q: "How long will it take to start seeing results?", a: "Organic social media marketing services typically begin showing measurable engagement improvements within four to eight weeks. Building a consistent following and driving regular traffic takes longer, usually three to six months. We shape the approach around your budget and goals, and your monthly report tracks progress against the benchmarks set at the start." },
     { q: "How many times do you post content?", a: "Posting frequency depends on the package agreed with your account manager. We recommend a level appropriate to your business and goals, and can adapt a core piece of content for relevant channels." },
     { q: "What kind of content do you post?", a: "We research your business and industry, then combine brand messaging, designed graphics, calls to action, hashtags and relevant links. Content is sent to you for approval before publishing." },
     { q: "Can I review the content before you post?", a: "Yes. We send newly designed social posts for approval before scheduling and confirm once the campaign has been scheduled." },
-    { q: "Will you provide reports so we can track progress?", a: "Yes. We provide a monthly analytics report showing campaign progress." },
-    { q: "What is a monthly analytics report?", a: "It records followers, likes, comments, posts and other useful social statistics so progress can be tracked, and can highlight opportunities for future paid advertising." },
+    { q: "Will you provide reports so we can track progress?", a: "Yes. Every social media marketing services package includes a monthly analytics report showing campaign progress, engagement metrics and content performance." },
+    { q: "What is a monthly analytics report?", a: "It records followers, likes, comments, posts and other useful social statistics so progress can be tracked. The report can also highlight opportunities for expanding your social media marketing services scope, such as adding channels or increasing posting frequency." },
     { q: "What social media platforms do you support?", a: "We support Facebook, Instagram, LinkedIn and YouTube. Contact us to discuss the right channel mix for your project." },
     { q: "How will you know what to post?", a: "We start with a brief covering your company information and brand vision, research your industry, learn your voice and then give you the opportunity to approve content before it goes live." },
-    { q: "Can I request additional posts?", a: "Yes. We can prepare a custom proposal if you need more posts or a different management scope from the published packages." },
-    { q: "What is a custom social media strategy?", a: "It goes beyond posting regularly. It can include a social audit, industry and competitor research, trending hashtags, influencer research, content concepts, a content calendar and a tailored action plan." },
+    { q: "Can I request additional posts?", a: "Yes. We can prepare a custom proposal if you need more posts or a different scope from the published social media marketing services packages. B2B social media marketing services, for example, may require a different mix of channels and content types than a consumer-facing brand." },
+    { q: "What is a custom social media strategy?", a: "A custom social media marketing strategy goes beyond posting regularly. It can include a social audit, industry and competitor research, trending hashtags, influencer research, content concepts, a content calendar and a tailored action plan. This is often the right starting point for small businesses that need social media marketing services aligned to a specific growth target." },
+    { q: "How much do social media marketing services cost?", a: "Our social media marketing services packages start from £450/mo (Seed), with Shoot at £700/mo and Sapling at £900/mo. Each package includes content creation, scheduling, graphics and monthly reporting. The right package depends on the number of channels, posting frequency and whether you need brand creation. Contact us for a detailed social media marketing services pricing breakdown." },
+    { q: "Do you offer social media marketing services for small businesses?", a: "Yes. Our social media marketing services are designed for small and medium UK businesses. The Seed package at £450/mo gives small businesses a structured starting point with Facebook and X/Twitter content, page setup, optimisation and monthly reporting. As results build, you can scale to Shoot or Sapling for more channels and higher posting volumes." },
+    { q: "Can you manage social media for B2B companies?", a: "Yes. Our b2b social media marketing services focus on the platforms where professional decision-makers spend time, primarily LinkedIn and X/Twitter. B2B content typically includes thought leadership posts, case study promotion, industry commentary and lead generation campaigns. We tailor the content calendar and tone to your sector." },
   ],
 } as const;

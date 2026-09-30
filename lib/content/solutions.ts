@@ -490,7 +490,7 @@ export const solutions: Record<string, SolutionPageContent> = {
       items: [
         { title: "Google Ads management", href: "/google-adwords-ppc", body: "Plan, manage and improve demand-capture campaigns." },
         { title: "Search engine optimisation", href: "/search-engine-optimisation", body: "Build technical and content priorities into the wider plan." },
-        { title: "Social media marketing", href: "/social-media-marketing", body: "Maintain a useful, credible and consistent social presence." },
+        { title: "Social media marketing", href: "/social-media-marketing-services", body: "Maintain a useful, credible and consistent social presence." },
         { title: "Website maintenance", href: "/wordpress-website-maintenance", body: "Keep implementation moving with reliable technical support." },
       ],
     },

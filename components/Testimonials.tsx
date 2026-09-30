@@ -148,6 +148,7 @@ export function ServiceTestimonials({
 }
 
 export function SiteTestimonials({
+  label,
   eventPrefix,
   title = "What customers said about working with OMH.",
   body = "These eight reviews were published on the original OMH service pages. They are customer comments, not evidence of a guaranteed result.",
@@ -156,6 +157,7 @@ export function SiteTestimonials({
   accent,
   labelStyle,
 }: {
+  label?: string;
   eventPrefix: string;
   title?: string;
   body?: string;
@@ -167,6 +169,7 @@ export function SiteTestimonials({
   return (
     <ServiceTestimonials
       testimonials={siteTestimonials}
+      label={label}
       title={title}
       body={body}
       eyebrow={eyebrow}

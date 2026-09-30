@@ -61,7 +61,12 @@ export const website = {
   inLanguage: "en-GB",
 };
 
-type Offer = { name: string; price: string; description: string };
+type Offer = {
+  name: string;
+  price: string;
+  description: string;
+  eligibleDuration?: { "@type": "QuantitativeValue"; value: number; unitCode: string };
+};
 
 function serviceSchema(name: string, description: string, path: string, offers?: readonly Offer[]) {
   return {
@@ -153,10 +158,16 @@ const services: Record<string, { name: string; description: string; faqs: Faqs; 
       description: `${p.features.hours} included hours, ${p.features.keywords} local keywords researched, ${p.features.submissions} directory submissions, ${p.features.tracking} keywords tracked, NAP and Business Profile category updates, analytics set-up and reporting over a ${p.features.term}-month term.`,
     })),
   },
-  "/social-media-marketing": {
-    name: "Social Media Management",
+  "/social-media-marketing-services": {
+    name: "Social Media Marketing Services",
     description: "Organic social media management for UK businesses: content planning, scheduling, community management and reporting.",
     faqs: socialMediaMarketing.faqs,
+    offers: socialMediaMarketing.packages.map((p) => ({
+      name: `${p.name} social media marketing`,
+      price: p.price,
+      description: p.features.filter((f) => !f.includes("not included")).join(", "),
+      eligibleDuration: { "@type": "QuantitativeValue", value: 3, unitCode: "MON" },
+    })),
   },
   "/social-media-paid-advertising": {
     name: "Paid Social Media Advertising",

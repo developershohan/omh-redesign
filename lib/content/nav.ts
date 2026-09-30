@@ -55,7 +55,7 @@ export const primaryNav: NavItem[] = [
       {
         heading: "Creative & Social",
         links: [
-          { label: "Social Media Management", href: "/social-media-marketing", ready: true },
+          { label: "Social Media Management", href: "/social-media-marketing-services", ready: true },
           { label: "Facebook Marketing", href: "/facebook-marketing-agency", ready: true },
           { label: "Instagram Marketing", href: "/instagram-marketing-agency", ready: true },
         ],
@@ -100,7 +100,7 @@ export const readyPages: NavLink[] = [
   { label: "Amazon PPC Advertising", href: "/amazon-ppc-advertising-agency-uk", ready: true },
   { label: "Search Engine Optimisation", href: "/search-engine-optimisation", ready: true },
   { label: "Local SEO", href: "/local-seo", ready: true },
-  { label: "Social Media Marketing", href: "/social-media-marketing", ready: true },
+  { label: "Social Media Marketing", href: "/social-media-marketing-services", ready: true },
   { label: "Paid Social Advertising", href: "/social-media-paid-advertising", ready: true },
   { label: "About", href: "/about-us", ready: true },
   { label: "Case Studies", href: "/case-studies", ready: true },
@@ -167,7 +167,7 @@ export const footerCols = [
       { label: "Local SEO", href: "/local-seo" },
       { label: "Shopify Development", href: "/shopify-development" },
       { label: "Website Maintenance", href: "/wordpress-website-maintenance" },
-      { label: "Social Media Marketing", href: "/social-media-marketing" },
+      { label: "Social Media Marketing", href: "/social-media-marketing-services" },
     ],
   },
   {

@@ -61,7 +61,7 @@ export function ServiceBand({
           {labelStyle === "rule" && (
             <div className={`flex items-center gap-4 ${caps}`}>
               <span aria-hidden className={`h-0.5 w-7 shrink-0 ${accent}`} />
-              <span className="shrink-0">{label}</span>
+              <span className="min-w-0">{label}</span>
               <span aria-hidden className={`h-px flex-1 ${hair}`} />
             </div>
           )}
@@ -98,7 +98,7 @@ export function ServiceBand({
           {labelStyle === "centered" && (
             <div className={`flex items-center gap-5 ${caps}`}>
               <span aria-hidden className={`h-px flex-1 ${hair}`} />
-              <span className="shrink-0">{label}</span>
+              <span className="min-w-0">{label}</span>
               <span aria-hidden className={`h-px flex-1 ${hair}`} />
             </div>
           )}

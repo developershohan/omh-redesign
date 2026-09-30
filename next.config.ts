@@ -39,6 +39,8 @@ const nextConfig: NextConfig = {
         destination: "/case-studies/out-out-entry",
         permanent: true,
       },
+      // SEO brief (27 Sep 2026): the organic social page moved to the keyword slug.
+      { source: "/social-media-marketing", destination: "/social-media-marketing-services", permanent: true },
     ];
   },
 };
