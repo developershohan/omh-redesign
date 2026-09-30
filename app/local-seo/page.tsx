@@ -19,8 +19,10 @@ import {
 } from "@/components/services/LocalSeoSections";
 
 export const metadata: Metadata = {
-  title: "Local SEO Services for UK Businesses",
-  description: "Local SEO support covering Google Business Profile, local service pages, business-detail consistency, directories, reviews, maps and reporting.",
+  title: { absolute: "Local SEO Services for UK Small Businesses | OMH" },
+  // ponytail: brief says "from £450/month"; "/month" dropped until billing frequency is confirmed (see pricing notes).
+  description: "Local SEO services for UK businesses. Google Business Profile, local pages, directories, reviews and maps. Packages from £450 with published deliverables.",
+  openGraph: { title: "Local SEO Services for UK Small Businesses" },
   alternates: { canonical: "https://onlinemarketinghelp.co.uk/local-seo/" },
 };
 
@@ -38,8 +40,8 @@ export default function LocalSeoPage() {
       <LocalSeoPricing />
       <ServiceCaseStudies
         serviceId="seo"
-        title="See local search work in context"
-        body="How local visibility, business-profile work, website improvements and measurement came together for businesses working in a defined area."
+        title="See local SEO services in action"
+        body="How local SEO services, business-profile work, website improvements and measurement came together for small businesses working in defined service areas."
         limit={3}
       />
       <LocalSeoReviews />
@@ -47,10 +49,10 @@ export default function LocalSeoPage() {
       <LocalSeoPromise />
       <RelatedServices
         eventPrefix="local_seo"
-        title="Useful services connected to local visibility"
-        body="Local SEO often depends on wider SEO work, clearer website pages and content that answers location-specific customer questions."
+        title="Useful services connected to local SEO"
+        body="Local SEO services often depend on wider SEO work, clearer website pages and content that answers location-specific customer questions."
         links={[
-          { title: "Search Engine Optimisation", href: "/search-engine-optimisation", body: "Connect local priorities with the wider technical, content and authority programme." },
+          { title: "Search Engine Optimisation", href: "/search-engine-optimisation", body: "Connect local SEO services with the wider technical, content and authority programme." },
           { title: "WordPress Development", href: "/wordpress-development", body: "Build or improve service and location pages with a clear route to enquiry." },
           { title: "Website Design", href: "/website-designs", body: "Give local landing pages and service pages a structure customers can actually act on." },
         ]}

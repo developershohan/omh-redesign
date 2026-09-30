@@ -1,9 +1,9 @@
 export const localSeo = {
   hero: {
     eyebrow: "Local SEO services for UK businesses",
-    body: "Local search support for businesses that need to be found by people nearby. We connect your Google Business Profile, website, business details, local landing pages, directories, reviews and measurement into one practical programme.",
+    body: "Local SEO services for small businesses that need to be found by people nearby. We connect your Google Business Profile, website, business details, local landing pages, directories, reviews and measurement into one practical local SEO programme.",
     primary: { label: "Check My Local Visibility", href: "/contact" },
-    secondary: { label: "Discuss Local SEO Support", href: "/contact" },
+    secondary: { label: "Discuss Local SEO Services", href: "/contact" },
   },
   signals: [
     ["You are missing from map results", "Your business does not appear reliably when nearby customers search for the service you provide."],
@@ -16,7 +16,7 @@ export const localSeo = {
   fit: {
     good: [
       "You serve customers in a defined town, city, region or set of genuine service areas.",
-      "Your Google Business Profile and website are important sources of calls, visits or enquiries.",
+      "Your Google Business Profile and website are important sources of calls, visits or enquiries from local customers near your business.",
       "You can provide accurate business details and access to the profile, website and analytics.",
       "You are prepared to improve the website and review process as well as the business profile.",
     ],
@@ -39,13 +39,13 @@ export const localSeo = {
     {
       label: "Profile",
       title: "Google Business Profile",
-      body: "Audit the profile, choose accurate categories and improve the information people use before they call, visit or continue to the website.",
+      body: "Audit the Google Business Profile, choose accurate categories and improve the information nearby customers use before they call, visit or continue to the website.",
       items: ["Profile and category review", "Services, hours and attributes", "Photo, post and update guidance"],
     },
     {
       label: "Website",
       title: "Local pages and signals",
-      body: "Connect services to genuine operating areas with useful pages, clear contact details and structured information—not thin pages made only for rankings.",
+      body: "Connect services to genuine local areas with useful local SEO pages, clear contact details and structured information—not thin pages made only for rankings.",
       items: ["Local keyword and intent research", "Service-area page planning", "NAP and local schema checks"],
     },
     {
@@ -63,9 +63,9 @@ export const localSeo = {
   ],
   process: [
     ["Define the local market", "Confirm real service areas, priority services, locations, competitors and the actions that matter commercially."],
-    ["Audit the footprint", "Review the website, Google Business Profile, NAP consistency, reviews, directories and current local-search visibility."],
+    ["Audit the footprint", "Review the website, Google Business Profile, NAP consistency, reviews, directories and current local SEO visibility as part of a full local SEO audit."],
     ["Fix the foundations", "Correct agreed profile, website and directory issues, then clarify ownership and access for each asset."],
-    ["Build local relevance", "Improve useful local content, citations, internal links, profile activity and the review process where included."],
+    ["Build local relevance", "Improve useful local content, citations, internal links, profile activity and the review process where included in your local SEO package."],
     ["Measure and refine", "Report on agreed profile and website actions, explain what changed and choose the next evidence-led priorities."],
   ],
   packages: [
@@ -109,11 +109,12 @@ export const localSeo = {
     ["Scope confirmed before work starts", "Some tasks fall outside the package. The proposal confirms the exact tasks, responsibilities, billing frequency and agreement terms before work begins."],
   ],
   faqs: [
-    ["What makes OMH’s Local SEO service different?", "The service reviews the Google Business Profile, website, business-detail consistency, directories, local keywords and reporting together rather than treating map visibility as a single isolated task."],
+    ["What makes OMH’s Local SEO service different?", "Our local SEO services review the Google Business Profile, website, business-detail consistency, directories, local keywords and reporting together rather than treating map visibility as a single isolated task. Each client has a named local SEO consultant who manages the profile, website and directory work as one connected programme."],
     ["Do you use white-hat SEO methods?", "We work within Google’s guidance. Any proposed tactic should be explained clearly, avoid deceptive practices and protect the long-term reputation of the business. Work beyond a single area is covered by [our wider SEO services](/search-engine-optimisation)."],
-    ["How long does local SEO take?", "Changes are often visible within 30 to 90 days, and we recommend allowing at least three months, but timing varies. Competition, proximity, the starting profile, website quality, implementation and review activity all affect progress."],
-    ["Can you guarantee local rankings?", "No. Google controls its results, and local visibility varies by location, device, time and search context. Work and reporting standards can be agreed; a specific position, lead count or financial result cannot."],
-    ["How long does it take to appear first in local Google searches?", "There is no reliable fixed timeframe and no agency can promise first place. It is worth noting movement may sometimes be visible within a month and may take several months in more competitive markets. Proximity, relevance, prominence, competitors and the quality of the profile and website all affect local results."],
-    ["How do I choose a package?", "Choose against the number of locations, quality of the current profile and website, directory clean-up required, competitive market and speed of implementation. The written proposal should confirm every inclusion and exclusion. [Recent local search projects](/case-studies) show how the packages have been used in practice."],
+    ["How long does local SEO take?", "Local SEO services typically show visible changes within 30 to 90 days, and we recommend allowing at least three months, but timing varies. Competition, proximity, the starting profile, website quality, implementation speed and review activity all affect progress. This is why a local SEO specialist will set realistic expectations at the start rather than making promises about timelines."],
+    ["Can you guarantee local rankings?", "No. Google controls its results, and local SEO visibility varies by location, device, time and search context. What we can agree is the scope of local SEO services delivered, the reporting standards and the communication schedule. A specific position, lead count or financial result cannot be guaranteed by any honest local SEO consultant."],
+    ["How long does it take to appear first in local Google searches?", "There is no reliable fixed timeframe and no local SEO specialist can promise first place. Movement may sometimes be visible within a month and may take several months in more competitive markets. Proximity, relevance, prominence, competitors and the quality of the profile and website all affect local results. A local SEO audit at the start identifies the biggest opportunities first, so work is focused where it can make the most difference."],
+    ["How do I choose a package?", "Choose your local SEO package against the number of locations, quality of the current profile and website, directory clean-up required, competitive market and speed of implementation. Your local SEO consultant will confirm every inclusion and exclusion in the written proposal. Our [recent local SEO case studies](/case-studies) show how the packages have been applied for small businesses in practice."],
+    ["How does local SEO help customers near me find my business?", "Local SEO services improve how your business appears when nearby customers search for the services you provide. This includes optimising your Google Business Profile so it shows in map results, making sure your business details are consistent across directories, building useful local pages on your website and managing reviews. The goal is that someone searching for your service near your location sees accurate, complete information about your business and has a clear way to contact you."],
   ],
 };

@@ -14,8 +14,10 @@ import { socialMediaPaidAdvertising } from "@/lib/content/social-media-paid-adve
 
 export const SITE = "https://onlinemarketinghelp.co.uk";
 
+// Points at the site-wide ProfessionalService (a LocalBusiness subtype) in the layout.
 const provider = {
-  "@type": "Organization",
+  "@type": "ProfessionalService",
+  "@id": `${SITE}/#organisation`,
   name: company.name,
   url: `${SITE}/`,
 };
@@ -50,7 +52,9 @@ export const website = {
   inLanguage: "en-GB",
 };
 
-function serviceSchema(name: string, description: string, path: string) {
+type Offer = { name: string; price: string; description: string };
+
+function serviceSchema(name: string, description: string, path: string, offers?: readonly Offer[]) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -60,6 +64,9 @@ function serviceSchema(name: string, description: string, path: string) {
     provider,
     areaServed: { "@type": "Country", name: "United Kingdom" },
     url: `${SITE}${path}`,
+    ...(offers && {
+      offers: offers.map((o) => ({ "@type": "Offer", ...o, price: o.price.replace(/[^\d.]/g, ""), priceCurrency: "GBP" })),
+    }),
   };
 }
 
@@ -86,7 +93,7 @@ function faqSchema(faqs: Faqs) {
 
 // One row per service page, so name/description/FAQ markup stay in one place
 // instead of being restated in nine route files.
-const services: Record<string, { name: string; description: string; faqs: Faqs }> = {
+const services: Record<string, { name: string; description: string; faqs: Faqs; offers?: readonly Offer[] }> = {
   "/wordpress-development": {
     name: "WordPress Development",
     description: "WordPress websites for UK businesses that need better structure, easier management, stronger performance and clearer conversion support.",
@@ -121,6 +128,11 @@ const services: Record<string, { name: string; description: string; faqs: Faqs }
     name: "Local SEO",
     description: "Local SEO for UK businesses that need to be found in their own area: Google Business Profile, Maps visibility, citations, reviews and service-area pages.",
     faqs: localSeo.faqs,
+    offers: localSeo.packages.map((p) => ({
+      name: p.name,
+      price: p.price,
+      description: `${p.features.hours} included hours, ${p.features.keywords} local keywords researched, ${p.features.submissions} directory submissions, ${p.features.tracking} keywords tracked, NAP and Business Profile category updates, analytics set-up and reporting over a ${p.features.term}-month term.`,
+    })),
   },
   "/social-media-marketing": {
     name: "Social Media Management",
@@ -137,7 +149,7 @@ const services: Record<string, { name: string; description: string; faqs: Faqs }
 /** Service + FAQPage markup for a service route. FAQs are the ones the page renders. */
 export function ServiceJsonLd({ path }: { path: keyof typeof services }) {
   const s = services[path];
-  return <JsonLd data={[serviceSchema(s.name, s.description, `${path}/`), faqSchema(s.faqs)]} />;
+  return <JsonLd data={[serviceSchema(s.name, s.description, `${path}/`, s.offers), faqSchema(s.faqs)]} />;
 }
 
 export function JsonLd({ data }: { data: object | object[] }) {
