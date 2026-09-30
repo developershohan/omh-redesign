@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ServiceJsonLd } from "@/lib/schema";
 import { ServiceCaseStudies } from "@/components/CaseStudies";
 import { RelatedServices } from "@/components/RelatedServices";
+import { socialMediaPaidAdvertising as content } from "@/lib/content/social-media-paid-advertising";
 import {
   PaidSocialCapabilities,
   PaidSocialGoals,
@@ -16,9 +17,9 @@ import {
 } from "@/components/services/SocialMediaMarketingSections";
 
 export const metadata: Metadata = {
-  title: "Social Media Paid Advertising for UK Businesses",
+  title: "Paid Social Media Advertising Agency UK",
   description:
-    "Paid social media advertising across Facebook, Instagram, TikTok and LinkedIn, covering strategy, audience research, creative, tracking, budget management and optimisation.",
+    "A UK paid social media advertising agency running managed Meta, TikTok and LinkedIn campaigns. Strategy, audience, creative, tracking and budget handled for you. Request a paid social review.",
   alternates: { canonical: "https://onlinemarketinghelp.co.uk/social-media-paid-advertising/" },
 };
 
@@ -35,9 +36,9 @@ export default function SocialMediaPaidAdvertisingPage() {
         title="Paid social within wider acquisition campaigns"
         body="Where paid social sat alongside website, search and wider paid-media work."
       />
-      <SocialGuaranteeAndReporting />
+      <SocialGuaranteeAndReporting guarantee={content.guarantee} />
       <SocialReviews />
-      <SocialFAQ />
+      <SocialFAQ {...content.faq} items={content.faqs} />
       <RelatedServices
         eventPrefix="paid-social"
         title="Connect paid-social campaigns with content, search and landing pages"
@@ -48,7 +49,7 @@ export default function SocialMediaPaidAdvertisingPage() {
           { title: "WordPress Development", href: "/wordpress-development", body: "Build or improve the landing pages that turn paid-social clicks into enquiries." },
         ]}
       />
-      <SocialFinalCTA />
+      <SocialFinalCTA {...content.finalCta} />
     </div>
   );
 }

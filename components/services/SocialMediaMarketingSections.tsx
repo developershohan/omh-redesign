@@ -50,21 +50,25 @@ export function SocialPricing() {
   return <Band label="Published packages" id="packages"><Reveal><div className="grid grid-cols-12 items-end gap-x-10 gap-y-6 max-lg:block"><div className="col-span-7"><h2 className="max-w-[17ch] font-sans text-h2 font-semibold">Transparent packages for small businesses that want to grow.</h2></div><p className="col-span-5 text-body leading-relaxed text-ink/68 max-lg:mt-5">The three original prices, channel volumes and inclusions are preserved below.</p></div><div className="mt-11 grid grid-cols-3 gap-6 max-lg:grid-cols-1">{content.packages.map((pkg,index)=><article key={pkg.name} className={`rounded-card border p-7 ${index===1 ? "border-[#ef8067] bg-tint-rose" : "border-line bg-surface"}`}><p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-amber-deep">0{index+1} · Social media marketing</p><h3 className="mt-4 font-sans text-h3 font-semibold">{pkg.name}</h3><p className="mt-2 text-body leading-relaxed text-muted">{pkg.bestFor}</p><p className="mt-6 border-y border-line py-5 font-sans text-[36px] font-semibold">{pkg.price}<span className="ml-1 text-[14px] font-normal text-muted">published price</span></p><ul className="mt-5 grid gap-2.5">{pkg.features.map(feature=><li key={feature} className="flex gap-3 text-body leading-relaxed text-ink/74"><Check className="mt-0.5 size-4 shrink-0 text-amber-deep" />{feature}</li>)}</ul><div className="mt-7"><Button href="/contact" small data-event="social_package_select" data-package={pkg.name}>Discuss {pkg.name}</Button></div></article>)}</div><div className="mt-8 rounded-card border border-line bg-warm p-6 text-body leading-relaxed text-muted"><p>Packages include copywriting and content creation aligned to your existing brand. If you do not have an established brand palette, we can discuss the separate options available.</p><p className="mt-3">Social creative includes one review. Content may be adapted across platforms and optimised for each channel. The published packages have a minimum three-month term.</p></div></Reveal></Band>;
 }
 
-export function SocialGuaranteeAndReporting() {
-  return <><Band label="Guarantee" tone="navy"><Reveal><div className="grid grid-cols-12 gap-x-12 gap-y-9 max-lg:block"><div className="col-span-5 max-lg:mb-8"><p className="text-[14px] font-semibold uppercase tracking-[0.15em] text-[#9bc3f3]">Don’t just take our word for it</p><h2 className="mt-5 max-w-[14ch] font-sans text-h2 font-semibold">A published money-back promise, ready for final terms.</h2></div><div className="col-span-7"><p className="text-body leading-relaxed text-oninverse/72">Our experience gives us confidence in the work. [CONFIRM SERVICE DETAIL — exact guarantee terms] Deciding to work together easier.</p><p className="mt-4 text-body leading-relaxed text-oninverse/72">Start working with Online Marketing Help to move your business forward.</p><div className="mt-6"><VerifiedSlot>Guarantee terms and eligibility — confirm before launch</VerifiedSlot></div></div></div></Reveal></Band><Band label="Resources" tone="mist"><Reveal><div className="grid grid-cols-12 gap-x-12 gap-y-9 max-lg:block"><div className="col-span-4 max-lg:mb-8"><p className="text-[14px] font-semibold uppercase tracking-[0.15em] text-amber-deep">Looking for more information?</p><h2 className="mt-5 max-w-[14ch] font-sans text-h2 font-semibold">Reporting that stays tied to your goals.</h2></div><div className="col-span-8 space-y-5 text-body leading-relaxed text-ink/70"><p>Your account manager provides regular monthly updates and a consultation call so there is enough data to explain what has been achieved, where your objectives stand and whether the campaign is meeting or exceeding them.</p><p>Your report is tailored to the goals you set, without burying you in irrelevant detail. If you want to understand a specific part of the work, use the monthly call to ask. The purpose is to make achievements, results and month-on-month progress clear.</p></div></div></Reveal></Band></>;
+export function SocialGuaranteeAndReporting({ guarantee }: { guarantee?: { title: string; body: string } }) {
+  return <><Band label="Guarantee" tone="navy"><Reveal><div className="grid grid-cols-12 gap-x-12 gap-y-9 max-lg:block"><div className="col-span-5 max-lg:mb-8"><p className="text-[14px] font-semibold uppercase tracking-[0.15em] text-[#9bc3f3]">Don’t just take our word for it</p><h2 className="mt-5 max-w-[14ch] font-sans text-h2 font-semibold">{guarantee?.title ?? "A published money-back promise, ready for final terms."}</h2></div><div className="col-span-7"><p className="text-body leading-relaxed text-oninverse/72">{guarantee?.body ?? "Our experience gives us confidence in the work. [CONFIRM SERVICE DETAIL — exact guarantee terms] Deciding to work together easier."}</p><p className="mt-4 text-body leading-relaxed text-oninverse/72">Start working with Online Marketing Help to move your business forward.</p><div className="mt-6"><VerifiedSlot>Guarantee terms and eligibility — confirm before launch</VerifiedSlot></div></div></div></Reveal></Band><Band label="Resources" tone="mist"><Reveal><div className="grid grid-cols-12 gap-x-12 gap-y-9 max-lg:block"><div className="col-span-4 max-lg:mb-8"><p className="text-[14px] font-semibold uppercase tracking-[0.15em] text-amber-deep">Looking for more information?</p><h2 className="mt-5 max-w-[14ch] font-sans text-h2 font-semibold">Reporting that stays tied to your goals.</h2></div><div className="col-span-8 space-y-5 text-body leading-relaxed text-ink/70"><p>Your account manager provides regular monthly updates and a consultation call so there is enough data to explain what has been achieved, where your objectives stand and whether the campaign is meeting or exceeding them.</p><p>Your report is tailored to the goals you set, without burying you in irrelevant detail. If you want to understand a specific part of the work, use the monthly call to ask. The purpose is to make achievements, results and month-on-month progress clear.</p></div></div></Reveal></Band></>;
 }
 
 export function SocialReviews() {
   return <SiteTestimonials eventPrefix="social" title="What customers say." body="Eight unique testimonials were present in the original source carousel. Duplicate carousel slides have been removed." accent="bg-[#ef8067]" />;
 }
 
-export function SocialFAQ() {
+export function SocialFAQ({
+  title = "Looking for more information?",
+  description = "The eleven questions we are asked most often.",
+  items = content.faqs,
+}: { title?: string; description?: string; items?: readonly { q: string; a: string }[] }) {
   return (
     <ServiceFaqSection
       label="FAQs"
-      title="Looking for more information?"
-      description="The eleven questions we are asked most often."
-      items={content.faqs}
+      title={title}
+      description={description}
+      items={items}
       group="social-faq"
       tone="mist"
       bandAccent="bg-[#ef8067]"
@@ -76,12 +80,16 @@ export function SocialFAQ() {
   );
 }
 
-export function SocialFinalCTA() {
+export function SocialFinalCTA({
+  title = "Want your social media handled consistently?",
+  titleAccent = "handled consistently?",
+  body = "Book a call at a convenient time, or speak to the team directly — we will look at what you are posting now before recommending a plan.",
+}: { title?: string; titleAccent?: string; body?: string }) {
   return (
     <FinalCta
-      title="Want your social media handled consistently?"
-      titleAccent="handled consistently?"
-      body="Book a call at a convenient time, or speak to the team directly — we will look at what you are posting now before recommending a plan."
+      title={title}
+      titleAccent={titleAccent}
+      body={body}
       primary={{ label: "Discuss Social Media Support", event: "social_final_cta_click" }}
       secondary={{
         label: "Request a Paid Social Quote",

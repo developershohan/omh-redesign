@@ -34,6 +34,7 @@ export const organisation = {
     "@type": "PostalAddress",
     streetAddress: "The Hut, Central Ave",
     addressLocality: "Hullbridge",
+    addressRegion: "Essex",
     postalCode: "SS5 6AU",
     addressCountry: "GB",
   },
@@ -140,9 +141,14 @@ const services: Record<string, { name: string; description: string; faqs: Faqs; 
     faqs: socialMediaMarketing.faqs,
   },
   "/social-media-paid-advertising": {
-    name: "Paid Social Advertising",
+    name: "Paid Social Media Advertising",
     description: "Paid social and Meta Ads management for UK businesses, covering audience targeting, creative testing, lead forms, budget control and tracking.",
     faqs: socialMediaPaidAdvertising.faqs,
+    offers: socialMediaPaidAdvertising.packages.map((p) => ({
+      name: `${p.name} paid social management`,
+      price: p.price,
+      description: `Management fee; minimum ad spend ${p.adSpend}, paid separately. Three-month minimum term.`,
+    })),
   },
 };
 
