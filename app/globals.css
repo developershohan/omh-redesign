@@ -697,6 +697,75 @@ body {
   translate: 0 0;
 }
 
+/* Footer wordmark band (Footer.tsx): the .hero-grid backdrop redrawn for the
+   ink ground — 48px hairline grid plus an amber glow, here behind the accent
+   word — between the footer's own hairline rules. */
+.footer-wordmark {
+  overflow: hidden;
+  border-block: 1px solid color-mix(in srgb, var(--color-oninverse) 12%, transparent);
+  background-image:
+    radial-gradient(30% 110% at 82% 70%, color-mix(in srgb, var(--color-amber) 16%, transparent), transparent 70%),
+    linear-gradient(color-mix(in srgb, var(--color-oninverse) 4%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-oninverse) 4%, transparent) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
+}
+
+/* Light streaks: two soft glints that run along the band's top and bottom
+   rules, so they read as light catching its edges and never cross the
+   letters at any width. They travel left to right at different speeds; with
+   reduced motion they rest part-way along. */
+.footer-wordmark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent, rgb(242 198 117 / 0.85), transparent) 30% 0 / 34% 1px no-repeat,
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--color-oninverse) 60%, transparent), transparent) 70% 100% / 26% 1px no-repeat;
+  filter: drop-shadow(0 0 3px rgb(242 198 117 / 0.55));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .footer-wordmark::before {
+    animation: footer-glint 11s cubic-bezier(0.45, 0, 0.25, 1) infinite;
+  }
+}
+
+/* Background-position % moves a sized layer across the free space, so -60% and
+   160% park the 34% glint fully off each edge (-50%/150% for the 26% one).
+   The top glint crosses in the first 55%, then waits off-screen. */
+@keyframes footer-glint {
+  0% {
+    background-position: -60% 0, -50% 100%;
+  }
+  55% {
+    background-position: 160% 0, 40% 100%;
+  }
+  100% {
+    background-position: 160% 0, 150% 100%;
+  }
+}
+
+/* The pointer spotlight (see .pointer-spotlight): a brighter copy of the name,
+   revealed only in a circle around the cursor. Same gating as the other
+   pointer accents, so it never shows on touch or with reduced motion. */
+.footer-wordmark-lit {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) and (pointer: fine) {
+  .footer-wordmark-lit {
+    opacity: var(--on, 0);
+    transition: opacity 0.4s ease;
+    mask-image: radial-gradient(
+      220px circle at calc(var(--px, 0.5) * 100%) calc(var(--py, 0.5) * 100%),
+      #000,
+      transparent 70%
+    );
+  }
+}
+
 .site-search {
   margin-inline: auto;
   margin-top: 12vh;

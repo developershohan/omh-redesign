@@ -1,7 +1,49 @@
+import { statSync } from "node:fs";
+import path from "node:path";
 import Image from "next/image";
 import Link from "next/link";
+import { Download } from "lucide-react";
+import { Pointer } from "@/components/Pointer";
 import { ArrowRight } from "@/components/ui/Button";
 import { company, footerCols, legalLinks } from "@/lib/content/nav";
+
+const DECK = "/company-deck.pdf";
+
+// The wordmark band's viewBox. At 137 units the name's ink runs 101 above the
+// baseline and 30 below (measured), so a baseline at 126 leaves ~25 units clear
+// above the caps and below the descenders.
+const WORDMARK_VIEWBOX = "0 0 1600 180";
+
+// The name spans 90% of the band. The last word takes the light-amber accent
+// the site uses for highlighted heading phrases.
+function WordmarkText({ fill, accentFill }: { fill: string; accentFill: string }) {
+  const words = company.name.split(" ");
+  const accent = words.pop();
+  return (
+    <text
+      x="80"
+      y="126"
+      textLength="1440"
+      lengthAdjust="spacing"
+      fontSize="137"
+      fill={fill}
+      className="font-sans font-semibold"
+    >
+      {words.join(" ")} <tspan fill={accentFill}>{accent}</tspan>
+    </text>
+  );
+}
+
+// ponytail: the deck link renders only once public/company-deck.pdf exists, and
+// its size label is read from the file, so it can't 404 or go stale on replace.
+function deckSize() {
+  try {
+    const mb = statSync(path.join(process.cwd(), "public", DECK)).size / 1e6;
+    return mb >= 1 ? `${mb.toFixed(1).replace(/\.0$/, "")}MB` : `${Math.max(1, Math.round(mb * 1000))}KB`;
+  } catch {
+    return null;
+  }
+}
 
 const linkClass =
   "footer-link block py-1 text-label leading-snug text-oninverse/62 transition-colors hover:text-oninverse focus-visible:text-oninverse";
@@ -16,6 +58,7 @@ const headingClass =
 */
 export function Footer() {
   const [solutions, services, companyLinks] = footerCols;
+  const deck = deckSize();
 
   return (
     <footer className="bg-inverse text-oninverse">
@@ -88,6 +131,56 @@ export function Footer() {
             ))}
           </nav>
         </div>
+      </div>
+
+      {/* Wordmark band, in the site's own vocabulary: the hero's 48px grid and
+          amber glow behind a faint watermark of the name, and the ink cards'
+          pointer spotlight, which here lights the letters under the cursor.
+          Decorative (the logo already names the company), so hidden from
+          assistive tech. */}
+      <div aria-hidden>
+        <Pointer className="footer-wordmark relative">
+          {/* relative: paints above the grid glints in .footer-wordmark::before */}
+          <svg viewBox={WORDMARK_VIEWBOX} className="relative block h-auto w-full">
+            <defs>
+              <linearGradient id="fw-fill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stopColor="currentColor" stopOpacity="0.2" />
+                <stop offset="1" stopColor="currentColor" stopOpacity="0.06" />
+              </linearGradient>
+              <linearGradient id="fw-accent" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stopColor="#f2c675" stopOpacity="0.4" />
+                <stop offset="1" stopColor="#f2c675" stopOpacity="0.08" />
+              </linearGradient>
+            </defs>
+            <WordmarkText fill="url(#fw-fill)" accentFill="url(#fw-accent)" />
+          </svg>
+          <svg viewBox={WORDMARK_VIEWBOX} className="footer-wordmark-lit absolute inset-0 block h-full w-full">
+            <WordmarkText fill="rgb(248 237 220 / 0.6)" accentFill="#f2c675" />
+          </svg>
+        </Pointer>
+      </div>
+
+      <div className="container-omh">
+        {deck && (
+          <div className="py-8">
+            <a
+              href={DECK}
+              download="Online-Marketing-Help-Company-Deck.pdf"
+              data-event="footer_company_deck_download"
+              className="group inline-flex items-center gap-4"
+            >
+              <span className="grid size-12 shrink-0 place-items-center rounded-full bg-amber text-inverse transition-transform duration-300 group-hover:scale-110">
+                <Download aria-hidden className="size-5" strokeWidth={2.25} />
+              </span>
+              <span>
+                <span className="block font-sans text-lg leading-tight underline decoration-oninverse decoration-1 underline-offset-4 transition-colors group-hover:decoration-amber md:text-xl">
+                  Company Deck
+                </span>
+                <span className="block pt-1 text-sm text-oninverse/50 md:text-lg">PDF, {deck}</span>
+              </span>
+            </a>
+          </div>
+        )}
 
         <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3 border-t border-oninverse/12 py-7 text-[18px] text-oninverse/50">
           <span>
