@@ -1,86 +1,21 @@
 import Link from "next/link";
-import { Reveal } from "@/components/Reveal";
 import { CaseStudyVisual } from "@/components/case-studies/CaseStudyVisual";
-import { ArrowRight } from "@/components/ui/Button";
-import { caseStudyServices, type CaseStudy } from "@/lib/content/case-studies";
+import type { CaseStudy } from "@/lib/content/case-studies";
 
-/*
-  One project per full-width row, alternating sides on desktop (brief §3).
-  On mobile and tablet the visual always comes first — the order never flips,
-  so the page reads image → context → proof → action every time.
-*/
-export function CaseStudyRow({ study, index }: { study: CaseStudy; index: number }) {
-  const flipped = index % 2 === 1;
-  const metrics = study.results.slice(0, 3);
-
+export function CaseStudyRow({ study }: { study: CaseStudy }) {
+  const result = study.results.find(result => /%|st\b/.test(result.value));
   return (
-    <Reveal>
-      <article className="grid grid-cols-12 items-center gap-x-12 gap-y-8 border-t border-line py-[clamp(48px,4vw,72px)] max-lg:block">
-        <div className={`col-span-6 ${flipped ? "lg:order-2" : ""}`}>
-          <Link
-            href={`/case-studies/${study.slug}`}
-            tabIndex={-1}
-            aria-hidden
-            className="block"
-          >
-            <CaseStudyVisual study={study} index={index} />
-          </Link>
+    <article data-case-study={study.slug} className="min-w-0">
+      <Link href={`/case-studies/${study.slug}`} className="group block rounded-[4px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber" data-event="case_study_card_click" data-case-study={study.slug}>
+        <CaseStudyVisual study={study} />
+        <p className="mt-5 text-base text-muted">{study.category} / <span className="normal-case">{study.sector}</span></p>
+        <h2 className="mt-2 font-sans text-[clamp(24px,2.2vw,32px)] font-semibold leading-tight text-ink group-hover:underline underline-offset-4">{study.client}</h2>
+        <p className="mt-3 max-w-[58ch] text-body leading-relaxed text-ink/75">{study.title}</p>
+        <div className="mt-5 flex flex-wrap items-baseline justify-between gap-x-5 gap-y-3 border-t border-line pt-4">
+          {result ? <p className="max-w-[40ch] text-base leading-relaxed text-muted"><strong className="mr-2 text-xl font-semibold text-ink">{result.value}</strong>{result.label}</p> : <p className="text-base text-muted">{study.category === "Design" ? "Creative brief and delivery" : "Project brief and delivery"}</p>}
+          <span className="text-base font-semibold text-amber-deep underline underline-offset-4">Read the project</span>
         </div>
-
-        <div className={`col-span-6 max-lg:mt-9 ${flipped ? "lg:order-1" : ""}`}>
-          <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.16em] text-amber-deep">
-            {study.category}
-            <span className="text-muted"> · {study.sector}</span>
-          </p>
-          <h2 className="mt-5 max-w-[20ch] font-sans text-h3 font-semibold text-balance">
-            <Link
-              href={`/case-studies/${study.slug}`}
-              data-event="case_study_card_click"
-              data-case-study={study.slug}
-              className="hover:text-amber-deep hover:underline underline-offset-[6px]"
-            >
-              {study.title}
-            </Link>
-          </h2>
-          <p className="mt-5 max-w-[52ch] text-body leading-relaxed text-ink/72">{study.lede}</p>
-
-          {metrics.length > 0 && (
-          <dl className="mt-8 grid grid-cols-3 gap-x-6 gap-y-5 border-y border-line py-6 max-sm:grid-cols-1">
-            {metrics.map((metric) => (
-              <div key={`${metric.value}-${metric.label}`}>
-                <dt className="font-sans text-[clamp(24px,20px+0.8vw,30px)] font-semibold leading-none text-ink">
-                  {metric.value}
-                </dt>
-                <dd className="mt-2 text-body leading-snug text-muted">{metric.label}</dd>
-              </div>
-            ))}
-          </dl>
-          )}
-
-          {study.serviceIds.length > 0 && (
-          <ul className="mt-6 flex flex-wrap gap-2">
-            {study.serviceIds.map((serviceId) => (
-              <li
-                key={serviceId}
-                className="rounded-full border border-line bg-surface px-3.5 py-1.5 text-[18px] font-medium text-ink/70"
-              >
-                {caseStudyServices[serviceId].label}
-              </li>
-            ))}
-          </ul>
-          )}
-
-          <Link
-            href={`/case-studies/${study.slug}`}
-            data-event="case_study_row_cta_click"
-            data-case-study={study.slug}
-            className="group mt-8 inline-flex items-center gap-2 text-body font-semibold text-amber-deep hover:underline underline-offset-4"
-          >
-            View case study
-            <ArrowRight className="size-4 transition-transform duration-500 group-hover:translate-x-1" />
-          </Link>
-        </div>
-      </article>
-    </Reveal>
+      </Link>
+    </article>
   );
 }

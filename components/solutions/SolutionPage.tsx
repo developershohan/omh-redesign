@@ -139,7 +139,7 @@ function MediaSection({ content }: { content: SolutionPageContent }) {
               <h2 className="mt-6 max-w-[14ch] font-sans text-h2 font-semibold text-balance">{content.media.title}</h2>
               <p className="mt-5 max-w-[48ch] text-body leading-relaxed text-ink/68">{content.media.body}</p>
             </div>
-            <MediaFrame kind="video" theme={content.theme} ratio="16/10" title={content.media.videoTitle} note="Video placeholder for approved project media." className="col-span-7" />
+            <MediaFrame kind="image" theme={content.theme} ratio="16/10" title={content.media.videoTitle} note="Video placeholder for approved project media." className="col-span-7" source="/images/home/campaign-review.png" alt="Marketing campaign planning and review" />
           </div>
           <div className="mt-6 grid grid-cols-12 gap-6">
             <MediaFrame kind="image" theme={content.theme} ratio="5/4" title={content.media.imageTitle} note="Image placeholder for approved project media." source={content.media.imageSrc} alt={content.media.imageAlt} className="col-span-5 max-md:col-span-12" />

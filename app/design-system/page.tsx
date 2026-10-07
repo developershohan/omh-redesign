@@ -207,7 +207,7 @@ export default function DesignSystem() {
             <VerifiedSlot>REAL TESTIMONIAL TO BE INSERTED</VerifiedSlot>
           </div>
           <div className="w-72">
-            <Fpo ratio="16/10" tag="Photo · 16:10" title="Real asset required" note="Hatched frame states exactly what is needed." />
+            <Fpo ratio="16/10" tag="Photo · 16:10" title="Real asset required" note="Hatched frame states exactly what is needed." source="/images/home/agency-collaboration.png" alt="Agency collaboration" />
           </div>
         </div>
         <p className="mt-5 max-w-[70ch] text-bsm text-muted">

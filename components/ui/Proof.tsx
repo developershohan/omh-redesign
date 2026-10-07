@@ -1,3 +1,4 @@
+import Image from "@/components/ui/SiteImage";
 import type { ReactNode } from "react";
 
 /*
@@ -15,34 +16,23 @@ export function VerifiedSlot({ children }: { children: ReactNode }) {
   );
 }
 
-// Future Elementor widget: "OMH Image" (with real asset swapped in)
-export function Fpo({
-  ratio,
-  tag,
-  title,
-  note,
-  className = "",
-}: {
-  ratio: string; // e.g. "16/10"
+// Illustrative evidence images; client verification remains in VerifiedSlot.
+export function Fpo({ ratio, tag, title, source, alt, className = "" }: {
+  ratio: string;
   tag: string;
   title: string;
   note: string;
+  source: string;
+  alt?: string;
   className?: string;
 }) {
   return (
-    <div
-      role="img"
-      aria-label={`Placeholder: ${title} — ${note}`}
-      style={{ aspectRatio: ratio }}
-      className={`fpo-hatch relative flex items-center justify-center overflow-hidden rounded-media border border-line ${className}`}
-    >
-      <span className="absolute left-3.5 top-3.5 rounded-md border border-line bg-surface/85 px-2 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">
-        {tag}
-      </span>
-      <span className="max-w-[75%] text-center text-[14.5px] leading-snug text-muted">
-        <b className="block font-sans text-body font-semibold text-ink">{title}</b>
-      </span>
-    </div>
+    <figure style={{ aspectRatio: ratio }} className={"relative overflow-hidden rounded-media border border-line " + className}>
+      <Image src={source} alt={alt ?? title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+      <figcaption className="absolute bottom-3 left-3 rounded-md border border-line bg-surface/95 px-2 py-1 text-[11px] font-semibold text-ink">
+        {tag} · Illustration
+      </figcaption>
+    </figure>
   );
 }
 

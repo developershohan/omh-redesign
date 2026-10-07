@@ -1,40 +1,27 @@
 import { CaseStudyHero, CaseStudyOverview } from "@/components/case-studies/CaseStudyHero";
 import { CaseStudyNavigation } from "@/components/case-studies/CaseStudyNavigation";
-import {
-  CaseStudyResults,
-  CaseStudyServices,
-  CaseStudyTestimonial,
-} from "@/components/case-studies/CaseStudyResults";
-import {
-  CaseStudyChallenges,
-  CaseStudyWorkSection,
-} from "@/components/case-studies/CaseStudyWorkSection";
-import { FinalCta } from "@/components/ui/FinalCta";
-import { caseStudies, type CaseStudy } from "@/lib/content/case-studies";
+import { CaseStudyResults, CaseStudyServices, CaseStudyTestimonial } from "@/components/case-studies/CaseStudyResults";
+import { CaseStudyChallenges, CaseStudyWorkSection } from "@/components/case-studies/CaseStudyWorkSection";
+import { Button } from "@/components/ui/Button";
+import type { CaseStudy } from "@/lib/content/case-studies";
 
 export function CaseStudyArticle({ study }: { study: CaseStudy }) {
-  const index = caseStudies.indexOf(study);
-
   return (
-    <article>
-      <CaseStudyHero study={study} index={index} />
+    <article data-case-article={study.slug}>
+      <CaseStudyHero study={study} />
       <CaseStudyOverview study={study} />
       <CaseStudyChallenges study={study} />
-      <CaseStudyWorkSection study={study} index={index} />
+      <CaseStudyWorkSection study={study} />
       <CaseStudyResults study={study} />
       <CaseStudyTestimonial study={study} />
       <CaseStudyServices study={study} />
       <CaseStudyNavigation study={study} />
-      <FinalCta
-        title="Plan the work and measurement together."
-        titleAccent="and measurement together."
-        body="Tell us the business objective, starting data and service support you need. We will recommend a practical scope and what should be measured."
-        primary={{
-          label: "Discuss a Similar Project",
-          event: "case_study_cta_click",
-        }}
-        contactEvents={{ phone: "case_study_phone_click", email: "case_study_email_click" }}
-      />
+      <section className="bg-warm">
+        <div className="container-omh flex flex-wrap items-center justify-between gap-7 py-12 sm:py-16">
+          <div><h2 className="font-sans text-h3 font-semibold">Have a similar project in mind?</h2><p className="mt-4 max-w-[60ch] text-body text-ink/75">Let’s talk about your business, the challenge and what a useful result would look like.</p></div>
+          <Button href="/contact" data-event="case_study_cta_click">Discuss your project</Button>
+        </div>
+      </section>
     </article>
   );
 }

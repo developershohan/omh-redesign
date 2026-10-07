@@ -6,13 +6,7 @@ import { FinalCta } from "@/components/ui/FinalCta";
 import { company } from "@/lib/content/nav";
 import { freeConsultation as page } from "@/lib/content/quote-forms";
 
-/*
-  /omh-free-consultation sits in Phase 5 but is not a form page — the live page is
-  a Calendly booking landing page. Copy is verbatim; the booking widget is a
-  `MediaFrame` placeholder because there is no Calendly embed in this codebase,
-  and the live "Our Starter Packages" run is a duplicate of /pricing, so this page
-  links there instead of shipping the same eleven tables twice.
-*/
+// Consultation imagery accompanies the contact route until online booking is configured.
 
 export function FreeConsultationPage() {
   return (
@@ -46,12 +40,13 @@ export function FreeConsultationPage() {
           <MediaFrame
             kind="screen"
             theme="ppc"
-            title="Select a Date & Time"
-            note="Calendly booking widget, embedded before launch."
-            ratio="16/9"
-          />
+            title="Plan your consultation"
+            note="Project planning illustration."
+            ratio="16/9" source="/images/home/agency-collaboration.png" alt="Team collaboration during project planning" />
         </div>
         <p className="mt-7 text-center text-body text-ink/70">
+          <Button href="/contact" arrow>Arrange your free consultation</Button>
+          <br /><br />
           Prefer to talk now?{" "}
           <Link href={company.phoneHref} className="font-semibold text-ink hover:text-amber-deep">
             {page.phone}
@@ -91,12 +86,11 @@ export function FreeConsultationPage() {
           {page.clients.map((client) => (
             <figure key={client.name}>
               <MediaFrame
-                kind="video"
+                kind="image"
                 theme="ppc"
                 title={client.name}
                 note="Client video testimonial."
-                ratio="16/9"
-              />
+                ratio="16/9" source="/images/home/agency-collaboration.png" alt="Illustrative agency collaboration" />
               <figcaption className="mt-5 text-body leading-relaxed text-ink/75">
                 {client.body}
               </figcaption>

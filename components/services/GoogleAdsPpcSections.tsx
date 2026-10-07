@@ -225,8 +225,8 @@ export function PpcProofSection() {
             </div>
             <div className="col-span-7 col-start-6 max-lg:mt-9">
               <div className="grid grid-cols-2 gap-5 max-sm:grid-cols-1">
-                <Fpo ratio="4/3" tag="Before" title="Account baseline" note="Show an approved starting view and date range." />
-                <Fpo ratio="4/3" tag="After" title="Verified PPC result" note="Use the same metric definition and a comparable period." />
+                <Fpo ratio="4/3" tag="Before" title="Account baseline" note="Show an approved starting view and date range." source="/images/Services/Images on the pages/Account baseline Before.png" alt="Illustrative Google Ads account baseline" />
+                <Fpo ratio="4/3" tag="After" title="Verified PPC result" note="Use the same metric definition and a comparable period." source="/images/Services/Images on the pages/Verified PPC result after.png" alt="Illustrative Google Ads reporting example" />
               </div>
               <div className="mt-6 rounded-card border border-soft-dark bg-surface/70 p-6"><VerifiedSlot>Google ads case study — pending</VerifiedSlot><div className="mt-4 flex flex-wrap gap-3"><VerifiedSlot>Client approval — pending</VerifiedSlot><VerifiedSlot>Result method — pending</VerifiedSlot></div></div>
             </div>

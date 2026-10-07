@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/SiteImage";
 import { Leaf, HandHeart, Users, Trees } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { AboutTabs } from "@/components/about/AboutTabs";

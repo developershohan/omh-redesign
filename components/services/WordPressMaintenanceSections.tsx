@@ -464,14 +464,12 @@ export function MaintenanceProofSection() {
                   ratio="4/3"
                   tag="Before"
                   title="WordPress issue screenshot"
-                  note="Use the real fault, warning or previous setup."
-                />
+                  note="Use the real fault, warning or previous setup." source="/images/Services/Images on the pages/before website maintenance.png" alt="Illustrative WordPress dashboard before maintenance" />
                 <Fpo
                   ratio="4/3"
                   tag="After"
                   title="Maintenance report or fix"
-                  note="Use an approved result, report or resolved screen."
-                />
+                  note="Use an approved result, report or resolved screen." source="/images/Services/Images on the pages/After website maintenance.png" alt="Illustrative WordPress dashboard after maintenance" />
               </div>
               <div className="mt-6 rounded-card border border-soft-dark bg-surface/70 p-6">
                 <VerifiedSlot>WordPress maintenance case study — pending</VerifiedSlot>

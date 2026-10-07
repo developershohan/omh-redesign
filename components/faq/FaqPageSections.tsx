@@ -44,12 +44,11 @@ export function FaqHero() {
             </div>
             <div className="col-span-5 max-lg:mt-10">
               <MediaFrame
-                kind="video"
+                kind="image"
                 theme="wordpress"
                 ratio="4/3"
                 title="The questions we get asked most"
-                note="Add a short video answering the three most common questions."
-              />
+                note="Add a short video answering the three most common questions." source="/images/home/agency-collaboration.png" alt="Agency team discussing a project" />
             </div>
           </div>
         </Reveal>
@@ -121,13 +120,12 @@ function FaqMediaBreak() {
             </p>
           </div>
           <MediaFrame
-            kind="video"
+            kind="image"
             theme="maintenance"
             ratio="16/9"
             title="Project walkthrough"
             note="Replace with a consultation-to-launch screen recording."
-            className="col-span-7 max-lg:mt-10"
-          />
+            className="col-span-7 max-lg:mt-10" source="/images/Services/wordpress development.jpg" alt="Website development workspace" />
         </div>
       </Reveal>
     </ServiceBand>

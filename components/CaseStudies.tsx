@@ -3,7 +3,6 @@ import { Reveal } from "@/components/Reveal";
 import { CaseStudyVisual } from "@/components/case-studies/CaseStudyVisual";
 import { ArrowRight, TextLink } from "@/components/ui/Button";
 import {
-  caseStudies,
   getCaseStudiesForService,
   type CaseStudy,
   type CaseStudyServiceId,
@@ -13,7 +12,7 @@ import {
   The related-work block reused across service pages. The archive and the single
   case study now live in components/case-studies/ (brief §9).
 */
-function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
+function CaseStudyCard({ study }: { study: CaseStudy }) {
   return (
     <article className="surface-card group flex h-full flex-col overflow-hidden rounded-card border border-line bg-surface">
       <Link
@@ -22,9 +21,9 @@ function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
         data-event="case_study_card_click"
         data-case-study={study.slug}
       >
-        <CaseStudyVisual study={study} index={index} ratio="16/10" className="rounded-none border-0" />
+        <CaseStudyVisual study={study} ratio="16/10" className="rounded-none border-0" />
         <div className="flex flex-1 flex-col p-7">
-          <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.14em] text-amber-deep">
+          <p className="font-sans text-base font-semibold uppercase tracking-[0.14em] text-amber-deep">
             {study.category}
             <span className="text-muted"> · {study.sector}</span>
           </p>
@@ -63,7 +62,7 @@ export function ServiceCaseStudies({
         <Reveal>
           <div className="flex items-end justify-between gap-10 max-lg:block">
             <div>
-              <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.16em] text-amber-deep">
+              <p className="font-sans text-base font-semibold uppercase tracking-[0.16em] text-amber-deep">
                 {eyebrow}
               </p>
               <h2
@@ -84,13 +83,13 @@ export function ServiceCaseStudies({
 
         <div className="mt-10 grid grid-cols-3 gap-6 max-lg:grid-cols-1">
           {studies.map((study) => (
-            <CaseStudyCard key={study.slug} study={study} index={caseStudies.indexOf(study)} />
+            <CaseStudyCard key={study.slug} study={study} />
           ))}
         </div>
 
         {remainingStudies.length > 0 && (
           <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-line pt-6">
-            <span className="text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
+            <span className="text-base font-semibold uppercase tracking-[0.14em] text-muted">
               More related studies
             </span>
             {remainingStudies.map((study) => (

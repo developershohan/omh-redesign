@@ -1,218 +1,170 @@
-import { Check, Minus } from "lucide-react";
-import { Reveal } from "@/components/Reveal";
-import { MediaFrame } from "@/components/ServiceMedia";
-import { ServiceBand, type ServiceBandTone } from "@/components/services/ServiceBand";
+"use client";
+
+import { useEffect } from "react";
+import Link from "next/link";
+import { Check, Minus, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { FinalCta } from "@/components/ui/FinalCta";
-import { Eyebrow } from "@/components/ui/Proof";
 import { priceList, type PriceCell, type PriceTable } from "@/lib/content/price-list";
 
-function Value({ value, label }: { value: PriceCell; label: string }) {
-  if (value === true) {
-    return (
-      <>
-        <Check className="mx-auto size-5 text-teal" aria-hidden />
-        <span className="sr-only">Included</span>
-      </>
-    );
+const groups = [
+  { id: "websites", title: "Websites & maintenance", description: "Build a website, launch a store or look after the site you have.", services: ["wordpress", "Shopify", "maintenence", "website-designs"] },
+  { id: "search", title: "Search & advertising", description: "Reach people searching for your business, locally and beyond.", services: ["seo", "local-seo", "ppc"] },
+  { id: "social", title: "Social media", description: "Compare ongoing content management with paid social campaigns.", services: ["smm", "smp"] },
+  { id: "creative", title: "Design & content", description: "Get the brand assets and written content your business needs.", services: ["logo", "brochure", "writing"] },
+];
+
+function Value({ value }: { value: PriceCell }) {
+  if (typeof value === "boolean") {
+    const Icon = value ? Check : Minus;
+    return <><Icon className={"mx-auto size-5 " + (value ? "text-amber-deep" : "text-muted/60")} aria-hidden /><span className="sr-only">{value ? "Included" : "Not included"}</span></>;
   }
-  if (value === false) {
-    return (
-      <>
-        <Minus className="mx-auto size-5 text-muted/60" aria-hidden />
-        <span className="sr-only">Not included</span>
-      </>
-    );
-  }
-  return <span aria-label={`${label}: ${value}`}>{value}</span>;
+  return <>{value}</>;
 }
 
-// Sticky first column so the feature label stays readable while the tiers scroll
-// on narrow screens — the tables run to 27 rows and 4 tiers.
 function ComparisonTable({ table }: { table: PriceTable }) {
-  const isPricing = (label: string) => label.startsWith("Pricing");
-
+  const pricing = table.rows.find(row => row.label.startsWith("Pricing"));
   return (
-    <div className="overflow-x-auto rounded-card border border-line bg-surface">
-      <table className="w-full min-w-[640px] border-collapse text-left">
-        <caption className="sr-only">{table.title} packages compared</caption>
-        <thead>
-          <tr className="border-b border-line">
-            <th
-              scope="col"
-              className="sticky left-0 z-10 bg-surface px-5 py-4 text-[14px] font-semibold uppercase tracking-[0.12em] text-muted"
-            >
-              Feature
-            </th>
-            {table.tiers.map((tier) => (
-              <th
-                key={tier}
-                scope="col"
-                className="px-5 py-4 text-center font-sans text-[18px] font-semibold text-ink"
-              >
-                {tier}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {table.rows.map((row) => (
-            <tr
-              key={row.label}
-              className={`border-b border-line last:border-0 ${isPricing(row.label) ? "bg-warm" : ""}`}
-            >
-              <th
-                scope="row"
-                className={`sticky left-0 z-10 px-5 py-3.5 text-left text-[18px] font-normal text-ink/80 ${isPricing(row.label) ? "bg-warm font-semibold text-ink" : "bg-surface"}`}
-              >
-                {row.label}
-              </th>
-              {row.values.map((value, index) => (
-                <td
-                  key={`${row.label}-${table.tiers[index] ?? index}`}
-                  className={`px-5 py-3.5 text-center text-[18px] ${isPricing(row.label) ? "font-sans text-[19px] font-semibold text-amber-deep" : "text-ink/80"}`}
-                >
-                  <Value value={value} label={row.label} />
-                </td>
+    <>
+      
+      <div role="region" aria-label={`${table.title} package comparison`} tabIndex={0} className="hidden w-full max-w-full overflow-x-auto rounded-xl md:block border border-line focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber">
+        <table className="w-full min-w-[680px] border-collapse text-left">
+          <caption className="sr-only">{table.title}: prices and included features</caption>
+          <thead>
+            <tr className="border-b border-line bg-warm">
+              <th scope="col" className="sticky left-0 z-10 w-[30%] min-w-[150px] bg-warm px-4 py-6 text-base font-semibold text-muted sm:px-5">Compare packages</th>
+              {table.tiers.map((tier, index) => (
+                <th key={tier} scope="col" className="min-w-[130px] px-4 py-6 text-center align-top">
+                  <span className="block text-base font-semibold text-ink">{tier}</span>
+                  <span className="mt-3 block whitespace-nowrap font-sans text-[28px] font-semibold tracking-tight text-amber-deep">{pricing?.values[index]}</span>
+                </th>
               ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {table.rows.filter(row => !row.label.startsWith("Pricing")).map(row => (
+              <tr key={row.label} className="group/row border-b border-line last:border-0 hover:bg-warm">
+                <th scope="row" className="sticky left-0 z-10 bg-surface px-4 py-3.5 text-base font-medium leading-snug text-ink group-hover/row:bg-warm sm:px-5">{row.label}</th>
+                {row.values.map((value, index) => <td key={index} className="px-4 py-3.5 text-center text-base text-ink/80"><Value value={value} /></td>)}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="space-y-5 md:hidden">
+        {table.tiers.map((tier, index) => (
+          <section key={tier} className="border-b border-line pb-5 last:border-0">
+            <h3 className="font-sans text-xl font-semibold">{tier}</h3>
+            <p className="mt-2 font-sans text-[28px] font-semibold text-amber-deep">{pricing?.values[index]}</p>
+            <details className="mt-3">
+              <summary className="min-h-11 cursor-pointer py-2 text-base font-semibold focus-visible:outline-2 focus-visible:outline-amber">View package features</summary>
+              <dl className="mt-2 divide-y divide-line">
+                {table.rows.filter(row => !row.label.startsWith("Pricing")).map(row => (
+                  <div key={row.label} className="grid grid-cols-[minmax(0,1fr)_minmax(70px,auto)] gap-4 py-3 text-base leading-relaxed">
+                    <dt className="text-ink/80">{row.label}</dt><dd className="text-right font-medium"><Value value={row.values[index]} /></dd>
+                  </div>
+                ))}
+              </dl>
+            </details>
+          </section>
+        ))}
+      </div>
+    </>
   );
 }
 
 export function PriceListHero() {
   return (
-    <section className="hero-grid border-b border-line bg-warm">
-      <div className="container-omh section-md">
-        <Reveal>
-          <Eyebrow>{priceList.eyebrow}</Eyebrow>
-          <div className="mt-8 grid grid-cols-12 items-center gap-x-12 gap-y-8 max-lg:block">
-            <div className="col-span-6">
-              <h1 className="max-w-[13ch] font-sans text-display font-semibold text-balance">
-                {priceList.title}
-              </h1>
-              <p className="mt-7 max-w-[52ch] text-lead leading-relaxed text-ink/75">
-                {priceList.standfirst}
-              </p>
-              <div className="mt-9">
-                <Button href="/contact" arrow data-event="pricing_hero_cta_click">
-                  Book a Free Consultation
-                </Button>
-              </div>
-            </div>
-            <MediaFrame
-              kind="screen"
-              theme="wordpress"
-              ratio="4/3"
-              title="What a quote looks like"
-              note="Replace with an anonymised proposal or package summary."
-              source="/images/Services/Amazon PPC 1 (2).png"
-              alt="A scoped proposal being talked through on screen with printed performance summaries on the desk."
-              className="col-span-6 max-lg:mt-10"
-            />
+    <section className="border-b border-line bg-warm">
+      <div className="container-omh py-12 sm:py-16">
+        <p className="text-base font-semibold text-muted">Services & pricing</p>
+        <div className="mt-5 flex items-end justify-between gap-8 max-md:block">
+          <div>
+            <h1 className="max-w-[19ch] font-sans text-h1 font-semibold text-balance">Choose the right service for your business.</h1>
+            <p className="mt-5 max-w-[57ch] text-lead leading-relaxed text-ink/70">Choose a service below to see its packages, prices and what’s included. Compare only what you need.</p>
           </div>
-          <nav aria-label="Services on this page" className="mt-12 border-t border-line pt-8">
-            <p className="mb-4 text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
-              Jump to a service
-            </p>
-            <ul className="grid grid-cols-4 gap-x-8 max-lg:grid-cols-2 max-sm:grid-cols-1">
-              {priceList.tables.map((table) => (
-                <li key={table.id} className="border-b border-line">
-                  <a
-                    href={`#${table.id}`}
-                    className="block py-2.5 text-body text-ink/75 transition-colors hover:text-amber-deep"
-                  >
-                    {table.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </Reveal>
+          <div className="shrink-0 max-md:mt-7">
+            <Button href="/contact" arrow data-event="pricing_hero_cta_click">Help me choose</Button>
+            <p className="mt-3 text-base text-muted">Free 30-minute consultation</p>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
 
-// Eleven consecutive comparison tables read as one endless grid if they all sit
-// on the same ground, so the bands alternate and a media break splits the run.
-const tableTones: ServiceBandTone[] = ["warm", "white", "mist"];
-
 export function PriceTables() {
-  return (
-    <>
-      {priceList.tables.map((table, index) => (
-        <div key={table.id}>
-          {index === 5 && <PricingMediaBreak />}
-          <ServiceBand
-            label="Package"
-            id={table.id}
-            tone={tableTones[index % tableTones.length]}
-            accent={index % 2 ? "bg-teal" : "bg-amber"}
-            labelStyle="index"
-            index={index + 1}
-          >
-            <h2 className="mb-8 max-w-[24ch] font-sans text-h2 font-semibold">{table.title}</h2>
-            {table.rows.length > 0 && <ComparisonTable table={table} />}
-            <div className="mt-8 border-t border-line pt-7">
-              {table.notes.map((note) => (
-                <p key={note} className="mt-3 text-[18px] leading-relaxed text-ink/70 first:mt-0">
-                  {note}
-                </p>
-              ))}
-            </div>
-          </ServiceBand>
-        </div>
-      ))}
-    </>
-  );
-}
+  useEffect(() => {
+    const openLinkedService = () => {
+      const target = document.getElementById(window.location.hash.slice(1));
+      if (target instanceof HTMLDetailsElement) {
+        target.open = true;
+        target.scrollIntoView({ block: "start" });
+      }
+    };
+    openLinkedService();
+    window.addEventListener("hashchange", openLinkedService);
+    return () => window.removeEventListener("hashchange", openLinkedService);
+  }, []);
 
-function PricingMediaBreak() {
   return (
-    <ServiceBand label="Before you choose" tone="dark" accent="bg-[#f2c675]" labelStyle="index">
-      <Reveal>
-        <div className="grid grid-cols-12 items-center gap-x-12 gap-y-10 max-lg:block">
-          <MediaFrame
-            kind="video"
-            theme="ppc"
-            ratio="16/10"
-            title="How we scope and price a project"
-            note="Add a short walkthrough of a real quote being put together."
-            className="col-span-6"
-          />
-          <div className="col-span-6 max-lg:mt-10">
-            <h2 className="max-w-[16ch] font-sans text-h2 font-semibold text-balance">
-              Not sure which column you belong in?
-            </h2>
-            <p className="mt-6 max-w-[46ch] text-body leading-relaxed text-oninverse/70">
-              Your account manager will recommend the package that matches what you actually need,
-              not the one with the most ticks.
-            </p>
-            <div className="mt-9">
-              <Button href="/contact" variant="inverse" arrow data-event="pricing_media_cta_click">
-                Talk it through
-              </Button>
-            </div>
-          </div>
+    <section className="border-b border-line bg-surface">
+      <div className="container-omh grid items-start gap-10 py-12 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-14 lg:py-16">
+        <nav aria-label="Pricing categories" className="lg:sticky lg:top-28">
+          <p className="mb-4 font-sans text-xl font-semibold text-ink">Find your service</p>
+          <ul className="grid grid-cols-2 gap-x-5 lg:grid-cols-1">
+            {groups.map(group => <li key={group.id}><a href={`#${group.id}`} className="block min-h-12 border-b border-line py-4 text-base font-medium leading-relaxed text-ink transition-colors hover:text-amber-deep focus-visible:outline-2 focus-visible:outline-amber">{group.title}</a></li>)}
+          </ul>
+          <p className="mt-5 max-w-[30ch] text-base leading-relaxed text-muted">Open a service to compare packages. Prices, contract lengths and extra costs are listed together.</p>
+        </nav>
+        <div className="min-w-0 space-y-12">
+          {groups.map(group => (
+            <section key={group.id} id={group.id} aria-labelledby={`${group.id}-heading`} className="scroll-mt-28">
+              <h2 id={`${group.id}-heading`} className="font-sans text-h3 font-semibold text-ink">{group.title}</h2>
+              <p className="mt-2 max-w-[62ch] text-body text-muted">{group.description}</p>
+              <div className="mt-6 border-t border-line">
+                {group.services.map(id => {
+                  const table = priceList.tables.find(item => item.id === id)!;
+                  const pricing = table.rows.find(row => row.label.startsWith("Pricing"));
+                  const importantNotes = table.notes.filter(note => /Monthly Payment|advertising spend|cost of Shopify|minimum 3 month/i.test(note));
+                  return (
+                    <details key={id} id={id} name="pricing-service" className="group/service scroll-mt-28 min-w-0 border-b border-line bg-surface">
+                      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 max-sm:flex-wrap transition-colors hover:bg-warm focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-amber group-open/service:bg-warm [&::-webkit-details-marker]:hidden sm:p-6">
+                        <span className="min-w-0"><span className="block font-sans text-[19px] font-semibold leading-snug text-ink">{table.title}</span><span className="mt-1 block text-base text-muted">{table.tiers.length ? `${table.tiers.length} packages to compare` : "A design tailored to your project"}</span></span>
+                        <span className="flex shrink-0 items-center gap-3 max-sm:w-full max-sm:justify-between sm:gap-5"><span className="text-right max-sm:text-left"><span className="block text-base text-muted">{pricing ? "Starting from" : "Bespoke pricing"}</span><span className="block font-sans text-xl font-semibold text-amber-deep">{pricing ? pricing.values[0] : "Custom quote"}</span></span><ChevronDown className="size-5 text-amber-deep transition-transform group-open/service:rotate-180 motion-reduce:transition-none" aria-hidden /></span>
+                      </summary>
+                      <div className="border-t border-line p-4 sm:p-6">
+                        {pricing ? <ComparisonTable table={table} /> : <div className="max-w-[58ch]"><h3 className="font-sans text-h4 font-semibold">Let’s scope your website design</h3><p className="mt-3 text-body leading-relaxed text-ink/75">There is no fixed package price for this service. Share your requirements and we’ll help you choose a design and prepare a quote.</p><Link href="/website-designs" className="mt-4 inline-block font-semibold text-amber-deep underline underline-offset-4">Browse website designs</Link></div>}
+                        {importantNotes.length > 0 && <div className="mt-5 rounded-lg border-l-2 border-amber bg-warm p-4"><p className="mb-2 text-base font-semibold text-ink">Pricing notes</p>{importantNotes.map(note => <p key={note} className="mt-1 max-w-[70ch] text-base leading-relaxed text-ink/75">{note}</p>)}</div>}
+                        <details className="mt-5 border-b border-line pb-5">
+                          <summary className="cursor-pointer text-base font-semibold text-ink focus-visible:outline-2 focus-visible:outline-amber">Package details & terms</summary>
+                          <ul className="mt-4 max-w-[72ch] list-disc space-y-3 pl-5 text-base leading-relaxed text-ink/75">
+                            {table.notes.filter(note => !importantNotes.includes(note) && note !== "As part of your services, we will:").map(note => <li key={note}>{note}</li>)}
+                          </ul>
+                        </details>
+                        <div className="mt-5 flex flex-wrap items-center justify-between gap-4"><p className="max-w-[40ch] text-base text-muted">Discuss your requirements before choosing a package.</p><Button href="/contact" data-event="pricing_service_enquiry" data-service={id}>{pricing ? "Discuss this service" : "Request a quote"}</Button></div>
+                      </div>
+                    </details>
+                  );
+                })}
+              </div>
+            </section>
+          ))}
         </div>
-      </Reveal>
-    </ServiceBand>
+      </div>
+    </section>
   );
 }
 
 export function PriceListFinalCta() {
   return (
-    <FinalCta
-      title="Not sure which package fits? Start with the consultation."
-      titleAccent="Start with the consultation."
-      body="Your account manager will recommend the best package based on your business needs, including how much content you need added."
-      primary={{ label: "Book a Call", href: "/contact", event: "pricing_final_cta_click" }}
-      secondary={{ label: "Read the FAQ", href: "/faq", event: "pricing_faq_click" }}
-      contactEvents={{ phone: "pricing_phone_click", email: "pricing_email_click" }}
-    />
+    <section className="bg-warm">
+      <div className="container-omh flex items-center justify-between gap-8 py-12 max-md:flex-col max-md:items-start sm:py-16">
+        <div>
+          <h2 className="font-sans text-h3 font-semibold">Need help choosing a service?</h2>
+          <p className="mt-4 max-w-[60ch] text-body leading-relaxed text-ink/75">Tell us what you want to achieve. We’ll explain the options and costs in a free 30-minute consultation.</p>
+        </div>
+        <Button href="/contact" data-event="pricing_final_cta_click">Book a free consultation</Button>
+      </div>
+    </section>
   );
 }

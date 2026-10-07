@@ -71,7 +71,7 @@ function SocialHero({ variant, event }: V) {
             </div>
             <div className="mt-14 grid grid-cols-4 gap-6 max-md:grid-cols-2">
               <MediaFrame kind="image" theme="amazon" ratio="4/5" title="Feed post" note="Approved branded feed image." source="/images/Services/social media marketing 1.jpg" alt="Three social media marketers giving a thumbs up at a planning table covered in Instagram, Facebook and LinkedIn icons." />
-              <MediaFrame kind="video" theme="amazon" ratio="4/5" title="Reel" note="Short vertical video for Reels or Stories." />
+              <MediaFrame kind="image" theme="amazon" ratio="4/5" title="Reel" note="Short vertical video for Reels or Stories." source="/images/Services/social media marketing 1(2).jpg" alt="Social media apps and Instagram on a phone" />
               <MediaFrame kind="image" theme="amazon" ratio="4/5" title="Carousel" note="Multi-slide carousel creative." source="/images/Services/social media marketing 1(1).jpg" alt="A social media team reviewing campaign charts on tablets, with Facebook, Twitter and LinkedIn icons on the table." />
               <MediaFrame kind="screen" theme="amazon" ratio="4/5" title="Profile grid" note="Anonymised profile showing the grid layout." source="/images/Services/social media marketing 1(2).jpg" alt="A phone's social media folder with the Instagram app beside X, TikTok, LinkedIn and YouTube, and Instagram open on a screen behind." />
             </div>
@@ -100,13 +100,12 @@ function SocialHero({ variant, event }: V) {
               {actions}
             </div>
             <MediaFrame
-              kind="video"
+              kind="image"
               theme="seo"
               ratio="16/10"
               title="Social campaign walkthrough"
               note="Replace with a short, anonymised campaign and creative review."
-              className="col-span-6 max-lg:mt-10"
-            />
+              className="col-span-6 max-lg:mt-10" source="/images/Services/social media paid advertising.jpg" alt="Social advertising campaign review" />
           </div>
         </Reveal>
       </div>
@@ -265,13 +264,12 @@ function SocialMediaBand({ variant }: { variant: SocialVariant }) {
         <Reveal>
           <div className="grid grid-cols-12 items-center gap-x-12 gap-y-10 max-lg:block">
             <MediaFrame
-              kind="video"
+              kind="image"
               theme="amazon"
               ratio="9/16"
               title="Vertical creative in the feed"
               note="Add a Reel or Story cut from a real campaign."
-              className="col-span-4"
-            />
+              className="col-span-4" source="/images/Services/social media marketing 1(2).jpg" alt="Instagram and social media apps on a phone" />
             <div className="col-span-8 max-lg:mt-10">
               <h2 className="max-w-[18ch] font-sans text-h2 font-semibold text-balance">
                 {instagramLanding.creative.title}
@@ -281,7 +279,7 @@ function SocialMediaBand({ variant }: { variant: SocialVariant }) {
               </p>
               <div className="mt-10 grid grid-cols-2 gap-6 max-sm:grid-cols-1">
                 <MediaFrame kind="image" theme="amazon" ratio="16/10" title="Carousel frames" note="Approved multi-slide creative." source="/images/Services/social media paid advertising.jpg" alt="A marketing team reviewing paid social campaign results on a tablet, with performance charts on the table." />
-                <MediaFrame kind="screen" theme="amazon" ratio="16/10" title="Engagement report" note="Anonymised monthly analytics screen." />
+                <MediaFrame kind="screen" theme="amazon" ratio="16/10" title="Engagement report" note="Anonymised monthly analytics screen." source="/images/Services/social media marketing 1(1).jpg" alt="Social media team reviewing campaign charts" />
               </div>
             </div>
           </div>
@@ -302,7 +300,7 @@ function SocialMediaBand({ variant }: { variant: SocialVariant }) {
           </p>
         </div>
         <div className="mt-12 grid grid-cols-12 gap-6">
-          <MediaFrame kind="screen" theme="seo" ratio="16/9" title="Campaign manager view" note="Anonymised ad-set and audience screen." className="col-span-7 max-md:col-span-12" />
+          <MediaFrame kind="screen" theme="seo" ratio="16/9" title="Campaign manager view" note="Anonymised ad-set and audience screen." className="col-span-7 max-md:col-span-12" source="/images/Services/social media paid advertising.jpg" alt="Paid social campaign planning" />
           <MediaFrame kind="image" theme="seo" ratio="5/4" title="Ad creative set" note="Approved branded post and ad designs." source="/images/Services/social media paid advertising 1.jpg" alt="A set of branded paid social ad designs." className="col-span-5 max-md:col-span-12" />
         </div>
       </Reveal>

@@ -1,97 +1,34 @@
+import Image from "@/components/ui/SiteImage";
 import type { CaseStudy } from "@/lib/content/case-studies";
 
-/*
-  Project visual for case studies.
-
-  There is no approved client photography for these projects, and inventing
-  dashboards or dropping in stock imagery is off-limits (brief §2). So each
-  project gets an intentional branded plate built from information the study
-  already publishes: sector, category, position in the series and the headline
-  result. Brand tokens only — no random gradients, no decorative blobs.
-*/
-
-type Tone = "ink" | "soft";
-
-type ToneStyles = {
-  panel: string;
-  grid: string;
-  arc: string;
-  label: string;
-  index: string;
-  rule: string;
-  meta: string;
+// Recovered from the site's WordPress media archive. Sector photos are not client evidence.
+const media: Record<string, { src: string; alt: string; caption: string; logo?: boolean }> = {
+  bakery: { src: "/images/case-studies/bakery.webp", alt: "A decorated cake on a bakery table", caption: "Bakery sector photography" },
+  "car-showroom": { src: "/images/case-studies/automotive.webp", alt: "Vehicles displayed in a bright car showroom", caption: "Automotive sector photography" },
+  "clothing-business": { src: "/images/case-studies/clothing.webp", alt: "A colourful range of retail accessories", caption: "Ecommerce sector photography" },
+  "craft-business": { src: "/images/case-studies/craft.webp", alt: "Handcrafted wooden letter forms", caption: "Craft sector photography" },
+  bar: { src: "/images/case-studies/bar.webp", alt: "A spacious restaurant dining room", caption: "Hospitality sector photography" },
+  "fine-dining": { src: "/images/case-studies/restaurant.webp", alt: "A restaurant table set for dinner", caption: "Restaurant sector photography" },
+  "fleming-verandas": { src: "/images/case-studies/fleming.webp", alt: "Fleming Verandas logo", caption: "Client brand", logo: true },
+  "california-accounting": { src: "/images/Services/SEO 2.jpg", alt: "Search results being reviewed on a tablet", caption: "Search marketing illustration" },
+  "allied-hands": { src: "/images/case-studies/allied.webp", alt: "A care worker accompanying an older person outdoors", caption: "Care sector photography from the original case study" },
+  "out-out-entry": { src: "/images/case-studies/out-out.webp", alt: "A group enjoying a pool party", caption: "Activity photography from the original case study" },
 };
 
-const tones: Record<Tone, ToneStyles> = {
-  ink: {
-    panel: "border-ink/70 bg-inverse text-oninverse",
-    grid: "[background-image:linear-gradient(rgb(255_255_255/0.055)_1px,transparent_1px),linear-gradient(90deg,rgb(255_255_255/0.055)_1px,transparent_1px)]",
-    arc: "border-amber/25",
-    label: "text-amber",
-    index: "text-oninverse/25",
-    rule: "border-oninverse/15",
-    meta: "text-oninverse/60",
-  },
-  soft: {
-    panel: "border-soft-dark bg-soft text-ink",
-    grid: "[background-image:linear-gradient(rgb(16_24_40/0.05)_1px,transparent_1px),linear-gradient(90deg,rgb(16_24_40/0.05)_1px,transparent_1px)]",
-    arc: "border-amber-deep/20",
-    label: "text-amber-deep",
-    index: "text-ink/20",
-    rule: "border-ink/15",
-    meta: "text-ink/70",
-  },
-};
-
-export function CaseStudyVisual({
-  study,
-  index,
-  ratio = "4/3",
-  className = "",
-}: {
+export function CaseStudyVisual({ study, ratio = "16/10", className = "", priority = false, caption = false }: {
   study: CaseStudy;
-  index: number;
   ratio?: string;
   className?: string;
+  priority?: boolean;
+  caption?: boolean;
 }) {
-  const tone = tones[index % 2 === 0 ? "ink" : "soft"];
-  // Lead on an outcome, not a timeframe — some studies list the implementation
-  // period first, which reads as a result when it is set this large.
-  const headline = study.results.find((r) => /%|st\b/.test(r.value)) ?? study.results[0];
-
+  const image = media[study.slug];
   return (
-    <div
-      role="img"
-      aria-label={`${study.client} — ${study.sector} ${study.category} project`}
-      style={{ aspectRatio: ratio }}
-      className={`media-card relative flex w-full flex-col justify-between overflow-hidden rounded-media border p-8 max-sm:p-6 ${tone.panel} ${className}`}
-    >
-      <div aria-hidden className={`absolute inset-0 [background-size:44px_44px] ${tone.grid}`} />
-      <div
-        aria-hidden
-        className={`absolute -bottom-[38%] -right-[16%] aspect-square w-[68%] rounded-full border-[28px] ${tone.arc}`}
-      />
-
-      <div className="relative flex items-start justify-between gap-6">
-        <p className={`font-sans text-[14px] font-semibold uppercase tracking-[0.16em] ${tone.label}`}>
-          {study.category}
-        </p>
-        <p className={`font-sans text-[18px] font-semibold tabular-nums ${tone.index}`}>
-          {String(index + 1).padStart(2, "0")}
-        </p>
+    <figure className={className}>
+      <div style={{ aspectRatio: ratio }} className={"relative overflow-hidden rounded-[4px] " + (image.logo ? "bg-[#253e3b]" : "bg-warm")}>
+        <Image src={image.src} alt={image.alt} fill priority={priority} sizes="(max-width: 767px) 100vw, 60vw" className={image.logo ? "object-contain p-[15%]" : "object-cover"} />
       </div>
-
-      <div className="relative">
-        <p className="font-sans text-h3 font-semibold leading-tight text-balance">{study.sector}</p>
-        {headline && (
-          <div className={`mt-6 border-t pt-5 ${tone.rule}`}>
-            <p className="font-sans text-[clamp(30px,24px+1.4vw,42px)] font-semibold leading-none">
-              {headline.value}
-            </p>
-            <p className={`mt-2 text-body leading-snug ${tone.meta}`}>{headline.label}</p>
-          </div>
-        )}
-      </div>
-    </div>
+      {caption && <figcaption className="mt-3 text-base leading-relaxed text-muted">{image.caption}</figcaption>}
+    </figure>
   );
 }

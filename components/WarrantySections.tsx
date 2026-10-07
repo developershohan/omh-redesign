@@ -171,12 +171,11 @@ export function WarrantyGuarantee() {
             </div>
             <div className="col-span-5 max-lg:mt-9">
               <MediaFrame
-                kind="video"
+                kind="image"
                 theme="maintenance"
                 ratio="4/3"
                 title="What the guarantee means in practice"
-                note="Add a short message from the team explaining the guarantee."
-              />
+                note="Add a short message from the team explaining the guarantee." source="/images/Services/website maintenance.jpg" alt="Website support and maintenance" />
             </div>
           </div>
         </Reveal>

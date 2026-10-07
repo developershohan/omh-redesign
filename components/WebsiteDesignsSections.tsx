@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/SiteImage";
 import Link from "next/link";
 import { MediaFrame } from "@/components/ServiceMedia";
 import { SiteTestimonials } from "@/components/Testimonials";
@@ -158,8 +158,7 @@ export function WebsiteDesignsPage() {
                       theme={index % 2 === 0 ? "wordpress" : "shopify"}
                       title={category.title}
                       note={`${category.images.length} theme screenshots to be added.`}
-                      ratio="16/9"
-                    />
+                      ratio="16/9" source={`${page.gallery.base}${category.images[0].file}`} alt={category.images[0].alt} />
                   </div>
                   <ul className="col-span-5 max-lg:mt-7">
                     {category.images.map((image) => (

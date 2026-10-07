@@ -1,38 +1,25 @@
 import Link from "next/link";
-import { Reveal } from "@/components/Reveal";
-import { ArrowRight } from "@/components/ui/Button";
-import { Eyebrow } from "@/components/ui/Proof";
+import { CaseStudyVisual } from "@/components/case-studies/CaseStudyVisual";
 import { caseStudyServices, type CaseStudy } from "@/lib/content/case-studies";
 
 export function CaseStudyResults({ study }: { study: CaseStudy }) {
-  // The four legacy studies imported in Phase 4 publish no figures. An empty
-  // "What changed." band reads as missing content, so it doesn't render at all.
   if (!study.results.length) return null;
+  const headline = study.results.find(result => result.value.includes("%")) ?? study.results[0];
   return (
-    <section className="bg-inverse text-oninverse">
-      <div className="container-omh section-md">
-        <Reveal>
-          <div className="max-w-[42ch]">
-            <Eyebrow light>The results</Eyebrow>
-            <h2 className="mt-6 font-sans text-h2 font-semibold text-balance">What changed.</h2>
+    <section id="results" className="scroll-mt-28 bg-[#253e3b] text-white">
+      <div className="container-omh py-12 sm:py-20">
+        <h2 className="font-sans text-h2 font-semibold">Published results</h2>
+        <div className="mt-10 grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+          <div className="flex flex-col justify-center border-b border-white/25 pb-8 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-10">
+            <p className="font-sans text-[clamp(72px,10vw,144px)] font-semibold leading-none tracking-tight text-[#f2c675]">{headline.value}</p>
+            <p className="mt-5 max-w-[28ch] text-[22px] leading-relaxed">{headline.label}</p>
+            {headline.context && <p className="mt-3 text-base leading-relaxed text-white/75">{headline.context}</p>}
           </div>
-
-          <dl className="mt-14 grid grid-cols-3 gap-x-10 max-lg:grid-cols-2 max-sm:grid-cols-1">
-            {study.results.map((result) => (
-              <div
-                key={`${result.value}-${result.label}`}
-                className="border-t border-oninverse/15 py-8 pr-6"
-              >
-                <dt className="font-sans text-[clamp(38px,30px+1.8vw,56px)] font-semibold leading-none text-[#f2c675]">
-                  {result.value}
-                </dt>
-                <dd className="mt-4 max-w-[26ch] text-body leading-snug text-oninverse/70">
-                  {result.label}
-                </dd>
-              </div>
-            ))}
+          <dl className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+            {study.results.filter(result => result !== headline).map(result => <div key={result.label} className="border-t border-white/25 pt-5"><dt className="text-base leading-relaxed text-white/75">{result.label}</dt><dd className="mt-3 font-sans text-[clamp(30px,3vw,44px)] font-semibold leading-tight">{result.value}</dd>{result.context && <dd className="mt-2 text-base leading-relaxed text-white/75">{result.context}</dd>}</div>)}
           </dl>
-        </Reveal>
+        </div>
+        <p className="mt-10 max-w-[80ch] border-t border-white/25 pt-5 text-base leading-relaxed text-white/75">Figures reproduced from the original case study. Its published material does not provide a complete baseline, measurement period and analytics source for independent verification.</p>
       </div>
     </section>
   );
@@ -41,26 +28,10 @@ export function CaseStudyResults({ study }: { study: CaseStudy }) {
 export function CaseStudyTestimonial({ study }: { study: CaseStudy }) {
   if (!study.testimonial) return null;
   return (
-    <section className="border-b border-line bg-soft">
-      <div className="container-omh section-md">
-        <Reveal>
-          <div className="grid grid-cols-12 gap-x-12 gap-y-8 max-lg:block">
-            <p className="col-span-3 text-[14px] font-semibold uppercase tracking-[0.16em] text-muted">
-              In their words
-            </p>
-            <div className="col-span-8 max-lg:mt-8">
-              <blockquote className="max-w-[42ch] text-[clamp(26px,21px+1.35vw,38px)] leading-tight text-ink/90">
-                “{study.testimonial.quote}”
-              </blockquote>
-              <p className="mt-7 text-body font-semibold text-ink/70">
-                {study.testimonial.attribution ?? study.client}
-                {study.testimonial.attribution && (
-                  <span className="block font-normal text-muted">{study.client}</span>
-                )}
-              </p>
-            </div>
-          </div>
-        </Reveal>
+    <section id="client-feedback" className="scroll-mt-28 bg-surface">
+      <div className="container-omh grid items-center gap-8 py-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 lg:py-20">
+        <CaseStudyVisual study={study} ratio="4/3" caption />
+        <div><h2 className="text-base font-medium text-muted">Client feedback</h2><blockquote className="mt-6 max-w-[56ch] font-serif text-[clamp(23px,2.2vw,32px)] leading-relaxed">“{study.testimonial.quote}”</blockquote><p className="mt-6 text-base font-semibold">{study.testimonial.attribution ?? study.client}</p>{study.testimonial.attribution && <p className="mt-1 text-base text-muted">{study.client}</p>}</div>
       </div>
     </section>
   );
@@ -69,35 +40,8 @@ export function CaseStudyTestimonial({ study }: { study: CaseStudy }) {
 export function CaseStudyServices({ study }: { study: CaseStudy }) {
   if (!study.serviceIds.length) return null;
   return (
-    <section className="border-b border-line bg-surface">
-      <div className="container-omh section-md">
-        <Reveal>
-          <div className="grid grid-cols-12 gap-x-12 gap-y-8 max-lg:block">
-            <div className="col-span-4 max-lg:mb-9">
-              <Eyebrow>Connected services</Eyebrow>
-              <h2 className="mt-6 max-w-[16ch] font-sans text-h3 font-semibold text-balance">
-                Follow the workstream, not just the result headline.
-              </h2>
-            </div>
-            <ul className="col-span-7 col-start-6 border-t border-line">
-              {study.serviceIds.map((serviceId) => {
-                const service = caseStudyServices[serviceId];
-                return (
-                  <li key={serviceId}>
-                    <Link
-                      href={service.href}
-                      className="service-row group flex items-center justify-between gap-6 border-b border-line py-5"
-                    >
-                      <span className="font-sans text-h4 font-semibold">{service.label}</span>
-                      <ArrowRight className="size-5 shrink-0 text-amber-deep transition-transform duration-500 group-hover:translate-x-1" />
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </Reveal>
-      </div>
+    <section className="border-t border-line bg-surface">
+      <div className="container-omh py-9"><h2 className="font-sans text-xl font-semibold">Explore these services</h2><ul className="mt-4 flex flex-wrap gap-x-7 gap-y-3 text-base">{study.serviceIds.map(id => <li key={id}><Link href={caseStudyServices[id].href} className="inline-flex min-h-11 items-center font-medium text-amber-deep underline underline-offset-4">{caseStudyServices[id].label}</Link></li>)}</ul></div>
     </section>
   );
 }

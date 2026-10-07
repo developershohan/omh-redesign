@@ -261,12 +261,12 @@ export const caseStudies: CaseStudy[] = [
   */
   {
     slug: "fleming-verandas",
-    title: "PPC FOR FLEMING VERANDAS",
+    title: "Launching paid search for Fleming Verandas",
     shortTitle: "Fleming Verandas PPC",
     sourceUrl: "https://onlinemarketinghelp.co.uk/ppc-for-fleming-verandas-case-study/",
     sourceTitle: "PPC for Fleming Verandas Case Study",
-    client: "FLEMING VERANDAS",
-    sector: "Veranda and awning company IN THE UK",
+    client: "Fleming Verandas",
+    sector: "Verandas and awnings",
     category: "PPC",
     lede: "Fleming Verandas was a start-up, small business in the West Midlands with an experience in delivering high quality verandas and glass rooms to customers.",
     /* ◈ Live-site defect, resolved 19 Aug 2026. The source page's "THE PROJECT"
@@ -328,8 +328,8 @@ export const caseStudies: CaseStudy[] = [
     sourceUrl:
       "https://onlinemarketinghelp.co.uk/search-engine-optimisation-for-california-accounting-case-study/",
     sourceTitle: "Search Engine Optimisation for California Accounting Case Study",
-    client: "california Accounting",
-    sector: "accountancy firm in the u.s",
+    client: "California Accounting",
+    sector: "Accountancy",
     category: "SEO",
     lede: "California Accounting is an established full solution accountancy firm that approached Online Marketing Help as they wanted to gain more organic traffic to their existing website. California Accounting wanted us to set-up a full paid ads strategy as well as using organic data to support it.",
     objective:
@@ -375,8 +375,8 @@ export const caseStudies: CaseStudy[] = [
     shortTitle: "Allied Hands Illustration",
     sourceUrl: "https://onlinemarketinghelp.co.uk/social-care-illustration-design-case-study/",
     sourceTitle: "Social Care Illustration Design Case Study",
-    client: "ALLIED HANDS",
-    sector: "social and health care business",
+    client: "Allied Hands",
+    sector: "Social and health care",
     category: "Design",
     lede: "Create some unique on brand illustrations to support a recruitment campaign that Allied Hands were wanting to launch in the coming weeks. The client wanted a creative, quirky look and feel but still with an element of professionalism suitable for their target audience 50+.",
     objective:
@@ -424,8 +424,8 @@ export const caseStudies: CaseStudy[] = [
     shortTitle: "Out Out Entry Website",
     sourceUrl: "https://onlinemarketinghelp.co.uk/website-design-for-out-out-entry-website-design/",
     sourceTitle: "Web Development for Out Out Entry Website Design Case Study",
-    client: "out out entry",
-    sector: "TOUR OPERATOR IN THE UK",
+    client: "Out Out Entry",
+    sector: "Travel and experiences",
     category: "Website",
     lede: "Out Out Entry was a start-up tour operator that wanted to showcase thousands of activities and accommodation options. They asked Online Marketing Help to build a mobile-friendly, fully optimised custom website that could support business growth and provide dedicated landing pages for targeted advertising campaigns.",
     objective:

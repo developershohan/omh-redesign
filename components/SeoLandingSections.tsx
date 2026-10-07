@@ -218,7 +218,7 @@ function SeoLandingMedia({ variant }: { variant: SeoVariant }) {
           <div className="mt-12 grid grid-cols-3 gap-6 max-md:grid-cols-1">
             <MediaFrame kind="image" theme="seo" ratio="4/3" title="Business profile" note="Approved Google Business Profile view." source="/images/Services/Local SEO.png" alt="A local business owner reviewing their Google Business Profile listing." />
             <MediaFrame kind="screen" theme="seo" ratio="4/3" title="Local queries" note="Anonymised local search-term report." source="/images/Services/Images on the pages/Business details and directory review.png" alt="Illustrative directory and business-details audit showing name, address and phone consistency across listings." />
-            <MediaFrame kind="video" theme="seo" ratio="4/3" title="Listing walkthrough" note="Short screen recording of a profile being optimised." />
+            <MediaFrame kind="image" theme="seo" ratio="4/3" title="Listing walkthrough" note="Short screen recording of a profile being optimised." source="/images/Services/Local SEO.png" alt="Local business profile review" />
           </div>
         </Reveal>
       </ServiceBand>
@@ -250,7 +250,7 @@ function SeoLandingMedia({ variant }: { variant: SeoVariant }) {
         </div>
         <div className="mt-6 grid grid-cols-12 gap-6">
           <MediaFrame kind="image" theme="seo" ratio="5/4" title="Crawl and architecture map" note="Add a real sitemap or annotated page hierarchy." source="/images/Services/Images on the pages/Crawl and architecture map.png" alt="Illustrative site crawl and architecture map showing page hierarchy and internal linking depth." className="col-span-5 max-md:col-span-12" />
-          <MediaFrame kind="video" theme="seo" ratio="16/8" title="SEO review walkthrough" note="Replace with a short audit-to-priority recording." className="col-span-7 max-md:col-span-12" />
+          <MediaFrame kind="image" theme="seo" ratio="16/8" title="SEO review walkthrough" note="Replace with a short audit-to-priority recording." className="col-span-7 max-md:col-span-12" source="/images/Services/SEO 1.jpg" alt="Search engine optimisation review" />
         </div>
       </Reveal>
     </ServiceBand>

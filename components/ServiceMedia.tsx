@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/SiteImage";
 import { Reveal } from "@/components/Reveal";
 
 // Global media primitives shared by service pages and future landing pages.
@@ -6,132 +6,35 @@ import { Reveal } from "@/components/Reveal";
 type MediaKind = "image" | "video" | "screen";
 type MediaTheme = "wordpress" | "shopify" | "maintenance" | "ppc" | "amazon" | "seo";
 
-const themeStyles: Record<MediaTheme, { frame: string; badge: string; icon: string; line: string }> = {
-  wordpress: {
-    frame: "border-ink/25 bg-tint-amber text-ink",
-    badge: "border-ink/15 bg-surface/85 text-ink/65",
-    icon: "border-ink/20 bg-surface/80 text-amber-deep",
-    line: "bg-teal",
-  },
-  shopify: {
-    frame: "border-[#7fb49b]/45 bg-tint-green text-ink",
-    badge: "border-[#173d2f]/15 bg-surface/85 text-ink/70",
-    icon: "border-[#173d2f]/20 bg-surface/85 text-[#24744f]",
-    line: "bg-[#e46f55]",
-  },
-  maintenance: {
-    frame: "border-[#f2c675]/40 bg-[#111d2d] text-oninverse",
-    badge: "border-oninverse/15 bg-[#0c1624]/85 text-oninverse/70",
-    icon: "border-[#f2c675]/35 bg-[#0c1624]/90 text-[#f2c675]",
-    line: "bg-[#f2c675]",
-  },
-  ppc: {
-    frame: "border-[#b8ef3e]/45 bg-[#11130f] text-oninverse",
-    badge: "border-[#b8ef3e]/25 bg-black/65 text-[#d7ff7b]",
-    icon: "border-[#b8ef3e]/40 bg-black/70 text-[#b8ef3e]",
-    line: "bg-[#b8ef3e]",
-  },
-  amazon: {
-    frame: "border-[#ff9900]/55 bg-[#17130e] text-oninverse",
-    badge: "border-[#ffb84d]/30 bg-black/65 text-[#ffc66d]",
-    icon: "border-[#ff9900]/45 bg-black/70 text-[#ffb84d]",
-    line: "bg-[#ff9900]",
-  },
-  seo: {
-    frame: "border-[#76a9e8]/50 bg-[#0e2035] text-oninverse",
-    badge: "border-[#9bc3f3]/25 bg-[#081626]/75 text-[#b8d8ff]",
-    icon: "border-[#76a9e8]/45 bg-[#081626]/85 text-[#8fc0f7]",
-    line: "bg-[#ee8c67]",
-  },
+const themeStyles: Record<MediaTheme, string> = {
+  wordpress: "border-ink/25 bg-tint-amber text-ink",
+  shopify: "border-[#7fb49b]/45 bg-tint-green text-ink",
+  maintenance: "border-[#f2c675]/40 bg-[#111d2d] text-oninverse",
+  ppc: "border-[#b8ef3e]/45 bg-[#11130f] text-oninverse",
+  amazon: "border-[#ff9900]/55 bg-[#17130e] text-oninverse",
+  seo: "border-[#76a9e8]/50 bg-[#0e2035] text-oninverse",
 };
 
-function MediaIcon({ kind, className }: { kind: MediaKind; className: string }) {
-  if (kind === "video") {
-    return (
-      <span className={`flex size-14 items-center justify-center rounded-full border backdrop-blur-sm ${className}`}>
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="ml-1 size-5"><path d="M8 5.5v13l10-6.5-10-6.5Z" /></svg>
-      </span>
-    );
-  }
-  if (kind === "screen") {
-    return (
-      <span className={`flex size-14 items-center justify-center rounded-xl border backdrop-blur-sm ${className}`}>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden className="size-6"><rect x="3" y="4" width="18" height="13" rx="2" /><path d="M8 21h8m-4-4v4" /></svg>
-      </span>
-    );
-  }
-  return (
-    <span className={`flex size-14 items-center justify-center rounded-xl border backdrop-blur-sm ${className}`}>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden className="size-6"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="m6 17 4-4 3 3 2-2 3 3M8.5 9.5h.01" /></svg>
-    </span>
-  );
-}
-
-export function MediaFrame({
-  kind,
-  theme,
-  title,
-  note,
-  ratio = "16/10",
-  className = "",
-  source,
-  poster,
-  alt,
-}: {
+export function MediaFrame({ kind, theme, title, ratio = "16/10", className = "", source, poster, alt }: {
   kind: MediaKind;
   theme: MediaTheme;
   title: string;
   note: string;
   ratio?: string;
   className?: string;
-  source?: string;
+  source: string;
   poster?: string;
   alt?: string;
 }) {
-  const styles = themeStyles[theme];
-  const hasMedia = Boolean(source);
   return (
-    <div
-      role={hasMedia ? undefined : "img"}
-      aria-label={hasMedia ? undefined : `${kind === "video" ? "Video" : kind === "screen" ? "Screen" : "Image"} placeholder: ${title}. ${note}`}
-      data-media-kind={kind}
-      style={{ aspectRatio: ratio }}
-      className={`service-media-frame group relative flex min-h-[180px] w-full min-w-0 max-w-full items-center justify-center overflow-hidden rounded-[18px] border-2 sm:min-h-[220px] ${styles.frame} ${className}`}
-    >
-      {source && kind === "video" ? (
+    <div data-media-kind={kind} style={{ aspectRatio: ratio }}
+      className={"service-media-frame group relative flex min-h-[180px] w-full min-w-0 max-w-full items-center justify-center overflow-hidden rounded-[18px] border-2 sm:min-h-[220px] " + themeStyles[theme] + " " + className}>
+      {kind === "video" ? (
         <video controls preload="metadata" poster={poster} aria-label={alt ?? title} className="absolute inset-0 size-full object-cover">
           <source src={source} />
         </video>
-      ) : source ? (
-        <Image src={source} alt={alt ?? title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
       ) : (
-        <>
-          <div aria-hidden className="absolute inset-0 opacity-55 [background-image:linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:32px_32px]" />
-          <div aria-hidden className="absolute inset-5 rounded-[12px] border border-current opacity-10" />
-        </>
-      )}
-      {/* The kind badge and window chrome label an empty placeholder. Once real
-          media lands they only sit on top of it, so drop them. */}
-      {!hasMedia && (
-        <span className={`absolute left-4 top-4 rounded-full border px-3 py-1 text-[10.5px] font-semibold uppercase tracking-[0.15em] backdrop-blur-sm ${styles.badge}`}>
-          {kind}
-        </span>
-      )}
-      {kind === "screen" && !hasMedia && (
-        <span aria-hidden className="absolute left-0 right-0 top-0 flex h-8 items-center gap-1.5 border-b border-current/10 px-4">
-          <i className="size-1.5 rounded-full bg-current opacity-30" /><i className="size-1.5 rounded-full bg-current opacity-30" /><i className="size-1.5 rounded-full bg-current opacity-30" />
-        </span>
-      )}
-      {!hasMedia && <div className="relative z-10 mx-auto max-w-[78%] text-center">
-        <MediaIcon kind={kind} className={styles.icon} />
-        <p className="mt-5 font-sans text-[clamp(18px,1.6vw,24px)] font-semibold">{title}</p>
-      </div>}
-      {kind === "video" && !hasMedia && (
-        <div aria-hidden className="absolute inset-x-5 bottom-5 flex items-center gap-3">
-          <span className="text-[10px] font-semibold tabular-nums opacity-55">00:00</span>
-          <span className="h-1 flex-1 overflow-hidden rounded-full bg-current/15"><span className={`block h-full w-[22%] rounded-full ${styles.line}`} /></span>
-          <span className="text-[10px] font-semibold tabular-nums opacity-55">00:45</span>
-        </div>
+        <Image src={source} alt={alt ?? title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
       )}
     </div>
   );
@@ -149,7 +52,7 @@ export function WordPressVisualStory() {
               <p className="mt-5 max-w-[48ch] text-body leading-relaxed text-ink/70">From the first wireframe to a live, editable website — the same process behind every WordPress build we deliver.</p>
             </div>
             <div className="col-span-7">
-              <MediaFrame kind="video" theme="wordpress" ratio="16/9" title="45-second WordPress project overview" note="Replace with a concise planning-to-launch video." />
+              <MediaFrame kind="image" theme="wordpress" ratio="16/9" title="45-second WordPress project overview" note="Replace with a concise planning-to-launch video." source="/images/Services/wordpress development 1.jpg" alt="WordPress website planning and development" />
             </div>
           </div>
           <div className="mt-7 grid grid-cols-12 gap-7">
@@ -176,7 +79,7 @@ export function ShopifyStorefrontShowcase() {
           </div>
           <div className="mt-11 grid grid-cols-12 gap-5 max-md:block">
             <MediaFrame kind="image" theme="shopify" ratio="3/4" title="Product page" note="Approved product or collection image." source="/images/Services/Shopify Development 1.jpg" alt="A Shopify product page being reviewed on screen." className="col-span-3 max-md:mb-5" />
-            <MediaFrame kind="video" theme="shopify" ratio="16/11" title="Store journey walkthrough" note="Replace with a mobile or desktop shopping-flow video." className="col-span-6 max-md:mb-5" />
+            <MediaFrame kind="image" theme="shopify" ratio="16/11" title="Store journey walkthrough" note="Replace with a mobile or desktop shopping-flow video." className="col-span-6 max-md:mb-5" source="/images/Services/Shopify Development.jpg" alt="Shopify storefront design" />
             <MediaFrame kind="image" theme="shopify" ratio="3/4" title="Mobile checkout" note="Approved checkout or cart screen." source="/images/Services/shopify/mobile-checkout.png" alt="A hand holding a phone showing a simple mobile checkout with a one-item order summary and a Pay now button." className="col-span-3" />
           </div>
           <div className="mt-5 grid grid-cols-3 gap-5 max-sm:grid-cols-1">
@@ -204,7 +107,7 @@ export function MaintenanceControlRoom() {
             </div>
             <div className="col-span-8 grid grid-cols-8 gap-5">
               <MediaFrame kind="screen" theme="maintenance" ratio="16/9" title="Monitoring and maintenance dashboard" note="Replace with an approved, anonymised status or reporting screen." source="/images/Services/Images on the pages/WordPress maintenance.png" alt="Maintenance control room dashboard showing uptime, active alerts, pending WordPress updates and site health across a portfolio of sites." className="col-span-8" />
-              <MediaFrame kind="video" theme="maintenance" ratio="16/10" title="Monthly report walkthrough" note="Add a short screen-recorded client update." className="col-span-5 max-sm:col-span-8" />
+              <MediaFrame kind="image" theme="maintenance" ratio="16/10" title="Monthly report walkthrough" note="Add a short screen-recorded client update." className="col-span-5 max-sm:col-span-8" source="/images/Services/website maintenance 1.jpg" alt="Website maintenance and reporting" />
               <MediaFrame kind="image" theme="maintenance" ratio="4/5" title="Update log" note="Use a clear before-and-after maintenance record." source="/images/Services/Images on the pages/before website maintenance.png" alt="WordPress admin dashboard before maintenance, showing pending core and plugin updates and a site health warning." className="col-span-3 max-sm:col-span-8" />
             </div>
           </div>
@@ -228,7 +131,7 @@ export function PpcCampaignStudio() {
                 {['Search intent', 'Ad message', 'Landing page', 'Conversion'].map((label, index) => <span key={label} className="rounded-full border border-[#b8ef3e]/25 px-3 py-2 text-[14px] font-semibold text-[#d7ff7b]"><b className="mr-2 opacity-45">0{index + 1}</b>{label}</span>)}
               </div>
             </div>
-            <MediaFrame kind="video" theme="ppc" ratio="16/10" title="Google Ads campaign walkthrough" note="Replace with a concise, anonymised screen recording." className="col-span-6" />
+            <MediaFrame kind="image" theme="ppc" ratio="16/10" title="Google Ads campaign walkthrough" note="Replace with a concise, anonymised screen recording." className="col-span-6" source="/images/Services/Google Ads management.png" alt="Google Ads campaign planning" />
           </div>
           <div className="mt-7 grid grid-cols-12 gap-5">
             <MediaFrame kind="screen" theme="ppc" ratio="16/8" title="Search-term and budget view" note="Show the decisions, not unsupported results." source="/images/Services/Images on the pages/Search-term and budget view.png" alt="Illustrative Google Ads search terms report reviewed during PPC management, showing match types, CTR, average CPC and cost per conversion" className="col-span-7 max-md:col-span-12" />
@@ -251,7 +154,7 @@ export function AmazonMarketplaceWorkbench() {
               <h2 className="mt-5 max-w-[14ch] font-sans text-[clamp(34px,27px+2vw,52px)] font-semibold leading-[1.02]">See the listing, campaign and search term together.</h2>
               <p className="mt-6 max-w-[48ch] text-body leading-relaxed text-oninverse/68">Catalogue, campaign and listing performance reviewed together — because on Amazon they can’t be managed apart.</p>
             </div>
-            <MediaFrame kind="video" theme="amazon" ratio="16/10" title="Amazon campaign walkthrough" note="Add a concise, anonymised account and optimisation review." className="col-span-7" />
+            <MediaFrame kind="image" theme="amazon" ratio="16/10" title="Amazon campaign walkthrough" note="Add a concise, anonymised account and optimisation review." className="col-span-7" source="/images/Services/Amazon PPC.png" alt="Amazon advertising campaign planning" />
           </div>
           <div className="mt-7 grid grid-cols-12 gap-5">
             <MediaFrame kind="image" theme="amazon" ratio="4/3" title="Product listing review" note="Replace with an approved listing, storefront or catalogue image." source="/images/Services/Images on the pages/Product listing review Amazon PPC.png" alt="Illustrative Amazon product listing review showing title, imagery, bullet points and review signals assessed before advertising spend." className="col-span-5 max-md:col-span-12" />
@@ -286,7 +189,7 @@ export function SeoSearchLandscape() {
           </div>
           <div className="mt-7 grid grid-cols-12 gap-5">
             <MediaFrame kind="image" theme="seo" ratio="5/4" title="Crawl and architecture map" note="Add a real sitemap, crawl visual or annotated page hierarchy." source="/images/Services/Images on the pages/Crawl and architecture map.png" alt="Illustrative site crawl and architecture map showing page hierarchy, internal linking depth and indexation status." className="col-span-5 max-md:col-span-12" />
-            <MediaFrame kind="video" theme="seo" ratio="16/8" title="SEO review walkthrough" note="Replace with a short audit-to-priority screen recording." className="col-span-7 max-md:col-span-12" />
+            <MediaFrame kind="image" theme="seo" ratio="16/8" title="SEO review walkthrough" note="Replace with a short audit-to-priority screen recording." className="col-span-7 max-md:col-span-12" source="/images/Services/SEO 1.jpg" alt="Search engine optimisation review" />
           </div>
           <div className="mt-6 grid grid-cols-4 gap-3 max-md:grid-cols-2 max-sm:grid-cols-1">
             {["Discover", "Understand", "Choose a page", "Take action"].map((label, index) => (

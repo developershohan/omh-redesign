@@ -131,8 +131,7 @@ export function PainPointSection() {
                   ratio="4/3"
                   tag="Annotated screen"
                   title="Website issue snapshot"
-                  note="Add a real annotated screenshot from a reviewed WordPress site."
-                />
+                  note="Add a real annotated screenshot from a reviewed WordPress site." source="/images/Services/Images on the pages/WordPress Development.png" alt="Illustrative WordPress development screen" />
               </div>
             </div>
           </div>
@@ -502,8 +501,8 @@ export function CaseStudyFeature() {
 
             <div className="col-span-7 col-start-6 max-lg:mt-9">
               <div className="grid grid-cols-2 gap-5 max-sm:grid-cols-1">
-                <Fpo ratio="4/3" tag="Before" title="Before website screenshot" note="Use the real previous website screen." />
-                <Fpo ratio="4/3" tag="After" title="After website screenshot" note="Use the real launched website screen." />
+                <Fpo ratio="4/3" tag="Before" title="Before website screenshot" note="Use the real previous website screen." source="/images/Services/shopify/before.png" alt="Illustrative website layout before redesign" />
+                <Fpo ratio="4/3" tag="After" title="After website screenshot" note="Use the real launched website screen." source="/images/Services/shopify/after.png" alt="Illustrative website layout after redesign" />
               </div>
               <div className="mt-6 rounded-card border border-soft-dark bg-surface/70 p-6">
                 <VerifiedSlot>WordPress case study — pending</VerifiedSlot>

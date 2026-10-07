@@ -28,10 +28,10 @@ export type SolutionPageContent = {
     body: string;
     videoTitle: string;
     imageTitle: string;
-    imageSrc?: string;
+    imageSrc: string;
     imageAlt?: string;
     screenTitle: string;
-    screenSrc?: string;
+    screenSrc: string;
     screenAlt?: string;
   };
   approach: {
