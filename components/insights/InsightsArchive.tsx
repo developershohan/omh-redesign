@@ -54,7 +54,7 @@ function TopicNavigation({
               }`}
             >
               {topic.name}
-              <span className="text-[14px] font-medium text-muted/75">{topic.postCount}</span>
+              <span className="text-body font-medium text-muted/75">{topic.postCount}</span>
               {active && <span className="absolute inset-x-5 bottom-0 h-0.5 bg-teal first:left-0" />}
             </Link>
           );
@@ -140,7 +140,7 @@ export function InsightsArchive({
             <Eyebrow>{activeTopic || cleanQuery ? "Filtered archive" : "All insights"}</Eyebrow>
             <h2 className="mt-5 font-sans text-h2 font-semibold">{heading}</h2>
             <p className="mt-3 text-body text-muted">
-              Showing {resultStart}–{resultEnd} of {filtered.length}{" "}
+              Showing {resultStart} to {resultEnd} of {filtered.length}{" "}
               {filtered.length === 1 ? "article" : "articles"}
             </p>
           </div>

@@ -21,13 +21,13 @@ type Package = (typeof content.packages)[number];
 
 export function MaintenanceHero() {
   return (
-    <section className="border-b border-line bg-surface">
+    <section className="hero-grid overflow-x-clip border-b border-line bg-warm">
       <div className="container-omh pb-[clamp(56px,38px+2.9vw,88px)] pt-[clamp(48px,34px+2.3vw,80px)]">
         <div className="grid grid-cols-12 items-center gap-x-12 gap-y-12 max-lg:block">
           <div className="col-span-7 max-lg:mb-12">
             <Reveal>
               <Eyebrow>{content.hero.eyebrow}</Eyebrow>
-              <h1 className="mb-6 mt-7 max-w-[20ch] font-sans text-h1 font-semibold text-balance">
+              <h1 className="mb-6 mt-7 max-w-[20ch] font-sans text-display font-semibold text-balance">
                 WordPress maintenance that keeps essential website work{" "}
                 <span className="text-amber-deep">under control</span>
               </h1>
@@ -57,7 +57,7 @@ export function MaintenanceHero() {
                   ["Package meetings", "Monthly"],
                 ].map(([label, value]) => (
                   <div key={label}>
-                    <dt className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">
+                    <dt className="text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
                       {label}
                     </dt>
                     <dd className="mt-1.5 font-sans text-h4 font-semibold">
@@ -84,13 +84,13 @@ export function MaintenanceHero() {
               </div>
             </Pointer>
             <div className="mt-6 border-t border-line pt-5">
-              <p className="mb-3.5 text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">
+              <p className="mb-3.5 text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
                 Proof to add before launch
               </p>
               <div className="flex flex-wrap gap-2.5">
-                <VerifiedSlot>Relevant client review — pending</VerifiedSlot>
-                <VerifiedSlot>Response terms — pending</VerifiedSlot>
-                <VerifiedSlot>Real maintenance result — pending</VerifiedSlot>
+                <VerifiedSlot>Relevant client review: pending</VerifiedSlot>
+                <VerifiedSlot>Response terms: pending</VerifiedSlot>
+                <VerifiedSlot>Real maintenance result: pending</VerifiedSlot>
               </div>
             </div>
           </Reveal>
@@ -126,7 +126,7 @@ export function MaintenanceIssueSection() {
                 className="group border-t border-line px-3 py-6 transition-colors hover:border-teal/50 hover:bg-surface"
               >
                 <div className="flex items-baseline gap-4">
-                  <span className="font-sans text-[14px] font-semibold tracking-[0.1em] text-muted group-hover:text-amber">
+                  <span className="font-sans text-body font-semibold tracking-[0.1em] text-muted group-hover:text-amber">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <h3 className="font-sans text-h4 font-semibold">{title}</h3>
@@ -169,7 +169,7 @@ export function MaintenanceCapabilityGrid() {
         <Pointer className="pointer-spotlight relative mt-12 overflow-hidden rounded-card bg-inverse p-10 text-oninverse max-sm:p-6">
           <div className="relative z-10 grid grid-cols-12 items-start gap-x-10 gap-y-8 max-lg:block">
             <div className="col-span-6">
-              <p className="text-[12.5px] font-semibold uppercase tracking-[0.16em] text-oninverse/55">
+              <p className="text-[14px] font-semibold uppercase tracking-[0.16em] text-oninverse/55">
                 When something is already wrong
               </p>
               <h3 className="mt-5 font-sans text-h2 font-semibold">
@@ -234,7 +234,7 @@ function PackageCard({ pkg }: { pkg: Package }) {
   return (
     <article className="overflow-hidden rounded-card border border-line bg-surface">
       <div className="border-b border-line bg-soft/50 p-6">
-        <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">
+        <p className="text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
           {pkg.stage}
         </p>
         <h3 className="mt-2 font-sans text-h3 font-semibold">{pkg.name}</h3>
@@ -251,7 +251,7 @@ function PackageCard({ pkg }: { pkg: Package }) {
             key={group.label}
             className="border-b border-line py-4 first:pt-0 last:border-b-0"
           >
-            <p className="mb-1 text-[11.5px] font-semibold uppercase tracking-[0.14em] text-muted/80">
+            <p className="mb-1 text-[14px] font-semibold uppercase tracking-[0.14em] text-muted/80">
               {group.label}
             </p>
             {group.rows.map(([label, key]) => (
@@ -311,7 +311,7 @@ export function MaintenancePricingPackages() {
                   scope="col"
                   className="sticky left-0 z-10 w-[250px] bg-surface p-6 align-bottom"
                 >
-                  <span className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">
+                  <span className="text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
                     Compare packages
                   </span>
                 </th>
@@ -321,7 +321,7 @@ export function MaintenancePricingPackages() {
                     scope="col"
                     className="border-l border-line bg-soft/40 p-6 align-bottom"
                   >
-                    <span className="block text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">
+                    <span className="block text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
                       {pkg.stage}
                     </span>
                     <span className="mt-2 block font-sans text-h4 font-semibold">
@@ -472,10 +472,10 @@ export function MaintenanceProofSection() {
                   note="Use an approved result, report or resolved screen." source="/images/Services/Images on the pages/After website maintenance.png" alt="Illustrative WordPress dashboard after maintenance" />
               </div>
               <div className="mt-6 rounded-card border border-soft-dark bg-surface/70 p-6">
-                <VerifiedSlot>WordPress maintenance case study — pending</VerifiedSlot>
+                <VerifiedSlot>WordPress maintenance case study: pending</VerifiedSlot>
                 <div className="mt-4 flex flex-wrap gap-3">
-                  <VerifiedSlot>Verified result — pending</VerifiedSlot>
-                  <VerifiedSlot>Client testimonial — pending</VerifiedSlot>
+                  <VerifiedSlot>Verified result: pending</VerifiedSlot>
+                  <VerifiedSlot>Client testimonial: pending</VerifiedSlot>
                 </div>
               </div>
             </div>
@@ -484,10 +484,10 @@ export function MaintenanceProofSection() {
         <div className="mt-8 rounded-card border border-line bg-warm/60 p-7">
           <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">Trust signals</p>
           <div className="mt-4 flex flex-wrap gap-3">
-            <VerifiedSlot>24/7 support & monitoring terms — pending</VerifiedSlot>
-            <VerifiedSlot>Two-hour response terms — pending</VerifiedSlot>
-            <VerifiedSlot>Security guarantee terms — pending</VerifiedSlot>
-            <VerifiedSlot>30-day warranty terms — pending</VerifiedSlot>
+            <VerifiedSlot>24/7 support & monitoring terms: pending</VerifiedSlot>
+            <VerifiedSlot>Two-hour response terms: pending</VerifiedSlot>
+            <VerifiedSlot>Security guarantee terms: pending</VerifiedSlot>
+            <VerifiedSlot>30-day warranty terms: pending</VerifiedSlot>
           </div>
         </div>
       </Reveal>

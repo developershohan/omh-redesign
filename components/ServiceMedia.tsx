@@ -49,7 +49,7 @@ export function WordPressVisualStory() {
             <div className="col-span-5 max-lg:mb-9">
               <p className="text-[14px] font-semibold uppercase tracking-[0.16em] text-amber-deep">WordPress build story</p>
               <h2 className="mt-5 max-w-[15ch] font-sans text-[clamp(32px,25px+1.9vw,48px)] font-semibold leading-[1.05]">See the thinking, the build and the editable result.</h2>
-              <p className="mt-5 max-w-[48ch] text-body leading-relaxed text-ink/70">From the first wireframe to a live, editable website — the same process behind every WordPress build we deliver.</p>
+              <p className="mt-5 max-w-[48ch] text-body leading-relaxed text-ink/70">From the first wireframe to a live, editable website: the same process behind every WordPress build we deliver.</p>
             </div>
             <div className="col-span-7">
               <MediaFrame kind="image" theme="wordpress" ratio="16/9" title="45-second WordPress project overview" note="Replace with a concise planning-to-launch video." source="/images/Services/wordpress development 1.jpg" alt="WordPress website planning and development" />
@@ -75,7 +75,7 @@ export function ShopifyStorefrontShowcase() {
               <p className="text-[14px] font-semibold uppercase tracking-[0.16em] text-[#ef9a83]">Storefront showcase</p>
               <h2 className="mt-5 max-w-[18ch] font-sans text-h2 font-semibold">Let products and buying journeys do more of the explaining.</h2>
             </div>
-            <p className="max-w-[42ch] text-body leading-relaxed text-oninverse/68 max-md:mt-5">From product discovery through to a completed checkout — every step of the storefront built to convert.</p>
+            <p className="max-w-[42ch] text-body leading-relaxed text-oninverse/68 max-md:mt-5">From product discovery through to a completed checkout: every step of the storefront built to convert.</p>
           </div>
           <div className="mt-11 grid grid-cols-12 gap-5 max-md:block">
             <MediaFrame kind="image" theme="shopify" ratio="3/4" title="Product page" note="Approved product or collection image." source="/images/Services/Shopify Development 1.jpg" alt="A Shopify product page being reviewed on screen." className="col-span-3 max-md:mb-5" />
@@ -83,7 +83,7 @@ export function ShopifyStorefrontShowcase() {
             <MediaFrame kind="image" theme="shopify" ratio="3/4" title="Mobile checkout" note="Approved checkout or cart screen." source="/images/Services/shopify/mobile-checkout.png" alt="A hand holding a phone showing a simple mobile checkout with a one-item order summary and a Pay now button." className="col-span-3" />
           </div>
           <div className="mt-5 grid grid-cols-3 gap-5 max-sm:grid-cols-1">
-            {["Discovery", "Product confidence", "Checkout"].map((label, index) => <div key={label} className="border-t border-oninverse/20 pt-4"><span className="mr-3 text-[11px] font-semibold text-[#ef9a83]">0{index + 1}</span><span className="text-[18px] font-semibold uppercase tracking-[0.1em] text-oninverse/75">{label}</span></div>)}
+            {["Discovery", "Product confidence", "Checkout"].map((label, index) => <div key={label} className="border-t border-oninverse/20 pt-4"><span className="mr-3 text-body font-semibold text-[#ef9a83]">0{index + 1}</span><span className="text-[18px] font-semibold uppercase tracking-[0.1em] text-oninverse/75">{label}</span></div>)}
           </div>
         </Reveal>
       </div>
@@ -100,8 +100,8 @@ export function MaintenanceControlRoom() {
             <div className="col-span-4 max-lg:mb-9">
               <p className="text-[14px] font-semibold uppercase tracking-[0.16em] text-[#f2c675]">Maintenance control room</p>
               <h2 className="mt-5 max-w-[13ch] font-sans text-h2 font-semibold">Show the work that normally happens quietly.</h2>
-              <p className="mt-5 max-w-[42ch] text-body leading-relaxed text-oninverse/65">Uptime monitoring, update logs and a monthly report you can actually read — the ongoing care that keeps a site reliable.</p>
-              <div className="mt-8 grid gap-3 text-[14px]">
+              <p className="mt-5 max-w-[42ch] text-body leading-relaxed text-oninverse/65">Uptime monitoring, update logs and a monthly report you can actually read: the ongoing care that keeps a site reliable.</p>
+              <div className="mt-8 grid gap-3 text-body">
                 {["Uptime and fault alerts", "Updates and backup checks", "Monthly work summary"].map((label) => <div key={label} className="flex items-center gap-3 rounded-lg border border-oninverse/10 bg-oninverse/[0.035] px-4 py-3"><span className="size-2 rounded-full bg-[#f2c675] shadow-[0_0_14px_rgba(242,198,117,.65)]" />{label}</div>)}
               </div>
             </div>
@@ -128,7 +128,7 @@ export function PpcCampaignStudio() {
               <h2 className="mt-5 max-w-[13ch] font-sans text-[clamp(34px,27px+2vw,52px)] font-semibold leading-[1.02]">Watch how a search becomes a measured action.</h2>
               <p className="mt-6 max-w-[52ch] text-body leading-relaxed text-oninverse/66">From the initial campaign structure through search-term review to the landing page it drives traffic to.</p>
               <div className="mt-8 flex flex-wrap gap-2.5">
-                {['Search intent', 'Ad message', 'Landing page', 'Conversion'].map((label, index) => <span key={label} className="rounded-full border border-[#b8ef3e]/25 px-3 py-2 text-[14px] font-semibold text-[#d7ff7b]"><b className="mr-2 opacity-45">0{index + 1}</b>{label}</span>)}
+                {['Search intent', 'Ad message', 'Landing page', 'Conversion'].map((label, index) => <span key={label} className="rounded-full border border-[#b8ef3e]/25 px-3 py-2 text-body font-semibold text-[#d7ff7b]"><b className="mr-2 opacity-45">0{index + 1}</b>{label}</span>)}
               </div>
             </div>
             <MediaFrame kind="image" theme="ppc" ratio="16/10" title="Google Ads campaign walkthrough" note="Replace with a concise, anonymised screen recording." className="col-span-6" source="/images/Services/Google Ads management.png" alt="Google Ads campaign planning" />
@@ -152,7 +152,7 @@ export function AmazonMarketplaceWorkbench() {
             <div className="col-span-5 max-lg:mb-9">
               <p className="text-[14px] font-semibold uppercase tracking-[0.17em] text-[#ffb84d]">Marketplace workbench</p>
               <h2 className="mt-5 max-w-[14ch] font-sans text-[clamp(34px,27px+2vw,52px)] font-semibold leading-[1.02]">See the listing, campaign and search term together.</h2>
-              <p className="mt-6 max-w-[48ch] text-body leading-relaxed text-oninverse/68">Catalogue, campaign and listing performance reviewed together — because on Amazon they can’t be managed apart.</p>
+              <p className="mt-6 max-w-[48ch] text-body leading-relaxed text-oninverse/68">Catalogue, campaign and listing performance reviewed together, because on Amazon they can’t be managed apart.</p>
             </div>
             <MediaFrame kind="image" theme="amazon" ratio="16/10" title="Amazon campaign walkthrough" note="Add a concise, anonymised account and optimisation review." className="col-span-7" source="/images/Services/Amazon PPC.png" alt="Amazon advertising campaign planning" />
           </div>
@@ -163,7 +163,7 @@ export function AmazonMarketplaceWorkbench() {
           <div className="mt-6 grid grid-cols-4 gap-3 max-md:grid-cols-2 max-sm:grid-cols-1">
             {["Catalogue readiness", "Search intent", "Bid control", "Sales context"].map((label, index) => (
               <div key={label} className="border-t border-oninverse/15 pt-4">
-                <span className="mr-3 text-[11px] font-semibold text-[#ffb84d]">0{index + 1}</span>
+                <span className="mr-3 text-body font-semibold text-[#ffb84d]">0{index + 1}</span>
                 <span className="text-[14px] font-semibold uppercase tracking-[0.1em] text-oninverse/72">{label}</span>
               </div>
             ))}
@@ -183,7 +183,7 @@ export function SeoSearchLandscape() {
             <div className="col-span-5 max-lg:mb-9">
               <p className="text-[14px] font-semibold uppercase tracking-[0.17em] text-amber-deep">Search landscape</p>
               <h2 className="mt-5 max-w-[15ch] font-sans text-[clamp(34px,27px+2vw,52px)] font-semibold leading-[1.02]">Make the route from search to useful page visible.</h2>
-              <p className="mt-6 max-w-[48ch] text-body leading-relaxed text-ink/68">How a site is crawled, how it performs in search, and how its content is structured — three views of the same picture.</p>
+              <p className="mt-6 max-w-[48ch] text-body leading-relaxed text-ink/68">How a site is crawled, how it performs in search, and how its content is structured: three views of the same picture.</p>
             </div>
             <MediaFrame kind="screen" theme="seo" ratio="16/10" title="Organic search performance view" note="Use an anonymised Search Console or reporting screen with dates and metric definitions." source="/images/Services/SEO 2.jpg" alt="A search results page open on a tablet, the view a customer sees before they choose a page." className="col-span-7" />
           </div>
@@ -194,7 +194,7 @@ export function SeoSearchLandscape() {
           <div className="mt-6 grid grid-cols-4 gap-3 max-md:grid-cols-2 max-sm:grid-cols-1">
             {["Discover", "Understand", "Choose a page", "Take action"].map((label, index) => (
               <div key={label} className="border-t border-[#10243a]/15 pt-4">
-                <span className="mr-3 text-[11px] font-semibold text-amber-deep">0{index + 1}</span>
+                <span className="mr-3 text-body font-semibold text-amber-deep">0{index + 1}</span>
                 <span className="text-[14px] font-semibold uppercase tracking-[0.1em] text-ink/72">{label}</span>
               </div>
             ))}

@@ -116,16 +116,16 @@ export async function InsightsHub({ topic = "", query = "", page = 1 }: { topic?
             <Eyebrow>Insights</Eyebrow>
             <div className="mt-8 grid grid-cols-12 items-start gap-x-12 gap-y-10 max-lg:block">
               <div className="col-span-7">
-                <h1 className="max-w-[16ch] font-sans text-h1 font-semibold text-balance">
-                  Practical thinking for better marketing decisions.
+                <h1 className="max-w-[16ch] font-sans text-display font-semibold text-balance">
+                  Practical thinking for <span className="text-amber-deep">better marketing decisions</span>.
                 </h1>
                 <p className="mt-7 max-w-[54ch] text-lead leading-relaxed text-ink/72">
-                  Plain-English guidance on websites, SEO, paid media and digital growth — written
+                  Plain-English guidance on websites, SEO, paid media and digital growth, written
                   to help you judge options, ask better questions and choose the clearest next step.
                 </p>
                 <p className="mt-8 flex items-center gap-4 border-t border-line pt-7 font-serif text-h3 leading-snug text-ink/75">
                   <span aria-hidden className="h-px w-10 shrink-0 bg-amber" />
-                  Useful when you are planning the work — and when you need to challenge it.
+                  Useful when you are planning the work, and when you need to challenge it.
                 </p>
               </div>
 
@@ -163,7 +163,7 @@ export async function InsightsHub({ topic = "", query = "", page = 1 }: { topic?
                           className="inline-flex items-center gap-2 rounded-full border border-line px-3.5 py-1.5 text-label text-ink/75 transition-colors hover:border-teal hover:text-amber-deep"
                         >
                           {item.name}
-                          <span className="text-[14px] text-muted">{item.postCount}</span>
+                          <span className="text-body text-muted">{item.postCount}</span>
                         </Link>
                       </li>
                     ))}

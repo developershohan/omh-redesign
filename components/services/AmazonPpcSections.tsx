@@ -35,14 +35,14 @@ function SectionShell({
 
 export function AmazonPpcHero() {
   return (
-    <section className="border-b border-line">
+    <section className="hero-grid overflow-x-clip border-b border-line bg-warm">
       <div className="container-omh pb-[clamp(56px,38px+2.9vw,88px)] pt-[clamp(48px,34px+2.3vw,80px)]">
         <div className="grid grid-cols-12 items-center gap-x-12 gap-y-12 max-lg:block">
           <Reveal className="col-span-7 max-lg:mb-12">
             <Eyebrow>{content.hero.eyebrow}</Eyebrow>
-            <h1 className="mt-7 max-w-[19ch] font-sans text-h1 font-semibold text-balance">
+            <h1 className="mt-7 max-w-[19ch] font-sans text-display font-semibold text-balance">
               {/* &nbsp; keeps "UK Sellers" on one line so the keyword phrase never splits. */}
-              Amazon PPC Advertising Agency for UK&nbsp;Sellers
+              Amazon PPC Advertising Agency for <span className="text-amber-deep">UK&nbsp;Sellers</span>
             </h1>
             <p className="mb-6 mt-4 max-w-[30ch] font-sans text-h3 font-semibold text-balance">
               Amazon PPC built around <span className="text-amber-deep">products, profit and control</span>
@@ -55,7 +55,7 @@ export function AmazonPpcHero() {
             <dl className="mt-10 grid max-w-[690px] grid-cols-3 border-t border-line pt-7 max-sm:grid-cols-1 max-sm:gap-5">
               {[["Packages from", "£750"], ["Required ad spend from", "£500"], ["Published set-up time", "14 days"]].map(([label, value]) => (
                 <div key={label} className="border-l border-line pl-5 first:border-l-0 first:pl-0 max-sm:border-l-0 max-sm:pl-0">
-                  <dt className="text-[11.5px] font-semibold uppercase tracking-[0.13em] text-muted">{label}</dt>
+                  <dt className="text-[14px] font-semibold uppercase tracking-[0.13em] text-muted">{label}</dt>
                   <dd className="mt-1.5 font-sans text-h4 font-semibold">{value}</dd>
                 </div>
               ))}
@@ -68,8 +68,8 @@ export function AmazonPpcHero() {
               </div>
             </Pointer>
             <div className="mt-6 flex flex-wrap gap-2.5 border-t border-line pt-5">
-              <VerifiedSlot>Amazon PPC case study — pending</VerifiedSlot>
-              <VerifiedSlot>Approved client review — pending</VerifiedSlot>
+              <VerifiedSlot>Amazon PPC case study: pending</VerifiedSlot>
+              <VerifiedSlot>Approved client review: pending</VerifiedSlot>
             </div>
           </Reveal>
         </div>
@@ -92,7 +92,7 @@ export function AmazonAccountDiagnosis() {
           <div className="col-span-8 grid grid-cols-2 border-l border-t border-line max-md:grid-cols-1">
             {content.problems.map(([title, body], index) => (
               <article key={title} className="group border-b border-r border-line p-7 transition-colors hover:bg-tint-amber max-sm:p-5">
-                <span className="text-[11px] font-semibold tracking-[0.14em] text-amber-deep">0{index + 1}</span>
+                <span className="text-body font-semibold tracking-[0.14em] text-amber-deep">0{index + 1}</span>
                 <h3 className="mt-4 font-sans text-h4 font-semibold">{title}</h3>
                 <p className="mt-3 text-body leading-relaxed text-ink/70">{body}</p>
               </article>
@@ -120,7 +120,7 @@ export function AmazonCampaignMap() {
             <article key={item.title} className={`${index === 0 || index === 3 ? "col-span-7" : "col-span-5"} rounded-card border border-oninverse/12 bg-oninverse/[0.035] p-7 transition-colors hover:border-[#ff9900]/55 hover:bg-[#ff9900]/[0.045] max-lg:col-span-6 max-md:col-span-12`}>
               <div className="flex items-start justify-between gap-5">
                 <div>
-                  <p className="text-[11.5px] font-semibold uppercase tracking-[0.15em] text-[#ffb84d]">{item.label}</p>
+                  <p className="text-[14px] font-semibold uppercase tracking-[0.15em] text-[#ffb84d]">{item.label}</p>
                   <h3 className="mt-4 font-sans text-h3 font-semibold">{item.title}</h3>
                 </div>
                 <span aria-hidden className="font-sans text-[38px] font-semibold leading-none text-oninverse/[0.08]">0{index + 1}</span>
@@ -151,7 +151,7 @@ export function AmazonProcess() {
             {content.process.map(([title, body], index) => (
               <li key={title} className={`${index === content.process.length - 1 ? "md:col-span-2" : ""} border-t border-line py-6`}>
                 <div className="flex gap-5">
-                  <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-tint-amber text-[14px] font-semibold text-amber-deep">{index + 1}</span>
+                  <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-tint-amber text-body font-semibold text-amber-deep">{index + 1}</span>
                   <div><h3 className="font-sans text-h4 font-semibold">{title}</h3><p className="mt-2.5 text-body leading-relaxed text-ink/70">{body}</p></div>
                 </div>
               </li>
@@ -167,7 +167,7 @@ function PackageCard({ pkg, index }: { pkg: Package; index: number }) {
   return (
     <article className="flex min-h-full flex-col overflow-hidden rounded-card border border-line bg-surface shadow-[0_20px_65px_-55px_rgba(45,30,10,.8)]">
       <div className={`${index === 3 ? "bg-[#211a12] text-oninverse" : "bg-tint-amber"} p-6`}>
-        <p className={`text-[11px] font-semibold uppercase tracking-[0.15em] ${index === 3 ? "text-[#ffb84d]" : "text-amber-deep"}`}>{pkg.stage}</p>
+        <p className={`text-[14px] font-semibold uppercase tracking-[0.15em] ${index === 3 ? "text-[#ffb84d]" : "text-amber-deep"}`}>{pkg.stage}</p>
         <h3 className="mt-3 font-sans text-h4 font-semibold">{pkg.name}</h3>
         <p className="mt-4 font-sans text-[36px] font-semibold leading-none">{pkg.price}</p>
         <p className={`mt-4 text-body leading-relaxed ${index === 3 ? "text-oninverse/68" : "text-ink/68"}`}>{pkg.bestFor}</p>
@@ -181,7 +181,7 @@ function PackageCard({ pkg, index }: { pkg: Package; index: number }) {
         <div className="mt-4">
           {content.packageGroups.map((group) => (
             <div key={group.label} className="border-t border-line py-4 first:border-t-0 first:pt-0">
-              <p className="mb-2 text-[10.5px] font-semibold uppercase tracking-[0.13em] text-muted">{group.label}</p>
+              <p className="mb-2 text-[14px] font-semibold uppercase tracking-[0.13em] text-muted">{group.label}</p>
               {group.rows.map(([label, key]) => (
                 <div key={label} className="flex items-baseline justify-between gap-4 py-1.5 text-label"><dt className="text-muted">{label}</dt><dd className="text-right font-semibold"><FeatureValue value={pkg.features[key]} includedClassName="text-amber-deep" /></dd></div>
               ))}
@@ -231,7 +231,7 @@ export function AmazonProofGuide() {
           </div>
           <div className="col-span-7">
             <MediaFrame kind="image" theme="amazon" ratio="16/10" title="Verified Amazon PPC case study" note="Replace with approved product imagery and a comparable before-and-after account view." source="/images/Services/Images on the pages/Verified Amazon PPC case study.png" alt="An Amazon PPC case-study summary showing spend, sales, ACoS, orders and ROAS for a single product over a 30-day period." />
-            <div className="mt-5 flex flex-wrap gap-2"><VerifiedSlot>Client approval — pending</VerifiedSlot><VerifiedSlot>Result method — pending</VerifiedSlot></div>
+            <div className="mt-5 flex flex-wrap gap-2"><VerifiedSlot>Client approval: pending</VerifiedSlot><VerifiedSlot>Result method: pending</VerifiedSlot></div>
           </div>
         </div>
       </Reveal>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Proof";
 import { company, navLabels, readyPages } from "@/lib/content/nav";
+import { AccentTitle } from "@/components/services/ServicePrimitives";
 
 // One catch-all for every route that isn't designed yet. Explicit routes
 // (/, three explicit service routes, /contact, /design-system) take precedence, so this
@@ -20,7 +21,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string[] }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  return { title: `${titleFor(slug)} — Coming soon` };
+  return { title: `${titleFor(slug)}: Coming soon` };
 }
 
 export default async function ComingSoon({ params }: { params: Promise<{ slug: string[] }> }) {
@@ -28,17 +29,17 @@ export default async function ComingSoon({ params }: { params: Promise<{ slug: s
   const title = titleFor(slug);
 
   return (
-    <section className="border-b border-line bg-surface">
+    <section className="hero-grid overflow-x-clip border-b border-line bg-warm">
       <div className="container-omh section-md">
         <div className="mx-auto max-w-[640px] text-center">
           <Eyebrow>Coming soon</Eyebrow>
-          <h1 className="mb-5 mt-6 font-sans text-h1 font-semibold text-balance">
-            {title}
+          <h1 className="mb-5 mt-6 font-sans text-display font-semibold text-balance">
+            <AccentTitle text={title} />
           </h1>
           <p className="text-lead leading-relaxed text-ink/75">
             This page is part of the Online Marketing Help redesign and is being built next.
             The navigation shows the full planned site so you can see where everything will
-            live — the pages below are already designed.
+            live. The pages below are already designed.
           </p>
 
           <ul className="mx-auto mt-9 grid max-w-[420px] gap-2.5 text-left">

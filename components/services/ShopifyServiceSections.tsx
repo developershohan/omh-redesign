@@ -22,13 +22,13 @@ type Package = (typeof content.packages)[number];
 
 export function ShopifyHero() {
   return (
-    <section className="border-b border-line bg-surface">
+    <section className="hero-grid overflow-x-clip border-b border-line bg-warm">
       <div className="container-omh pb-[clamp(56px,38px+2.9vw,88px)] pt-[clamp(48px,34px+2.3vw,80px)]">
         <div className="grid grid-cols-12 items-center gap-x-12 gap-y-12 max-lg:block">
           <div className="col-span-7 max-lg:mb-12">
             <Reveal>
               <Eyebrow>{content.hero.eyebrow}</Eyebrow>
-              <h1 className="mb-6 mt-7 max-w-[20ch] font-sans text-h1 font-semibold text-balance">
+              <h1 className="mb-6 mt-7 max-w-[20ch] font-sans text-display font-semibold text-balance">
                 <HighlightedText text={content.hero.title} highlight={"high-\u2060performing stores"} />
               </h1>
               <p className="mb-9 max-w-[55ch] text-lead leading-relaxed text-ink/75">{content.hero.body}</p>
@@ -47,7 +47,7 @@ export function ShopifyHero() {
                   ["Primary market", "UK businesses"],
                 ].map(([label, value]) => (
                   <div key={label}>
-                    <dt className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">{label}</dt>
+                    <dt className="text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">{label}</dt>
                     <dd className="mt-1.5 font-sans text-h4 font-semibold">{value}</dd>
                   </div>
                 ))}
@@ -62,11 +62,11 @@ export function ShopifyHero() {
               </div>
             </Pointer>
             <div className="mt-6 border-t border-line pt-5">
-              <p className="mb-3.5 text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">Proof to add before launch</p>
+              <p className="mb-3.5 text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">Proof to add before launch</p>
               <div className="flex flex-wrap gap-2.5">
-                <VerifiedSlot>Shopify client result — pending</VerifiedSlot>
-                <VerifiedSlot>Client logos/permission — pending</VerifiedSlot>
-                <VerifiedSlot>Shopify review — pending</VerifiedSlot>
+                <VerifiedSlot>Shopify client result: pending</VerifiedSlot>
+                <VerifiedSlot>Client logos/permission: pending</VerifiedSlot>
+                <VerifiedSlot>Shopify review: pending</VerifiedSlot>
               </div>
             </div>
           </Reveal>
@@ -85,7 +85,7 @@ export function ShopifyNeedSection() {
             <div className="lg:sticky lg:top-24">
               <SectionIntro title="Common Shopify problems we fix" accent="we fix" />
               <p className="mt-7 border-l-2 border-amber pl-5 font-serif text-[21px] leading-snug text-ink/85">
-A store can look great and still be hard to grow. Confusing navigation, slow pages, a clunky checkout, a theme nobody on your team can actually edit — sound familiar? That&apos;s usually where we come in.
+A store can look great and still be hard to grow. Confusing navigation, slow pages, a clunky checkout, a theme nobody on your team can actually edit. Sound familiar? That&apos;s usually where we come in.
 
               </p>
               <div className="mt-8 max-lg:max-w-md">
@@ -131,13 +131,13 @@ export function ShopifyCapabilityGrid() {
         <SectionIntro
           title="Our Shopify development services"
           accent="Shopify development"
-          body="From a brand-new store to one tricky integration, our Shopify development services cover the full picture — builds, themes, apps, migrations and everything in between."
+          body="From a brand-new store to one tricky integration, our Shopify development services cover the full picture: builds, themes, apps, migrations and everything in between."
         />
 
         <Pointer className="pointer-spotlight relative mt-12 overflow-hidden rounded-card bg-inverse p-10 text-oninverse max-sm:p-6">
           <div className="relative z-10 grid grid-cols-12 items-start gap-x-10 gap-y-8 max-lg:block">
             <div className="col-span-6">
-              <p className="text-[12.5px] font-semibold uppercase tracking-[0.16em] text-oninverse/55">Most projects start here</p>
+              <p className="text-[14px] font-semibold uppercase tracking-[0.16em] text-oninverse/55">Most projects start here</p>
               <h3 className="mt-5 font-sans text-h2 font-semibold">{featured.title}</h3>
               <p className="mt-5 max-w-[46ch] text-lead leading-relaxed text-oninverse/75">{featured.body}</p>
             </div>
@@ -186,7 +186,7 @@ function PackageCard({ pkg }: { pkg: Package }) {
   return (
     <article className="overflow-hidden rounded-card border border-line bg-surface">
       <div className="border-b border-line bg-soft/50 p-6">
-        <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">{pkg.stage}</p>
+        <p className="text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">{pkg.stage}</p>
         <h3 className="mt-2 font-sans text-h3 font-semibold">{pkg.name}</h3>
         <p className="mt-3 font-sans text-[34px] font-semibold leading-none tracking-[-0.02em]">{pkg.price}</p>
         <p className="mt-4 text-bsm leading-relaxed text-ink/70">{pkg.bestFor}</p>
@@ -194,7 +194,7 @@ function PackageCard({ pkg }: { pkg: Package }) {
       <dl className="p-6 text-bsm">
         {content.packageGroups.map((group) => (
           <div key={group.label} className="border-b border-line py-4 first:pt-0 last:border-b-0">
-            <p className="mb-1 text-[11.5px] font-semibold uppercase tracking-[0.14em] text-muted/80">{group.label}</p>
+            <p className="mb-1 text-[14px] font-semibold uppercase tracking-[0.14em] text-muted/80">{group.label}</p>
             {group.rows.map(([label, key]) => (
               <div key={label} className="flex items-baseline justify-between gap-6 py-2">
                 <dt className="text-muted">{label}</dt>
@@ -227,11 +227,11 @@ export function ShopifyPricingPackages() {
             <thead>
               <tr>
                 <th scope="col" className="sticky left-0 z-10 w-[220px] bg-surface p-6 align-bottom">
-                  <span className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">Compare packages</span>
+                  <span className="text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">Compare packages</span>
                 </th>
                 {content.packages.map((pkg) => (
                   <th key={pkg.name} scope="col" className="border-l border-line bg-soft/40 p-6 align-bottom">
-                    <span className="block text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">{pkg.stage}</span>
+                    <span className="block text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">{pkg.stage}</span>
                     <span className="mt-2 block font-sans text-h4 font-semibold">{pkg.name}</span>
                     <span className="mt-4 block font-sans text-[34px] font-semibold leading-none tracking-[-0.02em]">{pkg.price}</span>
                   </th>
@@ -311,18 +311,18 @@ export function ShopifyCaseStudyFeature() {
                 {/* The frame drops its badge once media lands, but before/after is content here, so caption it. */}
                 <figure>
                   <MediaFrame kind="image" theme="shopify" ratio="4/3" title="Before Shopify screenshot" note="Use the real previous store or platform." source="/images/Services/shopify/before.png" alt="An outdated online store with a crowded menu, a sale banner and a newsletter pop-up covering the products." />
-                  <figcaption className="mt-3 text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">Before</figcaption>
+                  <figcaption className="mt-3 text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">Before</figcaption>
                 </figure>
                 <figure>
                   <MediaFrame kind="image" theme="shopify" ratio="4/3" title="After Shopify screenshot" note="Use the real launched Shopify store." source="/images/Services/shopify/after.png" alt="The same store rebuilt on Shopify with a clean header, a lifestyle hero image and a tidy row of products." />
-                  <figcaption className="mt-3 text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">After</figcaption>
+                  <figcaption className="mt-3 text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">After</figcaption>
                 </figure>
               </div>
               <div className="mt-6 rounded-card border border-soft-dark bg-surface/70 p-6">
-                <VerifiedSlot>Shopify case study — pending</VerifiedSlot>
+                <VerifiedSlot>Shopify case study: pending</VerifiedSlot>
                 <div className="mt-4 flex flex-wrap gap-3">
-                  <VerifiedSlot>Verified result — pending</VerifiedSlot>
-                  <VerifiedSlot>Client testimonial — pending</VerifiedSlot>
+                  <VerifiedSlot>Verified result: pending</VerifiedSlot>
+                  <VerifiedSlot>Client testimonial: pending</VerifiedSlot>
                 </div>
               </div>
             </div>
@@ -332,10 +332,10 @@ export function ShopifyCaseStudyFeature() {
         <div className="mt-8 rounded-card border border-line bg-warm/60 p-7">
           <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">Trust signals</p>
           <div className="mt-4 flex flex-wrap gap-3">
-            <VerifiedSlot>Shopify certification — pending</VerifiedSlot>
-            <VerifiedSlot>Trustpilot rating — pending</VerifiedSlot>
-            <VerifiedSlot>Money-back guarantee terms — pending</VerifiedSlot>
-            <VerifiedSlot>30-day support term — pending</VerifiedSlot>
+            <VerifiedSlot>Shopify certification: pending</VerifiedSlot>
+            <VerifiedSlot>Trustpilot rating: pending</VerifiedSlot>
+            <VerifiedSlot>Money-back guarantee terms: pending</VerifiedSlot>
+            <VerifiedSlot>30-day support term: pending</VerifiedSlot>
           </div>
         </div>
       </Reveal>
@@ -348,7 +348,7 @@ export function ShopifyWhyChooseSection() {
     <ServiceReasonGrid
       title="Shopify development is connected to the wider job of selling online"
       titleAccent="selling online"
-      body="Good ecommerce development thinks beyond the theme — products, operations, customer trust, marketing and measurement all matter. It's why UK businesses come to a Shopify development agency like ours instead of briefing a single freelancer for the build and hoping the rest sorts itself out."
+      body="Good ecommerce development thinks beyond the theme. Products, operations, customer trust, marketing and measurement all matter. It's why UK businesses come to a Shopify development agency like ours instead of briefing a single freelancer for the build and hoping the rest sorts itself out."
       reasons={content.reasons}
     />
   );
@@ -372,7 +372,7 @@ export function ShopifyFinalCTA() {
     <ServiceNextStepsCTA
       title="Ready to plan a better Shopify store?"
       titleAccent="Shopify store?"
-      body="Tell us what you sell, what's currently getting in the way, and what the new store needs to do. As a Shopify development company built for UK businesses, we'll take a look and come back with a practical next step — no hard sell."
+      body="Tell us what you sell, what's currently getting in the way, and what the new store needs to do. As a Shopify development company built for UK businesses, we'll take a look and come back with a practical next step. No hard sell."
       primary={{ label: "Discuss Your Shopify Project", event: "shopify_final_cta_click" }}
       secondary={{
         label: "Send a Store Brief",

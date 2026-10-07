@@ -9,6 +9,7 @@ import { Eyebrow } from "@/components/ui/Proof";
 import { withContents } from "@/lib/content/insight-toc";
 import { getRelatedInsights } from "@/lib/sanity/insights";
 import { insightHref, type InsightPost } from "@/lib/content/insights-types";
+import { AccentTitle } from "@/components/services/ServicePrimitives";
 
 export async function InsightArticle({ post }: { post: InsightPost }) {
   const related = await getRelatedInsights(post);
@@ -19,7 +20,7 @@ export async function InsightArticle({ post }: { post: InsightPost }) {
     <article>
       <div aria-hidden className="read-progress" />
 
-      <header className="border-b border-line bg-warm">
+      <header className="hero-grid overflow-x-clip border-b border-line bg-warm">
         <div className="container-omh section-md">
           <Reveal>
             <nav
@@ -48,23 +49,39 @@ export async function InsightArticle({ post }: { post: InsightPost }) {
                 whole right-hand half of the hero empty. */}
             <div className="mt-6 grid grid-cols-12 items-center gap-x-12 gap-y-9 max-lg:block">
               <div className={post.featuredImage ? "col-span-7" : "col-span-9"}>
-                <h1 className="font-sans text-h1 font-semibold text-balance">{post.title}</h1>
+                <h1 className="font-sans text-display font-semibold text-balance"><AccentTitle text={post.title} /></h1>
                 <p className="mt-7 max-w-[56ch] text-lead leading-relaxed text-ink/72">
                   {post.summary}
                 </p>
               </div>
 
+              {/* Shown at its own proportions: many lead images are graphics with
+                  text in them, and a fixed 4:3 crop cut that text off. */}
               {post.featuredImage && (
                 <div className="col-span-5 max-lg:mt-9">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-media border border-line bg-soft shadow-[0_30px_70px_-50px_rgb(16_24_40/0.55)]">
-                    <Image
-                      src={post.featuredImage.src}
-                      alt={post.featuredImage.alt || post.title}
-                      fill
-                      priority
-                      sizes="(max-width: 1024px) 100vw, 44vw"
-                      className="object-cover"
-                    />
+                  <div className="overflow-hidden rounded-media border border-line bg-soft shadow-[0_30px_70px_-50px_rgb(16_24_40/0.55)]">
+                    {post.featuredImage.width && post.featuredImage.height ? (
+                      <Image
+                        src={post.featuredImage.src}
+                        alt={post.featuredImage.alt || post.title}
+                        width={post.featuredImage.width}
+                        height={post.featuredImage.height}
+                        priority
+                        sizes="(max-width: 1024px) 100vw, 44vw"
+                        className="block h-auto w-full"
+                      />
+                    ) : (
+                      <div className="relative aspect-[4/3]">
+                        <Image
+                          src={post.featuredImage.src}
+                          alt={post.featuredImage.alt || post.title}
+                          fill
+                          priority
+                          sizes="(max-width: 1024px) 100vw, 44vw"
+                          className="object-contain"
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
               )}

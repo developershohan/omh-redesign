@@ -192,7 +192,7 @@ export const websiteDesigns = {
 
   finalCta: {
     title: "Let's design the website your business actually needs.",
-    body: "Tell us what the website needs to do — sell, book, generate enquiries — and we will recommend the right approach, whether that is a custom build or professional theme customisation, with pricing that fits.",
+    body: "Tell us what the website needs to do (sell, book or generate enquiries) and we will recommend the right approach, whether that is a custom build or professional theme customisation, with pricing that fits.",
   },
 
   seo: {

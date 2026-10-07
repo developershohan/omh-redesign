@@ -26,7 +26,7 @@ const sourceSerif = Source_Serif_4({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: {
-    default: "Online Marketing Help — UK digital marketing & web development agency",
+    default: "Online Marketing Help | UK digital marketing & web development agency",
     template: "%s | Online Marketing Help",
   },
   alternates: { canonical: "https://onlinemarketinghelp.co.uk/" },

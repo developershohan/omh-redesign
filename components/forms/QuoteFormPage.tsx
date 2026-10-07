@@ -8,6 +8,7 @@ import { ArrowRight } from "@/components/ui/Button";
 import { company } from "@/lib/content/nav";
 import { Honeypot, sendEnquiry } from "@/lib/send-enquiry";
 import type { QuoteField, QuoteFormPage as PageData } from "@/lib/content/quote-forms";
+import { AccentTitle } from "@/components/services/ServicePrimitives";
 
 /*
   One renderer for all nine legacy quote/questionnaire pages (Phase 5).
@@ -206,7 +207,7 @@ function Notes({ page }: { page: PageData }) {
 function Sent({ onReset }: { onReset: () => void }) {
   return (
     <div className="rounded-card border border-teal/25 bg-soft/50 p-9 max-sm:p-6" role="status">
-      <h2 className="font-sans text-h3 font-semibold">Thanks — that&apos;s with us.</h2>
+      <h2 className="font-sans text-h3 font-semibold">Thanks, that&apos;s with us.</h2>
       <p className="mt-3 max-w-[48ch] text-body leading-relaxed text-ink/75">
         A real person will read this and come back with the quote and the next step. If it&apos;s
         urgent, call us on{" "}
@@ -229,7 +230,7 @@ function Sent({ onReset }: { onReset: () => void }) {
 function HeroCopy({ page }: { page: PageData }) {
   return (
     <>
-      <h1 className="font-sans text-h1 font-semibold text-balance">{page.title}</h1>
+      <h1 className="font-sans text-display font-semibold text-balance"><AccentTitle text={page.title} /></h1>
       <p className="mt-6 max-w-[54ch] text-lead leading-relaxed text-ink/75">{page.intro}</p>
       <p className="mt-7 font-sans text-h4 font-semibold text-balance">
         <Link href={company.phoneHref} className="hover:text-amber-deep">
@@ -443,8 +444,9 @@ export function QuoteFormPage({ page }: { page: PageData }) {
         label={label}
         tone="warm"
         accent={design.accent}
-        labelStyle={design.labelStyle}
+        labelStyle="plain"
         index={1}
+        className="hero-grid"
       >
         <div className="grid grid-cols-12 items-start gap-x-12 gap-y-11 max-lg:block">
           <div className="col-span-5 lg:sticky lg:top-28">

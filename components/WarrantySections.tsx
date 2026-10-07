@@ -17,7 +17,7 @@ export function WarrantyHero() {
           <div className="mt-9 grid grid-cols-12 items-center gap-x-12 gap-y-10 max-lg:block">
             <div className="col-span-6">
               <h1 className="max-w-[16ch] font-sans text-display font-semibold text-balance">
-                {warranty.title}
+                Dedicated to <span className="text-amber-deep">Customer Care</span>
               </h1>
               <p className="mt-7 max-w-[46ch] font-serif text-[clamp(20px,1.5vw,26px)] leading-[1.4] text-ink/85">
                 {lead}
@@ -47,15 +47,17 @@ export function WarrantyHero() {
 }
 
 // The rest of the verbatim introduction, set in two measured columns rather than
-// one tall ragged one beside the hero image.
+// one tall ragged one beside the hero image. CSS columns, not a grid: the text
+// flows down the left column then the right, so a one-line paragraph never
+// leaves a gap beside a long one and the reading order stays top to bottom.
 export function WarrantyIntro() {
   const rest = warranty.intro.slice(1);
   return (
     <ServiceBand label="Why we offer it" tone="white" accent="bg-teal" labelStyle="underline">
       <Reveal>
-        <div className="grid grid-cols-2 gap-x-14 gap-y-5 max-md:grid-cols-1">
+        <div className="columns-2 gap-x-14 max-md:columns-1">
           {rest.map((paragraph) => (
-            <p key={paragraph} className="max-w-[58ch] text-body leading-relaxed text-ink/75">
+            <p key={paragraph} className="mb-5 max-w-[58ch] break-inside-avoid text-body leading-relaxed text-ink/75">
               {paragraph}
             </p>
           ))}

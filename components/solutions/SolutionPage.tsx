@@ -10,15 +10,14 @@ import { solutionOrder, solutions, type SolutionPageContent } from "@/lib/conten
 
 function SolutionHero({ content }: { content: SolutionPageContent }) {
   return (
-    <section className="solution-hero relative overflow-hidden border-b border-line bg-warm">
-      <div className="solution-orbit" aria-hidden />
+    <section className="hero-grid overflow-hidden border-b border-line bg-warm">
       <div className="container-omh grid min-h-[690px] grid-cols-[minmax(0,1.05fr)_minmax(390px,.75fr)] items-center gap-[clamp(48px,7vw,110px)] py-[clamp(64px,7vw,105px)] max-lg:min-h-0 max-lg:grid-cols-1">
         <Reveal className="relative z-10">
           <Eyebrow>{content.eyebrow}</Eyebrow>
           <h1 className="mt-7 max-w-[14ch] font-sans text-display font-semibold text-balance max-lg:max-w-[18ch]">
             {content.title} <span className="text-amber-deep">{content.titleAccent}</span>
           </h1>
-          <p className="mt-7 max-w-[62ch] text-[19px] leading-[1.65] text-ink/72">{content.intro}</p>
+          <p className="mt-7 max-w-[62ch] text-body leading-relaxed text-ink/75">{content.intro}</p>
           <div className="mt-9 flex flex-wrap gap-3 max-sm:flex-col">
             <Button href="#enquire" arrow data-event={`${content.slug}_hero_primary_click`}>
               {content.primaryCta}

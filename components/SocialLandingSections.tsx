@@ -9,7 +9,7 @@ import { Accordion } from "@/components/ui/Accordion";
 import { FinalCta } from "@/components/ui/FinalCta";
 import { Eyebrow } from "@/components/ui/Proof";
 import { company } from "@/lib/content/nav";
-import { CheckIcon } from "@/components/services/ServicePrimitives";
+import { CheckIcon, HighlightedText } from "@/components/services/ServicePrimitives";
 import { facebookLanding, instagramLanding, socialLanding } from "@/lib/content/social-landing";
 
 /*
@@ -59,7 +59,7 @@ function SocialHero({ variant, event }: V) {
                 {page.eyebrow}
               </p>
               <h1 className="mx-auto mt-7 max-w-[16ch] font-sans text-display font-semibold text-balance">
-                {page.title}
+                <HighlightedText text={page.title} highlight={page.titleAccent} />
               </h1>
               <p className="mx-auto mt-7 max-w-[26ch] font-serif text-[clamp(21px,1.7vw,28px)] leading-[1.32] text-ink/85">
                 {page.subtitle}
@@ -87,7 +87,7 @@ function SocialHero({ variant, event }: V) {
         <Reveal>
           <Eyebrow>{page.eyebrow}</Eyebrow>
           <h1 className="mt-9 max-w-[16ch] font-sans text-display font-semibold text-balance">
-            {page.title}
+            <HighlightedText text={page.title} highlight={page.titleAccent} />
           </h1>
           <div className="mt-10 grid grid-cols-12 items-center gap-x-12 gap-y-10 max-lg:block">
             <div className="col-span-6">

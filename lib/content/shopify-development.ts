@@ -126,7 +126,7 @@ export const shopifyDevelopment = {
       features: {
         revisions: "1",
         contentChanges: false,
-        contractLength: "12–36",
+        contractLength: "12 to 36",
         pages: "5",
         stockImages: "10",
         imageGalleries: true,
@@ -159,7 +159,7 @@ export const shopifyDevelopment = {
       features: {
         revisions: "2",
         contentChanges: false,
-        contractLength: "12–36",
+        contractLength: "12 to 36",
         pages: "5+",
         stockImages: "20",
         imageGalleries: true,
@@ -192,7 +192,7 @@ export const shopifyDevelopment = {
       features: {
         revisions: "2",
         contentChanges: "10",
-        contractLength: "12–36",
+        contractLength: "12 to 36",
         pages: "5+",
         stockImages: "30",
         imageGalleries: true,
@@ -282,7 +282,7 @@ export const shopifyDevelopment = {
   ],
   // [CONFIRM SERVICE DETAIL] — verify the 30-day post-launch support term is current before publication.
   faqs: [
-    ["Shopify expert or development company — which do I need?", "A single Shopify expert can be perfect for a quick fix or a small theme tweak. For a full build, a migration, or ongoing growth, a Shopify development company brings planning, development, testing, and marketing support together under one roof, instead of you managing several freelancers yourself."],
+    ["Shopify expert or development company: which do I need?", "A single Shopify expert can be perfect for a quick fix or a small theme tweak. For a full build, a migration, or ongoing growth, a Shopify development company brings planning, development, testing, and marketing support together under one roof, instead of you managing several freelancers yourself."],
     ["How many people will support my Shopify project?", "A dedicated project contact keeps you updated while the appropriate technical team completes the agreed work."],
     ["How do I start a Shopify project with OMH?", "Send a project brief through the contact page, email support@onlinemarketinghelp.co.uk or call 020 3489 3934. The first discussion is used to understand the store, goals and practical options."],
     ["Can you build a new Shopify store?", "Yes. New-store work can cover structure, theme and user experience, Shopify configuration, approved integrations, testing and launch."],

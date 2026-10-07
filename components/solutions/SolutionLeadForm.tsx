@@ -52,7 +52,7 @@ export function SolutionLeadForm({
         const form = event.currentTarget;
         setSending(true);
         setError(null);
-        const result = await sendEnquiry(form, `Solutions enquiry — ${need}`);
+        const result = await sendEnquiry(form, `Solutions enquiry: ${need}`);
         setSending(false);
         if (!result.ok) return setError(result.message);
         setSent(true);
@@ -101,7 +101,7 @@ export function SolutionLeadForm({
           {error}
         </p>
       )}
-      <p className="mt-4 text-[13.5px] leading-relaxed text-oninverse/55">
+      <p className="mt-4 text-body leading-relaxed text-oninverse/55">
         We use your details only to respond to this enquiry. No mailing-list opt-in is assumed.
       </p>
     </form>

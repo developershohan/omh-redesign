@@ -1,6 +1,7 @@
 import { Reveal } from "@/components/Reveal";
 import { Eyebrow } from "@/components/ui/Proof";
 import type { LegalBlock, LegalDoc } from "@/lib/content/legal";
+import { AccentTitle } from "@/components/services/ServicePrimitives";
 
 /*
   One layout for all three policy documents (user preference, 11 Aug 2026): split
@@ -40,29 +41,18 @@ function Block({ block }: { block: LegalBlock }) {
 export function LegalPage({ doc }: { doc: LegalDoc }) {
   return (
     <main>
-      <section className="border-b border-line bg-surface">
+      <section className="hero-grid overflow-x-clip border-b border-line bg-warm">
         <div className="container-omh section-md">
           <Reveal>
             <div className="grid grid-cols-12 items-end gap-x-12 gap-y-8 max-lg:block">
               <div className="col-span-7">
                 <Eyebrow>Policy</Eyebrow>
                 <h1 className="mt-7 max-w-[18ch] font-sans text-display font-semibold text-balance">
-                  {doc.title}
+                  <AccentTitle text={doc.title} />
                 </h1>
                 <p className="mt-6 max-w-[58ch] text-lead leading-relaxed text-ink/75">
                   {doc.intro}
                 </p>
-              </div>
-              <div className="col-span-5 max-lg:mt-9">
-                <div className="rounded-card border border-line bg-warm p-7 max-sm:p-6">
-                  <p className="text-[12.5px] font-semibold uppercase tracking-[0.16em] text-muted">
-                    In this document
-                  </p>
-                  <p className="mt-4 font-sans text-[44px] font-semibold leading-none tabular-nums text-amber-deep">
-                    {String(doc.sections.length).padStart(2, "0")}
-                  </p>
-                  <p className="mt-3 text-body text-ink/70">sections, listed in the contents</p>
-                </div>
               </div>
             </div>
           </Reveal>
@@ -72,7 +62,7 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
       <div className="container-omh section-md grid grid-cols-12 gap-x-12 gap-y-10 max-lg:block">
         <nav aria-label="Contents" className="col-span-3">
           <div className="lg:sticky lg:top-24">
-            <p className="mb-4 text-[12.5px] font-semibold uppercase tracking-[0.16em] text-muted">
+            <p className="mb-4 text-[14px] font-semibold uppercase tracking-[0.16em] text-muted">
               Contents
             </p>
             <ol className="border-t border-line">
@@ -80,7 +70,7 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
                 <li key={section.heading} className="border-b border-line">
                   <a
                     href={`#${slug(section.heading)}`}
-                    className="flex gap-3 py-2.5 text-[14.5px] leading-snug text-ink/70 transition-colors hover:text-amber-deep"
+                    className="flex gap-3 py-2.5 text-body leading-snug text-ink/70 transition-colors hover:text-amber-deep"
                   >
                     <span className="shrink-0 tabular-nums text-muted">
                       {String(i + 1).padStart(2, "0")}

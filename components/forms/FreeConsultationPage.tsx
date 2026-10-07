@@ -5,15 +5,16 @@ import { Button } from "@/components/ui/Button";
 import { FinalCta } from "@/components/ui/FinalCta";
 import { company } from "@/lib/content/nav";
 import { freeConsultation as page } from "@/lib/content/quote-forms";
+import { AccentTitle } from "@/components/services/ServicePrimitives";
 
 // Consultation imagery accompanies the contact route until online booking is configured.
 
 export function FreeConsultationPage() {
   return (
     <main>
-      <ServiceBand label="Free consultation" tone="warm" accent="bg-amber" labelStyle="centered">
+      <ServiceBand label="Free consultation" tone="warm" accent="bg-amber" labelStyle="plain" className="hero-grid">
         <div className="mx-auto max-w-[58ch] text-center">
-          <h1 className="font-sans text-display font-semibold text-balance">{page.title}</h1>
+          <h1 className="font-sans text-display font-semibold text-balance"><AccentTitle text={page.title} /></h1>
           <p className="mt-5 font-sans text-h2 font-semibold text-amber-deep text-balance">
             {page.subtitle}
           </p>

@@ -86,7 +86,7 @@ export function FinalCta({
 
         <Reveal className="col-span-4 col-start-9 max-lg:mt-10">
           <div className="rounded-card border border-oninverse/15 bg-oninverse/[0.04] p-8 max-sm:p-6">
-            <p className="mb-6 text-[12.5px] font-semibold uppercase tracking-[0.16em] text-oninverse/55">
+            <p className="mb-6 text-[14px] font-semibold uppercase tracking-[0.16em] text-oninverse/55">
               {stepsHeading}
             </p>
             <ol className="grid gap-5">

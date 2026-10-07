@@ -2,7 +2,7 @@ export const wordpressDevelopment = {
   hero: {
     eyebrow: "WordPress Development for UK Businesses",
     title: "WordPress development services that drive growth",
-    body: "Fast, secure and easy to manage — websites designed around the enquiries, sales and actions you want visitors to take. New builds, redesigns and technical improvements for UK businesses.",
+    body: "Fast, secure and easy to manage: websites designed around the enquiries, sales and actions you want visitors to take. New builds, redesigns and technical improvements for UK businesses.",
     primary: { label: "Book a WordPress Consultation", href: "/contact" },
     secondary: { label: "View Website Packages", href: "#packages" },
   },
@@ -119,7 +119,7 @@ export const wordpressDevelopment = {
       features: {
         revisions: "1",
         contentChanges: false,
-        contractLength: "12–36",
+        contractLength: "12 to 36",
         pages: "5",
         stockImages: "10",
         imageGalleries: true,
@@ -154,7 +154,7 @@ export const wordpressDevelopment = {
       features: {
         revisions: "1",
         contentChanges: false,
-        contractLength: "12–36",
+        contractLength: "12 to 36",
         pages: "5+",
         stockImages: "20",
         imageGalleries: true,
@@ -189,7 +189,7 @@ export const wordpressDevelopment = {
       features: {
         revisions: "1",
         contentChanges: "1",
-        contractLength: "12–36",
+        contractLength: "12 to 36",
         pages: "5+",
         stockImages: "30",
         imageGalleries: true,

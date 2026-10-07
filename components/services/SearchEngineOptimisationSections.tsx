@@ -21,12 +21,12 @@ function Band({ tone = "white", ...props }: Omit<Parameters<typeof ServiceBand>[
 
 export function SeoHero() {
   return (
-    <section className="border-b border-line">
+    <section className="hero-grid overflow-x-clip border-b border-line bg-warm">
       <div className="container-omh pb-[clamp(56px,38px+2.9vw,88px)] pt-[clamp(48px,34px+2.3vw,80px)]">
         <div className="grid grid-cols-12 items-center gap-x-12 gap-y-12 max-lg:block">
           <Reveal className="col-span-7 max-lg:mb-12">
             <Eyebrow>{content.hero.eyebrow}</Eyebrow>
-            <h1 className="mb-6 mt-7 max-w-[20ch] font-sans text-h1 font-semibold text-balance">
+            <h1 className="mb-6 mt-7 max-w-[20ch] font-sans text-display font-semibold text-balance">
               SEO that connects <span className="text-amber-deep">search intent to the right page</span>
             </h1>
             <p className="mb-9 max-w-[59ch] text-lead leading-relaxed text-ink/75">{content.hero.body}</p>
@@ -35,14 +35,14 @@ export function SeoHero() {
               <Button href={content.hero.secondary.href} variant="secondary" data-event="seo_packages_click">{content.hero.secondary.label}</Button>
             </div>
             <dl className="mt-10 grid max-w-[690px] grid-cols-3 border-t border-line pt-7 max-sm:grid-cols-1 max-sm:gap-5">
-              {[["Packages from", "£850"], ["Published terms", "6–9 months"], ["Published set-up time", "14 days"]].map(([label, value]) => (
-                <div key={label} className="border-l border-line pl-5 first:border-l-0 first:pl-0 max-sm:border-l-0 max-sm:pl-0"><dt className="text-[11.5px] font-semibold uppercase tracking-[0.13em] text-muted">{label}</dt><dd className="mt-1.5 font-sans text-h4 font-semibold">{value}</dd></div>
+              {[["Packages from", "£850"], ["Published terms", "6 to 9 months"], ["Published set-up time", "14 days"]].map(([label, value]) => (
+                <div key={label} className="border-l border-line pl-5 first:border-l-0 first:pl-0 max-sm:border-l-0 max-sm:pl-0"><dt className="text-[14px] font-semibold uppercase tracking-[0.13em] text-muted">{label}</dt><dd className="mt-1.5 font-sans text-h4 font-semibold">{value}</dd></div>
               ))}
             </dl>
           </Reveal>
           <Reveal className="col-span-5">
             <Pointer><div className="pointer-parallax"><MediaFrame kind="screen" theme="seo" ratio="16/11" title="Organic search opportunity view" note="Replace with an approved search-performance view showing queries, pages, dates and meaningful actions." source="/images/Services/Images on the pages/Organic search performance view SEO.png" alt="Illustrative organic search performance report showing clicks, impressions, average position and the queries and pages behind them." /></div></Pointer>
-            <div className="mt-6 flex flex-wrap gap-2.5 border-t border-line pt-5"><VerifiedSlot>SEO case study — pending</VerifiedSlot><VerifiedSlot>Current credentials — pending</VerifiedSlot></div>
+            <div className="mt-6 flex flex-wrap gap-2.5 border-t border-line pt-5"><VerifiedSlot>SEO case study: pending</VerifiedSlot><VerifiedSlot>Current credentials: pending</VerifiedSlot></div>
           </Reveal>
         </div>
       </div>
@@ -63,7 +63,7 @@ export function SeoSignalSection() {
           <div className="col-span-8 grid grid-cols-2 gap-5 max-md:grid-cols-1">
             {content.signals.map(([title, body], index) => (
               <article key={title} className={`${index % 3 === 1 ? "md:translate-y-5" : ""} surface-card rounded-card border border-line bg-tint-blue p-7`}>
-                <span className="font-sans text-[11px] font-semibold tracking-[0.14em] text-amber-deep">0{index + 1}</span>
+                <span className="font-sans text-body font-semibold tracking-[0.14em] text-amber-deep">0{index + 1}</span>
                 <h3 className="mt-4 font-sans text-h4 font-semibold">{title}</h3>
                 <p className="mt-3 text-body leading-relaxed text-ink/70">{body}</p>
               </article>
@@ -81,12 +81,12 @@ export function SeoPillarAtlas() {
       <Reveal>
         <div className="flex items-end justify-between gap-10 max-lg:block">
           <h2 className="max-w-[18ch] font-sans text-h2 font-semibold">Four connected workstreams, not nine disconnected services.</h2>
-          <p className="max-w-[50ch] text-body leading-relaxed text-ink/68 max-lg:mt-5">Audit, keyword research, on-page work, technical SEO, indexing, authority, branding, tracking and reporting — the whole scope, in one place.</p>
+          <p className="max-w-[50ch] text-body leading-relaxed text-ink/68 max-lg:mt-5">Audit, keyword research, on-page work, technical SEO, indexing, authority, branding, tracking and reporting: the whole scope, in one place.</p>
         </div>
         <div className="mt-12 grid grid-cols-2 gap-6 max-md:grid-cols-1">
           {content.pillars.map((pillar, index) => (
             <article key={pillar.title} className={`${index === 0 || index === 3 ? "bg-[#0e2035] text-oninverse" : "bg-surface text-ink"} rounded-card border border-[#b9cee5] p-8 max-sm:p-6`}>
-              <div className="flex items-start justify-between gap-5"><p className={`text-[11.5px] font-semibold uppercase tracking-[0.15em] ${index === 0 || index === 3 ? "text-[#9bc3f3]" : "text-amber-deep"}`}>{pillar.label}</p><span className={`text-[14px] font-semibold ${index === 0 || index === 3 ? "text-oninverse/30" : "text-ink/25"}`}>0{index + 1}</span></div>
+              <div className="flex items-start justify-between gap-5"><p className={`text-[14px] font-semibold uppercase tracking-[0.15em] ${index === 0 || index === 3 ? "text-[#9bc3f3]" : "text-amber-deep"}`}>{pillar.label}</p><span className={`text-body font-semibold ${index === 0 || index === 3 ? "text-oninverse/30" : "text-ink/25"}`}>0{index + 1}</span></div>
               <h3 className="mt-5 font-sans text-h3 font-semibold">{pillar.title}</h3>
               <p className={`mt-4 text-body leading-relaxed ${index === 0 || index === 3 ? "text-oninverse/68" : "text-ink/68"}`}>{pillar.body}</p>
               <ul className={`mt-6 border-t pt-5 ${index === 0 || index === 3 ? "border-oninverse/12" : "border-[#cad9eb]"}`}>
@@ -118,7 +118,7 @@ export function SeoInternalLinkingMap() {
           </div>
           <div className="col-span-7">
             <div className="rounded-card border border-[#76a9e8]/30 bg-[#081626] p-5">
-              <div className="rounded-xl border border-[#76a9e8]/40 bg-[#132d49] p-5 text-center"><span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#9bc3f3]">Current hub</span><p className="mt-2 font-sans text-h4 font-semibold">Search Engine Optimisation</p></div>
+              <div className="rounded-xl border border-[#76a9e8]/40 bg-[#132d49] p-5 text-center"><span className="text-[14px] font-semibold uppercase tracking-[0.14em] text-[#9bc3f3]">Current hub</span><p className="mt-2 font-sans text-h4 font-semibold">Search Engine Optimisation</p></div>
               <div aria-hidden className="mx-auto h-8 w-px bg-[#76a9e8]/35" />
               <div className="grid grid-cols-2 gap-3 max-sm:grid-cols-1">
                 {routes.map((route) => (
@@ -144,7 +144,7 @@ export function SeoProcess() {
           <div className="col-span-4 max-lg:mb-9"><h2 className="max-w-[14ch] font-sans text-h2 font-semibold">A five-stage operating cycle with a visible next action.</h2><p className="mt-5 max-w-[42ch] text-body leading-relaxed text-ink/70">This condenses the original analytics, audit, strategy, optimisation and competitor-analysis chapters.</p><div className="mt-7"><TextLink href="/contact" data-event="seo_audit_click">Request an SEO review</TextLink></div></div>
           <ol className="col-span-8 grid grid-cols-5 border-l border-t border-line max-md:grid-cols-1">
             {content.process.map(([title, body], index) => (
-              <li key={title} className="border-b border-r border-line p-5 max-md:p-6"><span className="text-[11px] font-semibold text-amber-deep">0{index + 1}</span><h3 className="mt-4 font-sans text-body font-semibold leading-tight">{title}</h3><p className="mt-3 text-body leading-relaxed text-ink/68">{body}</p></li>
+              <li key={title} className="border-b border-r border-line p-5 max-md:p-6"><span className="text-body font-semibold text-amber-deep">0{index + 1}</span><h3 className="mt-4 font-sans text-body font-semibold leading-tight">{title}</h3><p className="mt-3 text-body leading-relaxed text-ink/68">{body}</p></li>
             ))}
           </ol>
         </div>
@@ -157,16 +157,16 @@ function PackageRow({ pkg, index }: { pkg: Package; index: number }) {
   return (
     <details className="group border-t border-[#b7cbe0] first:border-t-0">
       <summary className="grid cursor-pointer list-none grid-cols-[1.35fr_.65fr_.65fr_.65fr_auto] items-center gap-6 py-7 [&::-webkit-details-marker]:hidden max-lg:grid-cols-2 max-sm:grid-cols-1">
-        <div><p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-deep">0{index + 1} · {pkg.stage}</p><h3 className="mt-2 font-sans text-h3 font-semibold">{pkg.name}</h3><p className="mt-2 max-w-[48ch] text-body leading-relaxed text-ink/65">{pkg.bestFor}</p></div>
-        <div><span className="block text-[11px] uppercase tracking-[0.12em] text-muted">Price</span><strong className="mt-1 block font-sans text-h4">{pkg.price}</strong></div>
-        <div><span className="block text-[11px] uppercase tracking-[0.12em] text-muted">Hours*</span><strong className="mt-1 block font-sans text-h4">{pkg.features.includedHours}</strong></div>
-        <div><span className="block text-[11px] uppercase tracking-[0.12em] text-muted">Term</span><strong className="mt-1 block font-sans text-h4">{pkg.features.contractLength} months</strong></div>
+        <div><p className="text-[14px] font-semibold uppercase tracking-[0.14em] text-amber-deep">0{index + 1} · {pkg.stage}</p><h3 className="mt-2 font-sans text-h3 font-semibold">{pkg.name}</h3><p className="mt-2 max-w-[48ch] text-body leading-relaxed text-ink/65">{pkg.bestFor}</p></div>
+        <div><span className="block text-[14px] uppercase tracking-[0.12em] text-muted">Price</span><strong className="mt-1 block font-sans text-h4">{pkg.price}</strong></div>
+        <div><span className="block text-[14px] uppercase tracking-[0.12em] text-muted">Hours*</span><strong className="mt-1 block font-sans text-h4">{pkg.features.includedHours}</strong></div>
+        <div><span className="block text-[14px] uppercase tracking-[0.12em] text-muted">Term</span><strong className="mt-1 block font-sans text-h4">{pkg.features.contractLength} months</strong></div>
         <span className="flex size-10 items-center justify-center rounded-full border border-[#88acd1] text-2xl text-amber-deep transition-transform group-open:rotate-45" aria-hidden>+</span>
       </summary>
       <div className="mb-7 rounded-card border border-[#c4d4e5] bg-surface p-6">
         <div className="grid grid-cols-2 gap-x-12 max-md:grid-cols-1">
           {content.packageGroups.map((group) => (
-            <dl key={group.label}><p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">{group.label}</p>{group.rows.map(([label, key]) => <div key={label} className="flex items-baseline justify-between gap-5 border-t border-line py-2.5 text-label"><dt className="text-muted">{label}</dt><dd className="font-semibold"><FeatureValue value={pkg.features[key]} includedClassName="text-amber-deep" excludedClassName="text-muted/50" /></dd></div>)}</dl>
+            <dl key={group.label}><p className="mb-3 text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">{group.label}</p>{group.rows.map(([label, key]) => <div key={label} className="flex items-baseline justify-between gap-5 border-t border-line py-2.5 text-label"><dt className="text-muted">{label}</dt><dd className="font-semibold"><FeatureValue value={pkg.features[key]} includedClassName="text-amber-deep" excludedClassName="text-muted/50" /></dd></div>)}</dl>
           ))}
         </div>
         <div className="mt-6"><Button href="/contact" small data-event="seo_package_select" data-package={pkg.name}>Discuss this package</Button></div>
@@ -193,7 +193,7 @@ export function SeoEvidence() {
       <Reveal>
         <div className="grid grid-cols-12 items-center gap-x-12 gap-y-10 max-lg:block">
           <div className="col-span-5 max-lg:mb-9"><p className="text-[14px] font-semibold uppercase tracking-[0.15em] text-[#9bc3f3]">Proof before promises</p><h2 className="mt-5 max-w-[15ch] font-sans text-h2 font-semibold">Show the starting point, work and verified organic outcome.</h2><p className="mt-5 text-body leading-relaxed text-oninverse/66">Every SEO case study we publish identifies the period, market, pages changed and how the result was measured.</p><ul className="mt-7 grid gap-3 border-t border-oninverse/12 pt-5 text-body text-oninverse/72">{["Search and website baseline", "Technical and content work completed", "Comparable measurement period", "Verified visibility and commercial context"].map((item) => <li key={item} className="flex gap-3"><Check className="mt-0.5 size-4 shrink-0 text-[#ee8c67]" />{item}</li>)}</ul></div>
-          <div className="col-span-7"><MediaFrame kind="image" theme="seo" ratio="16/10" title="Verified SEO case-study walkthrough" note="Replace with approved evidence and an explanation of what the metrics do and do not prove." source="/images/Services/SEO 4.jpg" alt="Search engine optimisation illustration" /><div className="mt-5 flex flex-wrap gap-2"><VerifiedSlot>Client approval — pending</VerifiedSlot><VerifiedSlot>Result method — pending</VerifiedSlot></div></div>
+          <div className="col-span-7"><MediaFrame kind="image" theme="seo" ratio="16/10" title="Verified SEO case-study walkthrough" note="Replace with approved evidence and an explanation of what the metrics do and do not prove." source="/images/Services/SEO 4.jpg" alt="Search engine optimisation illustration" /><div className="mt-5 flex flex-wrap gap-2"><VerifiedSlot>Client approval: pending</VerifiedSlot><VerifiedSlot>Result method: pending</VerifiedSlot></div></div>
         </div>
       </Reveal>
     </Band>

@@ -10,7 +10,7 @@ import type { ReactNode } from "react";
 // Future Elementor widget: "OMH Verified Slot"
 export function VerifiedSlot({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-warm px-3 py-1 text-[12.5px] font-medium text-muted">
+    <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-warm px-3 py-1 text-body font-medium text-muted">
       {children}
     </span>
   );
@@ -29,7 +29,7 @@ export function Fpo({ ratio, tag, title, source, alt, className = "" }: {
   return (
     <figure style={{ aspectRatio: ratio }} className={"relative overflow-hidden rounded-media border border-line " + className}>
       <Image src={source} alt={alt ?? title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
-      <figcaption className="absolute bottom-3 left-3 rounded-md border border-line bg-surface/95 px-2 py-1 text-[11px] font-semibold text-ink">
+      <figcaption className="absolute bottom-3 left-3 rounded-md border border-line bg-surface/95 px-2 py-1 text-body font-semibold text-ink">
         {tag} · Illustration
       </figcaption>
     </figure>

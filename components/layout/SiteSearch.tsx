@@ -76,7 +76,7 @@ export function SiteSearch({ entries }: { entries: SearchEntry[] }) {
           <button
             type="button"
             onClick={() => dialogRef.current?.close()}
-            className="cursor-pointer rounded border border-line px-2 py-1 text-[14px] font-semibold text-muted transition-colors hover:text-ink"
+            className="cursor-pointer rounded border border-line px-2 py-1 text-body font-semibold text-muted transition-colors hover:text-ink"
           >
             Esc
           </button>

@@ -19,13 +19,13 @@ const steps = [
 
 export default function ContactPage() {
   return (
-    <section className="border-b border-line bg-surface">
+    <section className="hero-grid overflow-x-clip border-b border-line bg-warm">
       <div className="container-omh section-md">
         <div className="grid grid-cols-12 gap-x-14 gap-y-12 max-lg:block">
           {/* Left: intro, details, what happens next */}
           <div className="col-span-5 max-lg:mb-12">
             <Eyebrow>Contact</Eyebrow>
-            <h1 className="mb-5 mt-6 max-w-[18ch] font-sans text-h1 font-semibold text-balance">
+            <h1 className="mb-5 mt-6 max-w-[18ch] font-sans text-display font-semibold text-balance">
               Tell us what you need and we&apos;ll recommend <span className="text-amber-deep">the next step</span>
             </h1>
             <p className="max-w-[52ch] text-lead leading-relaxed text-ink/75">
@@ -36,7 +36,7 @@ export default function ContactPage() {
 
             <dl className="mt-9 grid gap-5 border-t border-line pt-8">
               <div>
-                <dt className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">
+                <dt className="text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
                   Call
                 </dt>
                 <dd className="mt-1.5">
@@ -50,7 +50,7 @@ export default function ContactPage() {
                 </dd>
               </div>
               <div>
-                <dt className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">
+                <dt className="text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
                   Email
                 </dt>
                 <dd className="mt-1.5">
@@ -64,17 +64,17 @@ export default function ContactPage() {
                 </dd>
               </div>
               <div>
-                <dt className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">
+                <dt className="text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
                   Where we are
                 </dt>
                 <dd className="mt-1.5 text-body text-ink/80">
-                  {company.address} <span title="To be confirmed with the client">◈</span>
+                  {company.address}
                 </dd>
               </div>
             </dl>
 
             <div className="mt-9 rounded-card border border-line bg-warm/60 p-6">
-              <p className="mb-5 text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">
+              <p className="mb-5 text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
                 What happens next
               </p>
               <ol className="grid gap-4">

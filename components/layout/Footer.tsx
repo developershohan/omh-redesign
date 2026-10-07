@@ -188,7 +188,7 @@ export function Footer() {
                 <span className="block font-sans text-lg leading-tight underline decoration-oninverse decoration-1 underline-offset-4 transition-colors group-hover:decoration-amber md:text-xl">
                   Company Deck
                 </span>
-                <span className="block pt-1 text-sm text-oninverse/50 md:text-lg">PDF, {deck}</span>
+                <span className="block pt-1 text-body text-oninverse/50 md:text-lg">PDF, {deck}</span>
               </span>
             </a>
           </div>

@@ -175,12 +175,12 @@ export const cookiePolicy: LegalDoc = {
         "3.1 We use cookies for the following purposes:",
         {
           list: [
-            "(a) authentication – we use cookies to identify you when you visit our website and as you navigate our website;",
-            "(b) status – we use cookies to help us to determine if you are logged into our website;",
-            "(c) personalisation – we use cookies to store information about your preferences and to personalise the website for you;",
-            "(d) security – we use cookies as an element of the security measures used to protect user accounts, including preventing fraudulent use of login credentials, and to protect our website and services generally;",
-            "(e) analysis – we use cookies to help us to analyse the use and performance of our website and services; and",
-            "(f) cookie consent – we use cookies to store your preferences in relation to the use of cookies more generally.",
+            "(a) authentication: we use cookies to identify you when you visit our website and as you navigate our website;",
+            "(b) status: we use cookies to help us to determine if you are logged into our website;",
+            "(c) personalisation: we use cookies to store information about your preferences and to personalise the website for you;",
+            "(d) security: we use cookies as an element of the security measures used to protect user accounts, including preventing fraudulent use of login credentials, and to protect our website and services generally;",
+            "(e) analysis: we use cookies to help us to analyse the use and performance of our website and services; and",
+            "(f) cookie consent: we use cookies to store your preferences in relation to the use of cookies more generally.",
           ],
         },
       ],
@@ -237,7 +237,7 @@ export const termsAndConditions: LegalDoc = {
     "The following terms and conditions refer to Online Marketing Help Limited trading as Online Marketing Help (“The Agency”) and its relationship with its clients and potential clients.",
   sections: [
     {
-      heading: "General Terms & Conditions of Business — 1. Quotes & Prices",
+      heading: "General Terms & Conditions of Business: 1. Quotes & Prices",
       body: [
         {
           list: [
@@ -375,7 +375,7 @@ export const termsAndConditions: LegalDoc = {
       body: [
         {
           list: [
-            "11.1. The hours provided in Service Level Agreements (SLA) can be used in any way, other than for fixed costs and essential services – such as web hosting or advertising placement – or towards payment of debts or existing/quoted jobs.",
+            "11.1. The hours provided in Service Level Agreements (SLA) can be used in any way, other than for fixed costs and essential services (such as web hosting or advertising placement) or towards payment of debts or existing/quoted jobs.",
             "11.2. Once an account handler at the Agency has been given a job brief as part of the SLA, should the work take longer than 30 minutes, we will endeavour to provide a total estimate of how long the job will take for approval by the Client before any work is commenced.",
             "11.3. For each job requested by the Client as part of the SLA, a minimum of 15 minutes will be deducted from the remaining SLA time allowance.",
             "11.4. All hours worked as part of an SLA are recorded and can be forwarded to the Client on request.",
@@ -386,7 +386,7 @@ export const termsAndConditions: LegalDoc = {
       ],
     },
     {
-      heading: "Print Terms & Conditions — 1. Proofing",
+      heading: "Print Terms & Conditions: 1. Proofing",
       body: [
         "1.1. After initial design and layout, a mono proof will be submitted for author’s corrections to be identified. These corrections will be carried out inclusive of the quoted price. On approval of a second mono proof, again inclusive of the quoted price, the design will be classed as complete, where a final colour proof will be provided for full Client sign off. Any additional author’s corrections requested after the second mono proof is submitted will be charged at our normal rate of £100 per hour and £5 for each colour A3 proofing page printed.",
       ],
@@ -442,7 +442,7 @@ export const termsAndConditions: LegalDoc = {
       ],
     },
     {
-      heading: "Digital Media Terms & Conditions — 1. Programming",
+      heading: "Digital Media Terms & Conditions: 1. Programming",
       body: [
         {
           list: [
@@ -478,7 +478,7 @@ export const termsAndConditions: LegalDoc = {
       ],
     },
     {
-      heading: "Website Hosting and Email Terms & Conditions — Summary",
+      heading: "Website Hosting and Email Terms & Conditions: Summary",
       body: [
         "The Agency offers website hosting and database hosting services through the use of third party providers and is subject to requirements set out in these terms and conditions and any other relevant terms and conditions, policies and notices which may be applicable to the supply of hosting services.",
         "Below is a summary of the main points covered in these terms:",

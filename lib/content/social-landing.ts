@@ -199,6 +199,7 @@ export const socialLanding = {
 export const instagramLanding = {
   ...socialLanding,
   title: "Instagram Marketing Agency for UK Businesses",
+  titleAccent: "UK Businesses",
   subtitle: "Grow Your Brand on Instagram with Reels, Ads and Organic Strategy",
   standfirst:
     "We are an Instagram marketing agency that helps UK businesses turn Instagram into a genuine revenue channel. Our team builds Instagram ad campaigns, creates Reels and carousel content, manages your account day to day, and reports on what is actually working. Whether you need paid Instagram ads to drive leads or a consistent organic posting strategy to build your audience, we handle the lot.",
@@ -339,6 +340,7 @@ export const instagramLanding = {
 export const facebookLanding = {
   ...socialLanding,
   title: "Facebook Marketing Agency for Growing UK Businesses",
+  titleAccent: "Growing UK Businesses",
   standfirst:
     "We are a Facebook marketing agency that helps UK businesses get more from their Facebook presence. Our team handles page management, content creation, Facebook Ads campaigns and community engagement so your Facebook channel drives real enquiries and revenue.",
   ctas: { consultation: "Discuss Facebook Marketing", pricing: "View Facebook Packages" },

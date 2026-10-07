@@ -182,6 +182,6 @@ export const subscriptionThankYou = {
   seo: {
     title: "Subscription Thank You",
     description:
-      "Welcome — thank you for joining the Online Marketing Help list. Follow us and download the onsite SEO guide.",
+      "Welcome, and thank you for joining the Online Marketing Help list. Follow us and download the onsite SEO guide.",
   },
 };

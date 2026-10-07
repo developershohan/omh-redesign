@@ -21,9 +21,9 @@ function CaseStudyCard({ study }: { study: CaseStudy }) {
         data-event="case_study_card_click"
         data-case-study={study.slug}
       >
-        <CaseStudyVisual study={study} ratio="16/10" className="rounded-none border-0" />
+        <CaseStudyVisual study={study} ratio="16/10" frameClassName="rounded-none" />
         <div className="flex flex-1 flex-col p-7">
-          <p className="font-sans text-base font-semibold uppercase tracking-[0.14em] text-amber-deep">
+          <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.14em] text-amber-deep">
             {study.category}
             <span className="text-muted"> · {study.sector}</span>
           </p>
@@ -62,7 +62,7 @@ export function ServiceCaseStudies({
         <Reveal>
           <div className="flex items-end justify-between gap-10 max-lg:block">
             <div>
-              <p className="font-sans text-base font-semibold uppercase tracking-[0.16em] text-amber-deep">
+              <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.16em] text-amber-deep">
                 {eyebrow}
               </p>
               <h2
@@ -89,7 +89,7 @@ export function ServiceCaseStudies({
 
         {remainingStudies.length > 0 && (
           <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-line pt-6">
-            <span className="text-base font-semibold uppercase tracking-[0.14em] text-muted">
+            <span className="text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
               More related studies
             </span>
             {remainingStudies.map((study) => (

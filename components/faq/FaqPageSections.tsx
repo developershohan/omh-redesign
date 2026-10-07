@@ -1,6 +1,7 @@
 import { Reveal } from "@/components/Reveal";
 import { MediaFrame } from "@/components/ServiceMedia";
 import { ServiceBand, type ServiceBandTone } from "@/components/services/ServiceBand";
+import { withLinks } from "@/components/services/ServicePrimitives";
 import { Accordion } from "@/components/ui/Accordion";
 import { Button } from "@/components/ui/Button";
 import { FinalCta } from "@/components/ui/FinalCta";
@@ -20,7 +21,7 @@ export function FaqHero() {
           <div className="mt-8 grid grid-cols-12 items-center gap-x-12 gap-y-10 max-lg:block">
             <div className="col-span-7">
               <h1 className="max-w-[14ch] font-sans text-display font-semibold text-balance">
-                {faqPage.title}
+                Most Common <span className="text-amber-deep">Questions</span>
               </h1>
               {/* A contents list, not a stock paragraph — on a page this long the
                   useful thing at the top is a way to reach the right group. */}
@@ -90,7 +91,7 @@ export function FaqGroups() {
                       q: item.q,
                       a: item.a.map((paragraph) => (
                         <p key={paragraph} className="mt-3 leading-relaxed first:mt-0">
-                          {paragraph}
+                          {withLinks(paragraph)}
                         </p>
                       )),
                     }))}

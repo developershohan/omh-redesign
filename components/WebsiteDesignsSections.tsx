@@ -9,6 +9,7 @@ import { Eyebrow } from "@/components/ui/Proof";
 import { caseStudies } from "@/lib/content/case-studies";
 import { company } from "@/lib/content/nav";
 import { websiteDesigns as page } from "@/lib/content/website-designs";
+import { AccentTitle } from "@/components/services/ServicePrimitives";
 
 /*
   Phase 7 — /website-designs. Scaffold rule: every section is a `ServiceBand`,
@@ -33,10 +34,10 @@ export function WebsiteDesignsPage() {
 
   return (
     <main>
-      <ServiceBand label={page.title} tone="warm" accent={ACCENT} labelStyle={LABEL}>
+      <ServiceBand label={page.title} tone="warm" accent={ACCENT} labelStyle="plain" className="hero-grid">
         <div className="grid grid-cols-12 items-center gap-x-12 gap-y-11 max-lg:block">
           <div className="col-span-6">
-            <h1 className="font-sans text-display font-semibold text-balance">{page.heading}</h1>
+            <h1 className="font-sans text-display font-semibold text-balance"><AccentTitle text={page.heading} /></h1>
             <p className="mt-5 font-sans text-h3 font-semibold text-amber-deep text-balance">
               {page.standfirst}
             </p>
@@ -63,7 +64,7 @@ export function WebsiteDesignsPage() {
           </div>
         </div>
 
-        <div className="mt-14 grid grid-cols-12 gap-x-12 gap-y-8 border-t border-line pt-12 max-lg:block">
+        <div className="mt-14 grid grid-cols-12 gap-x-12 gap-y-8 max-lg:block">
           <div className="col-span-5">
             <Eyebrow>{page.statEyebrow}</Eyebrow>
             <h2 className="mt-5 font-sans text-h3 font-semibold text-balance">{page.statHeading}</h2>

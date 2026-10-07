@@ -86,7 +86,7 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
       >
         {/* Sized by width: the two exports differ in proportion, so matching
             widths keeps the strapline the same size in both themes. */}
-        <Link href="/" aria-label="Online Marketing Help — home" className="shrink-0">
+        <Link href="/" aria-label="Online Marketing Help, home" className="shrink-0">
           <Image src="/images/logo-dark.png" alt="" width={140} height={44} priority className="h-auto w-[140px] dark:hidden" />
           <Image src="/images/logo-white.png" alt="" width={140} height={35} priority className="hidden h-auto w-[140px] dark:block" />
         </Link>

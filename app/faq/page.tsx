@@ -20,7 +20,8 @@ function FaqJsonLd() {
     group.items.map((item) => ({
       "@type": "Question",
       name: item.q,
-      acceptedAnswer: { "@type": "Answer", text: item.a.join(" ") },
+      // Answers carry [anchor](/path) links for the page; the schema needs plain text.
+      acceptedAnswer: { "@type": "Answer", text: item.a.join(" ").replace(/\[([^\]]+)\]\(\/[^)]*\)/g, "$1") },
     })),
   );
   return (

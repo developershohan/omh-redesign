@@ -22,6 +22,24 @@ export function HighlightedText({
   );
 }
 
+/**
+ * A page title with its closing phrase in the amber accent, as on the homepage
+ * H1 ("…for UK businesses"): the last two words, or the last word of a short
+ * title, with any closing punctuation left outside the accent.
+ */
+export function AccentTitle({ text }: { text: string }) {
+  const body = text.replace(/[.!?:]+$/, "");
+  const words = body.split(" ");
+  if (words.length < 2) return <>{text}</>;
+  const n = words.length >= 4 ? 2 : 1;
+  return (
+    <>
+      {words.slice(0, -n).join(" ")} <span className="text-amber-deep">{words.slice(-n).join(" ")}</span>
+      {text.slice(body.length)}
+    </>
+  );
+}
+
 export function ServiceSectionIntro({
   title,
   accent,

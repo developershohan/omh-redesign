@@ -32,7 +32,7 @@ const typeScale = [
   { cls: "text-h3 font-sans font-semibold", label: "Heading 3", spec: "30/27/24" },
   { cls: "text-h4 font-sans font-semibold", label: "Heading 4", spec: "22/20" },
   { cls: "text-lead", label: "Body large", spec: "18/27 · standfirsts" },
-  { cls: "text-body", label: "Body", spec: "18/28 · 60–75ch, left-aligned" },
+  { cls: "text-body", label: "Body", spec: "18/28 · 60 to 75ch, left-aligned" },
   { cls: "text-bsm", label: "Body small", spec: "16/24 · captions, metadata" },
   { cls: "text-label font-semibold uppercase tracking-[0.14em]", label: "Label", spec: "14/20 · small caps, letterspaced" },
 ];
@@ -69,7 +69,7 @@ export default function DesignSystem() {
     <div className="container-omh section-sm flex flex-col gap-14">
       <header>
         <Eyebrow>Phase 2 · internal reference</Eyebrow>
-        <h1 className="mb-3 mt-5 font-sans text-h1 font-semibold">Design system — Direction 1 “Marginalia”</h1>
+        <h1 className="mb-3 mt-5 font-sans text-h1 font-semibold">Design system: Direction 1 “Marginalia”</h1>
         <p className="max-w-[70ch] text-lead text-ink/80">
           Every token below lives in <code className="text-bsm">app/globals.css</code> and maps 1:1
           to Elementor global settings for the later WordPress rebuild. Components carry their
@@ -87,7 +87,7 @@ export default function DesignSystem() {
             <p className="mb-4 text-label font-semibold text-ink">
               Quote forms &amp; questionnaires
               <span className="ml-2 font-normal text-muted">
-                — also in the &ldquo;Get a Quote&rdquo; menu
+                (also in the &ldquo;Get a Quote&rdquo; menu)
               </span>
             </p>
             <ul className="flex flex-col">
@@ -109,7 +109,7 @@ export default function DesignSystem() {
           <div>
             <p className="mb-4 text-label font-semibold text-ink">
               Thank-you pages
-              <span className="ml-2 font-normal text-muted">— reached after a form submits</span>
+              <span className="ml-2 font-normal text-muted">(reached after a form submits)</span>
             </p>
             <ul className="flex flex-col">
               {[...thankYouPages.map((p) => ({ slug: p.slug, label: p.seo.title })), { slug: subscriptionThankYou.slug, label: subscriptionThankYou.seo.title }].map(
@@ -166,7 +166,7 @@ export default function DesignSystem() {
             </p>
             <p className="text-[13.5px] leading-snug text-muted">
               <b className="font-semibold text-ink">Serif accent</b> · quotes, section openers, CTA
-              headline only — never long body copy
+              headline only, never long body copy
             </p>
           </div>
         </div>
@@ -185,7 +185,7 @@ export default function DesignSystem() {
           <TextLink href="#">Text link with a specific label</TextLink>
         </div>
         <p className="mt-5 max-w-[70ch] text-bsm text-muted">
-          10px radius · 600 weight · arrow nudges 2–3px on hover · 1px lift on primary · visible
+          10px radius · 600 weight · arrow nudges 2 to 3px on hover · 1px lift on primary · visible
           focus ring · never a vague “Learn more” when a specific label is possible (brief §18).
         </p>
       </Spec>
@@ -196,7 +196,7 @@ export default function DesignSystem() {
           <Field label="Website" placeholder="https://" />
           <Field label="Work email" required defaultValue="name@company" error="Enter a full email address, e.g. name@company.co.uk." />
           <Field label="Company" defaultValue="Online Marketing Help" success="Looks good." />
-          <Field label="Budget band" disabled placeholder="[Ranges to be confirmed] ◈" help="Qualification bands come from the client — not invented." />
+          <Field label="Budget band" disabled placeholder="[Ranges to be confirmed] ◈" help="Qualification bands come from the client, not invented." />
         </div>
       </Spec>
 
@@ -220,7 +220,7 @@ export default function DesignSystem() {
         <CaseStudyFeature
           c={{
             sector: "Home improvement",
-            sampleNote: "Specimen — structure from the brief; data from client records.",
+            sampleNote: "Specimen: structure from the brief; data from client records.",
             challenge: "High lead volume but poor lead quality",
             work: "Google Ads restructuring, landing page improvement, conversion tracking",
             href: "#",
@@ -234,7 +234,7 @@ export default function DesignSystem() {
           <Accordion
             group="ds-demo"
             items={[
-              { q: "Native details/summary — no JavaScript", a: "The name attribute makes the group exclusive. Elementor's accordion widget reproduces this directly." },
+              { q: "Native details/summary, no JavaScript", a: "The name attribute makes the group exclusive. Elementor's accordion widget reproduces this directly." },
               { q: "Essential sales information never hides here", a: "Accordions are for objection-handling FAQs only (brief §18)." },
             ]}
           />
@@ -244,9 +244,9 @@ export default function DesignSystem() {
       <Spec title="Motion tokens">
         <ul className="max-w-[75ch]">
           {[
-            ["Micro 120–220ms", "arrow nudge, link underline, button lift"],
-            ["Standard 220–360ms", "hover states, border-colour shifts, card raise"],
-            ["Entry 550ms", "one fade-and-rise (14px) per section via .rv — additive, never re-triggered"],
+            ["Micro 120 to 220ms", "arrow nudge, link underline, button lift"],
+            ["Standard 220 to 360ms", "hover states, border-colour shifts, card raise"],
+            ["Entry 550ms", "one fade-and-rise (14px) per section via .rv, additive, never re-triggered"],
             ["Reduced motion", "prefers-reduced-motion disables everything; layout reads identically (Elementor-safe)"],
           ].map(([k, v]) => (
             <li key={k} className="flex gap-4 border-b border-line py-2.5 text-bsm last:border-b-0">

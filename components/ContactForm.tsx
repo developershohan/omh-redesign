@@ -17,8 +17,8 @@ const needs = [
   "Something else",
 ];
 
-const budgets = ["Under £1,000", "£1,000 – £3,000", "£3,000 – £10,000", "Over £10,000", "Monthly retainer"];
-const timings = ["As soon as possible", "Within 1–3 months", "Later this year", "Just researching"];
+const budgets = ["Under £1,000", "£1,000 to £3,000", "£3,000 to £10,000", "Over £10,000", "Monthly retainer"];
+const timings = ["As soon as possible", "Within 1 to 3 months", "Later this year", "Just researching"];
 
 // Posts to /api/enquiry, which emails the answers to support@. Field names are
 // the visible labels, so the email reads as the questions asked.

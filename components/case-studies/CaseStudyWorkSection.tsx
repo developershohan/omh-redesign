@@ -1,58 +1,79 @@
-import { Search, MousePointer2, PanelsTopLeft, PenTool, ArrowDown } from "lucide-react";
+import { CheckIcon } from "@/components/services/ServicePrimitives";
 import type { CaseStudy } from "@/lib/content/case-studies";
 
-// A diagram of the recorded scope, not a simulated client report or screenshot.
-export function CaseStudyScope({ study }: { study: CaseStudy }) {
-  const Icon = { SEO: Search, PPC: MousePointer2, Website: PanelsTopLeft, Design: PenTool }[study.category];
-  return (
-    <figure className="relative overflow-hidden rounded-[4px] bg-[#253e3b] p-6 text-white sm:p-9">
-      <figcaption className="text-base text-white/75">The project at a glance</figcaption>
-      <div className="mx-auto mt-8 flex max-w-[28ch] flex-col items-center text-center">
-        <Icon className="size-12 text-[#f2c675]" strokeWidth={1.4} aria-hidden />
-        <p className="mt-4 font-sans text-2xl font-semibold">{study.client}</p>
-        <p className="mt-2 text-base text-white/75">{study.category === "SEO" ? "Search visibility" : study.category === "PPC" ? "Paid search campaigns" : study.category === "Website" ? "Website experience" : "Brand illustration"}</p>
-        <ArrowDown className="my-6 size-6 text-white/50" aria-hidden />
-      </div>
-      <div className="grid gap-4 sm:grid-cols-2">
-        {study.work.map((group, index) => (
-          <div key={group.title} className={"border-t border-white/30 pt-4 " + (study.work.length % 2 && index === study.work.length - 1 ? "sm:col-span-2" : "")}>
-            <p className="font-sans text-xl font-semibold">{group.title}</p>
-            <p className="mt-3 text-base leading-relaxed text-white/75">{group.items[0]}</p>
-          </div>
-        ))}
-      </div>
-    </figure>
-  );
-}
+const label = "text-[14px] font-semibold uppercase tracking-[0.14em] text-amber-deep";
 
+// The brief: the objective as a lead, and what needed to change as a numbered,
+// always-visible list (it used to be folded away in a <details>).
 export function CaseStudyChallenges({ study }: { study: CaseStudy }) {
   return (
-    <section id="brief" className="scroll-mt-28 bg-surface">
-      <div className="container-omh grid items-start gap-10 py-12 lg:grid-cols-2 lg:gap-20 lg:py-20">
-        <div>
-          <h2 className="font-sans text-h2 font-semibold">The brief</h2>
-          <p className="mt-6 max-w-[48ch] text-[clamp(20px,1.8vw,26px)] leading-relaxed text-ink">{study.objective}</p>
-          <details className="mt-8 border-y border-line py-5">
-            <summary className="cursor-pointer font-sans text-xl font-semibold focus-visible:outline-2 focus-visible:outline-amber">What needed to change</summary>
-            <ul className="mt-5 list-disc space-y-4 pl-5 text-body leading-relaxed text-ink/75">{study.challenges.map(challenge => <li key={challenge}>{challenge}</li>)}</ul>
-          </details>
+    <section id="brief" aria-labelledby="brief-heading" className="scroll-mt-28 border-b border-line bg-surface">
+      <div className="container-omh section-md grid gap-x-16 gap-y-12 lg:grid-cols-12">
+        <div className="lg:col-span-5">
+          <p className={label}>The brief</p>
+          <h2 id="brief-heading" className="mt-5 font-sans text-h2 font-semibold">
+            Where {study.client} started
+          </h2>
+          <p className="mt-6 max-w-[44ch] font-sans text-h4 font-semibold leading-relaxed text-ink/85">{study.objective}</p>
         </div>
-        <CaseStudyScope study={study} />
+        <div className="lg:col-span-7">
+          <h3 className="font-sans text-h4 font-semibold">What needed to change</h3>
+          <ol className="mt-6 border-t border-line">
+            {study.challenges.map((challenge, index) => (
+              <li key={challenge} className="grid grid-cols-[auto_1fr] gap-6 border-b border-line py-5">
+                <span className="pt-0.5 font-sans text-[14px] font-semibold tabular-nums text-amber-deep">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <p className="text-body leading-relaxed text-ink/80">{challenge}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
     </section>
   );
 }
 
+// The approach: one numbered card per workstream, in the site's card style.
 export function CaseStudyWorkSection({ study }: { study: CaseStudy }) {
+  const heading =
+    study.category === "Website"
+      ? "Building the experience"
+      : study.category === "Design"
+        ? "Developing the creative"
+        : "Putting the strategy to work";
+  const columns = study.work.length === 2 || study.work.length === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3";
   return (
-    <section id="work" className="scroll-mt-28 bg-warm">
-      <div className="container-omh py-12 sm:py-20">
-        <div className="flex flex-wrap items-end justify-between gap-5">
-          <h2 className="max-w-[20ch] font-sans text-h2 font-semibold">{study.category === "Website" ? "Building the experience" : study.category === "Design" ? "Developing the creative" : "Putting the strategy to work"}</h2>
-          <p className="max-w-[36ch] text-body leading-relaxed text-muted">The work delivered for {study.client}.</p>
+    <section id="work" aria-labelledby="work-heading" className="scroll-mt-28 border-b border-line bg-warm">
+      <div className="container-omh section-md">
+        <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
+          <div>
+            <p className={label}>Our approach</p>
+            <h2 id="work-heading" className="mt-5 max-w-[20ch] font-sans text-h2 font-semibold">
+              {heading}
+            </h2>
+          </div>
+          <p className="max-w-[40ch] text-body leading-relaxed text-ink/70">
+            The work delivered for {study.client}, grouped by workstream.
+          </p>
         </div>
-        <div className="mt-10 grid gap-7 lg:grid-cols-2">
-          {study.work.map((group, index) => <section key={group.title} className={"rounded-[4px] border border-line bg-surface p-6 sm:p-8 " + (study.work.length === 3 && index === 0 ? "lg:row-span-2 lg:flex lg:flex-col lg:justify-center" : "")}><h3 className="max-w-[32ch] font-sans text-[clamp(24px,2.3vw,32px)] font-semibold leading-tight">{group.title}</h3><ul className="mt-6 divide-y divide-line text-body leading-relaxed text-ink/75">{group.items.map(item => <li key={item} className="py-3 first:pt-0 last:pb-0">{item}</li>)}</ul></section>)}
+        <div className={`mt-12 grid gap-6 md:grid-cols-2 ${columns}`}>
+          {study.work.map((group, index) => (
+            <section key={group.title} className="surface-card rounded-card border border-line bg-surface p-7 max-sm:p-6">
+              <span className="font-sans text-[14px] font-semibold tracking-[0.14em] text-amber-deep">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-4 font-sans text-h4 font-semibold">{group.title}</h3>
+              <ul className="mt-5 grid gap-3">
+                {group.items.map((item) => (
+                  <li key={item} className="flex gap-3 text-body leading-relaxed text-ink/75">
+                    <CheckIcon className="mt-1.5 size-4 shrink-0 text-amber-deep" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
         </div>
       </div>
     </section>

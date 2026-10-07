@@ -38,6 +38,7 @@ export function ServiceBand({
   accent = "bg-amber",
   labelStyle = "rule",
   index,
+  className,
   children,
 }: {
   label: string;
@@ -46,6 +47,8 @@ export function ServiceBand({
   accent?: string;
   labelStyle?: ServiceBandLabel;
   index?: number;
+  /** Extra classes for the section, e.g. "hero-grid" when the band is a page hero. */
+  className?: string;
   children: ReactNode;
 }) {
   const dark = darkTones.includes(tone);
@@ -55,7 +58,7 @@ export function ServiceBand({
   const accentText = dark ? "text-oninverse/70" : "text-amber-deep";
 
   return (
-    <section id={id} className={toneClass[tone] || undefined}>
+    <section id={id} className={[toneClass[tone], className].filter(Boolean).join(" ") || undefined}>
       <div className="container-omh section-md">
         <div className={labelStyle === "none" ? undefined : "mb-11"}>
           {labelStyle === "rule" && (

@@ -32,7 +32,7 @@ type Package = (typeof content.packages)[number];
 // Future Elementor widget: "OMH Service Hero"
 export function ServiceHero() {
   return (
-    <section className="border-b border-line bg-surface">
+    <section className="hero-grid overflow-x-clip border-b border-line bg-warm">
       <div className="container-omh pb-[clamp(56px,38px+2.9vw,88px)] pt-[clamp(48px,34px+2.3vw,80px)]">
         <div className="grid grid-cols-12 items-center gap-x-12 gap-y-12 max-lg:block">
           <div className="col-span-7 max-lg:mb-12">
@@ -40,7 +40,7 @@ export function ServiceHero() {
               <Eyebrow>{content.hero.eyebrow}</Eyebrow>
               {/* text-h1, not text-display: 72px in a 7-col measure wrapped to six
                   lines and pushed the hero past the fold. */}
-              <h1 className="mb-6 mt-7 max-w-[19ch] font-sans text-h1 font-semibold text-balance">
+              <h1 className="mb-6 mt-7 max-w-[19ch] font-sans text-display font-semibold text-balance">
                 <HighlightedText text={content.hero.title} highlight="drive growth" />
               </h1>
               <p className="mb-9 max-w-[54ch] text-lead leading-relaxed text-ink/75">
@@ -65,7 +65,7 @@ export function ServiceHero() {
                   ["Based in", "Essex, UK"],
                 ].map(([label, value]) => (
                   <div key={label}>
-                    <dt className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">
+                    <dt className="text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
                       {label}
                     </dt>
                     <dd className="mt-1.5 font-sans text-h4 font-semibold">{value}</dd>
@@ -87,7 +87,7 @@ export function ServiceHero() {
                   title="WordPress project preview"
                   note="Replace with a real project, before-and-after view or planning board."
                   source="/images/website-designs/Brand-New-Website-Development.png"
-                  alt="WordPress development services — a custom WordPress theme build shown on desktop and laptop, with homepage, service blocks and recent projects grid visible."
+                  alt="WordPress development services: a custom WordPress theme build shown on desktop and laptop, with homepage, service blocks and recent projects grid visible."
                 />
               </div>
             </Pointer>
@@ -95,13 +95,13 @@ export function ServiceHero() {
                 "Review score" label with a "[CLIENT REVIEW SCORE REQUIRED]" chip,
                 which said the same thing twice in the busiest part of the page. */}
             <div className="mt-6 border-t border-line pt-5">
-              <p className="mb-3.5 text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">
+              <p className="mb-3.5 text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
                 Proof to add before launch
               </p>
               <div className="flex flex-wrap gap-2.5">
-                <VerifiedSlot>Client review score — pending</VerifiedSlot>
-                <VerifiedSlot>Client logos/permission — pending</VerifiedSlot>
-                <VerifiedSlot>Real website result — pending</VerifiedSlot>
+                <VerifiedSlot>Client review score: pending</VerifiedSlot>
+                <VerifiedSlot>Client logos/permission: pending</VerifiedSlot>
+                <VerifiedSlot>Real website result: pending</VerifiedSlot>
               </div>
             </div>
           </Reveal>
@@ -195,7 +195,7 @@ export function ServiceCapabilityGrid() {
         <div className="mt-12 grid grid-cols-6 gap-5 max-lg:grid-cols-2 max-sm:grid-cols-1">
           <Pointer className="pointer-spotlight relative col-span-3 row-span-2 flex flex-col justify-between overflow-hidden rounded-card bg-inverse p-9 text-oninverse max-lg:col-span-2 max-sm:col-span-1 max-sm:p-6">
             <div className="relative z-10">
-              <p className="text-[12.5px] font-semibold uppercase tracking-[0.16em] text-oninverse/55">
+              <p className="text-[14px] font-semibold uppercase tracking-[0.16em] text-oninverse/55">
                 Most projects start here
               </p>
               <h3 className="mt-5 font-sans text-h2 font-semibold">{featured.title}</h3>
@@ -253,7 +253,7 @@ function PackageCard({ pkg }: { pkg: Package }) {
   return (
     <article className="overflow-hidden rounded-card border border-line bg-surface">
       <div className="border-b border-line bg-soft/50 p-6">
-        <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">
+        <p className="text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
           {pkg.stage}
         </p>
         <h3 className="mt-2 font-sans text-h3 font-semibold">{pkg.name}</h3>
@@ -265,7 +265,7 @@ function PackageCard({ pkg }: { pkg: Package }) {
       <dl className="p-6 text-bsm">
         {content.packageGroups.map((group) => (
           <div key={group.label} className="border-b border-line py-4 first:pt-0 last:border-b-0">
-            <p className="mb-1 text-[11.5px] font-semibold uppercase tracking-[0.14em] text-muted/80">
+            <p className="mb-1 text-[14px] font-semibold uppercase tracking-[0.14em] text-muted/80">
               {group.label}
             </p>
             {group.rows.map(([label, key]) => (
@@ -325,13 +325,13 @@ export function PricingPackages() {
               <thead>
                 <tr>
                   <th scope="col" className="sticky left-0 z-10 w-[220px] bg-surface p-6 align-bottom">
-                    <span className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">
+                    <span className="text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
                       Compare packages
                     </span>
                   </th>
                   {content.packages.map((pkg) => (
                     <th key={pkg.name} scope="col" className="border-l border-line bg-soft/40 p-6 align-bottom">
-                      <span className="block text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">
+                      <span className="block text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
                         {pkg.stage}
                       </span>
                       <span className="mt-2 block font-sans text-h4 font-semibold">{pkg.name}</span>
@@ -505,10 +505,10 @@ export function CaseStudyFeature() {
                 <Fpo ratio="4/3" tag="After" title="After website screenshot" note="Use the real launched website screen." source="/images/Services/shopify/after.png" alt="Illustrative website layout after redesign" />
               </div>
               <div className="mt-6 rounded-card border border-soft-dark bg-surface/70 p-6">
-                <VerifiedSlot>WordPress case study — pending</VerifiedSlot>
+                <VerifiedSlot>WordPress case study: pending</VerifiedSlot>
                 <div className="mt-4 flex flex-wrap gap-3">
-                  <VerifiedSlot>Verified result — pending</VerifiedSlot>
-                  <VerifiedSlot>Client testimonial — pending</VerifiedSlot>
+                  <VerifiedSlot>Verified result: pending</VerifiedSlot>
+                  <VerifiedSlot>Client testimonial: pending</VerifiedSlot>
                 </div>
               </div>
             </div>

@@ -45,7 +45,7 @@ export const localSeo = {
     {
       label: "Website",
       title: "Local pages and signals",
-      body: "Connect services to genuine local areas with useful local SEO pages, clear contact details and structured information—not thin pages made only for rankings.",
+      body: "Connect services to genuine local areas with useful local SEO pages, clear contact details and structured information, not thin pages made only for rankings.",
       items: ["Local keyword and intent research", "Service-area page planning", "NAP and local schema checks"],
     },
     {

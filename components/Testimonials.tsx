@@ -119,7 +119,7 @@ export function ServiceTestimonials({
                     <blockquote className={`flex-1 font-serif text-[clamp(21px,1.5vw,27px)] leading-[1.38] ${dark ? "text-oninverse/88" : "text-ink/88"}`}>{testimonialItem.quote}</blockquote>
                     <footer className={`mt-8 border-t pt-5 ${rule}`}>
                       <p className="font-sans text-body font-semibold">{testimonialItem.name}</p>
-                      {testimonialItem.context && <p className={`mt-1 text-[14px] ${secondary}`}>{testimonialItem.context}</p>}
+                      {testimonialItem.context && <p className={`mt-1 text-body ${secondary}`}>{testimonialItem.context}</p>}
                     </footer>
                   </article>
                 ))}

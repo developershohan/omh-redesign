@@ -3,6 +3,7 @@ import { ServiceBand } from "@/components/services/ServiceBand";
 import { Button } from "@/components/ui/Button";
 import { company } from "@/lib/content/nav";
 import { subscriptionThankYou, type ThankYouPage as PageData } from "@/lib/content/thank-you";
+import { AccentTitle } from "@/components/services/ServicePrimitives";
 
 /*
   Phase 6 — one renderer for the seven confirmation pages, plus the subscription
@@ -36,9 +37,9 @@ function withContactLinks(text: string) {
 export function ThankYouPage({ page }: { page: PageData }) {
   return (
     <main>
-      <ServiceBand label={page.title} tone="warm" accent="bg-teal" labelStyle="underline">
+      <ServiceBand label={page.title} tone="warm" accent="bg-teal" labelStyle="plain" className="hero-grid">
         <div className="max-w-[62ch]">
-          <h1 className="font-sans text-display font-semibold text-balance">{page.heading}</h1>
+          <h1 className="font-sans text-display font-semibold text-balance"><AccentTitle text={page.heading} /></h1>
           {page.body.map((paragraph) => (
             <p key={paragraph} className="mt-6 text-lead leading-relaxed text-ink/75">
               {withContactLinks(paragraph)}
@@ -105,9 +106,9 @@ export function SubscriptionThankYouPage() {
   const page = subscriptionThankYou;
   return (
     <main>
-      <ServiceBand label={page.title} tone="warm" accent="bg-teal" labelStyle="underline">
+      <ServiceBand label={page.title} tone="warm" accent="bg-teal" labelStyle="plain" className="hero-grid">
         <h1 className="max-w-[20ch] font-sans text-display font-semibold text-balance">
-          {page.heading}
+          <AccentTitle text={page.heading} />
         </h1>
       </ServiceBand>
 
@@ -135,7 +136,7 @@ export function SubscriptionThankYouPage() {
           {/* The live page's three download buttons all point at `href="#"` — no
               file exists. Shipping a dead link is worse than saying so. */}
           <p className="mt-7 border-t border-line pt-6 text-bsm text-muted">
-            {page.resource.downloadLabel} — available shortly. Ask us for a copy in the meantime on{" "}
+            {page.resource.downloadLabel} will be available shortly. Ask us for a copy in the meantime on{" "}
             <Link href={company.phoneHref} className="font-semibold text-ink hover:text-amber-deep">
               {company.phoneDisplay}
             </Link>

@@ -16,19 +16,19 @@ export function CaseStudyFeature({ c, media }: { c: CaseMeta; media: React.React
   const rows: [string, React.ReactNode][] = [
     ["Challenge", c.challenge],
     ["Work", c.work],
-    ["Period", c.period ?? <VerifiedSlot>Period — pending</VerifiedSlot>],
-    ["Result", c.result ?? <VerifiedSlot>Verified result — pending</VerifiedSlot>],
+    ["Period", c.period ?? <VerifiedSlot>Period: pending</VerifiedSlot>],
+    ["Result", c.result ?? <VerifiedSlot>Verified result: pending</VerifiedSlot>],
   ];
   return (
     <div className="grid grid-cols-[7fr_5fr] items-start gap-8 max-lg:grid-cols-1">
       {media}
       <div className="rounded-card border border-line bg-surface p-8 max-sm:p-6">
         <p className="font-sans text-xl font-semibold">{c.sector}</p>
-        {c.sampleNote && <p className="mt-1 text-[12.5px] text-muted">{c.sampleNote}</p>}
+        {c.sampleNote && <p className="mt-1 text-body text-muted">{c.sampleNote}</p>}
         <dl className="mt-4">
           {rows.map(([dt, dd]) => (
             <div key={dt} className="grid grid-cols-[92px_1fr] gap-x-4 border-t border-line py-3">
-              <dt className="pt-0.5 text-xs font-semibold uppercase tracking-[0.12em] text-muted">{dt}</dt>
+              <dt className="pt-0.5 text-[14px] font-semibold uppercase tracking-[0.12em] text-muted">{dt}</dt>
               <dd className="text-bsm text-ink/85">{dd}</dd>
             </div>
           ))}

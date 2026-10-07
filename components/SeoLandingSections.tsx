@@ -389,7 +389,7 @@ function SeoLandingCta({ page, event }: Omit<Props, "variant">) {
     <FinalCta
       title={page.cta.title}
       titleAccent={page.cta.accent}
-      body={`${page.cta.offerTitle} — ${page.cta.offerSave}`}
+      body={`${page.cta.offerTitle}: ${page.cta.offerSave}`}
       primary={{ label: page.cta.submit, href: "/contact", event: `${event}_final_cta_click` }}
       secondary={{ label: "See the price list", href: "/pricing", event: `${event}_pricing_click` }}
       contactEvents={{ phone: `${event}_footer_phone_click`, email: `${event}_footer_email_click` }}
