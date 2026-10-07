@@ -19,12 +19,14 @@ export function CaseStudyArchive() {
         <div className="container-omh pb-10 pt-12 sm:pb-14 sm:pt-20">
           <p className="text-base font-medium text-muted">Case studies</p>
           <div className="mt-5 grid items-end gap-6 lg:grid-cols-[1.3fr_1fr] lg:gap-20">
-            <h1 className="max-w-[19ch] font-sans text-h1 font-semibold leading-tight">A closer look<br />at our work.</h1>
+            <h1 className="max-w-[19ch] font-sans text-h1 font-semibold">A closer look<br />at our work.</h1>
             <p className="max-w-[54ch] text-lead leading-relaxed text-ink/75">From a neighbourhood bakery to a UK tour operator. Explore the brief, the decisions and the published outcomes behind our SEO, advertising, website and design projects.</p>
           </div>
         </div>
       </header>
-      <section aria-label="Featured project" className="container-omh pb-14 sm:pb-20">
+      {/* Top padding mirrors the hero's bottom padding, so the card sits clear
+          of the edge where the white hero meets the page ground. */}
+      <section aria-label="Featured project" className="container-omh pb-14 pt-10 sm:pb-20 sm:pt-14">
         <div className="grid overflow-hidden rounded-[4px] bg-[#253e3b] text-white lg:grid-cols-[1.35fr_1fr]">
           <Link href={`/case-studies/${featured.slug}`} aria-label="Read the Savor Bistro case study" className="block focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white">
             <CaseStudyVisual study={featured} ratio="4/3" priority className="h-full [&_div]:h-full" />
