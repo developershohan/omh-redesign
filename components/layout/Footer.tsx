@@ -14,11 +14,10 @@ const DECK = "/company-deck.pdf";
 // above the caps and below the descenders.
 const WORDMARK_VIEWBOX = "0 0 1600 180";
 
-// The name spans 90% of the band. The last word takes the light-amber accent
-// the site uses for highlighted heading phrases.
-function WordmarkText({ fill, accentFill }: { fill: string; accentFill: string }) {
-  const words = company.name.split(" ");
-  const accent = words.pop();
+// The name spans 90% of the band (x 80–1520). Its fill is a left-to-right
+// gradient that turns into the site's light-amber heading accent from
+// "rketing" (≈45%) through "Help".
+function WordmarkText({ fill, mask }: { fill: string; mask?: string }) {
   return (
     <text
       x="80"
@@ -27,9 +26,10 @@ function WordmarkText({ fill, accentFill }: { fill: string; accentFill: string }
       lengthAdjust="spacing"
       fontSize="137"
       fill={fill}
+      mask={mask}
       className="font-sans font-semibold"
     >
-      {words.join(" ")} <tspan fill={accentFill}>{accent}</tspan>
+      {company.name}
     </text>
   );
 }
@@ -143,19 +143,31 @@ export function Footer() {
           {/* relative: paints above the grid glints in .footer-wordmark::before */}
           <svg viewBox={WORDMARK_VIEWBOX} className="relative block h-auto w-full">
             <defs>
-              <linearGradient id="fw-fill" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stopColor="currentColor" stopOpacity="0.2" />
-                <stop offset="1" stopColor="currentColor" stopOpacity="0.06" />
+              {/* Colour runs left to right: faint white, then light amber. */}
+              <linearGradient id="fw-fill" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1600" y2="0">
+                <stop offset="0.45" stopColor="currentColor" stopOpacity="0.22" />
+                <stop offset="0.6" stopColor="#f2c675" stopOpacity="0.36" />
+                <stop offset="0.8" stopColor="#f2c675" stopOpacity="0.44" />
               </linearGradient>
-              <linearGradient id="fw-accent" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stopColor="#f2c675" stopOpacity="0.4" />
-                <stop offset="1" stopColor="#f2c675" stopOpacity="0.08" />
+              {/* The top-to-bottom fade is a mask, so it combines with that colour. */}
+              <linearGradient id="fw-fade" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stopColor="#fff" />
+                <stop offset="1" stopColor="#fff" stopOpacity="0.25" />
               </linearGradient>
+              <mask id="fw-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1600" height="180">
+                <rect width="1600" height="180" fill="url(#fw-fade)" />
+              </mask>
             </defs>
-            <WordmarkText fill="url(#fw-fill)" accentFill="url(#fw-accent)" />
+            <WordmarkText fill="url(#fw-fill)" mask="url(#fw-mask)" />
           </svg>
           <svg viewBox={WORDMARK_VIEWBOX} className="footer-wordmark-lit absolute inset-0 block h-full w-full">
-            <WordmarkText fill="rgb(248 237 220 / 0.6)" accentFill="#f2c675" />
+            <defs>
+              <linearGradient id="fw-lit" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1600" y2="0">
+                <stop offset="0.45" stopColor="#f8eddc" stopOpacity="0.6" />
+                <stop offset="0.6" stopColor="#f2c675" stopOpacity="0.9" />
+              </linearGradient>
+            </defs>
+            <WordmarkText fill="url(#fw-lit)" />
           </svg>
         </Pointer>
       </div>

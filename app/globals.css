@@ -698,13 +698,13 @@ body {
 }
 
 /* Footer wordmark band (Footer.tsx): the .hero-grid backdrop redrawn for the
-   ink ground — 48px hairline grid plus an amber glow, here behind the accent
-   word — between the footer's own hairline rules. */
+   ink ground — 48px hairline grid plus an amber glow, here behind the amber end
+   of the name — between the footer's own hairline rules. */
 .footer-wordmark {
   overflow: hidden;
   border-block: 1px solid color-mix(in srgb, var(--color-oninverse) 12%, transparent);
   background-image:
-    radial-gradient(30% 110% at 82% 70%, color-mix(in srgb, var(--color-amber) 16%, transparent), transparent 70%),
+    radial-gradient(42% 110% at 72% 72%, color-mix(in srgb, var(--color-amber) 16%, transparent), transparent 70%),
     linear-gradient(color-mix(in srgb, var(--color-oninverse) 4%, transparent) 1px, transparent 1px),
     linear-gradient(90deg, color-mix(in srgb, var(--color-oninverse) 4%, transparent) 1px, transparent 1px);
   background-size: auto, 48px 48px, 48px 48px;
