@@ -57,7 +57,9 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body className="flex min-h-full flex-col">
+      {/* Browser extensions (e.g. Grammarly) add attributes to <body> before
+          React loads; this only silences that one-level attribute mismatch. */}
+      <body className="flex min-h-full flex-col" suppressHydrationWarning>
         <JsonLd data={[organisation, website]} />
         <a
           href="#main"
