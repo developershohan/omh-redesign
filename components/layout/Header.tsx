@@ -66,11 +66,16 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
   }, []);
 
   return (
+    // The bar shrinks 84 → 68px when scrolled, and mb-4 hands those 16px back
+    // as margin (same 300ms easing), so the header's footprint in the page never
+    // changes. Without it, the page below jumped up 16px, scroll anchoring
+    // pulled scrollY back under the 8px threshold, the bar grew again, and the
+    // header flickered up and down just below the top of the page.
     <header
       data-scrolled={scrolled ? "" : undefined}
-      className={`sticky top-0 z-40 border-b transition-[background-color,border-color,box-shadow] duration-300 ${
+      className={`sticky top-0 z-40 border-b transition-[background-color,border-color,box-shadow,margin] duration-300 ${
         scrolled
-          ? "border-line bg-warm/85 shadow-[0_10px_30px_-24px_rgb(16_24_40/0.5)] backdrop-blur-md"
+          ? "mb-4 border-line bg-warm/85 shadow-[0_10px_30px_-24px_rgb(16_24_40/0.5)] backdrop-blur-md"
           : "border-transparent bg-warm"
       }`}
     >
