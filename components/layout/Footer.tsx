@@ -57,7 +57,6 @@ const headingClass =
   Future Elementor widget: "OMH Footer" (brief §31).
 */
 export function Footer() {
-  const [solutions, services, companyLinks] = footerCols;
   const deck = deckSize();
 
   return (
@@ -90,46 +89,34 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Four columns: brand 4 / solutions 3 / services 3 / company 2. The
-            services list runs as one column so the footer reads as four groups,
-            not five. */}
-        <div className="grid grid-cols-12 gap-x-8 gap-y-12 py-14 max-lg:grid-cols-2 max-sm:grid-cols-1">
-          <div className="col-span-4 max-lg:col-span-full">
-            <Image src="/images/logo-white.png" alt={company.name} width={180} height={44} className="h-auto w-[180px]" />
-            <p className="mt-5 max-w-[38ch] text-body leading-relaxed text-oninverse/62">
-              {company.positioning}
-            </p>
-            <address className="mt-5 not-italic text-body leading-relaxed text-oninverse/62">
+        {/* Brand intro, then the link groups (footerCols order). Five groups
+            at the 18px text floor leave no room for the intro beside them, so
+            it takes its own row and the groups spread across the full width. */}
+        <div className="py-14">
+          <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
+            <div>
+              <Image src="/images/logo-white.png" alt={company.name} width={180} height={44} className="h-auto w-[180px]" />
+              <p className="mt-5 max-w-[38ch] text-body leading-relaxed text-oninverse/62">
+                {company.positioning}
+              </p>
+            </div>
+            <address className="not-italic text-body leading-relaxed text-oninverse/62">
               {company.address}
             </address>
           </div>
 
-          <nav aria-label={solutions.heading} className="col-span-3 max-lg:col-span-1">
-            <h2 className={headingClass}>{solutions.heading}</h2>
-            {solutions.links.map((link) => (
-              <Link key={link.href} href={link.href} className={linkClass}>
-                {link.label}
-              </Link>
+          <div className="mt-12 grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-x-8 gap-y-10 xl:flex xl:justify-between">
+            {footerCols.map((col) => (
+              <nav key={col.heading} aria-label={col.heading}>
+                <h2 className={headingClass}>{col.heading}</h2>
+                {col.links.map((link) => (
+                  <Link key={link.href} href={link.href} className={linkClass}>
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
             ))}
-          </nav>
-
-          <nav aria-label={services.heading} className="col-span-3 max-lg:col-span-1">
-            <h2 className={headingClass}>{services.heading}</h2>
-            {services.links.map((link) => (
-              <Link key={link.href} href={link.href} className={linkClass}>
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          <nav aria-label={companyLinks.heading} className="col-span-2 max-lg:col-span-1">
-            <h2 className={headingClass}>{companyLinks.heading}</h2>
-            {companyLinks.links.map((link) => (
-              <Link key={link.href} href={link.href} className={linkClass}>
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+          </div>
         </div>
       </div>
 

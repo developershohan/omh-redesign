@@ -8,6 +8,44 @@ export type NavLink = { label: string; href: string; ready?: boolean };
 export type NavColumn = { heading?: string; links: NavLink[] };
 export type NavItem = { label: string; href?: string; columns?: NavColumn[] };
 
+// Shared by the Services mega menu and the footer.
+const serviceColumns: NavColumn[] = [
+  {
+    heading: "Websites",
+    links: [
+      { label: "Website Designs", href: "/website-designs", ready: true },
+      { label: "Website Maintenance", href: "/wordpress-website-maintenance", ready: true },
+      { label: "Shopify Development", href: "/shopify-development", ready: true },
+      { label: "WordPress Development", href: "/wordpress-development", ready: true },
+    ],
+  },
+  {
+    heading: "Paid Advertising",
+    links: [
+      { label: "Paid Social Advertising", href: "/social-media-paid-advertising", ready: true },
+      { label: "Amazon PPC Advertising", href: "/amazon-ppc-advertising-agency-uk", ready: true },
+      { label: "Google Ads Management", href: "/google-adwords-ppc", ready: true },
+    ],
+  },
+  {
+    heading: "Organic Growth",
+    links: [
+      { label: "Local SEO", href: "/local-seo", ready: true },
+      { label: "Best SEO Services", href: "/best-seo-services", ready: true },
+      { label: "Best Local SEO Services", href: "/best-local-seo-services", ready: true },
+      { label: "Search Engine Optimisation", href: "/search-engine-optimisation", ready: true },
+    ],
+  },
+  {
+    heading: "Creative & Social",
+    links: [
+      { label: "Facebook Marketing", href: "/facebook-marketing-agency", ready: true },
+      { label: "Instagram Marketing", href: "/instagram-marketing-agency", ready: true },
+      { label: "Social Media Management", href: "/social-media-marketing-services", ready: true },
+    ],
+  },
+];
+
 export const primaryNav: NavItem[] = [
   {
     label: "Solutions",
@@ -25,42 +63,7 @@ export const primaryNav: NavItem[] = [
   },
   {
     label: "Services",
-    columns: [
-      {
-        heading: "Websites",
-        links: [
-          { label: "Website Designs", href: "/website-designs", ready: true },
-          { label: "Website Maintenance", href: "/wordpress-website-maintenance", ready: true },
-          { label: "Shopify Development", href: "/shopify-development", ready: true },
-          { label: "WordPress Development", href: "/wordpress-development", ready: true },
-        ],
-      },
-      {
-        heading: "Paid Advertising",
-        links: [
-          { label: "Paid Social Advertising", href: "/social-media-paid-advertising", ready: true },
-          { label: "Amazon PPC Advertising", href: "/amazon-ppc-advertising-agency-uk", ready: true },
-          { label: "Google Ads Management", href: "/google-adwords-ppc", ready: true },
-        ],
-      },
-      {
-        heading: "Organic Growth",
-        links: [
-          { label: "Local SEO", href: "/local-seo", ready: true },
-          { label: "Best SEO Services", href: "/best-seo-services", ready: true },
-          { label: "Best Local SEO Services", href: "/best-local-seo-services", ready: true },
-          { label: "Search Engine Optimisation", href: "/search-engine-optimisation", ready: true },
-        ],
-      },
-      {
-        heading: "Creative & Social",
-        links: [
-          { label: "Facebook Marketing", href: "/facebook-marketing-agency", ready: true },
-          { label: "Instagram Marketing", href: "/instagram-marketing-agency", ready: true },
-          { label: "Social Media Management", href: "/social-media-marketing-services", ready: true },
-        ],
-      },
-    ],
+    columns: serviceColumns,
   },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Insights", href: "/insights" },
@@ -146,30 +149,10 @@ export const company = {
     "Marketing and development under one roof, for UK service businesses and ecommerce brands.",
 };
 
-export const footerCols = [
-  {
-    heading: "Solutions",
-    links: [
-      { label: "Generate More Qualified Leads", href: "/solutions/generate-qualified-leads" },
-      { label: "Increase Ecommerce Sales", href: "/solutions/increase-ecommerce-sales" },
-      { label: "Improve Website Conversion", href: "/solutions/improve-website-conversion" },
-      { label: "Grow Local Visibility", href: "/solutions/grow-local-visibility" },
-    ],
-  },
-  {
-    heading: "Services",
-    links: [
-      { label: "WordPress Development Services", href: "/wordpress-development" },
-      { label: "Google Ads", href: "/google-adwords-ppc" },
-      { label: "Amazon PPC", href: "/amazon-ppc-advertising-agency-uk" },
-      { label: "Meta Ads & Paid Social", href: "/social-media-paid-advertising" },
-      { label: "SEO", href: "/search-engine-optimisation" },
-      { label: "Local SEO", href: "/local-seo" },
-      { label: "Shopify Development", href: "/shopify-development" },
-      { label: "Website Maintenance", href: "/wordpress-website-maintenance" },
-      { label: "Social Media Marketing", href: "/social-media-marketing-services" },
-    ],
-  },
+// Footer link groups after the brand intro: the first three service groups as
+// in the mega menu, then the rest narrowest first.
+export const footerCols: NavColumn[] = [
+  ...serviceColumns.slice(0, 3),
   {
     heading: "Company",
     links: [
@@ -178,6 +161,15 @@ export const footerCols = [
       { label: "Insights", href: "/insights" },
       { label: "Pricing", href: "/pricing" },
       { label: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    heading: "Solutions",
+    links: [
+      { label: "Generate More Qualified Leads", href: "/solutions/generate-qualified-leads" },
+      { label: "Increase Ecommerce Sales", href: "/solutions/increase-ecommerce-sales" },
+      { label: "Improve Website Conversion", href: "/solutions/improve-website-conversion" },
+      { label: "Grow Local Visibility", href: "/solutions/grow-local-visibility" },
     ],
   },
 ];
