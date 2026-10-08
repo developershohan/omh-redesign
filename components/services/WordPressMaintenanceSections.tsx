@@ -28,7 +28,7 @@ export function MaintenanceHero() {
             <Reveal>
               <Eyebrow>{content.hero.eyebrow}</Eyebrow>
               <h1 className="mb-6 mt-7 max-w-[20ch] font-sans text-display font-semibold text-balance">
-                WordPress maintenance that keeps essential website work{" "}
+                WordPress maintenance packages that keep your website{" "}
                 <span className="text-amber-deep">under control</span>
               </h1>
               <p className="mb-9 max-w-[55ch] text-lead leading-relaxed text-ink/75">
@@ -111,7 +111,7 @@ export function MaintenanceIssueSection() {
                 size="md"
                 title="WordPress problems rarely arrive at a convenient time"
                 accent="convenient time"
-                body="The old page lists more than twenty individual errors. Grouping them by likely area makes it easier to recognise the problem without pretending every fault has the same fix."
+                body="These are the WordPress support issues our maintenance packages are designed to catch early, before they become urgent. Grouping them by likely area makes it easier to recognise the problem without pretending every fault has the same fix."
               />
               <p className="mt-7 border-l-2 border-amber pl-5 font-serif text-[20px] leading-snug text-ink/85">
                 A maintenance plan reduces avoidable risk, but every inherited
@@ -146,7 +146,7 @@ export function MaintenanceIssueSection() {
 export function MaintenanceFitSection() {
   return (
     <SharedServiceFitSection
-      title="For businesses that need WordPress to stay dependable"
+      title="For businesses that need WordPress maintenance packages to stay dependable"
       titleAccent="stay dependable"
       body="Maintenance works best when the site matters to the business, access is available and routine care is separated from larger development projects."
       good={content.fit.good}
@@ -162,7 +162,7 @@ export function MaintenanceCapabilityGrid() {
     <Band label="Care">
       <Reveal>
         <SectionIntro
-          title="Maintenance covering routine care, monitoring and practical support"
+          title="WordPress maintenance services covering routine care, monitoring and practical support"
           accent="practical support"
           body="The service range includes issue investigation, performance, software updates, security checks, backups, uptime monitoring and a monthly support rhythm."
         />
@@ -221,7 +221,7 @@ export function MaintenanceProcessSteps() {
   return (
     <ServiceProcessTimeline
       label="Monthly rhythm"
-      title="A repeatable maintenance cycle"
+      title="A repeatable WordPress maintenance cycle"
       titleAccent="maintenance cycle"
       body="The initial review creates a baseline. From there, routine work follows the same clear sequence each month."
       steps={content.process}
@@ -276,7 +276,7 @@ function PackageCard({ pkg }: { pkg: Package }) {
           data-event="maintenance_package_select"
           data-package={pkg.name}
         >
-          Discuss this package
+          Discuss this maintenance package
         </Button>
       </div>
     </article>
@@ -290,7 +290,7 @@ export function MaintenancePricingPackages() {
         <div className="grid grid-cols-12 items-end gap-x-10 gap-y-6 max-lg:block">
           <SectionIntro
             className="col-span-7"
-            title="Maintenance packages with clear published allowances"
+            title="WordPress website maintenance packages with clear published allowances"
             accent="published allowances"
             body="Three packages across sixteen comparison points. Billing and contract terms still to be confirmed are marked."
           />
@@ -427,7 +427,7 @@ export function MaintenanceProofSection() {
             <div className="col-span-5">
               <Eyebrow>Client work</Eyebrow>
               <h2 className="mb-5 mt-6 font-sans text-h3 font-semibold text-balance">
-                Show the problem, the maintenance work and{" "}
+                Show the problem, the WordPress maintenance work and{" "}
                 <span className="text-amber-deep">the verified outcome</span>
               </h2>
               <p className="text-body leading-relaxed text-ink/75">
@@ -498,7 +498,7 @@ export function MaintenanceProofSection() {
 export function MaintenanceWhyChooseSection() {
   return (
     <ServiceReasonGrid
-      title="WordPress maintenance connected to development and marketing"
+      title="WordPress maintenance services connected to development and marketing"
       titleAccent="development and marketing"
       body="Routine website care is more useful when the team can recognise when a problem needs development, conversion work, SEO input or a wider rebuild."
       reasons={content.reasons}
@@ -509,7 +509,7 @@ export function MaintenanceWhyChooseSection() {
 export function MaintenanceFAQAccordion() {
   return (
     <ServiceFaqSection
-      title="Questions before you choose a maintenance package"
+      title="Questions before you choose a WordPress maintenance package"
       titleAccent="maintenance package"
       description="Ask for written confirmation of response coverage, billing, VAT, contract length and warranty terms before signing."
       items={content.faqs.map(([q, a]) => ({ q, a }))}
@@ -522,10 +522,10 @@ export function MaintenanceFAQAccordion() {
 export function MaintenanceFinalCTA() {
   return (
     <ServiceNextStepsCTA
-      title="Need a clearer plan for WordPress maintenance?"
-      titleAccent="WordPress maintenance?"
+      title="Need a clearer plan for WordPress maintenance and support?"
+      titleAccent="maintenance and support?"
       body="Tell us what the website does, what has been going wrong and what support you need each month. We will review the setup and recommend a practical next step."
-      primary={{ label: "Discuss Website Maintenance", event: "maintenance_final_cta_click" }}
+      primary={{ label: "Discuss WordPress Maintenance Packages", event: "maintenance_final_cta_click" }}
       secondary={{
         label: "Send a Website Brief",
         href: "/wordpress-website-maintenance-request-quote",

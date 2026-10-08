@@ -18,10 +18,10 @@ import { MaintenanceControlRoom } from "@/components/ServiceMedia";
 import { SiteTestimonials } from "@/components/Testimonials";
 
 export const metadata: Metadata = {
-  title: "WordPress Website Maintenance for UK Businesses",
+  title: { absolute: "WordPress Website Maintenance Packages for UK Businesses | OMH" },
   alternates: { canonical: "https://onlinemarketinghelp.co.uk/wordpress-website-maintenance/" },
   description:
-    "Ongoing WordPress maintenance, updates, backups, monitoring and technical support for UK businesses that need a more reliable website.",
+    "WordPress website maintenance packages for UK businesses. Updates, backups, monitoring and technical support from £300. Three clear plans with published allowances.",
 };
 
 export default function WordPressWebsiteMaintenancePage() {
@@ -39,25 +39,25 @@ export default function WordPressWebsiteMaintenancePage() {
       <MaintenanceWhyChooseSection />
       <ServiceCaseStudies
         serviceId="maintenance"
-        title="Maintenance inside a connected marketing programme"
-        body="The car-showroom source describes maintenance alongside SEO, paid media and conversion work, with its result claims retained for verification."
+        title="WordPress maintenance packages inside a connected marketing programme"
+        body="How routine maintenance sat alongside SEO, paid media and conversion work for a client website."
         limit={1}
       />
       <SiteTestimonials eventPrefix="maintenance" accent="bg-[#f2c675]" />
       <RelatedServices
         eventPrefix="maintenance"
-        title="Move from routine care to the right wider service"
+        title="Move from routine WordPress maintenance to the right wider service"
         body="Maintenance keeps agreed WordPress work under control. Larger rebuilds, paid campaigns and ecommerce projects need their own scope, explained on these related pages."
         links={[
           {
             title: "WordPress Development",
             href: "/wordpress-development",
-            body: "Plan a larger rebuild, new page structure or functionality that sits outside routine maintenance.",
+            body: "Plan a larger rebuild, new page structure or functionality that sits outside your WordPress maintenance package.",
           },
           {
             title: "Search Engine Optimisation",
             href: "/search-engine-optimisation",
-            body: "Connect ongoing technical care with crawl, index, content and internal-linking priorities.",
+            body: "Connect ongoing WordPress maintenance services with crawl, index, content and internal-linking priorities.",
           },
           {
             title: "Shopify Development",

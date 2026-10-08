@@ -3,22 +3,25 @@ import { notFound } from "next/navigation";
 import { SolutionPage } from "@/components/solutions/SolutionPage";
 import { solutionOrder, solutions } from "@/lib/content/solutions";
 
-const metadataBySlug: Record<string, { title: string; description: string }> = {
+// `seoTitle` replaces the "| Online Marketing Help" template where a brief sets the full title.
+const metadataBySlug: Record<string, { title: string; description: string; seoTitle?: string }> = {
   "generate-qualified-leads": {
     title: "Generate More Qualified Leads",
     description: "Lead generation for UK service businesses, connecting paid campaigns, SEO, landing pages, qualification and tracking around better-fit enquiries.",
   },
   "increase-ecommerce-sales": {
-    title: "Increase Ecommerce Sales",
-    description: "Ecommerce growth support connecting paid acquisition, organic search, Shopify development, product journeys, checkout and revenue-aware measurement.",
+    title: "Ecommerce Growth Strategy",
+    seoTitle: "Ecommerce Growth Strategy for UK Brands | OMH",
+    description: "Build a clearer ecommerce growth strategy around acquisition, shopfront performance, conversion, and measurement. Find the right opportunities to grow sales.",
   },
   "improve-website-conversion": {
     title: "Improve Website Conversion",
     description: "Improve website conversion through clearer messaging, stronger customer journeys, practical UX changes, better forms and reliable conversion tracking.",
   },
   "grow-local-visibility": {
-    title: "Grow Your Local Visibility",
-    description: "Help local customers find your business through Google Business Profile, useful service-area pages, local SEO, reviews and clearer enquiry tracking.",
+    title: "Improve Local Search Visibility",
+    seoTitle: "Improve Local Search Visibility for UK Businesses | OMH",
+    description: "Find out what is limiting your local search visibility across Google Maps, your website, reviews and service areas, then prioritise the right next steps.",
   },
   "outsource-digital-marketing": {
     title: "Outsource Your Digital Marketing",
@@ -38,11 +41,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!meta) return {};
 
   return {
-    title: meta.title,
+    title: meta.seoTitle ? { absolute: meta.seoTitle } : meta.title,
     description: meta.description,
     alternates: { canonical: `https://onlinemarketinghelp.co.uk/solutions/${slug}/` },
     openGraph: {
-      title: `${meta.title} | Online Marketing Help`,
+      title: meta.seoTitle ?? `${meta.title} | Online Marketing Help`,
       description: meta.description,
       type: "website",
       locale: "en_GB",

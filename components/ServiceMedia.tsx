@@ -99,7 +99,7 @@ export function MaintenanceControlRoom() {
           <div className="grid grid-cols-12 gap-x-10 gap-y-8 max-lg:block">
             <div className="col-span-4 max-lg:mb-9">
               <p className="text-[14px] font-semibold uppercase tracking-[0.16em] text-[#f2c675]">Maintenance control room</p>
-              <h2 className="mt-5 max-w-[13ch] font-sans text-h2 font-semibold">Show the work that normally happens quietly.</h2>
+              <h2 className="mt-5 max-w-[13ch] font-sans text-h2 font-semibold">Show the WordPress maintenance and support work that normally happens quietly.</h2>
               <p className="mt-5 max-w-[42ch] text-body leading-relaxed text-oninverse/65">Uptime monitoring, update logs and a monthly report you can actually read: the ongoing care that keeps a site reliable.</p>
               <div className="mt-8 grid gap-3 text-body">
                 {["Uptime and fault alerts", "Updates and backup checks", "Monthly work summary"].map((label) => <div key={label} className="flex items-center gap-3 rounded-lg border border-oninverse/10 bg-oninverse/[0.035] px-4 py-3"><span className="size-2 rounded-full bg-[#f2c675] shadow-[0_0_14px_rgba(242,198,117,.65)]" />{label}</div>)}

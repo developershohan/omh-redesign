@@ -14,8 +14,8 @@ const serviceColumns: NavColumn[] = [
     heading: "Websites",
     links: [
       { label: "Website Designs", href: "/website-designs", ready: true },
-      { label: "Website Maintenance", href: "/wordpress-website-maintenance", ready: true },
       { label: "Shopify Development", href: "/shopify-development", ready: true },
+      { label: "Website Maintenance", href: "/wordpress-website-maintenance", ready: true },
       { label: "WordPress Development", href: "/wordpress-development", ready: true },
     ],
   },
@@ -31,7 +31,7 @@ const serviceColumns: NavColumn[] = [
     heading: "Organic Growth",
     links: [
       { label: "Local SEO", href: "/local-seo", ready: true },
-      { label: "Best SEO Services", href: "/best-seo-services", ready: true },
+      { label: "SEO Services", href: "/seo-services", ready: true },
       { label: "Best Local SEO Services", href: "/best-local-seo-services", ready: true },
       { label: "Search Engine Optimisation", href: "/search-engine-optimisation", ready: true },
     ],
@@ -120,7 +120,7 @@ export const readyPages: NavLink[] = [
   { label: "Privacy Policy", href: "/privacy", ready: true },
   { label: "Cookie Policy", href: "/cookies", ready: true },
   { label: "Terms & Conditions", href: "/terms", ready: true },
-  { label: "Best SEO Services", href: "/best-seo-services", ready: true },
+  { label: "SEO Services", href: "/seo-services", ready: true },
   { label: "Best Local SEO Services", href: "/best-local-seo-services", ready: true },
   { label: "Facebook Marketing", href: "/facebook-marketing-agency", ready: true },
   { label: "Instagram Marketing", href: "/instagram-marketing-agency", ready: true },
@@ -150,26 +150,29 @@ export const company = {
 };
 
 // Footer link groups after the brand intro: the first three service groups as
-// in the mega menu, then the rest narrowest first.
+// in the mega menu, then Solutions, with Company last. Within every column the
+// links run narrowest to widest by rendered width (measured in the footer font,
+// not character count — "Paid Social Advertising" renders narrower than
+// "Google Ads Management"). Re-measure if a label changes.
 export const footerCols: NavColumn[] = [
   ...serviceColumns.slice(0, 3),
+  {
+    heading: "Solutions",
+    links: [
+      { label: "Grow Local Visibility", href: "/solutions/grow-local-visibility" },
+      { label: "Increase Ecommerce Sales", href: "/solutions/increase-ecommerce-sales" },
+      { label: "Improve Website Conversion", href: "/solutions/improve-website-conversion" },
+      { label: "Generate More Qualified Leads", href: "/solutions/generate-qualified-leads" },
+    ],
+  },
   {
     heading: "Company",
     links: [
       { label: "About", href: "/about-us" },
-      { label: "Case Studies", href: "/case-studies" },
-      { label: "Insights", href: "/insights" },
       { label: "Pricing", href: "/pricing" },
+      { label: "Insights", href: "/insights" },
       { label: "Contact", href: "/contact" },
-    ],
-  },
-  {
-    heading: "Solutions",
-    links: [
-      { label: "Generate More Qualified Leads", href: "/solutions/generate-qualified-leads" },
-      { label: "Increase Ecommerce Sales", href: "/solutions/increase-ecommerce-sales" },
-      { label: "Improve Website Conversion", href: "/solutions/improve-website-conversion" },
-      { label: "Grow Local Visibility", href: "/solutions/grow-local-visibility" },
+      { label: "Case Studies", href: "/case-studies" },
     ],
   },
 ];

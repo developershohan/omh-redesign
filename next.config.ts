@@ -41,6 +41,8 @@ const nextConfig: NextConfig = {
       },
       // SEO brief (27 Sep 2026): the organic social page moved to the keyword slug.
       { source: "/social-media-marketing", destination: "/social-media-marketing-services", permanent: true },
+      // SEO brief (1 Oct 2026): the national SEO landing page moved off the listicle slug.
+      { source: "/best-seo-services", destination: "/seo-services", permanent: true },
     ];
   },
 };

@@ -100,9 +100,12 @@ export function Footer() {
                 {company.positioning}
               </p>
             </div>
-            <address className="not-italic text-body leading-relaxed text-oninverse/62">
-              {company.address}
-            </address>
+            <div>
+              <h2 className={headingClass}>Our location</h2>
+              <address className="not-italic text-body leading-relaxed text-oninverse/62">
+                {company.address}
+              </address>
+            </div>
           </div>
 
           <div className="mt-12 grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-x-8 gap-y-10 xl:flex xl:justify-between">

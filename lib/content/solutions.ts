@@ -10,7 +10,15 @@ export type SolutionPageContent = {
   secondaryCta: string;
   theme: SolutionTheme;
   signal: string;
+  /** Line under the hero's growth path; defaults to the shared wording. */
+  signalNote?: string;
   heroPoints: string[];
+  /** Optional explainer between the hero and the problem section. */
+  definition?: {
+    title: string;
+    body: string;
+    factors: { title: string; body: string }[];
+  };
   problem: {
     eyebrow: string;
     title: string;
@@ -33,6 +41,10 @@ export type SolutionPageContent = {
     screenTitle: string;
     screenSrc: string;
     screenAlt?: string;
+    /** Optional journey strip under the media copy, e.g. profile → page → enquiry. */
+    journey?: string[];
+    /** Optional [label, text] captions for the three frames, in render order. */
+    captions?: [string, string][];
   };
   approach: {
     title: string;
@@ -42,10 +54,11 @@ export type SolutionPageContent = {
   services: {
     title: string;
     intro: string;
-    items: { title: string; href: string; body: string }[];
+    items: { title: string; href: string; body: string; cta?: string }[];
   };
   fit: {
     title: string;
+    intro?: string;
     good: string[];
     notYet: string[];
   };
@@ -55,7 +68,9 @@ export type SolutionPageContent = {
     links: { label: string; href: string }[];
   };
   faq: { q: string; a: string }[];
+  faqTitle?: string;
   final: {
+    eyebrow?: string;
     title: string;
     body: string;
     cta: string;
@@ -159,40 +174,50 @@ export const solutions: Record<string, SolutionPageContent> = {
   },
   "increase-ecommerce-sales": {
     slug: "increase-ecommerce-sales",
-    eyebrow: "Ecommerce growth for UK retailers",
-    title: "Build a clearer route from",
-    titleAccent: "product discovery to sale",
+    // SEO brief (Oct 2026): focus keyword "ecommerce growth strategy"; "increase ecommerce
+    // sales" stays as the URL/benefit phrase. The brief mixes "e-commerce" and "ecommerce";
+    // the keyword spelling is used throughout.
+    eyebrow: "Ecommerce growth strategy for UK retailers",
+    title: "Build an Ecommerce Growth Strategy",
+    titleAccent: "That Drives Sales",
     intro:
-      "Ecommerce growth is rarely fixed by buying more traffic alone. We review acquisition, product pages, store experience and measurement together so you can see where sales are being won or lost.",
-    primaryCta: "Discuss your ecommerce growth",
-    secondaryCta: "Explore the growth model",
+      "Ecommerce growth rarely comes from buying more traffic alone. We review acquisition, product pages, storefront performance, checkout, and measurement together to identify where sales are being lost and where the strongest growth opportunities sit.",
+    primaryCta: "Request an Ecommerce Growth Review",
+    secondaryCta: "Explore the Growth Approach",
     theme: "shopify",
-    signal: "Acquisition → product confidence → checkout",
-    heroPoints: ["Paid and organic acquisition", "Shopify and store improvements", "Revenue-aware measurement"],
+    signal: "Acquisition → Product confidence → Checkout → Measurement",
+    signalNote: "One connected buying journey, measured against the commercial actions that matter.",
+    heroPoints: ["Acquisition & visibility", "Storefront & conversion", "Measurement & prioritisation"],
     problem: {
-      eyebrow: "Where sales leak",
-      title: "Traffic can grow while commercial performance stands still",
-      intro: "A store may have several small problems working together: the wrong traffic, weak product information, slow pages, a difficult mobile journey or attribution that obscures the real picture.",
+      eyebrow: "Where growth gets stuck",
+      title: "Why Ecommerce Sales Growth Can Stall",
+      intro: "A store can attract more visitors without generating enough profitable growth. Several smaller issues often work together – from traffic quality and product confidence to mobile friction and unclear measurement.",
       symptoms: [
-        { title: "Customer acquisition costs keep climbing", body: "Budget is spread across campaigns without enough clarity on contribution margin, returning customers or profitable products." },
-        { title: "Product pages do not answer buying questions", body: "Visitors reach the store but lack the detail, confidence or reassurance needed to choose." },
-        { title: "Mobile traffic drops before checkout", body: "Navigation, variants, cart behaviour or page speed introduce friction at the point of purchase." },
-        { title: "Platforms report different versions of revenue", body: "Ad platforms, analytics and store data disagree, making budget decisions harder than they should be." },
+        { title: "Customer acquisition costs keep climbing", body: "The budget is spread across campaigns without enough clarity on which products are profitable, contribution margins, returning customers, or which traffic is most likely to convert." },
+        { title: "Product pages leave buying questions unanswered", body: "Visitors reach the store but do not get enough detail, reassurance or confidence around the product, delivery, returns, or final purchase decision." },
+        { title: "Mobile shoppers drop before checkout", body: "Slow pages, navigation, variants, cart behaviour or checkout friction can interrupt the route to purchase at the point where intent is highest." },
+        { title: "Reporting makes decisions harder", body: "Advertising platforms, analytics, and store data can tell different versions of the same story, making it difficult to know where budget and effort should go next." },
       ],
     },
     outcomes: {
-      title: "Growth across the whole buying journey",
-      intro: "The strongest plan considers how people find the product, decide it is right and complete the order.",
+      title: "What Makes an Effective Ecommerce Growth Strategy?",
+      intro: "The strongest ecommerce growth strategies connect how people discover a product, decide it is right, and complete the order, and how the business measures the result. The priority should depend on the biggest commercial constraint – not on a pre-set channel plan.",
       items: [
-        { number: "01", title: "Acquire more relevant shoppers", body: "Improve campaign structure, product feeds, search visibility and audience choices around the products that matter." },
-        { number: "02", title: "Strengthen product confidence", body: "Clarify imagery, information, variants, delivery, returns and social proof at the moments buyers need them." },
-        { number: "03", title: "Protect the route to purchase", body: "Review mobile speed, navigation, cart and checkout friction alongside accurate ecommerce tracking." },
+        { number: "01", title: "Acquire more relevant shoppers", body: "Improve campaign structure, product feeds, search visibility and audience choices around the products and customer groups that matter most." },
+        { number: "02", title: "Strengthen product confidence", body: "Make product information, imagery, variants, delivery, returns and social proof easier to understand at the moments buyers need reassurance." },
+        { number: "03", title: "Remove friction from the route to purchase", body: "Review mobile performance, navigation, collection pages, product pages, cart and checkout so high-intent visitors have a clearer path to complete the order." },
+        { number: "04", title: "Measure what supports profitable growth", body: "Connect store data, analytics, and advertising signals so decisions are based on commercial context rather than platform-reported revenue alone." },
       ],
     },
     media: {
-      eyebrow: "Storefront story",
-      title: "Show the product, campaign and checkout in one view",
-      body: "Use approved store screens and a short journey walkthrough here to demonstrate how acquisition and development decisions connect.",
+      eyebrow: "One connected buying journey",
+      title: "Connect Acquisition, Shopfront and Checkout",
+      body: "Traffic, shopfront experience and measurement should not be treated as separate projects. A campaign can bring the right shopper to the wrong page, while a strong product page can still underperform if mobile speed, checkout or tracking is weak. We look at the journey as one system, so ecommerce growth solutions are prioritised around the point most likely to make a commercial difference.",
+      captions: [
+        ["Acquisition", "Reach the right shoppers"],
+        ["Shopfront", "Build product confidence"],
+        ["Measurement", "See what contributes to sales"],
+      ],
       videoTitle: "Mobile shopping-journey walkthrough",
       imageTitle: "Product and collection page example",
       imageSrc: "/images/Services/Images on the pages/Shopify development after.png",
@@ -202,48 +227,52 @@ export const solutions: Record<string, SolutionPageContent> = {
       screenAlt: "Illustrative marketplace advertising report showing spend, sales, ACoS and ROAS by search term."
     },
     approach: {
-      title: "A commercially grounded ecommerce review",
-      intro: "We look beyond platform totals to understand products, margins, customer behaviour and the store itself.",
+      title: "Start With an Ecommerce Growth Review",
+      intro: "Before recommending a service, we look at how the store makes money, how customers move from discovery to checkout, and where the strongest evidence of lost performance appears.",
       steps: [
-        { title: "Understand the commercial model", body: "Review product range, average order value, margin considerations, repeat purchase and operational constraints." },
-        { title: "Map the buying journey", body: "Assess acquisition sources, collection and product pages, mobile behaviour, cart, checkout and post-purchase measurement." },
-        { title: "Prioritise the biggest constraint", body: "Decide whether the first move belongs in campaigns, feeds, content, development, tracking or a combination." },
-        { title: "Test and learn responsibly", body: "Make changes with a clear reason, measure the effect and avoid treating platform attribution as the only truth." },
+        { title: "Understand the commercial model", body: "Review the product range, average order value, margin considerations, repeat purchase potential, and operational constraints." },
+        { title: "Map the buying journey", body: "Assess acquisition sources, landing destinations, collections, product pages, mobile behaviour, cart, checkout and post-purchase measurement." },
+        { title: "Find the biggest growth constraint", body: "Identify whether the first priority sits in campaigns, feeds, search visibility, content, development, conversion, or tracking." },
+        { title: "Prioritise the next actions", body: "Recommend a practical sequence of changes, with a clear reason for each action and a way to measure whether it improves performance." },
       ],
     },
     services: {
-      title: "Ecommerce support from acquisition to storefront",
-      intro: "The service mix depends on the bottleneck, not on a pre-set bundle.",
+      title: "Services That Support Your Ecommerce Growth Strategy",
+      intro: "The service mix depends on the bottleneck, not on a pre-set bundle. We identify what is limiting ecommerce growth first, then connect the work to the service most likely to move that part of the buying journey forward.",
       items: [
-        { title: "Shopify development", href: "/shopify-development", body: "Improve storefront structure, product journeys and technical foundations." },
-        { title: "Google Ads management", href: "/google-adwords-ppc", body: "Manage Shopping, search and campaign traffic with stronger commercial context." },
-        { title: "Paid social advertising", href: "/social-media-paid-advertising", body: "Test creative, prospecting and remarketing around defined audiences." },
-        { title: "Amazon PPC", href: "/amazon-ppc-advertising-agency-uk", body: "Coordinate marketplace visibility, listings and controlled ad spend." },
+        { title: "Shopify Development", href: "/shopify-development", cta: "Explore Shopify Development", body: "Improve storefront structure, product journeys, site performance and technical foundations to create a clearer route to purchase." },
+        { title: "Google Ads Management", href: "/google-adwords-ppc", cta: "Explore Google Ads Management", body: "Reach high-intent shoppers through Search, Shopping and Performance Max campaigns built around product priorities and commercial goals." },
+        { title: "Paid Social Advertising", href: "/social-media-paid-advertising", cta: "Explore Paid Social Advertising", body: "Build demand, test creative, reach new audiences and reconnect with potential customers through structured prospecting and remarketing." },
+        { title: "Amazon PPC", href: "/amazon-ppc-advertising-agency-uk", cta: "Explore Amazon PPC", body: "Improve marketplace visibility and product discovery with more structured Amazon advertising and controlled ad spend." },
       ],
     },
     fit: {
-      title: "What helps an ecommerce programme work",
-      good: ["Your store is already trading or close to launch", "You can share product, margin and fulfilment context", "There is enough traffic or budget to learn from", "You are willing to improve the store as well as the ads"],
-      notYet: ["The product range and pricing are not settled", "There is no reliable stock or fulfilment process", "You need guaranteed revenue or ROAS", "The only acceptable recommendation is to spend more on ads"],
+      title: "Is This Ecommerce Growth Approach Right for You?",
+      intro: "A useful first conversation should establish whether there is enough commercial and behavioural context to make sensible recommendations before anyone proposes an ecommerce growth service or channel plan.",
+      good: ["Your store is already trading or close to launching", "You can share product, margin and fulfilment context", "There is enough traffic, sales history, or budget to learn from", "You are willing to improve the store as well as the acquisition channels"],
+      notYet: ["The product range and pricing are not settled", "There is no reliable stock or fulfilment process", "You need guaranteed revenue or ROAS", "The only acceptable recommendation is to increase ad spend"],
     },
     proof: {
-      title: "See ecommerce and search work in context",
-      body: "Use our case studies to understand the problems addressed and the work completed. We do not present an unsupported number as a promise for another store.",
+      title: "See Ecommerce Growth Work in Context",
+      body: "Explore relevant case studies to see the commercial problem, the work completed, and the context behind the outcome. We use verified examples to show how acquisition, search, development, or conversion work supported a real business – not to promise the same result for every store.",
       links: [
-        { label: "Browse ecommerce-related work", href: "/case-studies" },
-        { label: "View the online clothing search project", href: "/case-studies/clothing-business" },
+        { label: "Browse Ecommerce-Related Work", href: "/case-studies" },
+        { label: "View the Online Clothing Search Project", href: "/case-studies/clothing-business" },
       ],
     },
+    faqTitle: "Ecommerce Growth Strategy FAQs",
     faq: [
-      { q: "Do you only work with Shopify stores?", a: "Shopify is one of the platforms we support, but the growth review begins with the commercial and customer journey rather than the platform name. We will confirm whether the current setup is suitable before recommending development work." },
-      { q: "Can you manage Google Shopping or Meta Ads?", a: "Yes. Paid campaign support can cover Google Ads and paid social, including campaign structure, creative or feed considerations, landing destinations and tracking. Scope depends on the store and current accounts." },
-      { q: "Will you improve conversion as well as traffic?", a: "Where the evidence points to store friction, we can review and improve product pages, collections, mobile experience and the route to checkout. We will separate observed issues from assumptions that need testing." },
-      { q: "What information do you need from us?", a: "Useful starting information includes store access, product priorities, margins or contribution context, fulfilment constraints, analytics, advertising accounts and the commercial targets used by the business." },
+      { q: "What is an ecommerce growth strategy?", a: "An ecommerce growth strategy is a prioritised plan for improving the parts of the customer journey that have the greatest commercial impact. Depending on the store, that can include acquisition, search visibility, product pages, mobile experience, checkout, tracking, or a combination of these areas." },
+      { q: "Do you only work with Shopify stores?", a: "No. Shopify is one of the platforms we support, but the ecommerce growth review starts with the commercial model and customer journey rather than the platform name. We confirm whether the current setup is suitable before recommending development work." },
+      { q: "Can you manage Google Shopping or Meta Ads?", a: "Yes. Paid campaign support can include Google Ads and paid social, with work around campaign structure, product feeds, creative, audiences, landing destinations, and tracking. The scope depends on the store, the current accounts, and the commercial priorities." },
+      { q: "Will you improve conversion as well as traffic?", a: "Where the evidence points to storefront friction, we can review product pages, collections, mobile experience, and the route to checkout. We separate observed issues from assumptions that need testing, so changes have a clear reason behind them." },
+      { q: "How do you decide which ecommerce growth solution to prioritise?", a: "We look at product economics, acquisition data, customer behaviour, storefront performance and measurement together. The first priority should be the constraint with the strongest evidence and the clearest commercial upside – not simply the channel with the largest available budget." },
+      { q: "What information do you need from us?", a: "Useful starting information includes store access, product priorities, margin or contribution context, fulfilment constraints, analytics, advertising accounts and the commercial targets used by the business." },
     ],
     final: {
-      title: "Find the part of the buying journey that deserves attention first",
-      body: "Tell us which products matter, where sales feel inconsistent and what your current reporting says. We will review the route from acquisition to checkout and recommend a practical starting point.",
-      cta: "Request an ecommerce growth review",
+      title: "Find the Biggest Constraint on Ecommerce Growth",
+      body: "Tell us which products matter, where sales feel inconsistent, and what your current reporting says. We will review the route from acquisition to checkout and recommend a practical starting point based on the evidence available.",
+      cta: "Request an Ecommerce Growth Review",
       formNeed: "More ecommerce sales",
       formPrompt: "Which products or parts of the buying journey are underperforming?",
     },
@@ -341,40 +370,53 @@ export const solutions: Record<string, SolutionPageContent> = {
   },
   "grow-local-visibility": {
     slug: "grow-local-visibility",
-    eyebrow: "Local visibility for UK service-area businesses",
-    title: "Be easier to find when local customers",
-    titleAccent: "need what you do",
+    // SEO brief (Oct 2026): provisional focus topic "local search visibility". Commercial
+    // "local SEO services/agency/packages" terms stay on /local-seo.
+    eyebrow: "Local search visibility for UK service businesses",
+    title: "Improve Local Search Visibility and",
+    titleAccent: "Win More Local Enquiries",
     intro:
-      "Local visibility is built across your Google Business Profile, website, reviews and wider search presence. We connect those signals so customers can find the right service, in the right area, with a clear route to contact you.",
-    primaryCta: "Check your local visibility",
-    secondaryCta: "See the local framework",
+      "Local search visibility depends on more than a Google Business Profile. Your profile, service and location pages, reviews, business details, and wider search presence need to reinforce the same services and areas. We help you identify what is limiting visibility and which part of your local search strategy to fix first.",
+    primaryCta: "Check My Local Visibility",
+    secondaryCta: "See How Local Visibility Works",
     theme: "seo",
     signal: "Local search → useful page → call or enquiry",
     heroPoints: ["Google Business Profile", "Service and location pages", "Local enquiry measurement"],
+    definition: {
+      title: "What Is Local Search Visibility?",
+      body: "Local search visibility is how easily nearby customers can discover and evaluate your business across Google Search, Google Maps, and the pages they reach from those results. Strong visibility comes from consistent signals: accurate business information, a relevant Google Business Profile, useful service and location pages, genuine reviews, and a website that makes the next step clear. Google says local results are mainly influenced by relevance, distance, and prominence, so the goal is not to appear everywhere – it is to be a strong match where your business genuinely operates.",
+      // Google's three named local ranking factors, paraphrased from its Business Profile help page.
+      factors: [
+        { title: "Relevance", body: "How well your profile and pages match what someone searched for." },
+        { title: "Distance", body: "How far your business is from the searcher or the location in their search." },
+        { title: "Prominence", body: "How well known and trusted the business is, online and offline." },
+      ],
+    },
     problem: {
       eyebrow: "Local search gaps",
-      title: "Being nearby does not automatically make a business visible",
-      intro: "Search engines and customers both need consistent evidence about what you do, where you operate and why the business is a credible choice.",
+      title: "Why Local Businesses Struggle to Appear in Search",
+      intro: "Being close to a customer is only one part of local discovery. Search engines and customers also need clear, consistent evidence about what you do, where you work, and why your business is a credible choice.",
       symptoms: [
-        { title: "The map results favour competitors", body: "Your profile, category choices, reviews or local relevance may not reflect the services you want to win." },
-        { title: "Location pages repeat the same copy", body: "Thin pages change the town name without helping customers understand coverage, service or next steps." },
-        { title: "Business details are inconsistent", body: "Names, addresses, phone numbers, opening information or service areas differ across the web." },
-        { title: "Local enquiries are not measured clearly", body: "Calls, profile actions and website forms are counted separately with little commercial context." },
+        { title: "Competitors Appear Above You in Maps", body: "Your Google Business Profile, categories, services, reviews, or website relevance may not give Google enough confidence that you are the best match for the searches you want to win." },
+        { title: "Location Pages Add Little Local Value", body: "Changing a town name across near-identical pages does not help customers understand your real coverage, the service available there, or what to do next. Useful local pages need genuine service and area context." },
+        { title: "Business Information Is Inconsistent", body: "Business names, addresses, phone numbers, opening hours or service areas can differ between your website, Google Business Profile and other trusted listings, weakening confidence in the business information." },
+        { title: "Local Enquiries Are Hard to Measure", body: "Calls, profile actions, direction requests and website forms are often measured separately, making it difficult to see which local searches and pages are contributing to real enquiries." },
       ],
     },
     outcomes: {
-      title: "A stronger local presence across maps and organic search",
-      intro: "The goal is not visibility everywhere. It is useful visibility for the services and locations the business can genuinely support.",
+      title: "What Strong Local Search Visibility Looks Like",
+      intro: "The goal is not to rank everywhere. It is to become easier to find and trust for the services and locations your business can genuinely support – then make the route from search to enquiry simple.",
       items: [
-        { number: "01", title: "Make business information dependable", body: "Strengthen profile setup, service details, categories, opening information and wider consistency." },
-        { number: "02", title: "Build useful local relevance", body: "Create service and area content that answers real customer questions instead of repeating place names." },
-        { number: "03", title: "Turn visibility into contact", body: "Improve calls, forms, reviews and measurement so local performance connects to actual enquiries." },
+        { number: "01", title: "Keep Business Information Accurate", body: "Keep your Google Business Profile, categories, services, opening details, service areas and core business information accurate and consistent across the places customers rely on." },
+        { number: "02", title: "Build Relevant Local Pages and Signals", body: "Create service and location content that answers real questions about what you offer, where you work, and how customers can take the next step. Support those pages with sensible internal links and trustworthy local signals." },
+        { number: "03", title: "Turn Local Visibility Into Enquiries", body: "Make calls, forms and contact routes easy to use, then measure profile actions and website enquiries together so local visibility can be judged against meaningful business outcomes." },
       ],
     },
     media: {
       eyebrow: "Local search landscape",
-      title: "Show how profiles, pages and enquiries connect",
-      body: "Use an approved profile screen, location-page example and a short local search review in this visual section.",
+      title: "How Local Search Visibility Works as a System",
+      body: "A customer may discover you in Google Maps, compare your reviews, visit a service or location page, and then call or submit a form.",
+      journey: ["Business Profile", "Useful local page", "Enquiry or call"],
       videoTitle: "Local visibility review walkthrough",
       imageTitle: "Service-area page example",
       imageSrc: "/images/Services/local seo 2.jpg",
@@ -384,48 +426,55 @@ export const solutions: Record<string, SolutionPageContent> = {
       screenAlt: "Illustrative Google Business Profile performance view showing calls, direction requests and website clicks."
     },
     approach: {
-      title: "A local visibility plan based on your real service area",
-      intro: "We begin with commercial coverage and customer behaviour, not a long list of town-name keywords.",
+      title: "A Practical Local Visibility Strategy for Your Real Service Area",
+      intro: "A useful local visibility strategy starts with the services that matter commercially, the areas you genuinely cover, and how customers search for them – not with a long list of town names to force onto pages.",
       steps: [
-        { title: "Map services and locations", body: "Confirm the services to prioritise, the areas actually covered and any branches or physical locations." },
-        { title: "Audit local signals", body: "Review the website, Google Business Profile, reviews, directories, competitors and current measurement." },
-        { title: "Fix trust and relevance gaps", body: "Improve profile information, local pages, on-site structure and supporting signals in priority order." },
-        { title: "Track useful local actions", body: "Monitor visibility alongside calls, forms, direction requests and business feedback where available." },
+        { title: "Map Services and Real Coverage", body: "Confirm the priority services, genuine service areas, branches and physical locations before deciding what should be optimised." },
+        { title: "Audit the Local Search Footprint", body: "Review the website, Google Business Profile, reviews, trusted listings, competitors, and current enquiry tracking to see where the strongest gaps sit." },
+        { title: "Fix Relevance and Trust Gaps", body: "Improve the profile, local pages, website structure, business information and supporting trust signals in the order most likely to matter." },
+        { title: "Measure Local Visibility and Enquiries", body: "Track visibility alongside calls, forms, website visits, direction requests and other useful actions so progress is connected to customer behaviour." },
       ],
     },
     services: {
-      title: "The services that support local customer discovery",
-      intro: "Local visibility often depends on the quality of the wider website and search foundation.",
+      title: "Services That Support Your Local Visibility Strategy",
+      intro: "The right service depends on the bottleneck. Local visibility may need focused Local SEO work, broader SEO, stronger service or location pages, or paid search support while organic visibility develops.",
       items: [
-        { title: "Local SEO", href: "/local-seo", body: "Improve profiles, maps visibility, local relevance and reporting." },
-        { title: "Search engine optimisation", href: "/search-engine-optimisation", body: "Resolve technical, content and authority issues affecting organic search." },
-        { title: "WordPress development", href: "/wordpress-development", body: "Build clearer service and location pages with reliable enquiry routes." },
-        { title: "Google Ads management", href: "/google-adwords-ppc", body: "Capture local demand while longer-term organic visibility develops." },
+        { title: "Local SEO", href: "/local-seo", cta: "Explore Local SEO", body: "Improve Google Business Profile signals, local relevance, reviews, business information and reporting when the main problem is organic local discovery." },
+        { title: "Search Engine Optimisation", href: "/search-engine-optimisation", cta: "Explore Search Engine Optimisation", body: "Fix wider technical, content and authority issues when the visibility problem extends beyond maps and local profile signals." },
+        { title: "WordPress Development", href: "/wordpress-development", cta: "Explore WordPress Development", body: "Improve service and location pages, site structure, performance and enquiry routes when the website itself is limiting local growth." },
+        { title: "Google Ads Management", href: "/google-adwords-ppc", cta: "Explore Google Ads Management", body: "Capture high-intent local searches with paid campaigns while longer-term organic and map visibility is being improved." },
       ],
     },
     fit: {
-      title: "What we need for useful local SEO work",
+      title: "Is a Local Visibility Strategy Right for Your Business?",
+      intro: "The approach works best when the business serves real locations, can keep its information accurate, and has a genuine customer journey from local search to contact. We check those basics before recommending any service.",
       good: ["You serve defined UK locations or service areas", "Business information can be kept accurate", "Customers genuinely search locally for the service", "Your team can ask for and respond to customer reviews appropriately"],
       notYet: ["The service area is intentionally vague or nationwide", "The business cannot verify its profile details", "You expect instant first-place map rankings", "There is no website or contact route to support local demand"],
     },
     proof: {
-      title: "See search work for location-led businesses",
-      body: "Local and organic search projects, with the work and the measured outcome set out on each page.",
+      title: "Local Search Results and Case Studies",
+      // The brief's text here is an editorial instruction (show what changed and the verified
+      // outcome, no undated ranking claims); this is its customer-facing version.
+      body: "Real projects, showing what changed in the profile, website or search strategy, and the verified outcomes that followed.",
       links: [
         { label: "View local-search case studies", href: "/case-studies" },
         { label: "Read the bakery search project", href: "/case-studies/bakery" },
       ],
     },
+    faqTitle: "Local Visibility Questions, Answered",
     faq: [
-      { q: "Do I need a physical address for local SEO?", a: "Not every service-area business displays an address, but Google has eligibility and representation rules for Business Profiles. We review the actual operating model and avoid recommending details that misrepresent the business." },
-      { q: "Will you create a page for every town?", a: "Only where a page can be useful, accurate and meaningfully different. Publishing many near-identical town pages can create a poor experience and weak content rather than stronger local visibility." },
-      { q: "Can you help with Google Business Profile?", a: "Yes. Support may include profile review, categories, services, business information, content and a practical review process, subject to account access and Google’s current policies." },
-      { q: "How long does local SEO take?", a: "Timing varies with competition, current profile and website quality, review activity and the scale of technical or content work. We set priorities and report progress without promising a fixed ranking date." },
+      { q: "What is local search visibility?", a: "Local search visibility is how easily nearby customers can discover and evaluate your business across Google Search, Google Maps, and the pages they reach from those results. It depends on accurate business information, relevance, trust, website quality, and the customer’s location." },
+      { q: "Why is my business not showing on Google Maps?", a: "There is rarely one universal reason. The issue may involve profile eligibility or verification, categories and services, relevance, proximity, reviews, business information, website signals, or stronger competitors. A local visibility review should identify the most likely gaps before changes are made." },
+      { q: "Do I need a physical address to improve local visibility?", a: "Not always. Service-area businesses can be eligible for a Google Business Profile without displaying a customer-facing address, but the profile must accurately represent how the business operates and follow Google’s current eligibility and service-area rules." },
+      { q: "Do I need a location page for every town I serve?", a: "No. Create a location page only when it can be genuinely useful, accurate, and meaningfully different. Publishing many near-identical town pages can create a poor user experience and weak content." },
+      { q: "Can Google Business Profile improvements help local visibility?", a: "Yes, when the profile is eligible and accurately represents the business. Categories, services, hours, service areas, reviews and other profile information should support the same real-world services and locations described on the website." },
+      { q: "How long does it take to improve local search visibility?", a: "Timing varies with competition, proximity, the current profile, website quality, review activity, and how quickly agreed improvements can be implemented. We prioritise the clearest gaps and measure progress without promising a fixed ranking date." },
     ],
     final: {
-      title: "See where local customers are finding competitors first",
-      body: "Tell us the services and areas that matter. We will review the local search journey and explain which profile, website or measurement gaps deserve attention.",
-      cta: "Request a local visibility check",
+      eyebrow: "Start With the Real Local Visibility Problem",
+      title: "Find Out What Is Limiting Your Local Visibility",
+      body: "Tell us which services and UK locations matter most. We will review the local search journey, look for the clearest profile, website, relevance or measurement gaps, and explain the most useful next step – whether that is Local SEO, wider SEO, website work or another route.",
+      cta: "Request My Local Visibility Check",
       formNeed: "Better local visibility",
       formPrompt: "Which services and UK locations do you want customers to find you for?",
     },

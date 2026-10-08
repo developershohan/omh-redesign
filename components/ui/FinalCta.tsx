@@ -29,6 +29,8 @@ export function FinalCta({
   steps = defaultSteps,
   stepsHeading = "What happens next",
   contactEvents,
+  id,
+  aside,
 }: {
   title: string;
   titleAccent?: string;
@@ -38,9 +40,12 @@ export function FinalCta({
   steps?: readonly string[];
   stepsHeading?: string;
   contactEvents?: { phone: string; email: string };
+  id?: string;
+  /** Replaces the steps panel, for pages whose closer carries an offer instead. */
+  aside?: ReactNode;
 }) {
   return (
-    <section className="bg-inverse text-oninverse">
+    <section id={id} className="scroll-mt-20 bg-inverse text-oninverse">
       <div className="container-omh section-md grid grid-cols-12 items-start gap-x-10 gap-y-10 max-lg:block">
         <Reveal className="col-span-7">
           <h2 className="mb-5 max-w-[20ch] font-sans text-h2 font-semibold text-balance">
@@ -85,6 +90,7 @@ export function FinalCta({
         </Reveal>
 
         <Reveal className="col-span-4 col-start-9 max-lg:mt-10">
+          {aside ?? (
           <div className="rounded-card border border-oninverse/15 bg-oninverse/[0.04] p-8 max-sm:p-6">
             <p className="mb-6 text-[14px] font-semibold uppercase tracking-[0.16em] text-oninverse/55">
               {stepsHeading}
@@ -103,6 +109,7 @@ export function FinalCta({
               ))}
             </ol>
           </div>
+          )}
         </Reveal>
       </div>
     </section>

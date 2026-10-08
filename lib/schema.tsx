@@ -12,6 +12,7 @@ import { localSeo } from "@/lib/content/local-seo";
 import { socialMediaMarketing } from "@/lib/content/social-media-marketing";
 import { socialMediaPaidAdvertising } from "@/lib/content/social-media-paid-advertising";
 import { facebookLanding, instagramLanding } from "@/lib/content/social-landing";
+import { bestSeoServices } from "@/lib/content/seo-landing";
 
 export const SITE = "https://onlinemarketinghelp.co.uk";
 
@@ -128,10 +129,25 @@ const services: Record<string, { name: string; description: string; faqs: Faqs; 
     description: "Shopify store development for UK ecommerce brands, covering build, theme customisation, product journeys, integrations and conversion tracking.",
     faqs: shopifyDevelopment.faqs,
   },
+  "/seo-services": {
+    name: "Professional SEO Services",
+    description: "Professional SEO services for UK businesses: technical SEO audits, on-page optimisation, local SEO, link building and monthly reporting.",
+    faqs: bestSeoServices.faq?.items ?? [],
+  },
   "/wordpress-website-maintenance": {
     name: "WordPress Website Maintenance",
     description: "Ongoing WordPress maintenance and support for UK businesses: updates, backups, security, uptime monitoring and agreed technical work.",
     faqs: wordpressMaintenance.faqs,
+    offers: wordpressMaintenance.packages.map((p) => ({
+      name: p.name,
+      price: p.price,
+      description: wordpressMaintenance.packageGroups
+        .flatMap((g): readonly (readonly [string, keyof typeof p.features])[] => g.rows)
+        .filter(([, k]) => p.features[k] && p.features[k] !== "0")
+        .map(([label, k]) => (typeof p.features[k] === "string" ? `${label.replace("*", "")}: ${p.features[k]}` : label))
+        .join(", "),
+      eligibleDuration: { "@type": "QuantitativeValue", value: Number(p.features.contractLength), unitCode: "MON" },
+    })),
   },
   "/google-adwords-ppc": {
     name: "Google Ads Management",

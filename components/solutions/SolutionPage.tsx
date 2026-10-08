@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { Check, Minus, ArrowUpRight, MoveRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { MediaFrame } from "@/components/ServiceMedia";
@@ -6,6 +7,7 @@ import { Accordion } from "@/components/ui/Accordion";
 import { ArrowRight, Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Proof";
 import { SolutionLeadForm } from "@/components/solutions/SolutionLeadForm";
+import { navLabels } from "@/lib/content/nav";
 import { solutionOrder, solutions, type SolutionPageContent } from "@/lib/content/solutions";
 
 function SolutionHero({ content }: { content: SolutionPageContent }) {
@@ -63,9 +65,41 @@ function SolutionHero({ content }: { content: SolutionPageContent }) {
                 ))}
               </div>
               <div className="border-t border-oninverse/12 pt-4 text-[18px] leading-relaxed text-oninverse/55">
-                One connected journey. Measured against the action that matters.
+                {content.signalNote ?? "One connected journey. Measured against the action that matters."}
               </div>
             </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+// Optional explainer: the definition as a lead, the factors it names as cards.
+function DefinitionSection({ content }: { content: SolutionPageContent }) {
+  const definition = content.definition;
+  if (!definition) return null;
+  return (
+    <section className="border-b border-line bg-tint-blue">
+      <div className="container-omh section-md">
+        <Reveal>
+          <div className="grid grid-cols-12 gap-x-12 gap-y-8 max-lg:block">
+            <div className="col-span-5 max-lg:mb-8">
+              <Eyebrow>The basics</Eyebrow>
+              <h2 className="mt-6 max-w-[14ch] font-sans text-h2 font-semibold text-balance">{definition.title}</h2>
+            </div>
+            <p className="col-span-7 max-w-[62ch] font-serif text-[clamp(19px,1.3vw,23px)] leading-[1.55] text-ink/85">
+              {definition.body}
+            </p>
+          </div>
+          <div className="mt-12 grid grid-cols-3 gap-5 max-md:grid-cols-1">
+            {definition.factors.map((factor) => (
+              <div key={factor.title} className="rounded-card border border-line bg-surface p-7">
+                <span className="block h-1 w-10 rounded-full bg-amber" aria-hidden="true" />
+                <h3 className="mt-6 font-sans text-h3 font-semibold">{factor.title}</h3>
+                <p className="mt-3 text-body leading-relaxed text-ink/70">{factor.body}</p>
+              </div>
+            ))}
           </div>
         </Reveal>
       </div>
@@ -112,9 +146,22 @@ function OutcomesSection({ content }: { content: SolutionPageContent }) {
             <h2 className="mt-6 max-w-[18ch] font-sans text-h2 font-semibold text-balance">{content.outcomes.title}</h2>
             <p className="mt-5 max-w-[60ch] text-body leading-relaxed text-oninverse/65">{content.outcomes.intro}</p>
           </div>
-          <div className="mt-14 grid grid-cols-3 gap-0 border-y border-oninverse/15 max-md:grid-cols-1 max-md:divide-y max-md:divide-oninverse/15">
+          <div
+            className={
+              content.outcomes.items.length === 4
+                ? "mt-14 grid grid-cols-4 gap-0 border-y border-oninverse/15 max-lg:grid-cols-1 max-lg:divide-y max-lg:divide-oninverse/15"
+                : "mt-14 grid grid-cols-3 gap-0 border-y border-oninverse/15 max-md:grid-cols-1 max-md:divide-y max-md:divide-oninverse/15"
+            }
+          >
             {content.outcomes.items.map((item) => (
-              <article key={item.number} className="min-h-[320px] border-r border-oninverse/15 px-8 py-9 first:pl-0 last:border-r-0 max-md:min-h-0 max-md:border-r-0 max-md:px-0">
+              <article
+                key={item.number}
+                className={
+                  content.outcomes.items.length === 4
+                    ? "min-h-[320px] border-r border-oninverse/15 px-7 py-9 first:pl-0 last:border-r-0 max-lg:min-h-0 max-lg:border-r-0 max-lg:px-0"
+                    : "min-h-[320px] border-r border-oninverse/15 px-8 py-9 first:pl-0 last:border-r-0 max-md:min-h-0 max-md:border-r-0 max-md:px-0"
+                }
+              >
                 <span className="font-sans text-[18px] font-semibold text-[#f5d394]">{item.number}</span>
                 <h3 className="mt-16 max-w-[15ch] font-sans text-[clamp(24px,2vw,31px)] font-semibold leading-tight max-md:mt-7">{item.title}</h3>
                 <p className="mt-5 max-w-[40ch] text-body leading-relaxed text-oninverse/62">{item.body}</p>
@@ -124,6 +171,19 @@ function OutcomesSection({ content }: { content: SolutionPageContent }) {
         </Reveal>
       </div>
     </section>
+  );
+}
+
+function Captioned({ caption, className, children }: { caption?: [string, string]; className: string; children: ReactNode }) {
+  return (
+    <figure className={className}>
+      {children}
+      {caption && (
+        <figcaption className="mt-3 text-[15px] leading-snug text-ink/70">
+          <span className="font-semibold text-ink">{caption[0]}:</span> {caption[1]}
+        </figcaption>
+      )}
+    </figure>
   );
 }
 
@@ -137,12 +197,28 @@ function MediaSection({ content }: { content: SolutionPageContent }) {
               <Eyebrow>{content.media.eyebrow}</Eyebrow>
               <h2 className="mt-6 max-w-[14ch] font-sans text-h2 font-semibold text-balance">{content.media.title}</h2>
               <p className="mt-5 max-w-[48ch] text-body leading-relaxed text-ink/68">{content.media.body}</p>
+              {content.media.journey && (
+                <ol className="mt-8 flex flex-wrap items-center gap-2">
+                  {content.media.journey.map((step, index, all) => (
+                    <li key={step} className="flex items-center gap-2">
+                      <span className="rounded-full border border-line bg-surface px-4 py-2 text-[15px] font-semibold">{step}</span>
+                      {index < all.length - 1 && <MoveRight className="size-4 text-amber-deep" aria-hidden="true" />}
+                    </li>
+                  ))}
+                </ol>
+              )}
             </div>
-            <MediaFrame kind="image" theme={content.theme} ratio="16/10" title={content.media.videoTitle} note="Video placeholder for approved project media." className="col-span-7" source="/images/home/campaign-review.png" alt="Marketing campaign planning and review" />
+            <Captioned caption={content.media.captions?.[0]} className="col-span-7">
+              <MediaFrame kind="image" theme={content.theme} ratio="16/10" title={content.media.videoTitle} note="Video placeholder for approved project media." source="/images/home/campaign-review.png" alt="Marketing campaign planning and review" />
+            </Captioned>
           </div>
           <div className="mt-6 grid grid-cols-12 gap-6">
-            <MediaFrame kind="image" theme={content.theme} ratio="5/4" title={content.media.imageTitle} note="Image placeholder for approved project media." source={content.media.imageSrc} alt={content.media.imageAlt} className="col-span-5 max-md:col-span-12" />
-            <MediaFrame kind="screen" theme={content.theme} ratio="16/8" title={content.media.screenTitle} note="Screen placeholder for approved, anonymised reporting media." source={content.media.screenSrc} alt={content.media.screenAlt} className="col-span-7 max-md:col-span-12" />
+            <Captioned caption={content.media.captions?.[1]} className="col-span-5 max-md:col-span-12">
+              <MediaFrame kind="image" theme={content.theme} ratio="5/4" title={content.media.imageTitle} note="Image placeholder for approved project media." source={content.media.imageSrc} alt={content.media.imageAlt} />
+            </Captioned>
+            <Captioned caption={content.media.captions?.[2]} className="col-span-7 max-md:col-span-12">
+              <MediaFrame kind="screen" theme={content.theme} ratio="16/8" title={content.media.screenTitle} note="Screen placeholder for approved, anonymised reporting media." source={content.media.screenSrc} alt={content.media.screenAlt} />
+            </Captioned>
           </div>
         </Reveal>
       </div>
@@ -198,6 +274,12 @@ function ServicesSection({ content }: { content: SolutionPageContent }) {
                 </div>
                 <h3 className="mt-12 font-sans text-[26px] font-semibold">{item.title}</h3>
                 <p className="mt-3 max-w-[44ch] text-body leading-relaxed text-ink/66">{item.body}</p>
+                {item.cta && (
+                  <span className="mt-6 inline-flex items-center gap-2 font-semibold text-amber-deep group-hover:underline underline-offset-4">
+                    {item.cta}
+                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                )}
               </Link>
             ))}
           </div>
@@ -216,7 +298,7 @@ function FitSection({ content }: { content: SolutionPageContent }) {
             <div className="col-span-4 max-lg:mb-9">
               <Eyebrow>Fit matters</Eyebrow>
               <h2 className="mt-6 max-w-[14ch] font-sans text-h2 font-semibold text-balance">{content.fit.title}</h2>
-              <p className="mt-5 max-w-[40ch] text-body leading-relaxed text-ink/68">A useful first conversation should establish this honestly, before anyone proposes a programme.</p>
+              <p className="mt-5 max-w-[40ch] text-body leading-relaxed text-ink/68">{content.fit.intro ?? "A useful first conversation should establish this honestly, before anyone proposes a programme."}</p>
             </div>
             <div className="col-span-8 grid grid-cols-2 overflow-hidden rounded-card border border-line bg-surface max-md:grid-cols-1">
               <div className="p-7">
@@ -276,7 +358,7 @@ function FaqAndNext({ content }: { content: SolutionPageContent }) {
           <div className="grid grid-cols-12 gap-x-14 gap-y-12 max-lg:block">
             <div className="col-span-4 max-lg:mb-10">
               <Eyebrow>Questions before you enquire</Eyebrow>
-              <h2 className="mt-6 font-sans text-h2 font-semibold">Straight answers</h2>
+              <h2 className="mt-6 max-w-[16ch] font-sans text-h2 font-semibold text-balance">{content.faqTitle ?? "Straight answers"}</h2>
               <p className="mt-5 max-w-[42ch] text-body leading-relaxed text-ink/68">If the right answer depends on your circumstances, we say so.</p>
             </div>
             <div className="col-span-8"><Accordion items={content.faq} group={`${content.slug}-faq`} /></div>
@@ -286,7 +368,7 @@ function FaqAndNext({ content }: { content: SolutionPageContent }) {
             <div className="mt-5 grid grid-cols-2 gap-5 max-md:grid-cols-1">
               {nextSlugs.map((slug) => {
                 const item = solutions[slug];
-                return <Link key={slug} href={`/solutions/${slug}`} className="group flex items-start justify-between gap-6 border-b border-line py-5 font-sans text-[22px] font-semibold leading-snug hover:text-amber-deep"><span>{`${item.title} ${item.titleAccent}`}</span><MoveRight className="mt-1.5 size-5 shrink-0 transition-transform group-hover:translate-x-1" /></Link>;
+                return <Link key={slug} href={`/solutions/${slug}`} className="group flex items-start justify-between gap-6 border-b border-line py-5 font-sans text-[22px] font-semibold leading-snug hover:text-amber-deep"><span><span className="mb-1 block text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">{navLabels[`/solutions/${slug}`]}</span>{`${item.title} ${item.titleAccent}`}</span><MoveRight className="mt-1.5 size-5 shrink-0 transition-transform group-hover:translate-x-1" /></Link>;
               })}
             </div>
           </div>
@@ -303,12 +385,12 @@ function FinalSection({ content }: { content: SolutionPageContent }) {
         <Reveal>
           <div className="grid grid-cols-[.82fr_1.18fr] gap-[clamp(48px,8vw,120px)] max-lg:grid-cols-1">
             <div>
-              <Eyebrow light>Start with the real problem</Eyebrow>
+              <Eyebrow light>{content.final.eyebrow ?? "Start with the real problem"}</Eyebrow>
               <h2 className="mt-6 max-w-[14ch] font-sans text-[clamp(36px,4.4vw,60px)] font-semibold leading-[1.04] text-balance">{content.final.title}</h2>
               <p className="mt-6 max-w-[48ch] text-body leading-relaxed text-oninverse/66">{content.final.body}</p>
               <div className="mt-9 space-y-3 text-body text-oninverse/58">
                 <p><span className="mr-3 text-[#f5d394]">01</span>Your enquiry is read by a person.</p>
-                <p><span className="mr-3 text-[#f5d394]">02</span>We look at the context before suggesting a service.</p>
+                <p><span className="mr-3 text-[#f5d394]">02</span>We review the context before suggesting a service.</p>
                 <p><span className="mr-3 text-[#f5d394]">03</span>You receive a clear recommendation on the next step.</p>
               </div>
             </div>
@@ -324,6 +406,7 @@ export function SolutionPage({ content }: { content: SolutionPageContent }) {
   return (
     <div className={`solution-page solution-page-${content.theme}`}>
       <SolutionHero content={content} />
+      <DefinitionSection content={content} />
       <ProblemSection content={content} />
       <OutcomesSection content={content} />
       <MediaSection content={content} />

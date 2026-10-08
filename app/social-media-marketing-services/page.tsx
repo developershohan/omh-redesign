@@ -36,7 +36,7 @@ export default function SocialMediaMarketingPage() {
         body="Where social media sat alongside website, search and paid campaign delivery."
       />
       <SocialGuaranteeAndReporting guarantee={content.guarantee} reporting={content.reporting} />
-      <SocialReviews label={content.reviewsLabel} />
+      <SocialReviews label={content.reviewsLabel} title="What customers say about our social media marketing services." />
       <SocialFAQ {...content.faq} />
       <RelatedServices
         eventPrefix="social"

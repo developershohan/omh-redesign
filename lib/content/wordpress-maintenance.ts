@@ -1,9 +1,9 @@
 export const wordpressMaintenance = {
   hero: {
     eyebrow: "WordPress Maintenance for UK Businesses",
-    title: "WordPress maintenance that keeps essential website work under control",
-    body: "Updates, backups, monitoring and technical fixes should not depend on someone remembering them after a problem appears. We provide ongoing WordPress maintenance for businesses that need a clearer support route and a more reliable website.",
-    primary: { label: "Discuss Website Maintenance", href: "/contact" },
+    title: "WordPress maintenance packages that keep your website under control",
+    body: "Updates, backups, monitoring and technical fixes should not depend on someone remembering them after a problem appears. We provide WordPress website maintenance packages for UK businesses that need a clearer support route, published allowances and a more reliable website.",
+    primary: { label: "Discuss Maintenance Packages", href: "/contact" },
     secondary: { label: "View Maintenance Packages", href: "#packages" },
   },
   issues: [
@@ -23,7 +23,7 @@ export const wordpressMaintenance = {
       "Websites that need a named route for technical questions and fixes",
       "Businesses that have inherited a site built by another developer",
       "WooCommerce or service websites where downtime creates a commercial problem",
-      "Clients that want maintenance connected with development, SEO or paid campaigns",
+      "Clients that want WordPress maintenance and support connected with development, SEO or paid campaigns",
     ],
     notFit: [
       "Emergency recovery work requested without access or an initial review",
@@ -57,7 +57,7 @@ export const wordpressMaintenance = {
     },
     {
       title: "Theme & Plugin Support",
-      body: "Help with existing theme or plugin behaviour, conflicts and functionality changes within the agreed allowance.",
+      body: "WordPress support services for existing theme or plugin behaviour, conflicts and functionality changes within the agreed allowance.",
     },
     {
       title: "Uptime Monitoring",
@@ -69,15 +69,15 @@ export const wordpressMaintenance = {
     },
     {
       title: "Ongoing Support Route",
-      body: "Give the client a clear contact route for maintenance questions, planned requests and technical concerns.",
+      body: "Give the client a clear contact route for WordPress maintenance and support questions, planned requests and technical concerns.",
     },
   ],
   process: [
     ["Access and audit", "Confirm ownership, collect access securely and review the current WordPress, hosting and plugin setup."],
     ["Baseline and backup", "Record the starting position and make sure an agreed recovery copy exists before routine changes."],
-    ["Maintenance window", "Apply the updates, content fixes and approved tasks included in the package allowance."],
+    ["Maintenance window", "Apply the updates, content fixes and approved tasks included in the WordPress maintenance package allowance."],
     ["Checks and monitoring", "Test important pages and forms, review availability and look for issues created by recent changes."],
-    ["Report and monthly call", "Summarise completed work, flag risks and agree what needs attention next."],
+    ["Report and monthly call", "Summarise completed maintenance work, flag risks and agree what needs attention next."],
   ],
   // Transcribed from the supplied live-page HTML on 27 July 2026. The table has
   // three packages and 16 feature rows. Billing frequency and VAT treatment are
@@ -198,20 +198,22 @@ export const wordpressMaintenance = {
   ],
   reasons: [
     ["Routine care is scheduled", "Updates, backups and checks have an agreed place instead of waiting for a fault to become urgent."],
-    ["A named support route", "The client knows where to send a request and who is responsible for keeping it moving."],
+    ["A named support route", "The client knows where to send a WordPress support request and who is responsible for keeping it moving."],
     ["Published allowances stay visible", "The comparison shows the included hours and content-fix allowance before a package is discussed."],
     ["Development is available when needed", "Larger fixes can be assessed by the same wider team instead of being forced into routine maintenance."],
     ["Marketing context is not ignored", "Forms, conversion points, SEO work and campaign landing pages can be considered during maintenance."],
     ["Risks are explained plainly", "Unsupported software, access problems and work outside the package are raised rather than hidden."],
   ],
   faqs: [
-    ["What does WordPress maintenance include?", "Published inclusions vary by package and cover an initial audit, updates, weekly cloud backups, uptime monitoring, reporting, monthly meetings and an agreed work allowance. Use the comparison for the exact differences."],
-    ["Can you fix a WordPress site built by another developer?", "Yes, after the current setup, access, hosting, theme and plugins have been reviewed. Some inherited problems may need separate development work rather than routine maintenance time."],
+    ["What does WordPress maintenance include?", "Our WordPress website maintenance packages include an initial website audit, WordPress core, theme and plugin updates, weekly cloud backups, uptime monitoring, monthly reporting, a dedicated account manager and an agreed work allowance measured in hours. The Seed package includes 2 hours, Shoot includes 4 hours, and Sapling includes 6 hours. Every package comes with a monthly review call to discuss completed work and plan ahead."],
+    // ponytail: brief said "per month" / "no hidden charges"; dropped while pricingNotes still flag billing frequency and VAT as unconfirmed.
+    ["How much do your WordPress maintenance packages cost?", "Our WordPress website maintenance packages start from £300 for the Seed plan, which includes 2 hours of maintenance time, weekly backups, updates and monitoring. The Shoot package is £400 with 4 hours, and Sapling is £500 with 6 hours. All prices and included allowances are published on this page, so you can compare them before we talk."],
+    ["Can you fix a WordPress site built by another developer?", "Yes. We regularly provide WordPress support services for sites built by other developers or agencies. The first step is an audit of the current setup, hosting, theme and plugins. Once we understand what is in place, we can confirm what falls within a WordPress maintenance package and what may need separate development work."],
     ["Can you investigate CSS, theme or plugin problems?", "Yes. Send the website URL and a clear description of the problem. The team can investigate whether the cause is CSS, a theme, a plugin or another part of the setup."],
     ["What access do you need before starting?", "WordPress administrator access is normally required. Hosting, domain or other platform access may also be needed depending on the task. Credentials should only be shared through the approved secure process."],
-    ["Are backups, security and monitoring included?", "All three published packages show weekly cloud backups, uptime monitoring and routine WordPress updates. Any additional security, malware removal, recovery or response-time commitment must be confirmed in the scope."],
-    ["Can you also help with SEO or a new website?", "Yes. We also provide [WordPress development](/wordpress-development), [SEO](/search-engine-optimisation) and [Google Ads management](/google-adwords-ppc). A well-maintained WordPress site is the foundation for effective [local SEO packages](/local-seo) that help nearby customers find your business. It is also the landing destination that [social media marketing](/social-media-marketing-services) drives traffic to, so page speed and uptime matter. Those services are scoped separately from the maintenance allowance."],
-    ["Do you manage hosting and domain renewals?", "Hosting and domain support can be provided, but the exact offer and charges should be confirmed during the consultation."],
+    ["Are backups, security and monitoring included?", "Yes. All three WordPress maintenance packages include weekly cloud backups to a separate location, uptime monitoring with alerts, and routine WordPress core, theme and plugin updates. Monitoring runs continuously between maintenance windows, and backups continue on their weekly schedule. Any additional security, malware removal, recovery or response-time commitment is confirmed in the scope."],
+    ["Can you also help with SEO or a new website?", "Yes. OMH provides [WordPress development](/wordpress-development), [search engine optimisation](/search-engine-optimisation) and [Google Ads management](/google-adwords-ppc) as separate services. Many clients combine a WordPress maintenance package with ongoing SEO, which means the technical health of the site and the SEO work are managed by the same team. This avoids the common problem where a maintenance change breaks something the SEO team built. A well-maintained WordPress site is the foundation for effective [local SEO packages](/local-seo) that help nearby customers find your business. It is also the landing destination that [social media marketing](/social-media-marketing-services) drives traffic to, so page speed and uptime matter. Those services are scoped separately from the maintenance allowance."],
+    ["Do you manage hosting and domain renewals?", "Hosting and domain management can be discussed as part of a WordPress maintenance and support arrangement. The scope and any additional charges depend on the hosting provider, the current setup and whether migration is involved. These details are confirmed during the initial consultation."],
     ["Is there a warranty or money-back guarantee?", "Both a 30-day warranty and a money-back guarantee are referenced. The written coverage, exclusions and claim process must be confirmed before either promise is published as a package term."],
   ],
 };
