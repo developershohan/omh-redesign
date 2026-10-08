@@ -17,7 +17,11 @@ export type SolutionPageContent = {
   definition?: {
     title: string;
     body: string;
-    factors: { title: string; body: string }[];
+    /** Named factors, shown as cards. */
+    factors?: { title: string; body: string }[];
+    /** Or the aspects the definition lists, shown as a chip row under `tagsLabel`. */
+    tagsLabel?: string;
+    tags?: string[];
   };
   problem: {
     eyebrow: string;
@@ -279,40 +283,51 @@ export const solutions: Record<string, SolutionPageContent> = {
   },
   "improve-website-conversion": {
     slug: "improve-website-conversion",
-    eyebrow: "Conversion improvement for UK business websites",
-    title: "Make your website easier to",
-    titleAccent: "understand, trust and act on",
+    // SEO brief (Oct 2026): provisional focus "improve website conversion". Keep the page
+    // diagnosis-first; "CRO services"/"CRO agency UK" are reserved for a future CRO service page.
+    eyebrow: "Website conversion improvement for UK businesses",
+    title: "Improve Website Conversion and",
+    titleAccent: "Turn More Visitors Into Enquiries",
     intro:
-      "If your website already receives useful traffic, the next opportunity may be on the page itself. We identify the points where visitors hesitate, lose confidence or miss the next step, then improve them in a measured order.",
-    primaryCta: "Discuss your website conversion",
-    secondaryCta: "See what we review",
+      "If your website already attracts relevant traffic but too few visitors enquire, book or buy, the problem may be in the journey itself. We review where people lose clarity, confidence or momentum, then prioritise the changes most likely to improve website conversion.",
+    primaryCta: "Request a Website Conversion Review",
+    secondaryCta: "See How We Find Conversion Friction",
     theme: "wordpress",
     signal: "Clarity → confidence → action",
     heroPoints: ["Evidence-led page reviews", "Design and development support", "Tracking before assumptions"],
+    definition: {
+      title: "What Is Website Conversion Optimisation?",
+      body: "Website conversion optimisation is the process of improving the pages and journeys that turn relevant visitors into useful actions such as enquiries, calls, bookings or purchases. It looks at clarity, trust, usability, forms, mobile experience, traffic intent and measurement. The aim is not to change everything – it is to find the biggest source of friction and fix the right problem first.",
+      // The seven areas the definition names, in its order.
+      tagsLabel: "What it looks at",
+      tags: ["Clarity", "Trust", "Usability", "Forms", "Mobile experience", "Traffic intent", "Measurement"],
+    },
     problem: {
       eyebrow: "Conversion friction",
-      title: "A website can look polished and still make the decision difficult",
-      intro: "Visitors rarely announce why they left. The clues sit across page structure, message clarity, mobile behaviour, form design, trust signals and the quality of the traffic arriving.",
+      title: "Why Website Visitors Do Not Convert",
+      intro: "Visitors rarely explain why they leave without acting. The clues usually sit across message clarity, page structure, proof, mobile usability, forms, technical performance and the quality of the traffic arriving.",
       symptoms: [
-        { title: "The offer takes too long to understand", body: "Pages describe the business, but do not quickly explain who the service is for or what to do next." },
-        { title: "Important proof arrives too late", body: "Relevant work, process or reassurance is buried after the point where the visitor needs confidence." },
-        { title: "Mobile pages make action harder", body: "Dense layouts, awkward navigation or forms create unnecessary work on smaller screens." },
-        { title: "Tracking counts actions without context", body: "The business knows a form was sent, but not which page, message or traffic source helped the decision." },
+        { title: "The Offer Is Not Clear Quickly Enough", body: "Visitors should be able to understand who the offer is for, what problem it solves, and what to do next without decoding vague marketing language." },
+        { title: "Trust and Proof Appear Too Late", body: "Reviews, results, process information and reassurance need to appear close to the decisions where visitors are most likely to hesitate." },
+        { title: "Mobile Friction Makes the Next Step Harder", body: "Dense layouts, difficult navigation, slow pages, or awkward forms can turn a simple enquiry into unnecessary work on a phone." },
+        { title: "Tracking Shows Actions but Not Why They Happened", body: "A form submission or purchase is useful, but better decisions come from knowing which page, message, device, and traffic source helped or blocked the journey." },
       ],
     },
     outcomes: {
-      title: "Improve the decisions that happen on the page",
-      intro: "Conversion improvement is not a collection of tricks. It is a disciplined way to remove uncertainty and friction.",
+      title: "How to Improve Website Conversion",
+      intro: "Improving website conversion is not about random button changes. It is a structured process of making the offer easier to understand, increasing confidence, reducing friction, and measuring whether the customer journey improves.",
       items: [
-        { number: "01", title: "Clarify the offer", body: "Make the audience, problem, value and next step clear without forcing visitors to decode agency language." },
-        { number: "02", title: "Put confidence in the right place", body: "Use process, proof, FAQs and expectation-setting where they help a buying decision." },
-        { number: "03", title: "Make action feel manageable", body: "Improve calls to action, forms, mobile interactions and measurement around meaningful conversions." },
+        { number: "01", title: "Make the Offer Clear", body: "Make the audience, problem, value, and next step obvious so the right visitor can quickly decide whether the offer fits." },
+        { number: "02", title: "Add Trust Where Decisions Happen", body: "Place reviews, proof, process information, FAQs and expectation-setting close to the moments where a visitor needs reassurance." },
+        { number: "03", title: "Make the Next Step Easier", body: "Improve calls to action, forms, mobile interactions, and page flow so the next step feels simple, then track meaningful conversions rather than vanity clicks." },
       ],
     },
     media: {
       eyebrow: "Before and after",
-      title: "Show what changed and why it mattered",
-      body: "This section is ready for an approved page walkthrough, a before-and-after screen and an anonymised user-journey view.",
+      title: "Website Conversion Improvements: What Changed and Why",
+      // The brief's text here is an instruction to use a verified before-and-after example;
+      // this is its customer-facing version, which does not present these images as that proof.
+      body: "When we show a before-and-after, it sets out the original conversion problem, the change made and the verified outcome, with the page, date range, traffic context and the action measured.",
       videoTitle: "Conversion review walkthrough",
       imageTitle: "Before-and-after page comparison",
       imageSrc: "/images/Services/Images on the pages/Shopify development before.png",
@@ -322,48 +337,53 @@ export const solutions: Record<string, SolutionPageContent> = {
       screenAlt: "Illustrative performance report showing the pages and queries people arrive on before converting."
     },
     approach: {
-      title: "How we find a practical conversion priority",
-      intro: "The review balances business context, analytics and direct inspection of the customer journey.",
+      title: "How We Find the Biggest Website Conversion Opportunities",
+      intro: "The review combines business context, analytics, and direct inspection of the customer journey so recommendations are prioritised by evidence, likely value, and implementation effort.",
       steps: [
-        { title: "Agree the valuable actions", body: "Define the calls, forms, bookings or purchases that matter and how quality will be assessed." },
-        { title: "Inspect traffic and behaviour", body: "Review landing pages, devices, sources, navigation, drop-off points and the reliability of existing tracking." },
-        { title: "Create a prioritised backlog", body: "Rank message, design, content and development changes by likely value, confidence and effort." },
-        { title: "Implement and evaluate", body: "Release improvements, check the data and keep decisions grounded in evidence rather than preference." },
+        { title: "Define the Conversion That Matters", body: "Agree which enquiries, calls, bookings, purchases or other actions have genuine commercial value and how quality will be judged." },
+        { title: "Review Traffic, Pages and Behaviour", body: "Review landing pages, devices, traffic sources, navigation, forms, drop-off points and whether the existing tracking can be trusted." },
+        { title: "Prioritise the Highest-Value Changes", body: "Rank content, design, UX and development changes by likely value, confidence and effort so the team knows what to address first." },
+        { title: "Implement, Measure and Learn", body: "Release the agreed improvements, check the data and customer feedback, then use the evidence to decide what should happen next." },
       ],
     },
     services: {
-      title: "Website, content and acquisition working together",
-      intro: "Conversion problems often cross service boundaries. These are the most common supporting routes.",
+      title: "Services That Support Better Website Conversion",
+      intro: "Website conversion problems often cross service boundaries. Once the main source of friction is clearer, the right route may involve development, ecommerce improvements, maintenance, or acquisition alignment rather than a pre-set package.",
       items: [
-        { title: "WordPress development", href: "/wordpress-development", body: "Restructure or rebuild pages around usability and meaningful actions." },
-        { title: "Shopify development", href: "/shopify-development", body: "Improve product discovery, confidence and the route to checkout." },
-        { title: "Website maintenance", href: "/wordpress-website-maintenance", body: "Fix forms, layouts, performance issues and ongoing technical friction." },
-        { title: "Google Ads management", href: "/google-adwords-ppc", body: "Align campaign intent and landing-page message before buying more traffic." },
+        { title: "WordPress Development", href: "/wordpress-development", cta: "Explore WordPress Development", body: "Improve page structure, usability, forms and conversion paths when the website itself is limiting enquiries." },
+        { title: "Shopify Development", href: "/shopify-development", cta: "Explore Shopify Development", body: "Improve product discovery, trust, product-page clarity and checkout journeys when ecommerce visitors are not progressing to purchase." },
+        { title: "Website Maintenance", href: "/wordpress-website-maintenance", cta: "Explore Website Maintenance", body: "Fix forms, broken interactions, performance issues, and ongoing technical friction that can interrupt the path to conversion." },
+        { title: "Google Ads Management", href: "/google-adwords-ppc", cta: "Explore Google Ads Management", body: "Align search intent, ad messaging, landing pages, and conversion tracking so paid traffic arrives with the right expectation." },
       ],
     },
     fit: {
-      title: "When conversion work is a sensible investment",
+      title: "When Website Conversion Work Makes Sense",
+      intro: "Website conversion work is most useful when there is enough relevant traffic to learn from, a valuable action to measure, and a team that can implement changes. We establish that before recommending a programme.",
       good: ["The website receives relevant traffic already", "There is a meaningful action to measure", "Your team can provide sales or customer feedback", "You can implement design, content or development changes"],
       notYet: ["There is too little relevant traffic to learn from", "The offer changes every week", "No one can define a valuable conversion", "You want a redesign based only on visual preference"],
     },
     proof: {
-      title: "See website and campaign work with the business context included",
-      body: "Good proof explains the starting problem, the work and the measurement limits. Browse the project archive before deciding whether our approach fits.",
+      title: "Website Conversion Case Studies and Relevant Results",
+      body: "Good conversion proof should explain the starting problem, what changed, the traffic or measurement context, and the verified outcome. We use real case studies rather than isolated percentage claims.",
       links: [
         { label: "View website case studies", href: "/case-studies" },
         { label: "Explore WordPress development", href: "/wordpress-development" },
       ],
     },
+    faqTitle: "Website Conversion Questions, Answered",
     faq: [
-      { q: "Do we need a complete website redesign?", a: "Not necessarily. A focused set of page, form or navigation improvements may be more sensible. We recommend a wider redesign only when the current structure, platform or visual credibility creates a broader constraint." },
-      { q: "What counts as a website conversion?", a: "It depends on the business. It may be a qualified form submission, phone call, booked consultation, purchase or another action connected to commercial value. We agree this before measuring improvement." },
+      { q: "What is website conversion optimisation?", a: "Website conversion optimisation improves the pages and journeys that turn relevant visitors into useful actions such as enquiries, calls, bookings or purchases. It combines clarity, usability, trust, traffic context, and measurement." },
+      { q: "Do we need a complete redesign to improve website conversion?", a: "Not necessarily. A focused set of page, form, navigation, content, or trust improvements may be more sensible. A wider redesign only makes sense when the current structure, platform, or credibility creates a broader constraint." },
+      { q: "What counts as a website conversion?", a: "It depends on the business. It may be a qualified form submission, phone call, booked consultation, purchase, or another action connected to commercial value. We agree on the useful action before judging performance." },
+      { q: "How do you know what is stopping visitors from converting?", a: "We look at the pages people enter on, the traffic source, device behaviour, navigation, forms, trust signals, drop-off points, tracking quality, and customer or sales feedback. The aim is to find the most credible source of friction before making changes." },
       { q: "Can you work with our current developer or marketing team?", a: "Yes. We can provide the review and prioritised recommendations, implement the work ourselves where appropriate, or coordinate with an existing team if responsibilities are clear." },
-      { q: "Can you guarantee a conversion-rate increase?", a: "No. Traffic quality, offer, market conditions and implementation all affect the result. We can identify evidence, improve the journey and measure outcomes without presenting a test hypothesis as a guarantee." },
+      { q: "Can you guarantee a higher website conversion rate?", a: "No. Traffic quality, the offer, market conditions, seasonality, and implementation all affect the outcome. We can identify credible friction, improve the journey, and measure results without presenting a hypothesis as a guarantee." },
     ],
     final: {
-      title: "Find out where your website is making the next step harder",
-      body: "Share the pages that matter, the traffic they receive and the actions you want more visitors to take. We will review the context and suggest a useful first move.",
-      cta: "Request a website conversion review",
+      eyebrow: "Start With the Real Conversion Problem",
+      title: "Find Out What Is Limiting Your Website Conversion",
+      body: "Share the pages that matter, the traffic they receive, and the enquiries, bookings, or purchases you want more visitors to complete. We will review the context, identify the most credible source of friction, and recommend the most useful next step.",
+      cta: "Request My Website Conversion Review",
       formNeed: "Better website conversion",
       formPrompt: "Which pages and actions matter most, and where do you think visitors are getting stuck?",
     },

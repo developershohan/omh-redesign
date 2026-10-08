@@ -75,7 +75,7 @@ function SolutionHero({ content }: { content: SolutionPageContent }) {
   );
 }
 
-// Optional explainer: the definition as a lead, the factors it names as cards.
+// Optional explainer: the definition as a lead, then what it names as cards or chips.
 function DefinitionSection({ content }: { content: SolutionPageContent }) {
   const definition = content.definition;
   if (!definition) return null;
@@ -92,15 +92,30 @@ function DefinitionSection({ content }: { content: SolutionPageContent }) {
               {definition.body}
             </p>
           </div>
-          <div className="mt-12 grid grid-cols-3 gap-5 max-md:grid-cols-1">
-            {definition.factors.map((factor) => (
-              <div key={factor.title} className="rounded-card border border-line bg-surface p-7">
-                <span className="block h-1 w-10 rounded-full bg-amber" aria-hidden="true" />
-                <h3 className="mt-6 font-sans text-h3 font-semibold">{factor.title}</h3>
-                <p className="mt-3 text-body leading-relaxed text-ink/70">{factor.body}</p>
-              </div>
-            ))}
-          </div>
+          {definition.factors && (
+            <div className="mt-12 grid grid-cols-3 gap-5 max-md:grid-cols-1">
+              {definition.factors.map((factor) => (
+                <div key={factor.title} className="rounded-card border border-line bg-surface p-7">
+                  <span className="block h-1 w-10 rounded-full bg-amber" aria-hidden="true" />
+                  <h3 className="mt-6 font-sans text-h3 font-semibold">{factor.title}</h3>
+                  <p className="mt-3 text-body leading-relaxed text-ink/70">{factor.body}</p>
+                </div>
+              ))}
+            </div>
+          )}
+          {definition.tags && (
+            <div className="mt-12 rounded-card border border-line bg-surface p-8 max-sm:p-6">
+              <p className="text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">{definition.tagsLabel}</p>
+              <ul className="mt-5 flex flex-wrap gap-3">
+                {definition.tags.map((tag) => (
+                  <li key={tag} className="inline-flex items-center gap-2.5 rounded-full border border-line bg-warm px-5 py-2.5 font-sans text-[17px] font-semibold">
+                    <Check className="size-4 text-amber-deep" aria-hidden="true" />
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </Reveal>
       </div>
     </section>

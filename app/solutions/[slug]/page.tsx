@@ -16,7 +16,8 @@ const metadataBySlug: Record<string, { title: string; description: string; seoTi
   },
   "improve-website-conversion": {
     title: "Improve Website Conversion",
-    description: "Improve website conversion through clearer messaging, stronger customer journeys, practical UX changes, better forms and reliable conversion tracking.",
+    seoTitle: "Improve Website Conversion for UK Businesses | OMH",
+    description: "Find out what is stopping relevant visitors from enquiring, booking or buying. Review website conversion friction, prioritise the right changes and improve the customer journey.",
   },
   "grow-local-visibility": {
     title: "Improve Local Search Visibility",
