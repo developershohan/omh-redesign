@@ -29,6 +29,13 @@ export type SolutionPageContent = {
     intro: string;
     symptoms: { title: string; body: string }[];
   };
+  /** Optional side-by-side comparison of two options, with a highlighted recommendation. */
+  comparison?: {
+    eyebrow: string;
+    title: string;
+    options: { label: string; body: string }[];
+    verdict: { label: string; body: string };
+  };
   outcomes: {
     title: string;
     intro: string;
@@ -157,7 +164,7 @@ export const solutions: Record<string, SolutionPageContent> = {
       items: [
         { title: "Google Ads Management", href: "/google-adwords-ppc", cta: "Explore Google Ads Management", body: "Capture high-intent demand, filter irrelevant searches, and align campaigns with the enquiries your business actually wants." },
         { title: "Paid Social Advertising", href: "/social-media-paid-advertising", cta: "Explore Paid Social Advertising", body: "Reach and retarget defined audiences with creative and offers designed around the right customer profile rather than broad lead volume." },
-        { title: "Search Engine Optimisation", href: "/search-engine-optimisation", cta: "Explore SEO Services", body: "Build longer-term visibility around commercially relevant searches that match the problems, services and customers your business wants to attract." },
+        { title: "Search Engine Optimisation", href: "/seo-services", cta: "Explore SEO Services", body: "Build longer-term visibility around commercially relevant searches that match the problems, services and customers your business wants to attract." },
         { title: "WordPress Development", href: "/wordpress-development", cta: "Explore WordPress Development", body: "Build focused landing pages, clearer forms and tracking-ready website journeys when the site itself is limiting lead quality or conversion." },
       ],
     },
@@ -479,7 +486,7 @@ export const solutions: Record<string, SolutionPageContent> = {
       intro: "The right service depends on the bottleneck. Local visibility may need focused Local SEO work, broader SEO, stronger service or location pages, or paid search support while organic visibility develops.",
       items: [
         { title: "Local SEO", href: "/local-seo", cta: "Explore Local SEO", body: "Improve Google Business Profile signals, local relevance, reviews, business information and reporting when the main problem is organic local discovery." },
-        { title: "Search Engine Optimisation", href: "/search-engine-optimisation", cta: "Explore Search Engine Optimisation", body: "Fix wider technical, content and authority issues when the visibility problem extends beyond maps and local profile signals." },
+        { title: "Search Engine Optimisation", href: "/seo-services", cta: "Explore Search Engine Optimisation", body: "Fix wider technical, content and authority issues when the visibility problem extends beyond maps and local profile signals." },
         { title: "WordPress Development", href: "/wordpress-development", cta: "Explore WordPress Development", body: "Improve service and location pages, site structure, performance and enquiry routes when the website itself is limiting local growth." },
         { title: "Google Ads Management", href: "/google-adwords-ppc", cta: "Explore Google Ads Management", body: "Capture high-intent local searches with paid campaigns while longer-term organic and map visibility is being improved." },
       ],
@@ -520,40 +527,61 @@ export const solutions: Record<string, SolutionPageContent> = {
   },
   "outsource-digital-marketing": {
     slug: "outsource-digital-marketing",
-    eyebrow: "Outsourced digital marketing support",
-    title: "Add joined-up marketing capability",
-    titleAccent: "without building every role in-house",
+    // SEO brief (Oct 2026): provisional focus "outsourced digital marketing". This URL is the
+    // commercial page for that intent — don't create a second outsourced-marketing page.
+    eyebrow: "Outsourced digital marketing for UK businesses",
+    title: "Outsourced Digital Marketing",
+    titleAccent: "Support for UK Businesses",
     intro:
-      "When campaigns, SEO, content and website work sit with separate suppliers, good ideas can stall between them. OMH gives your business one accountable team to plan priorities, deliver the work and explain performance clearly.",
-    primaryCta: "Discuss outsourced marketing support",
-    secondaryCta: "See how the partnership works",
+      "Get strategy, specialist delivery and clear ownership without building every marketing role in-house. OMH works as an outsourced digital marketing team for UK businesses that need joined-up support across acquisition, content, SEO, websites and reporting.",
+    primaryCta: "Discuss Outsourced Marketing Support",
+    secondaryCta: "See How Outsourced Marketing Works",
     theme: "maintenance",
     signal: "Priorities → delivery → reporting → next decision",
     heroPoints: ["One joined-up delivery team", "Flexible specialist support", "Clear ownership and reporting"],
+    definition: {
+      title: "What Is Outsourced Digital Marketing?",
+      body: "Outsourced digital marketing means using an external team to plan, manage and deliver some or all of your digital marketing without hiring every skill in-house. The relationship can supplement an internal marketing manager, fill specialist gaps or provide a wider team across areas such as SEO, paid media, content, social, website work and reporting. The right model depends on what your business already has and where capability or delivery is breaking down.",
+      // The areas the definition names, in its order.
+      tagsLabel: "Areas it can cover",
+      tags: ["SEO", "Paid media", "Content", "Social", "Website work", "Reporting"],
+    },
     problem: {
       eyebrow: "The coordination gap",
-      title: "Marketing slows down when nobody owns the whole picture",
-      intro: "The problem is often not a lack of suppliers. It is the time spent briefing, chasing, translating reports and deciding which recommendation should happen first.",
+      title: "When Outsourced Marketing Support Makes Sense",
+      intro: "Outsourcing is most useful when the problem is not a lack of ideas but a lack of capacity, specialist skills or joined-up ownership. The warning signs usually appear when several people or suppliers are active but delivery still feels fragmented.",
       symptoms: [
-        { title: "Channels are managed in isolation", body: "Campaign, SEO and website decisions compete instead of supporting the same commercial priority." },
-        { title: "Plans outpace delivery capacity", body: "The internal team knows what should happen but lacks the specialist time to implement it consistently." },
-        { title: "Reporting creates more questions", body: "Several dashboards describe activity without giving leadership a clear next decision." },
-        { title: "Website changes become a bottleneck", body: "Campaign and content improvements wait for technical support, weakening speed and message match." },
+        { title: "Channels Are Working in Isolation", body: "Paid media, SEO, content and website decisions can move in different directions when nobody is responsible for aligning them to the same commercial priority." },
+        { title: "The Internal Team Lacks Delivery Capacity", body: "The business may know what needs to happen but lack the specialist time or available people to deliver SEO, campaigns, content, social and website changes consistently." },
+        { title: "Reporting Is Fragmented Across Suppliers", body: "Different reports can describe clicks, rankings, traffic and social activity without giving leadership one clear view of what changed, what matters and what should happen next." },
+        { title: "Website Delivery Slows the Marketing Plan", body: "Campaign, SEO and content improvements lose momentum when landing pages, tracking or website changes have to wait for separate technical support." },
       ],
     },
+    // The brief's comparison paragraph, one sentence per card.
+    comparison: {
+      eyebrow: "In-house or outsourced",
+      title: "Outsourced Digital Marketing vs Building an In-House Team",
+      options: [
+        { label: "Building in-house", body: "Hiring in-house gives you permanent internal ownership, but building a team with strategy, SEO, paid media, content, social, analytics and website skills takes time and creates fixed overhead." },
+        { label: "Outsourcing", body: "Outsourcing gives you flexible access to several specialists and can be faster to scale, but it still needs a clear internal decision-maker, access to business context and agreed responsibilities." },
+      ],
+      verdict: { label: "Often the best fit", body: "For many businesses, the best model is hybrid: keep commercial knowledge in-house and use an external team to add specialist planning and delivery capacity." },
+    },
     outcomes: {
-      title: "A practical extension of your internal team",
-      intro: "Outsourcing works best when responsibilities, decision rights and commercial priorities are explicit.",
+      title: "What a Good Outsourced Marketing Team Should Provide",
+      intro: "A useful outsourced marketing relationship should add capability without creating another layer of management. Responsibilities, priorities, approvals and reporting need to be clear from the start.",
       items: [
-        { number: "01", title: "One prioritised plan", body: "Translate business goals into a realistic sequence across acquisition, content, conversion and measurement." },
-        { number: "02", title: "Specialists when the work needs them", body: "Bring in paid media, SEO, social, development or maintenance capability without pretending every channel is always required." },
-        { number: "03", title: "Reporting that leads to action", body: "Explain what changed, what the evidence suggests and what should happen next in plain commercial language." },
+        { number: "01", title: "One Joined-Up Marketing Plan", body: "Translate commercial goals into a realistic sequence of marketing priorities across acquisition, content, SEO, conversion, websites and measurement." },
+        { number: "02", title: "Specialists Without Hiring Every Role", body: "Use the specialists the plan actually needs – such as paid media, SEO, social, development or maintenance – without carrying every role as permanent in-house headcount." },
+        { number: "03", title: "Reporting That Leads to the Next Decision", body: "Bring activity and performance into one view that explains what changed, what the evidence suggests and which decision should come next." },
       ],
     },
     media: {
       eyebrow: "Inside the partnership",
-      title: "Make the plan, delivery and decisions easy to see",
-      body: "This section can hold an approved planning-session video, a delivery-board image and an anonymised monthly report.",
+      title: "See How the Outsourced Marketing Partnership Works",
+      // The brief's text pairs this description with an instruction to use approved
+      // project-management and reporting examples; only the description is published.
+      body: "The working relationship stays clear: planning and priorities, visible delivery, agreed owners and a joined-up report that connects activity to the next commercial decision.",
       videoTitle: "Monthly strategy and performance review",
       imageTitle: "Shared priority and delivery plan",
       imageSrc: "/images/Solutions/2.jpg",
@@ -563,48 +591,55 @@ export const solutions: Record<string, SolutionPageContent> = {
       screenAlt: "Illustrative campaign report showing conversions, cost per conversion, conversion value and ROAS against the previous period."
     },
     approach: {
-      title: "How an outsourced marketing relationship is set up",
-      intro: "The first job is to create clarity about goals, people, systems and what is already in motion.",
+      title: "How Outsourced Digital Marketing Works with OMH",
+      intro: "The first step is to understand what your team already owns, where the capability gaps sit and which commercial priorities need support. The programme is then shaped around those gaps rather than a fixed channel bundle.",
       steps: [
-        { title: "Business and capability review", body: "Understand goals, customer groups, internal skills, suppliers, technology, current activity and decision-making." },
-        { title: "Agree priorities and ownership", body: "Define the first work programme, who approves it, what OMH owns and what stays with the internal team." },
-        { title: "Deliver in visible cycles", body: "Plan and complete campaign, content, website and tracking work with a shared view of progress." },
-        { title: "Review, learn and reset", body: "Use performance and business feedback to update priorities rather than repeating a fixed monthly checklist." },
+        { title: "Review Business Goals and Marketing Capability", body: "Review goals, customers, internal skills, current suppliers, systems, active marketing and how decisions are currently made." },
+        { title: "Agree Priorities, Roles and Ownership", body: "Agree the first work programme, who approves decisions, what OMH owns and which responsibilities remain with your internal team or existing suppliers." },
+        { title: "Deliver Work in Visible Cycles", body: "Plan and complete agreed campaign, SEO, content, social, website and tracking work with a shared view of priorities, owners and progress." },
+        { title: "Review Performance and Reset Priorities", body: "Use performance, business feedback and new priorities to decide what happens next instead of repeating the same channel checklist every month." },
       ],
     },
     services: {
-      title: "A team that can cover acquisition, conversion and delivery",
-      intro: "Your programme is shaped around the capability gap. These are common parts of the mix.",
+      title: "Digital Marketing Specialists Available Within the Team",
+      intro: "The mix depends on the capability gap. OMH can combine the specialist services that have a clear role in the plan while keeping priorities, ownership and reporting joined up.",
       items: [
-        { title: "Google Ads management", href: "/google-adwords-ppc", body: "Plan, manage and improve demand-capture campaigns." },
-        { title: "Search engine optimisation", href: "/search-engine-optimisation", body: "Build technical and content priorities into the wider plan." },
-        { title: "Social media marketing", href: "/social-media-marketing-services", body: "Maintain a useful, credible and consistent social presence." },
-        { title: "Website maintenance", href: "/wordpress-website-maintenance", body: "Keep implementation moving with reliable technical support." },
+        { title: "Google Ads Management", href: "/google-adwords-ppc", cta: "Explore Google Ads Management", body: "Use Google Ads to capture active search demand when paid acquisition has a clear commercial role in the programme." },
+        { title: "Search Engine Optimisation", href: "/seo-services", cta: "Explore Search Engine Optimisation", body: "Use SEO to improve technical foundations, search visibility and content priorities as part of the wider marketing plan." },
+        { title: "Social Media Marketing", href: "/social-media-marketing-services", cta: "Explore Social Media Marketing", body: "Use social media to support visibility, credibility, audience engagement and campaign activity where it contributes to the wider plan." },
+        { title: "Website Maintenance", href: "/wordpress-website-maintenance", cta: "Explore Website Maintenance", body: "Use website maintenance to keep landing pages, tracking, updates and technical changes moving without creating another delivery bottleneck." },
       ],
     },
     fit: {
-      title: "When outsourced marketing works well",
+      title: "Is Outsourced Marketing Right for Your Business?",
+      intro: "Outsourced marketing works best when your business has clear priorities, a decision-maker who can provide context and a genuine need for several connected skills. It is less effective when the business wants activity without ownership, approvals or commercial direction.",
       good: ["Leadership can set clear commercial priorities", "There is an internal decision-maker and point of contact", "You need several connected skills, not a single isolated task", "You value visible planning and honest recommendations"],
       notYet: ["No one is available to approve work", "The business wants activity without sharing commercial context", "Every channel must be used regardless of evidence", "You need an instant substitute for sales, product or operational strategy"],
     },
     proof: {
-      title: "Look at the range of problems we have worked on",
-      body: "The case-study archive shows projects spanning search, paid media and websites. It also makes source limitations visible rather than turning them into sales claims.",
+      title: "Outsourced Marketing Results and Relevant Case Studies",
+      // The brief's text is an editorial rule (prefer multi-discipline proof); this is its
+      // customer-facing version, which doesn't claim every case study is multi-service.
+      body: "Our case studies cover search, paid media and website work. Where several disciplines worked together, they show how priorities were coordinated and which verified business outcomes followed.",
       links: [
         { label: "Browse all client work", href: "/case-studies" },
         { label: "Learn more about OMH", href: "/about-us" },
       ],
     },
+    faqTitle: "Outsourced Digital Marketing Questions, Answered",
     faq: [
-      { q: "Is this a replacement for an in-house marketing manager?", a: "It can support a director or internal lead, but every relationship needs a named client-side decision-maker. We can add specialist planning and delivery capacity; we cannot replace access to business context and approvals." },
-      { q: "Do we have to outsource every marketing channel?", a: "No. A useful programme can cover only the gaps that matter. Existing staff or suppliers can remain involved if ownership, communication and access are clear." },
-      { q: "How do you decide what to work on each month?", a: "Priorities should follow commercial goals, evidence, deadlines and available capacity. We agree the work programme, report what changed and revise the next cycle when new information warrants it." },
-      { q: "Can you work with our website developer or sales team?", a: "Yes. Joined-up delivery depends on that cooperation. We define handovers and responsibilities early so recommendations do not stall between teams." },
+      { q: "Can outsourced digital marketing replace an in-house marketing manager?", a: "It can add strategic and specialist capacity, but every successful relationship still needs access to business context and a named client-side decision-maker. Some businesses use OMH alongside an internal marketing lead; others use us as the main delivery team with a director or senior manager retaining commercial ownership." },
+      { q: "Do we have to outsource all of our digital marketing?", a: "No. The programme should cover only the capability gaps that matter. Existing staff, freelancers or suppliers can stay involved where responsibilities, communication and access are clear." },
+      { q: "What are the benefits of outsourcing digital marketing?", a: "Outsourcing can give you faster access to several specialist skills, more flexible capacity and one joined-up delivery model without hiring every role in-house. The value is strongest when the outsourced team has clear commercial priorities, decision access and defined ownership." },
+      { q: "How much does outsourced digital marketing cost?", a: "Cost depends on the number of disciplines involved, the level of strategic input, delivery capacity and how much your internal team already covers. We recommend scoping the capability gap first rather than forcing every business into the same package." },
+      { q: "How do you decide what the outsourced marketing team works on each month?", a: "Priorities should follow commercial goals, evidence, deadlines and available capacity. We agree the work programme, make ownership visible, report what changed and reset priorities when new information warrants it." },
+      { q: "Can you work alongside our existing marketing, sales or website teams?", a: "Yes. Outsourced marketing often works best as a hybrid model. We define responsibilities and handovers early so internal staff, OMH and any retained suppliers can work towards the same priorities." },
     ],
     final: {
-      title: "Show us where marketing delivery is getting stuck",
-      body: "Tell us what your internal team covers, which suppliers are involved and what keeps falling between them. We will suggest a sensible shape for the support.",
-      cta: "Discuss an outsourced marketing team",
+      eyebrow: "Start with the Capability Gap",
+      title: "See What Outsourced Marketing Support Could Look Like for Your Business",
+      body: "Tell us what your internal team already covers, which suppliers are involved and where delivery or ownership keeps breaking down. We will review the capability gap and recommend a sensible shape for outsourced marketing support.",
+      cta: "Discuss an Outsourced Marketing Team",
       formNeed: "Outsourced digital marketing",
       formPrompt: "Which marketing responsibilities do you need help planning or delivering?",
     },

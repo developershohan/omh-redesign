@@ -13,7 +13,7 @@ import {
   ServiceSectionIntro as SectionIntro,
 } from "@/components/services/ServicePrimitives";
 import { Button, TextLink } from "@/components/ui/Button";
-import { Eyebrow, VerifiedSlot } from "@/components/ui/Proof";
+import { Eyebrow, ReviewProof } from "@/components/ui/Proof";
 import { MediaFrame } from "@/components/ServiceMedia";
 import { ServiceBand as Band } from "@/components/services/ServiceBand";
 import { shopifyDevelopment as content } from "@/lib/content/shopify-development";
@@ -61,14 +61,7 @@ export function ShopifyHero() {
                 <MediaFrame kind="image" theme="shopify" ratio="4/5" title="Shopify storefront feature" note="Replace with a real product, collection or storefront view from an approved client project." source="/images/Services/Shopify Development.jpg" alt="A Shopify storefront product page shown on screen." />
               </div>
             </Pointer>
-            <div className="mt-6 border-t border-line pt-5">
-              <p className="mb-3.5 text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">Proof to add before launch</p>
-              <div className="flex flex-wrap gap-2.5">
-                <VerifiedSlot>Shopify client result: pending</VerifiedSlot>
-                <VerifiedSlot>Client logos/permission: pending</VerifiedSlot>
-                <VerifiedSlot>Shopify review: pending</VerifiedSlot>
-              </div>
-            </div>
+            <ReviewProof heading="Verified client trust" className="mt-6" />
           </Reveal>
         </div>
       </div>
@@ -318,26 +311,10 @@ export function ShopifyCaseStudyFeature() {
                   <figcaption className="mt-3 text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">After</figcaption>
                 </figure>
               </div>
-              <div className="mt-6 rounded-card border border-soft-dark bg-surface/70 p-6">
-                <VerifiedSlot>Shopify case study: pending</VerifiedSlot>
-                <div className="mt-4 flex flex-wrap gap-3">
-                  <VerifiedSlot>Verified result: pending</VerifiedSlot>
-                  <VerifiedSlot>Client testimonial: pending</VerifiedSlot>
-                </div>
-              </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-8 rounded-card border border-line bg-warm/60 p-7">
-          <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">Trust signals</p>
-          <div className="mt-4 flex flex-wrap gap-3">
-            <VerifiedSlot>Shopify certification: pending</VerifiedSlot>
-            <VerifiedSlot>Trustpilot rating: pending</VerifiedSlot>
-            <VerifiedSlot>Money-back guarantee terms: pending</VerifiedSlot>
-            <VerifiedSlot>30-day support term: pending</VerifiedSlot>
-          </div>
-        </div>
       </Reveal>
     </Band>
   );

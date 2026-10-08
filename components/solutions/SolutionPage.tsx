@@ -155,6 +155,34 @@ function ProblemSection({ content }: { content: SolutionPageContent }) {
   );
 }
 
+// Optional comparison: the options as outline cards, the recommendation in ink.
+function ComparisonSection({ content }: { content: SolutionPageContent }) {
+  const comparison = content.comparison;
+  if (!comparison) return null;
+  return (
+    <section className="border-b border-line bg-warm">
+      <div className="container-omh section-md">
+        <Reveal>
+          <Eyebrow>{comparison.eyebrow}</Eyebrow>
+          <h2 className="mt-6 max-w-[22ch] font-sans text-h2 font-semibold text-balance">{comparison.title}</h2>
+          <div className="mt-12 grid grid-cols-3 gap-5 max-lg:grid-cols-1">
+            {comparison.options.map((option) => (
+              <div key={option.label} className="rounded-card border border-line bg-surface p-8 max-sm:p-6">
+                <h3 className="font-sans text-h4 font-semibold">{option.label}</h3>
+                <p className="mt-4 text-body leading-relaxed text-ink/72">{option.body}</p>
+              </div>
+            ))}
+            <div className="rounded-card bg-inverse p-8 text-oninverse max-sm:p-6">
+              <p className="text-[14px] font-semibold uppercase tracking-[0.14em] text-[#f5d394]">{comparison.verdict.label}</p>
+              <p className="mt-4 font-serif text-[clamp(19px,1.3vw,22px)] leading-[1.5] text-oninverse/90">{comparison.verdict.body}</p>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 function OutcomesSection({ content }: { content: SolutionPageContent }) {
   return (
     <section className="dark-grid border-b border-oninverse/10 bg-inverse text-oninverse">
@@ -427,6 +455,7 @@ export function SolutionPage({ content }: { content: SolutionPageContent }) {
       <SolutionHero content={content} />
       <DefinitionSection content={content} />
       <ProblemSection content={content} />
+      <ComparisonSection content={content} />
       <OutcomesSection content={content} />
       <MediaSection content={content} />
       <ApproachSection content={content} />

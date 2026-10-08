@@ -2,6 +2,9 @@
 // Phase 2). Wording, feature labels and figures must not be edited.
 // `true` = check icon on the live table, `false` = cross icon.
 
+import { amazonPpc } from "@/lib/content/amazon-ppc";
+import { facebookLanding, instagramLanding } from "@/lib/content/social-landing";
+
 export type PriceCell = string | boolean;
 export type PriceTable = {
   id: string;
@@ -27,6 +30,63 @@ const bespokeFollowUp =
   "We will be able to advise on the best package for your business during your initial 30 minute consultation. As part of your services, we will: Provide you with a dedicated account manager who will supervise the team who will be working on your project. Schedule Bi-Weekly or Monthly progress call to give you updates and review the data to give feedback.";
 const rollingShortNote =
   "*Rolling Monthly Agreement Available/Package Excludes Any Advertising Spend.";
+
+const socialManagement: PriceTable = {
+  id: "smm",
+  title: "Social Media Management Packages",
+  tiers: [
+    "Seed Social Media Marketing",
+    "Shoot Social Media Marketing",
+    "Sapling Social Media Marketing",
+  ],
+  rows: [
+    { label: "Brand Creation", values: [false, true, true] },
+    { label: "Contract Length (Months)", values: ["3", "3", "3"] },
+    { label: "Facebook Posts", values: ["8", "10", "12"] },
+    { label: "Twitter Posts", values: ["8", "12", "15"] },
+    { label: "Instagram Posts", values: [false, "10", "12"] },
+    { label: "LinkedIn Posts", values: [false, "2", "3"] },
+    { label: "Google Posts", values: [false, "0", "2"] },
+    { label: "Social Media Page Creation", values: ["1", "1", "2"] },
+    { label: "Social Media Page Optimisation", values: ["2", "2", "3"] },
+    { label: "Meetings", values: ["Monthly", "Monthly", "Monthly"] },
+    { label: "On Boarding", values: ["24 hours", "24 hours", "24 hours"] },
+    { label: "# research", values: [true, true, true] },
+    { label: "Organic Following Strategy", values: [false, true, true] },
+    { label: "Reporting", values: [true, true, true] },
+    { label: "Pricing", values: ["£450", "£700", "£900"] },
+  ],
+  notes: [
+    consultationNote,
+    "As part of your services, we will:",
+    accountManagerNote,
+    progressCallsNote,
+    rollingNote,
+  ],
+};
+
+// Facebook and Instagram marketing are sold on the social media management
+// packages, so they reuse that table under their own menu name.
+const socialAsPlatform = (id: string, title: string, notes: readonly string[]): PriceTable => ({
+  ...socialManagement,
+  id,
+  title,
+  notes: [...notes, rollingNote],
+});
+
+// Built from the Amazon PPC page so the two price lists cannot drift apart.
+type AmazonRow = readonly [string, keyof (typeof amazonPpc.packages)[number]["features"]];
+const amazonRows = amazonPpc.packageGroups.flatMap((group): AmazonRow[] => [...group.rows]);
+const amazonPpcTable: PriceTable = {
+  id: "amazon-ppc",
+  title: "Amazon PPC Advertising",
+  tiers: amazonPpc.packages.map((p) => p.name),
+  rows: [
+    ...amazonRows.map(([label, key]) => ({ label, values: amazonPpc.packages.map((p) => p.features[key]) })),
+    { label: "Pricing", values: amazonPpc.packages.map((p) => p.price) },
+  ],
+  notes: amazonPpc.pricingNotes.filter((note) => !note.startsWith("*Confirm")),
+};
 
 export const priceList = {
   eyebrow: "Pricing",
@@ -220,39 +280,9 @@ export const priceList = {
         "In our local SEO package, it’s important to note potential exclusions to set clear expectations. Local keyword research, Google My Business optimisation, citations building, on-page SEO with a local focus, and local link building may be excluded. Additionally, services such as creating location-specific content, providing detailed local SEO analytics and reporting, managing local reviews, optimising social media profiles for local reach, implementing local schema markup, and devising tailored local SEO strategies may also fall outside the package. Furthermore, Google Maps optimisation, mobile search optimisation for local queries, and optimising for local voice searches could be excluded. These exclusions allow us to offer a focused package while providing flexibility for clients seeking more comprehensive local SEO efforts.",
       ],
     },
-    {
-      id: "smm",
-      title: "Social Media Management Packages",
-      tiers: [
-        "Seed Social Media Marketing",
-        "Shoot Social Media Marketing",
-        "Sapling Social Media Marketing",
-      ],
-      rows: [
-        { label: "Brand Creation", values: [false, true, true] },
-        { label: "Contract Length (Months)", values: ["3", "3", "3"] },
-        { label: "Facebook Posts", values: ["8", "10", "12"] },
-        { label: "Twitter Posts", values: ["8", "12", "15"] },
-        { label: "Instagram Posts", values: [false, "10", "12"] },
-        { label: "LinkedIn Posts", values: [false, "2", "3"] },
-        { label: "Google Posts", values: [false, "0", "2"] },
-        { label: "Social Media Page Creation", values: ["1", "1", "2"] },
-        { label: "Social Media Page Optimisation", values: ["2", "2", "3"] },
-        { label: "Meetings", values: ["Monthly", "Monthly", "Monthly"] },
-        { label: "On Boarding", values: ["24 hours", "24 hours", "24 hours"] },
-        { label: "# research", values: [true, true, true] },
-        { label: "Organic Following Strategy", values: [false, true, true] },
-        { label: "Reporting", values: [true, true, true] },
-        { label: "Pricing", values: ["£450", "£700", "£900"] },
-      ],
-      notes: [
-        consultationNote,
-        "As part of your services, we will:",
-        accountManagerNote,
-        progressCallsNote,
-        rollingNote,
-      ],
-    },
+    socialManagement,
+    socialAsPlatform("facebook", "Facebook Marketing", facebookLanding.packages.notes),
+    socialAsPlatform("instagram", "Instagram Marketing", instagramLanding.packages.notes),
     {
       id: "smp",
       title: "Social Media Paid Advertising",
@@ -282,70 +312,8 @@ export const priceList = {
         "These packages include copy writing and content creation. The content we create will be inline with your existing brand if you don’t have a brand pallet we can help guide you with this or you can invest in a Branding Package. Our Social Media Marketing packages do not included as standard brand pallet creation so your account manager will discuss the packages available for this service should you need this.",
         "All designs for social media creative come with 1 review. We may use the same content across different platforms but will make sure it is optimised accordingly. The above packages are on a minimum 3 month basis.",
       ],
-    },
-    {
-      id: "logo",
-      title: "Logo Design",
-      tiers: ["Logo Seed", "Logo Shoot", "Logo Sapling"],
-      rows: [
-        { label: "Account Manager", values: [true, true, true] },
-        { label: "Professional Logo", values: [true, true, true] },
-        { label: "Number of Concepts", values: ["1", "1", "2"] },
-        { label: "Number of Revisions", values: ["1", "2", "3"] },
-        { label: "Source File", values: [false, true, true] },
-        { label: "Logo Transparency", values: [true, true, true] },
-        { label: "High Resolution", values: [true, true, true] },
-        { label: "3D Mockup", values: [false, true, true] },
-        { label: "Stationary Designs", values: [false, true, true] },
-        { label: "Social Media Kit", values: [false, true, true] },
-        { label: "Vector File", values: [false, true, true] },
-        { label: "Meetings", values: ["Monthly", "Monthly", "Monthly"] },
-        { label: "On Boarding", values: ["24 hours", "24 hours", "24 hours"] },
-        { label: "Reporting", values: [true, true, true] },
-        { label: "Conversion Optimisation", values: [false, false, true] },
-        { label: "Consultancy", values: [false, false, true] },
-        { label: "Pricing", values: ["£750", "£950", "£1600"] },
-      ],
-      notes: [bespokeNote, bespokeFollowUp, rollingShortNote],
-    },
-    {
-      id: "brochure",
-      title: "Brochure Design Packages",
-      tiers: ["Brochure Seed", "Brochure Shoot", "Brochure Sapling"],
-      rows: [
-        { label: "Number of pages", values: ["6", "12", "24"] },
-        { label: "Account Manager", values: [true, true, true] },
-        { label: "Number of Concepts", values: ["1", "1", "2"] },
-        { label: "Number of Revisions", values: ["1", "2", "3"] },
-        { label: "Source File", values: [true, true, true] },
-        { label: "High Resolution", values: [true, true, true] },
-        { label: "Photo Editing", values: [false, true, true] },
-        { label: "Vector File", values: [false, true, true] },
-        { label: "On Boarding", values: ["24 hours", "24 hours", "24 hours"] },
-        { label: "Reporting", values: [true, true, true] },
-        { label: "Conversion Optimisation", values: [false, false, true] },
-        { label: "Consultancy", values: [false, false, true] },
-        { label: "Pricing", values: ["£450", "£660", "£1060"] },
-      ],
-      notes: [bespokeNote, bespokeFollowUp, rollingShortNote],
-    },
-    {
-      id: "writing",
-      title: "Writing Packages",
-      tiers: ["Writing Seed", "Writing Shoot", "Writing Sapling"],
-      rows: [
-        { label: "Number of Words", values: ["300", "1000", "2500"] },
-        { label: "Keyword Research", values: [false, false, true] },
-        { label: "Focus Keywords", values: ["1", "1", "2"] },
-        { label: "Number of Revisions", values: ["1", "2", "3"] },
-        { label: "On Boarding", values: ["24 hours", "24 hours", "24 hours"] },
-        { label: "Turn around time", values: ["7 Days", "7 Days", "7 Days"] },
-        { label: "SEO Optimisation", values: [true, true, true] },
-        { label: "Competitor Research", values: [false, false, true] },
-        { label: "Pricing", values: ["£450", "£660", "£1060"] },
-      ],
-      notes: [bespokeNote, bespokeFollowUp, rollingShortNote],
-    },
+    },
+    amazonPpcTable,
     {
       id: "Shopify",
       title: "Shopify Development",

@@ -7,7 +7,6 @@ import { shopifyDevelopment } from "@/lib/content/shopify-development";
 import { wordpressMaintenance } from "@/lib/content/wordpress-maintenance";
 import { googleAdsPpc } from "@/lib/content/google-ads-ppc";
 import { amazonPpc } from "@/lib/content/amazon-ppc";
-import { searchEngineOptimisation } from "@/lib/content/search-engine-optimisation";
 import { localSeo } from "@/lib/content/local-seo";
 import { socialMediaMarketing } from "@/lib/content/social-media-marketing";
 import { socialMediaPaidAdvertising } from "@/lib/content/social-media-paid-advertising";
@@ -30,6 +29,10 @@ export const organisation = {
   "@id": `${SITE}/#organisation`,
   name: company.name,
   url: `${SITE}/`,
+  logo: `${SITE}/images/logo-dark.png`,
+  description:
+    "Full-service digital marketing agency for UK service businesses and ecommerce brands: Google Ads, Meta Ads, SEO, websites and reporting under one roof.",
+  foundingDate: "2019",
   telephone: company.phoneDisplay,
   email: company.email,
   address: {
@@ -89,7 +92,7 @@ function serviceSchema(name: string, description: string, path: string, offers?:
 type Faqs = readonly (readonly string[] | { readonly q: string; readonly a: string })[];
 
 /** Only ever pass FAQs that are visible on the page (brief §25). */
-function faqSchema(faqs: Faqs) {
+export function faqSchema(faqs: Faqs) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -158,11 +161,6 @@ const services: Record<string, { name: string; description: string; faqs: Faqs; 
     name: "Amazon PPC Management",
     description: "Amazon PPC management for UK sellers, covering Sponsored Products, Sponsored Brands, Sponsored Display, campaign structure and ad spend control.",
     faqs: amazonPpc.faqs,
-  },
-  "/search-engine-optimisation": {
-    name: "Search Engine Optimisation",
-    description: "SEO services for UK businesses covering audits, keyword research, technical SEO, on-page optimisation, content architecture and reporting.",
-    faqs: searchEngineOptimisation.faqs,
   },
   "/local-seo": {
     name: "Local SEO",

@@ -180,8 +180,7 @@ export const socialLanding = {
     links: [
       { label: "Social Media Management", href: "/social-media-marketing-services" },
       { label: "Google Paid Advertising", href: "/google-adwords-ppc" },
-      { label: "Graphic Design", href: "/logo-design" },
-      { label: "Search Engine Optimisation", href: "/search-engine-optimisation" },
+      { label: "Search Engine Optimisation", href: "/seo-services" },
       { label: "Website Maintenance", href: "/wordpress-website-maintenance" },
       { label: "WordPress Development", href: "/wordpress-development" },
     ],

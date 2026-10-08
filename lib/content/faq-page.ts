@@ -53,10 +53,6 @@ export const faqPage = {
             "Search Engine Optimizaton",
             "Local SEO",
             "Social Media Management",
-            "Graphic Design",
-            "Logo Design",
-            "Brochure Design",
-            "Writing",
           ],
         },
         {

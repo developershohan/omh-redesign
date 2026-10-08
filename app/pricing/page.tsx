@@ -8,7 +8,7 @@ import {
 export const metadata: Metadata = {
   title: "All Services Price List",
   description:
-    "Published package pricing for every Online Marketing Help service: WordPress and Shopify development, website maintenance, PPC, SEO, local SEO, social media, logo, brochure and copywriting.",
+    "Published package pricing for every Online Marketing Help service: WordPress and Shopify development, website maintenance, Google Ads, Amazon PPC, SEO, local SEO, social media management, Facebook, Instagram and paid social.",
   alternates: { canonical: "https://onlinemarketinghelp.co.uk/all-services-price-list/" },
 };
 

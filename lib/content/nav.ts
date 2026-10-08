@@ -32,8 +32,6 @@ const serviceColumns: NavColumn[] = [
     links: [
       { label: "Local SEO", href: "/local-seo", ready: true },
       { label: "SEO Services", href: "/seo-services", ready: true },
-      { label: "Best Local SEO Services", href: "/best-local-seo-services", ready: true },
-      { label: "Search Engine Optimisation", href: "/search-engine-optimisation", ready: true },
     ],
   },
   {
@@ -101,7 +99,6 @@ export const readyPages: NavLink[] = [
   { label: "WordPress Maintenance", href: "/wordpress-website-maintenance", ready: true },
   { label: "Google Ads PPC", href: "/google-adwords-ppc", ready: true },
   { label: "Amazon PPC Advertising", href: "/amazon-ppc-advertising-agency-uk", ready: true },
-  { label: "Search Engine Optimisation", href: "/search-engine-optimisation", ready: true },
   { label: "Local SEO", href: "/local-seo", ready: true },
   { label: "Social Media Marketing", href: "/social-media-marketing-services", ready: true },
   { label: "Paid Social Advertising", href: "/social-media-paid-advertising", ready: true },
@@ -121,7 +118,6 @@ export const readyPages: NavLink[] = [
   { label: "Cookie Policy", href: "/cookies", ready: true },
   { label: "Terms & Conditions", href: "/terms", ready: true },
   { label: "SEO Services", href: "/seo-services", ready: true },
-  { label: "Best Local SEO Services", href: "/best-local-seo-services", ready: true },
   { label: "Facebook Marketing", href: "/facebook-marketing-agency", ready: true },
   { label: "Instagram Marketing", href: "/instagram-marketing-agency", ready: true },
 ];
@@ -146,7 +142,7 @@ export const company = {
   address: "The Hut, Central Ave, Hullbridge SS5 6AU", // ◈ confirm current
   companyNo: "12328533", // ◈ confirm
   positioning:
-    "Marketing and development under one roof, for UK service businesses and ecommerce brands.",
+    "Full-service digital marketing and web development for UK service businesses and ecommerce brands.",
 };
 
 // Footer link groups after the brand intro: the first three service groups as

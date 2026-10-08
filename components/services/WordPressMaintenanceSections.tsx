@@ -12,7 +12,7 @@ import {
   ServiceSectionIntro as SectionIntro,
 } from "@/components/services/ServicePrimitives";
 import { Button, TextLink } from "@/components/ui/Button";
-import { Eyebrow, Fpo, VerifiedSlot } from "@/components/ui/Proof";
+import { Eyebrow, Fpo, ReviewProof } from "@/components/ui/Proof";
 import { MediaFrame } from "@/components/ServiceMedia";
 import { ServiceBand as Band } from "@/components/services/ServiceBand";
 import { wordpressMaintenance as content } from "@/lib/content/wordpress-maintenance";
@@ -83,16 +83,7 @@ export function MaintenanceHero() {
                 />
               </div>
             </Pointer>
-            <div className="mt-6 border-t border-line pt-5">
-              <p className="mb-3.5 text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
-                Proof to add before launch
-              </p>
-              <div className="flex flex-wrap gap-2.5">
-                <VerifiedSlot>Relevant client review: pending</VerifiedSlot>
-                <VerifiedSlot>Response terms: pending</VerifiedSlot>
-                <VerifiedSlot>Real maintenance result: pending</VerifiedSlot>
-              </div>
-            </div>
+            <ReviewProof heading="WordPress support with verified trust" className="mt-6" />
           </Reveal>
         </div>
       </div>
@@ -471,23 +462,7 @@ export function MaintenanceProofSection() {
                   title="Maintenance report or fix"
                   note="Use an approved result, report or resolved screen." source="/images/Services/Images on the pages/After website maintenance.png" alt="Illustrative WordPress dashboard after maintenance" />
               </div>
-              <div className="mt-6 rounded-card border border-soft-dark bg-surface/70 p-6">
-                <VerifiedSlot>WordPress maintenance case study: pending</VerifiedSlot>
-                <div className="mt-4 flex flex-wrap gap-3">
-                  <VerifiedSlot>Verified result: pending</VerifiedSlot>
-                  <VerifiedSlot>Client testimonial: pending</VerifiedSlot>
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
-        <div className="mt-8 rounded-card border border-line bg-warm/60 p-7">
-          <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">Trust signals</p>
-          <div className="mt-4 flex flex-wrap gap-3">
-            <VerifiedSlot>24/7 support & monitoring terms: pending</VerifiedSlot>
-            <VerifiedSlot>Two-hour response terms: pending</VerifiedSlot>
-            <VerifiedSlot>Security guarantee terms: pending</VerifiedSlot>
-            <VerifiedSlot>30-day warranty terms: pending</VerifiedSlot>
           </div>
         </div>
       </Reveal>

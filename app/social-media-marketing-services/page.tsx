@@ -45,7 +45,7 @@ export default function SocialMediaMarketingPage() {
         body="Social media marketing services work best when the brand, landing experience and connected acquisition channels tell the same story."
         links={[
           { title: "Google Ads Management", href: "/google-adwords-ppc", body: "Coordinate paid search with the offers and landing pages promoted through social." },
-          { title: "Search Engine Optimisation", href: "/search-engine-optimisation", body: "Build lasting organic visibility around the same audience needs and topics." },
+          { title: "Search Engine Optimisation", href: "/seo-services", body: "Build lasting organic visibility around the same audience needs and topics." },
           { title: "WordPress Development", href: "/wordpress-development", body: "Improve the pages and conversion journeys visitors reach from social content." },
         ]}
       />

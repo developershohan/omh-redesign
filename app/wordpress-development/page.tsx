@@ -63,7 +63,7 @@ export default function WordPressDevelopmentPage() {
           },
           {
             title: "Search Engine Optimisation",
-            href: "/search-engine-optimisation",
+            href: "/seo-services",
             body: "Plan search intent, content architecture, technical requirements and internal links alongside the build.",
           },
         ]}

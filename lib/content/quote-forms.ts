@@ -208,31 +208,6 @@ export const wordpressMaintenanceRequestQuote: QuoteFormPage = {
   },
 };
 
-export const webContentWritingRequestQuote: QuoteFormPage = {
-  slug: "web-content-writing-request-quote",
-  thankYou: "/contact-us-thank-you", // ◈ inferred: no writing-specific thank-you page exists live
-  title: "WEB CONTENT WRITING Request Quote",
-  intro:
-    "Please fill out the form below to schedule a free consultation to discuss your options for your WEB CONTENT WRITING project.",
-  callHeading,
-  submitLabel: "Submit Enquiry",
-  notes: quoteNotes,
-  groups: packageQuoteGroups([
-    "SEED (From £99 Per Month + VAT)",
-    "SAPLING (From £200 Per Month + VAT)",
-    "WOODS (From £400 Per Month + VAT)",
-  ]),
-  design: {
-    labelStyle: "plain",
-    accent: "bg-amber",
-  },
-  seo: {
-    title: "Web Content Writing Request Quote",
-    description:
-      "Request a web content writing quote. Pick a writing package and book a free consultation about the pages and posts you need.",
-  },
-};
-
 export const socialPaidRequestQuote: QuoteFormPage = {
   slug: "social-media-paid-marketing-request-quote",
   thankYou: "/contact-us-thank-you", // ◈ inferred: no paid-social thank-you page exists live
@@ -565,8 +540,7 @@ export const quoteFormPages: QuoteFormPage[] = [
   ppcRequestQuote,
   seoRequestQuote,
   wordpressDevelopmentRequestQuote,
-  wordpressMaintenanceRequestQuote,
-  webContentWritingRequestQuote,
+  wordpressMaintenanceRequestQuote,
   socialPaidRequestQuote,
   facebookAdsQuestionnaire,
   newWebsiteQuestionnaire,

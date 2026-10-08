@@ -290,6 +290,6 @@ export const shopifyDevelopment = {
     ["How much does Shopify development cost?", "The published packages on this page start at £300. [Recent ecommerce projects](/case-studies) give a sense of typical scope. Migrations, integrations, custom apps and other advanced functionality need a confirmed scope before a final proposal is issued."],
     ["What happens if the project scope or cost changes?", "Any requirement that changes the agreed scope should be explained and approved before extra work begins, so the commercial effect is understood."],
     ["Do you provide Shopify support after launch?", "Thirty days of complimentary support begins at handover, with extended support available afterwards. Longer support is scoped alongside the project."],
-    ["Can you support Shopify SEO and marketing?", "Yes. We also provide [SEO services](/search-engine-optimisation) and [paid social advertising](/social-media-paid-advertising), so development can be planned with product discovery, landing pages and campaign tracking in mind."],
+    ["Can you support Shopify SEO and marketing?", "Yes. We also provide [SEO services](/seo-services) and [paid social advertising](/social-media-paid-advertising), so development can be planned with product discovery, landing pages and campaign tracking in mind."],
   ],
 };

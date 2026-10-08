@@ -34,7 +34,7 @@ export const caseStudyServices: Record<
   CaseStudyServiceId,
   { label: string; href: string }
 > = {
-  seo: { label: "Search Engine Optimisation", href: "/search-engine-optimisation" },
+  seo: { label: "Search Engine Optimisation", href: "/seo-services" },
   "google-ads": { label: "Google Ads PPC Management", href: "/google-adwords-ppc" },
   wordpress: { label: "WordPress Development", href: "/wordpress-development" },
   shopify: { label: "Shopify Development", href: "/shopify-development" },

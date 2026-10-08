@@ -8,9 +8,8 @@ import { priceList, type PriceCell, type PriceTable } from "@/lib/content/price-
 
 const groups = [
   { id: "websites", title: "Websites & maintenance", description: "Build a website, launch a store or look after the site you have.", services: ["wordpress", "Shopify", "maintenence", "website-designs"] },
-  { id: "search", title: "Search & advertising", description: "Reach people searching for your business, locally and beyond.", services: ["seo", "local-seo", "ppc"] },
-  { id: "social", title: "Social media", description: "Compare ongoing content management with paid social campaigns.", services: ["smm", "smp"] },
-  { id: "creative", title: "Design & content", description: "Get the brand assets and written content your business needs.", services: ["logo", "brochure", "writing"] },
+  { id: "search", title: "Search & advertising", description: "Reach people searching for your business, locally and beyond.", services: ["seo", "local-seo", "ppc", "amazon-ppc"] },
+  { id: "social", title: "Social media", description: "Compare ongoing content management with paid social campaigns.", services: ["smm", "facebook", "instagram", "smp"] },
 ];
 
 function Value({ value }: { value: PriceCell }) {

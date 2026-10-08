@@ -10,7 +10,7 @@ import {
   FeatureValue,
 } from "@/components/services/ServicePrimitives";
 import { Button, TextLink } from "@/components/ui/Button";
-import { Eyebrow, VerifiedSlot } from "@/components/ui/Proof";
+import { Eyebrow, ReviewProof } from "@/components/ui/Proof";
 import { amazonPpc as content } from "@/lib/content/amazon-ppc";
 
 type Package = (typeof content.packages)[number];
@@ -67,10 +67,7 @@ export function AmazonPpcHero() {
                 <MediaFrame kind="screen" theme="amazon" ratio="16/11" title="Amazon advertising account view" note="Replace with an approved, anonymised account showing date range, spend and attributed sales." source="/images/Services/Amazon PPC 1 (1).png" alt="Amazon PPC agency reviewing an account diagnosis on a laptop beside printed performance charts" />
               </div>
             </Pointer>
-            <div className="mt-6 flex flex-wrap gap-2.5 border-t border-line pt-5">
-              <VerifiedSlot>Amazon PPC case study: pending</VerifiedSlot>
-              <VerifiedSlot>Approved client review: pending</VerifiedSlot>
-            </div>
+            <ReviewProof heading="Amazon PPC with verified client trust" className="mt-6" />
           </Reveal>
         </div>
       </div>
@@ -223,7 +220,7 @@ export function AmazonProofGuide() {
           <div className="col-span-5 max-lg:mb-9">
             <p className="text-[14px] font-semibold uppercase tracking-[0.15em] text-[#ffb84d]">Before increasing spend</p>
             <h2 className="mt-5 max-w-[15ch] font-sans text-h2 font-semibold">Use a real account story, with the measurement explained.</h2>
-            <p className="mt-5 text-body leading-relaxed text-oninverse/68">An approved Amazon example belongs here, stating the products, date range, spend, attribution window and commercial context. [VERIFIED CASE STUDY REQUIRED]</p>
+            <p className="mt-5 text-body leading-relaxed text-oninverse/68">Every Amazon example we share states the products, date range, spend, attribution window and commercial context, so the result can be read in proportion.</p>
             <ul className="mt-7 grid gap-3 border-t border-oninverse/12 pt-5 text-body text-oninverse/72">
               {["Starting account and catalogue context", "Campaign and listing work completed", "Spend and comparison period", "Verified outcome with metric definitions"].map((item) => <li key={item} className="flex gap-3"><Check className="mt-0.5 size-4 shrink-0 text-[#ffb84d]" />{item}</li>)}
             </ul>
@@ -231,7 +228,6 @@ export function AmazonProofGuide() {
           </div>
           <div className="col-span-7">
             <MediaFrame kind="image" theme="amazon" ratio="16/10" title="Verified Amazon PPC case study" note="Replace with approved product imagery and a comparable before-and-after account view." source="/images/Services/Images on the pages/Verified Amazon PPC case study.png" alt="An Amazon PPC case-study summary showing spend, sales, ACoS, orders and ROAS for a single product over a 30-day period." />
-            <div className="mt-5 flex flex-wrap gap-2"><VerifiedSlot>Client approval: pending</VerifiedSlot><VerifiedSlot>Result method: pending</VerifiedSlot></div>
           </div>
         </div>
       </Reveal>

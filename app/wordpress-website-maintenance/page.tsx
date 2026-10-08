@@ -56,7 +56,7 @@ export default function WordPressWebsiteMaintenancePage() {
           },
           {
             title: "Search Engine Optimisation",
-            href: "/search-engine-optimisation",
+            href: "/seo-services",
             body: "Connect ongoing WordPress maintenance services with crawl, index, content and internal-linking priorities.",
           },
           {

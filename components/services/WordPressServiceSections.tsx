@@ -13,7 +13,7 @@ import {
   ServiceSectionIntro as SectionIntro,
 } from "@/components/services/ServicePrimitives";
 import { Button, TextLink } from "@/components/ui/Button";
-import { Eyebrow, Fpo, VerifiedSlot } from "@/components/ui/Proof";
+import { Eyebrow, Fpo, ReviewProof } from "@/components/ui/Proof";
 import { MediaFrame } from "@/components/ServiceMedia";
 import { ServiceBand as Band } from "@/components/services/ServiceBand";
 import { wordpressDevelopment as content } from "@/lib/content/wordpress-development";
@@ -91,19 +91,7 @@ export function ServiceHero() {
                 />
               </div>
             </Pointer>
-            {/* One caption, then the slots. The previous ruled rows paired a
-                "Review score" label with a "[CLIENT REVIEW SCORE REQUIRED]" chip,
-                which said the same thing twice in the busiest part of the page. */}
-            <div className="mt-6 border-t border-line pt-5">
-              <p className="mb-3.5 text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">
-                Proof to add before launch
-              </p>
-              <div className="flex flex-wrap gap-2.5">
-                <VerifiedSlot>Client review score: pending</VerifiedSlot>
-                <VerifiedSlot>Client logos/permission: pending</VerifiedSlot>
-                <VerifiedSlot>Real website result: pending</VerifiedSlot>
-              </div>
-            </div>
+            <ReviewProof heading="Proven WordPress experience" className="mt-6" />
           </Reveal>
         </div>
       </div>
@@ -503,13 +491,6 @@ export function CaseStudyFeature() {
               <div className="grid grid-cols-2 gap-5 max-sm:grid-cols-1">
                 <Fpo ratio="4/3" tag="Before" title="Before website screenshot" note="Use the real previous website screen." source="/images/Services/shopify/before.png" alt="Illustrative website layout before redesign" />
                 <Fpo ratio="4/3" tag="After" title="After website screenshot" note="Use the real launched website screen." source="/images/Services/shopify/after.png" alt="Illustrative website layout after redesign" />
-              </div>
-              <div className="mt-6 rounded-card border border-soft-dark bg-surface/70 p-6">
-                <VerifiedSlot>WordPress case study: pending</VerifiedSlot>
-                <div className="mt-4 flex flex-wrap gap-3">
-                  <VerifiedSlot>Verified result: pending</VerifiedSlot>
-                  <VerifiedSlot>Client testimonial: pending</VerifiedSlot>
-                </div>
               </div>
             </div>
           </div>

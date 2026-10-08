@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "@/components/ui/SiteImage";
 import Link from "next/link";
 import {
@@ -12,7 +13,10 @@ import {
   MousePointerClick,
   Quote,
   Search,
+  ShoppingBag,
+  Store,
   Target,
+  Users,
   Zap,
   type LucideIcon,
 } from "lucide-react";
@@ -20,20 +24,43 @@ import { Reveal } from "@/components/Reveal";
 import { Pointer } from "@/components/Pointer";
 import { ArrowRight, Button } from "@/components/ui/Button";
 import { FinalCta } from "@/components/ui/FinalCta";
+import { Accordion } from "@/components/ui/Accordion";
+import { withLinks } from "@/components/services/ServicePrimitives";
+import { faqSchema, JsonLd } from "@/lib/schema";
 import {
   difference,
   featuredCase,
+  featuredHeading,
   finalCta,
   hero,
+  homeFaqs,
+  homeMeta,
   programs,
   recognition,
   services,
   stats,
   supportingCases,
   testimonials,
+  whoWeWorkWith,
 } from "@/lib/content/home";
 import { getFeaturedInsights } from "@/lib/sanity/insights";
 import { insightHref } from "@/lib/content/insights-types";
+
+export const metadata: Metadata = {
+  title: { absolute: homeMeta.title },
+  description: homeMeta.description,
+  alternates: { canonical: "https://onlinemarketinghelp.co.uk/" },
+  openGraph: {
+    title: homeMeta.title,
+    description: homeMeta.ogDescription,
+    url: "https://onlinemarketinghelp.co.uk/",
+    siteName: "Online Marketing Help",
+    locale: "en_GB",
+    type: "website",
+  },
+};
+
+const whoIcons: LucideIcon[] = [Store, ShoppingBag, Layers3, Users];
 
 function StarRating({ label }: { label: string }) {
   return (
@@ -89,9 +116,9 @@ export default async function Home() {
       <section className="hero-grid relative overflow-x-clip border-b border-line bg-warm">
         <div className="container-omh grid min-h-[680px] grid-cols-[minmax(0,0.92fr)_minmax(440px,0.78fr)] items-center gap-[clamp(48px,7vw,116px)] py-[clamp(40px,3.5vw,60px)] max-lg:min-h-0 max-lg:grid-cols-1 max-lg:gap-8 max-sm:gap-8">
           <Reveal className="relative z-10">
-            <StarRating label="Growth-focused UK agency" />
+            <StarRating label={hero.eyebrow} />
             <h1 className="mb-7 mt-8 max-w-[14ch] font-sans text-display font-semibold max-lg:max-w-none">
-              Digital marketing and WordPress support for <span className="text-amber-deep">UK businesses</span>
+              Full-service digital marketing agency for <span className="text-amber-deep">UK businesses</span>
             </h1>
             <p className="mb-10 max-w-[59ch] text-body leading-relaxed text-ink/75 max-lg:max-w-none">
               {hero.standfirst}
@@ -120,7 +147,7 @@ export default async function Home() {
               <div className="image-hover-frame media-shine relative aspect-[4/5] overflow-hidden rounded-[8px] bg-inverse shadow-[0_36px_90px_-42px_rgb(16_24_40/0.48)] max-lg:aspect-[16/10] max-sm:aspect-[4/5]">
                 <Image
                   src="/images/home/campaign-review.png"
-                  alt="Digital strategists reviewing campaign and website performance"
+                  alt="Full-service digital marketing agency team reviewing campaign and website performance"
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 44vw"
@@ -153,11 +180,11 @@ export default async function Home() {
                 Our programs
               </p>
               <h2 className="mt-5 font-sans text-h2 font-semibold">
-                Marketing programs <span className="text-[#f2c675]">built for growth</span>
+                Digital marketing programs for <span className="text-[#f2c675]">growing UK businesses</span>
               </h2>
               <p className="mx-auto mt-5 max-w-[850px] text-body leading-relaxed text-oninverse/68">
-                Choose the starting point that fits your business. Every program joins acquisition,
-                conversion, development, and reporting around one outcome.
+                Pick the starting point that matches your goal. Each program brings paid ads, SEO,
+                website work and reporting together, so every channel pushes towards the same result.
               </p>
             </div>
 
@@ -207,11 +234,11 @@ export default async function Home() {
             <div className="lg:sticky lg:top-24">
               <SectionLabel>Success stories</SectionLabel>
               <h2 className="mt-6 max-w-[15ch] font-sans text-h2 font-semibold">
-                Proof should sit beside <span className="text-amber-deep">the work, not below it</span>
+                Results from our <span className="text-amber-deep">digital marketing clients</span>
               </h2>
               <p className="mt-5 text-body leading-relaxed text-ink/75">
-                Campaign thinking, web design, and reporting come together in one view of what
-                each project actually achieved.
+                Real projects across hospitality, retail, automotive and ecommerce, showing how SEO,
+                content and website work came together to grow traffic and enquiries.
               </p>
               <div className="mt-8">
                 <Button href="/case-studies" variant="secondary" arrow>
@@ -224,8 +251,8 @@ export default async function Home() {
               <Pointer className="media-card group overflow-hidden rounded-[8px] bg-inverse text-oninverse">
                 <div className="image-hover-frame media-shine pointer-parallax relative aspect-[4/3] overflow-hidden">
                   <Image
-                    src="/images/Services/Amazon PPC.png"
-                    alt="Two marketers reviewing campaign performance charts together at a desk"
+                    src="/images/case-studies/restaurant.webp"
+                    alt="A restaurant table set for dinner"
                     fill
                     sizes="(max-width: 1024px) 100vw, 58vw"
                     className="object-cover"
@@ -237,7 +264,7 @@ export default async function Home() {
                     <p className="text-[18px] font-semibold uppercase tracking-[0.12em] text-amber">
                       Featured work
                     </p>
-                    <h3 className="mt-3 font-sans text-[28px] font-semibold">{featuredCase.sector}</h3>
+                    <h3 className="mt-3 font-sans text-[28px] font-semibold leading-tight">{featuredHeading}</h3>
                   </div>
                   <div>
                     <p className="text-body leading-relaxed text-oninverse/78">{featuredCase.work}</p>
@@ -277,7 +304,7 @@ export default async function Home() {
                 <div className="image-hover-frame media-shine relative aspect-[5/4] overflow-hidden rounded-[8px] border border-oninverse/10 bg-black shadow-[0_34px_80px_-32px_rgb(0_0_0/0.78)] max-sm:aspect-[4/5]">
                   <Image
                     src="/images/home/agency-collaboration.png"
-                    alt="Digital agency team collaborating on web design and analytics"
+                    alt="Online Marketing Help team planning a digital marketing strategy"
                     fill
                     sizes="(max-width: 1024px) 100vw, 52vw"
                     className="object-cover"
@@ -286,7 +313,7 @@ export default async function Home() {
                 <div className="image-hover-frame media-shine absolute bottom-0 left-[-22px] h-[42%] w-[43%] overflow-hidden rounded-[8px] border-4 border-teal bg-inverse shadow-[0_24px_60px_-24px_rgb(0_0_0/0.8)] max-sm:left-0 max-sm:h-[34%] max-sm:w-[50%] max-sm:border-[3px]">
                   <Image
                     src="/images/Solutions/1.jpg"
-                    alt="A WordPress build being planned on screen beside a sitemap sketch"
+                    alt="WordPress website build being planned beside a sitemap sketch"
                     fill
                     sizes="(max-width: 640px) 42vw, 22vw"
                     className="object-cover"
@@ -304,11 +331,12 @@ export default async function Home() {
                   Why choose us
                 </p>
                 <h2 className="mt-6 font-sans text-h2 font-semibold">
-                  A senior team for <span className="text-[#f2c675]">connected digital growth</span>
+                  Why UK businesses choose <span className="text-[#f2c675]">a full-service agency</span>
                 </h2>
                 <p className="mt-6 text-body leading-relaxed text-oninverse/70">
-                  The strongest work happens when strategy, creative, acquisition, conversion, and
-                  reporting are handled together instead of passed between disconnected suppliers.
+                  When strategy, ads, SEO, design and reporting sit with separate suppliers, things get
+                  missed and budget gets wasted. With one senior team handling all of it, every channel
+                  works from the same plan and the same numbers.
                 </p>
                 <div className="mt-9 border-t border-oninverse/15">
                   {difference.slice(0, 3).map((item, index) => (
@@ -340,13 +368,16 @@ export default async function Home() {
                 <Link
                   key={service.label}
                   href={service.href}
-                  className="service-row group grid grid-cols-[72px_1fr_auto] items-center gap-5 border-b border-line py-7 max-sm:grid-cols-[36px_1fr_auto] max-sm:gap-3"
+                  className="service-row group grid grid-cols-[72px_1fr_auto] items-center gap-5 border-b border-line py-6 max-sm:grid-cols-[36px_1fr_auto] max-sm:gap-3"
                 >
                   <span className="font-sans text-body font-semibold text-amber-deep">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="font-sans text-[clamp(22px,20px+0.5vw,29px)] font-semibold">
-                    {service.label}
+                  <span>
+                    <span className="block font-sans text-[clamp(22px,20px+0.5vw,29px)] font-semibold">
+                      {service.label}
+                    </span>
+                    <span className="mt-1 block text-body leading-snug text-ink/65">{service.body}</span>
                   </span>
                   <CardArrow />
                 </Link>
@@ -355,10 +386,11 @@ export default async function Home() {
             <div className="order-first lg:order-last lg:sticky lg:top-24 lg:self-start">
               <SectionLabel>Services</SectionLabel>
               <h2 className="mt-6 font-sans text-h2 font-semibold">
-                Everything a <span className="text-amber-deep">growing website</span> needs around it
+                Our <span className="text-amber-deep">digital marketing services</span>
               </h2>
               <p className="mt-5 text-body leading-relaxed text-ink/75">
-                Pick a specialist service or connect several disciplines around one commercial goal.
+                Use one specialist service or combine several around a single commercial goal. The
+                same team delivers all of them, so your campaigns, website and reporting stay joined up.
               </p>
               <div className="mt-8">
                 <Button href="/services" variant="secondary" arrow>
@@ -377,11 +409,11 @@ export default async function Home() {
               <div>
                 <StarRating label="Client success stories" />
                 <h2 className="mt-6 max-w-[19ch] font-sans text-h2 font-semibold">
-                  What working with <span className="text-amber-deep">OMH should feel like</span>
+                  What our <span className="text-amber-deep">clients say</span>
                 </h2>
               </div>
               <p className="max-w-[42ch] text-body leading-relaxed text-ink/70 max-lg:mt-5">
-                Feedback drawn from published client case studies across SEO, paid media and web
+                Feedback from published client case studies across SEO, paid media and web
                 development.
               </p>
             </div>
@@ -428,11 +460,11 @@ export default async function Home() {
               <div>
                 <SectionLabel>Capability map</SectionLabel>
                 <h2 className="mt-6 font-sans text-h2 font-semibold">
-                  The platforms behind <span className="text-amber-deep">connected growth</span>
+                  The platforms we use to <span className="text-amber-deep">grow your business</span>
                 </h2>
                 <p className="mt-5 text-body leading-relaxed text-ink/70">
-                  Strategy becomes useful when every delivery channel shares the same commercial
-                  goal and the reporting is easy to act on.
+                  Every channel we run shares the same commercial goal, and the reporting ties it all
+                  together so you can act on it.
                 </p>
                 <div className="mt-9 grid grid-cols-3 border-y border-line py-5">
                   {["Acquisition", "Conversion", "Measurement"].map((label, index) => (
@@ -466,13 +498,80 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* Who we work with: carries the small-business and UK-wide keywords (brief §10). */}
+      <section className="dark-grid border-y border-oninverse/10 bg-inverse py-[clamp(72px,8vw,128px)] text-oninverse">
+        <div className="container-omh">
+          <Reveal>
+            <div className="grid grid-cols-[0.95fr_1.05fr] items-start gap-[clamp(48px,7vw,112px)] max-lg:grid-cols-1">
+              <div>
+                <p className="font-sans text-[18px] font-semibold uppercase tracking-[0.14em] text-amber">
+                  {whoWeWorkWith.eyebrow}
+                </p>
+                <h2 className="mt-6 font-sans text-h2 font-semibold">
+                  A digital marketing agency for{" "}
+                  <span className="text-[#f2c675]">small businesses and growing UK brands</span>
+                </h2>
+                <p className="mt-6 text-body leading-relaxed text-oninverse/70">{whoWeWorkWith.body}</p>
+                <p className="mt-6 border-l-2 border-amber pl-5 text-body leading-relaxed text-oninverse/85">
+                  {whoWeWorkWith.closing}
+                </p>
+                <div className="mt-9">
+                  <Button href={whoWeWorkWith.cta.href} variant="inverse" arrow data-event="home_who_cta_click">
+                    {whoWeWorkWith.cta.label}
+                  </Button>
+                </div>
+              </div>
+              <ul className="grid grid-cols-2 gap-5 max-sm:grid-cols-1">
+                {whoWeWorkWith.items.map((item, index) => {
+                  const WhoIcon = whoIcons[index] ?? Store;
+                  return (
+                    <li key={item} className="rounded-[8px] border border-oninverse/12 bg-oninverse/[0.04] p-7">
+                      <span className="grid size-12 place-items-center rounded-[8px] bg-teal/20 text-[#f5d394]">
+                        <WhoIcon className="size-6" strokeWidth={1.7} aria-hidden />
+                      </span>
+                      <p className="mt-6 font-sans text-[clamp(19px,18px+0.3vw,22px)] font-semibold leading-snug">{item}</p>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* FAQ: answers sit in the page HTML (closed <details>), and the same array
+          is published as FAQPage schema. */}
+      <section className="border-b border-line bg-warm py-[clamp(72px,8vw,128px)]">
+        <JsonLd data={faqSchema(homeFaqs)} />
+        <div className="container-omh">
+          <Reveal>
+            <div className="grid grid-cols-[0.72fr_1.28fr] gap-[clamp(48px,7vw,112px)] max-lg:grid-cols-1">
+              <div className="lg:sticky lg:top-24 lg:self-start">
+                <SectionLabel>FAQ</SectionLabel>
+                <h2 className="mt-6 font-sans text-h2 font-semibold">
+                  Frequently asked <span className="text-amber-deep">questions</span>
+                </h2>
+                <p className="mt-5 text-body leading-relaxed text-ink/70">
+                  Still have a question? Call{" "}
+                  <a href="tel:+442034893934" className="font-semibold text-amber-deep underline underline-offset-4" data-event="home_faq_phone_click">
+                    020 3489 3934
+                  </a>
+                  .
+                </p>
+              </div>
+              <Accordion group="home-faq" items={homeFaqs.map((faq) => ({ q: faq.q, a: withLinks(faq.a) }))} />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="border-t border-line bg-surface py-[clamp(72px,8vw,128px)]">
         <div className="container-omh">
           <Reveal>
             <div className="mb-12 flex items-end justify-between gap-8 max-lg:block">
               <div>
                 <SectionLabel>Latest insights</SectionLabel>
-                <h2 className="mt-6 font-sans text-h2 font-semibold">From the <span className="text-amber-deep">OMH blog</span></h2>
+                <h2 className="mt-6 font-sans text-h2 font-semibold">Latest <span className="text-amber-deep">digital marketing insights</span></h2>
               </div>
               <Button href="/insights" variant="secondary" className="max-lg:mt-6">
                 View all articles
@@ -526,8 +625,8 @@ export default async function Home() {
       </section>
 
       <FinalCta
-        title="Ready to make your marketing easier to measure and easier to scale?"
-        titleAccent="easier to scale?"
+        title={finalCta.headline}
+        titleAccent="full-service digital marketing agency?"
         body={finalCta.body}
         primary={{ label: finalCta.primary.label, href: finalCta.primary.href, event: "home_final_cta_click" }}
         secondary={{ label: finalCta.secondary.label, href: finalCta.secondary.href, event: "home_final_secondary_click" }}

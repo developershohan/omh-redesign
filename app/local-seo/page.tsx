@@ -52,7 +52,7 @@ export default function LocalSeoPage() {
         title="Useful services connected to local SEO"
         body="Local SEO services often depend on wider SEO work, clearer website pages and content that answers location-specific customer questions."
         links={[
-          { title: "Search Engine Optimisation", href: "/search-engine-optimisation", body: "Connect local SEO services with the wider technical, content and authority programme." },
+          { title: "Search Engine Optimisation", href: "/seo-services", body: "Connect local SEO services with the wider technical, content and authority programme." },
           { title: "WordPress Development", href: "/wordpress-development", body: "Build or improve service and location pages with a clear route to enquiry." },
           { title: "Website Design", href: "/website-designs", body: "Give local landing pages and service pages a structure customers can actually act on." },
         ]}

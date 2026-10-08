@@ -26,8 +26,9 @@ const metadataBySlug: Record<string, { title: string; description: string; seoTi
     description: "Find out what is limiting your local search visibility across Google Maps, your website, reviews and service areas, then prioritise the right next steps.",
   },
   "outsource-digital-marketing": {
-    title: "Outsource Your Digital Marketing",
-    description: "Add joined-up UK digital marketing support across paid media, SEO, social, website development, maintenance, planning and clear reporting.",
+    title: "Outsourced Digital Marketing Support",
+    seoTitle: "Outsourced Digital Marketing Support UK | OMH",
+    description: "Add strategy, specialist delivery and clear ownership without hiring every marketing role in-house. Explore flexible outsourced digital marketing support from OMH.",
   },
 };
 

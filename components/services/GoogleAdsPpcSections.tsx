@@ -12,7 +12,7 @@ import {
   ServiceSectionIntro as SectionIntro,
 } from "@/components/services/ServicePrimitives";
 import { Button, TextLink } from "@/components/ui/Button";
-import { Eyebrow, Fpo, VerifiedSlot } from "@/components/ui/Proof";
+import { Eyebrow, Fpo, ReviewProof } from "@/components/ui/Proof";
 import { MediaFrame } from "@/components/ServiceMedia";
 import { ServiceBand as Band } from "@/components/services/ServiceBand";
 import { googleAdsPpc as content } from "@/lib/content/google-ads-ppc";
@@ -48,14 +48,7 @@ export function PpcHero() {
           </div>
           <Reveal className="col-span-5 col-start-8">
             <Pointer><div className="pointer-parallax"><MediaFrame kind="screen" theme="ppc" ratio="16/11" title="Google Ads campaign view" note="Replace with a real, anonymised account view with spend, date range and conversion definition visible." source="/images/Services/Images on the pages/Account baseline Before.png" alt="Illustrative Google Ads account overview used by OMH, a Google Ads agency for UK businesses, showing clicks, impressions, average CPC, cost and conversions" /></div></Pointer>
-            <div className="mt-6 border-t border-line pt-5">
-              <p className="mb-3.5 text-[14px] font-semibold uppercase tracking-[0.14em] text-muted">Proof to verify before launch</p>
-              <div className="flex flex-wrap gap-2.5">
-                <VerifiedSlot>Google partner status: pending</VerifiedSlot>
-                <VerifiedSlot>PPC client result: pending</VerifiedSlot>
-                <VerifiedSlot>Approved client review: pending</VerifiedSlot>
-              </div>
-            </div>
+            <ReviewProof heading="Google Ads experience with verified client trust" className="mt-6" />
           </Reveal>
         </div>
       </div>
@@ -228,7 +221,6 @@ export function PpcProofSection() {
                 <Fpo ratio="4/3" tag="Before" title="Account baseline" note="Show an approved starting view and date range." source="/images/Services/Images on the pages/Account baseline Before.png" alt="Illustrative Google Ads account baseline" />
                 <Fpo ratio="4/3" tag="After" title="Verified PPC result" note="Use the same metric definition and a comparable period." source="/images/Services/Images on the pages/Verified PPC result after.png" alt="Illustrative Google Ads reporting example" />
               </div>
-              <div className="mt-6 rounded-card border border-soft-dark bg-surface/70 p-6"><VerifiedSlot>Google ads case study: pending</VerifiedSlot><div className="mt-4 flex flex-wrap gap-3"><VerifiedSlot>Client approval: pending</VerifiedSlot><VerifiedSlot>Result method: pending</VerifiedSlot></div></div>
             </div>
           </div>
         </div>

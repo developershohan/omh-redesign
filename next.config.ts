@@ -43,6 +43,10 @@ const nextConfig: NextConfig = {
       { source: "/social-media-marketing", destination: "/social-media-marketing-services", permanent: true },
       // SEO brief (1 Oct 2026): the national SEO landing page moved off the listicle slug.
       { source: "/best-seo-services", destination: "/seo-services", permanent: true },
+      // Oct 2026: retired services. Their URLs pass to the closest live page.
+      { source: "/search-engine-optimisation", destination: "/seo-services", permanent: true },
+      { source: "/best-local-seo-services", destination: "/local-seo", permanent: true },
+      { source: "/web-content-writing-request-quote", destination: "/contact", permanent: true },
     ];
   },
 };
