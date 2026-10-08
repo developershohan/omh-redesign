@@ -88,9 +88,13 @@ function DefinitionSection({ content }: { content: SolutionPageContent }) {
               <Eyebrow>The basics</Eyebrow>
               <h2 className="mt-6 max-w-[14ch] font-sans text-h2 font-semibold text-balance">{definition.title}</h2>
             </div>
-            <p className="col-span-7 max-w-[62ch] font-serif text-[clamp(19px,1.3vw,23px)] leading-[1.55] text-ink/85">
-              {definition.body}
-            </p>
+            <div className="col-span-7 max-w-[62ch] space-y-5">
+              {definition.body.split("\n\n").map((paragraph) => (
+                <p key={paragraph} className="font-serif text-[clamp(19px,1.3vw,23px)] leading-[1.55] text-ink/85">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </div>
           {definition.factors && (
             <div className="mt-12 grid grid-cols-3 gap-5 max-md:grid-cols-1">

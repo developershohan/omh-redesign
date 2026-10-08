@@ -7,7 +7,8 @@ import { solutionOrder, solutions } from "@/lib/content/solutions";
 const metadataBySlug: Record<string, { title: string; description: string; seoTitle?: string }> = {
   "generate-qualified-leads": {
     title: "Generate More Qualified Leads",
-    description: "Lead generation for UK service businesses, connecting paid campaigns, SEO, landing pages, qualification and tracking around better-fit enquiries.",
+    seoTitle: "Generate More Qualified Leads for UK Businesses | OMH",
+    description: "Generate more qualified leads by improving targeting, landing pages, qualification, and tracking. Find where lead quality is breaking down and what to fix first.",
   },
   "increase-ecommerce-sales": {
     title: "Ecommerce Growth Strategy",
