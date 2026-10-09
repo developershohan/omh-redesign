@@ -38,7 +38,7 @@ function MenuLink({ link, onClick }: { link: NavLink; onClick?: () => void }) {
 
 function isCurrent(pathname: string, item: NavItem) {
   if (item.href) return pathname === item.href || pathname.startsWith(`${item.href}/`);
-  return (item.columns ?? []).some((col) => col.links.some((link) => pathname === link.href));
+  return (item.columns ?? []).some((col) => col.links.some((link) => pathname === link.href.split("#")[0]));
 }
 
 // Future Elementor widget: "OMH Header".

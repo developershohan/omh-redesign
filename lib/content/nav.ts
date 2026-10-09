@@ -69,11 +69,10 @@ export const primaryNav: NavItem[] = [
     columns: [
       {
         links: [
-          { label: "All AI Services", href: "/ai-services", ready: true },
+          { label: "AI Voice Agents", href: "/ai-voice-agents", ready: true },
           { label: "AI Websites & Software", href: "/ai-services#ai-websites-software", ready: true },
           { label: "AI Technology Consulting", href: "/ai-services#ai-consulting", ready: true },
           { label: "AI Integrations", href: "/ai-services#ai-integrations", ready: true },
-          { label: "AI Voice Agents", href: "/ai-voice-agents", ready: true },
           { label: "AI Agents", href: "/ai-services#ai-agents", ready: true },
           { label: "AI Chatbot", href: "/ai-services#ai-chatbot", ready: true },
           { label: "AI UGC", href: "/ai-services#ai-ugc", ready: true },
