@@ -4,9 +4,11 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 /*
-  Behaviour for the AI voice agents page. The markup arrives as HTML
-  (lib/content/ai-voice-agents-markup.ts), so this finds each widget by its
-  data-* hooks inside #va-page, as the original design file's script did. The
+  Behaviour for the AI voice agents page, also used by the AI services page,
+  which shares its design. The markup arrives as HTML (lib/content/
+  ai-voice-agents-markup.ts, lib/content/ai-services-markup.ts), so this finds
+  each widget by its data-* hooks inside #va-page, as the original design
+  file's script did. Each widget is skipped when its page doesn't have it. The
   site header replaces the file's own theme toggle and mobile menu.
 
   Everything it starts (listeners, timers, observers) is torn down on unmount,
@@ -1004,7 +1006,7 @@ function init(page: HTMLElement, navigate: (href: string) => void) {
       const err = document.getElementById("demo-" + el.name + "-err");
       el.setAttribute("aria-invalid", String(!ok));
       if (err) {
-        err.textContent = ok ? "" : messages[el.name];
+        err.textContent = ok ? "" : el.dataset.demoMessage || messages[el.name] || "Complete this field.";
         err.hidden = ok;
       }
       return ok;
@@ -1016,6 +1018,16 @@ function init(page: HTMLElement, navigate: (href: string) => void) {
       on(el, "input", () => el.getAttribute("aria-invalid") === "true" && check(el));
       on(el, "change", () => el.getAttribute("aria-invalid") === "true" && check(el));
     });
+    // Service links elsewhere on the page (data-pick-service) pre-fill the
+    // form's service field, when the form has one.
+    const serviceField = form.querySelector<HTMLSelectElement>('select[name="service"]');
+    if (serviceField)
+      on(page, "click", (e) => {
+        const pick = (e.target as Element).closest<HTMLElement>("[data-pick-service]");
+        if (!pick) return;
+        serviceField.value = pick.dataset.pickService!;
+        if (serviceField.getAttribute("aria-invalid") === "true") check(serviceField);
+      });
     // Posts to /api/enquiry like every other form on the site, with the
     // visible labels as field names so the email reads as the form did.
     const label = (el: Field) =>
@@ -1040,7 +1052,12 @@ function init(page: HTMLElement, navigate: (href: string) => void) {
         return;
       }
       const data = new FormData(form);
-      track("demo_form_submit", { component: "FinalCTA", industry: data.get("industry"), city: data.get("city") });
+      track("demo_form_submit", {
+        component: "FinalCTA",
+        industry: data.get("industry"),
+        city: data.get("city"),
+        service: data.get("service"),
+      });
 
       sendError.hidden = true;
       submit.disabled = true;
@@ -1050,7 +1067,7 @@ function init(page: HTMLElement, navigate: (href: string) => void) {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            form: "AI voice agent demo",
+            form: root.dataset.demoFormName || "AI voice agent demo",
             page: window.location.pathname,
             hp: String(data.get("hp") ?? ""),
             fields: Object.fromEntries(fields.map((el) => [label(el), shown(el)])),

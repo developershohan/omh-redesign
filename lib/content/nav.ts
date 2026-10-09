@@ -63,7 +63,24 @@ export const primaryNav: NavItem[] = [
     label: "Services",
     columns: serviceColumns,
   },
-  { label: "Voice AI", href: "/ai-voice-agents" },
+  {
+    // AI Voice Agents has its own page; the other services are sections of /ai-services.
+    label: "AI Services",
+    columns: [
+      {
+        links: [
+          { label: "All AI Services", href: "/ai-services", ready: true },
+          { label: "AI Websites & Software", href: "/ai-services#ai-websites-software", ready: true },
+          { label: "AI Technology Consulting", href: "/ai-services#ai-consulting", ready: true },
+          { label: "AI Integrations", href: "/ai-services#ai-integrations", ready: true },
+          { label: "AI Voice Agents", href: "/ai-voice-agents", ready: true },
+          { label: "AI Agents", href: "/ai-services#ai-agents", ready: true },
+          { label: "AI Chatbot", href: "/ai-services#ai-chatbot", ready: true },
+          { label: "AI UGC", href: "/ai-services#ai-ugc", ready: true },
+        ],
+      },
+    ],
+  },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Insights", href: "/insights" },
   { label: "Pricing", href: "/pricing" },
@@ -119,6 +136,7 @@ export const readyPages: NavLink[] = [
   { label: "Cookie Policy", href: "/cookies", ready: true },
   { label: "Terms & Conditions", href: "/terms", ready: true },
   { label: "SEO Services", href: "/seo-services", ready: true },
+  { label: "AI Services", href: "/ai-services", ready: true },
   { label: "AI Voice Agents", href: "/ai-voice-agents", ready: true },
   { label: "Facebook Marketing", href: "/facebook-marketing-agency", ready: true },
   { label: "Instagram Marketing", href: "/instagram-marketing-agency", ready: true },
