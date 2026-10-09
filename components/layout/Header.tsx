@@ -87,8 +87,8 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
         {/* Sized by width: the two exports differ in proportion, so matching
             widths keeps the strapline the same size in both themes. */}
         <Link href="/" aria-label="Online Marketing Help, home" className="shrink-0">
-          <Image src="/images/logo-dark.png" alt="" width={140} height={44} priority className="h-auto w-[140px] dark:hidden" />
-          <Image src="/images/logo-white.png" alt="" width={140} height={35} priority className="hidden h-auto w-[140px] dark:block" />
+          <Image src="/images/logo-dark.png" alt="" width={140} height={44} priority className="h-auto w-[140px] lg:max-xl:w-[120px] dark:hidden" />
+          <Image src="/images/logo-white.png" alt="" width={140} height={35} priority className="hidden h-auto w-[140px] lg:max-xl:w-[120px] dark:block" />
         </Link>
 
         <nav aria-label="Primary" className="ml-auto flex items-center gap-0.5 max-lg:hidden xl:gap-1">
@@ -112,7 +112,7 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
                   aria-expanded={menu === item.label}
                   aria-haspopup="true"
                   onClick={() => setMenu(menu === item.label ? null : item.label)}
-                  className={`nav-item flex cursor-pointer items-center gap-1 whitespace-nowrap px-1.5 py-1.5 text-[16px] font-medium xl:px-3 ${
+                  className={`nav-item flex cursor-pointer items-center gap-1 whitespace-nowrap px-1 py-1.5 text-[15px] font-medium xl:px-3 xl:text-[16px] ${
                     current || menu === item.label ? "is-active" : ""
                   }`}
                 >
@@ -166,7 +166,7 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
                 key={item.href}
                 href={item.href!}
                 aria-current={current ? "page" : undefined}
-                className={`nav-item whitespace-nowrap px-1.5 py-1.5 text-[16px] font-medium xl:px-3 ${current ? "is-active" : ""}`}
+                className={`nav-item whitespace-nowrap px-1 py-1.5 text-[15px] font-medium xl:px-3 xl:text-[16px] ${current ? "is-active" : ""}`}
               >
                 {item.label}
               </Link>

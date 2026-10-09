@@ -63,6 +63,7 @@ export const primaryNav: NavItem[] = [
     label: "Services",
     columns: serviceColumns,
   },
+  { label: "Voice AI", href: "/ai-voice-agents" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Insights", href: "/insights" },
   { label: "Pricing", href: "/pricing" },
@@ -118,6 +119,7 @@ export const readyPages: NavLink[] = [
   { label: "Cookie Policy", href: "/cookies", ready: true },
   { label: "Terms & Conditions", href: "/terms", ready: true },
   { label: "SEO Services", href: "/seo-services", ready: true },
+  { label: "AI Voice Agents", href: "/ai-voice-agents", ready: true },
   { label: "Facebook Marketing", href: "/facebook-marketing-agency", ready: true },
   { label: "Instagram Marketing", href: "/instagram-marketing-agency", ready: true },
 ];

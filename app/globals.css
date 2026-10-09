@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./ai-voice-agents/voice-agents.css";
 
 /* `dark:` follows the site toggle (<html data-theme>), not the OS setting. */
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
