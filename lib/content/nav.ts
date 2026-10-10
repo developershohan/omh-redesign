@@ -160,6 +160,14 @@ export const company = {
   email: "support@onlinemarketinghelp.co.uk",
   address: "The Hut, Central Ave, Hullbridge SS5 6AU", // ◈ confirm current
   companyNo: "12328533", // ◈ confirm
+  // Profiles as listed on the live thank-you page; the footer links and the
+  // schema's sameAs both read this list.
+  socials: [
+    { label: "Facebook", href: "https://www.facebook.com/onlinemarketinghelpuk/" },
+    { label: "Instagram", href: "https://www.instagram.com/onlinemarketinghelpuk/" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/34580209/" },
+    { label: "X", href: "https://twitter.com/MarketingHelp1" },
+  ],
   positioning:
     "Full-service digital marketing and web development for UK service businesses and ecommerce brands.",
 };

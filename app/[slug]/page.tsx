@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { defaultOgImages } from "@/lib/schema";
 import { notFound } from "next/navigation";
 import { InsightArticle } from "@/components/insights/InsightArticle";
 import { getInsight, getInsightSlugs } from "@/lib/sanity/insights";
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.seo.description ?? post.summary,
       publishedTime: post.publishedAt,
       modifiedTime: post.modifiedAt,
-      images: post.featuredImage ? [{ url: post.featuredImage.src, alt: post.featuredImage.alt }] : undefined,
+      images: post.featuredImage ? [{ url: post.featuredImage.src, alt: post.featuredImage.alt }] : defaultOgImages,
     },
   };
 }

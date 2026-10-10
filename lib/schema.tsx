@@ -15,6 +15,12 @@ import { bestSeoServices } from "@/lib/content/seo-landing";
 
 export const SITE = "https://onlinemarketinghelp.co.uk";
 
+// app/opengraph-image.tsx. Routes that set their own `openGraph` replace the
+// inherited image, so they list this one explicitly.
+export const defaultOgImages = [
+  { url: "/opengraph-image", width: 1200, height: 630, alt: "Online Marketing Help: full-service digital marketing agency for UK businesses" },
+];
+
 // Points at the site-wide ProfessionalService (a LocalBusiness subtype) in the layout.
 const provider = {
   "@type": "ProfessionalService",
@@ -44,13 +50,7 @@ export const organisation = {
     addressCountry: "GB",
   },
   areaServed: { "@type": "Country", name: "United Kingdom" },
-  // Profiles as listed on the live thank-you page (lib/content/thank-you.ts).
-  sameAs: [
-    "https://www.facebook.com/onlinemarketinghelpuk/",
-    "https://www.instagram.com/onlinemarketinghelpuk/",
-    "https://www.linkedin.com/company/34580209/",
-    "https://twitter.com/MarketingHelp1",
-  ],
+  sameAs: company.socials.map((s) => s.href),
   // ponytail: no aggregateRating/review — brief §25 forbids it without real,
   // compliant reviews. Add only when the client supplies verified ones.
 };

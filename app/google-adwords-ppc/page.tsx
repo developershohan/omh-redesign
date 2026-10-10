@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ServiceJsonLd } from "@/lib/schema";
+import { ServiceJsonLd, defaultOgImages } from "@/lib/schema";
 import {
   PpcCapabilityGrid,
   PpcFAQAccordion,
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   description:
     "OMH is a Google Ads agency for UK businesses, with PPC management services across Search, Shopping and remarketing. Request a scoped account review.",
   alternates: { canonical: "https://onlinemarketinghelp.co.uk/google-adwords-ppc/" },
-  openGraph: { title: "Google Ads Agency UK | PPC Management Services" },
+  openGraph: { title: "Google Ads Agency UK | PPC Management Services", images: defaultOgImages },
 };
 
 const relatedServices = [
