@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { defaultOgImages } from "@/lib/schema";
 import { notFound } from "next/navigation";
 import { SolutionPage } from "@/components/solutions/SolutionPage";
 import { solutionOrder, solutions } from "@/lib/content/solutions";
@@ -51,6 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: meta.seoTitle ?? `${meta.title} | Online Marketing Help`,
       description: meta.description,
       type: "website",
+      images: defaultOgImages,
       locale: "en_GB",
       url: `https://onlinemarketinghelp.co.uk/solutions/${slug}/`,
     },

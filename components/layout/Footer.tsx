@@ -45,6 +45,26 @@ function deckSize() {
   }
 }
 
+// Brand marks (Simple Icons geometry; Instagram drawn as an even-odd outline).
+// lucide-react v1 dropped its brand icons, hence inline paths.
+const socialPaths: Record<string, string> = {
+  Facebook:
+    "M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z",
+  Instagram:
+    "M7 0h10a7 7 0 0 1 7 7v10a7 7 0 0 1-7 7H7a7 7 0 0 1-7-7V7a7 7 0 0 1 7-7Zm0 2.2A4.8 4.8 0 0 0 2.2 7v10A4.8 4.8 0 0 0 7 21.8h10a4.8 4.8 0 0 0 4.8-4.8V7A4.8 4.8 0 0 0 17 2.2H7Zm5 4.2a5.6 5.6 0 1 1 0 11.2 5.6 5.6 0 0 1 0-11.2Zm0 2a3.6 3.6 0 1 0 0 7.2 3.6 3.6 0 0 0 0-7.2Zm6.2-4a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8Z",
+  LinkedIn:
+    "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z",
+  X: "M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z",
+};
+
+function SocialIcon({ name }: { name: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className="size-[18px]" fill="currentColor" fillRule="evenodd" aria-hidden>
+      <path d={socialPaths[name]} />
+    </svg>
+  );
+}
+
 const linkClass =
   "footer-link block py-1 text-label leading-snug text-oninverse/62 transition-colors hover:text-oninverse focus-visible:text-oninverse";
 const headingClass =
@@ -99,6 +119,22 @@ export function Footer() {
               <p className="mt-5 max-w-[38ch] text-body leading-relaxed text-oninverse/62">
                 {company.positioning}
               </p>
+              <ul className="mt-6 flex gap-3">
+                {company.socials.map((social) => (
+                  <li key={social.label}>
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${company.name} on ${social.label}`}
+                      data-event={`footer_social_${social.label.toLowerCase()}_click`}
+                      className="grid size-11 place-items-center rounded-full border border-oninverse/20 text-oninverse/75 transition-colors hover:border-amber hover:bg-amber hover:text-inverse focus-visible:border-amber focus-visible:text-oninverse"
+                    >
+                      <SocialIcon name={social.label} />
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
             <div>
               <h2 className={headingClass}>Our location</h2>

@@ -30,6 +30,8 @@ export const metadata: Metadata = {
     template: "%s | Online Marketing Help",
   },
   alternates: { canonical: "https://onlinemarketinghelp.co.uk/" },
+  // Large preview card; the image itself comes from app/twitter-image.tsx.
+  twitter: { card: "summary_large_image" },
   description:
     "We help UK service businesses and ecommerce brands grow through Google Ads, Meta Ads, SEO, and conversion-focused websites, supported by clear reporting and reliable tracking.",
 };
