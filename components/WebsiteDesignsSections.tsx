@@ -41,7 +41,7 @@ export function WebsiteDesignsPage() {
             <p className="mt-5 font-sans text-h3 font-semibold text-amber-deep text-balance">
               {page.standfirst}
             </p>
-            <p className="mt-5 max-w-[54ch] text-lead leading-relaxed text-ink/75">{page.lead}</p>
+            <p className="mt-5 text-lead leading-relaxed text-ink/75">{page.lead}</p>
             <div className="mt-9 flex flex-wrap gap-3.5 max-sm:flex-col max-sm:items-stretch">
               <Button href="/omh-free-consultation" arrow data-event="website_designs_consultation_click">
                 {page.ctas.consultation}
@@ -86,7 +86,7 @@ export function WebsiteDesignsPage() {
         accent={ACCENT}
         labelStyle={LABEL}
       >
-        <h2 className="max-w-[24ch] font-sans text-h2 font-semibold text-balance">
+        <h2 className="font-sans text-h2 font-semibold text-balance">
           {page.help.heading}
         </h2>
         <ul className="mt-11 grid grid-cols-4 border-t border-line max-md:grid-cols-2 max-sm:grid-cols-1">
@@ -99,7 +99,7 @@ export function WebsiteDesignsPage() {
             </li>
           ))}
         </ul>
-        <p className="mt-11 max-w-[60ch] text-lead leading-relaxed text-ink/75">
+        <p className="mt-11 text-lead leading-relaxed text-ink/75">
           {page.help.tradesLead}
         </p>
         <ul className="mt-7 flex flex-wrap gap-2.5">
@@ -115,7 +115,7 @@ export function WebsiteDesignsPage() {
       </ServiceBand>
 
       <ServiceBand label={page.gallery.eyebrow} tone="mist" accent={ACCENT} labelStyle={LABEL}>
-        <h2 className="max-w-[22ch] font-sans text-h2 font-semibold text-balance">
+        <h2 className="font-sans text-h2 font-semibold text-balance">
           {page.gallery.heading}
         </h2>
         {/* The 38 screenshots cannot be hotlinked from the WordPress host —
@@ -199,7 +199,7 @@ export function WebsiteDesignsPage() {
       </ServiceBand>
 
       <ServiceBand label={page.caseStudies.eyebrow} tone="white" accent={ACCENT} labelStyle={LABEL}>
-        <h2 className="max-w-[24ch] font-sans text-h2 font-semibold text-balance">
+        <h2 className="font-sans text-h2 font-semibold text-balance">
           {page.caseStudies.heading}
         </h2>
         <ul className="mt-11 grid grid-cols-3 gap-7 max-md:grid-cols-1">
@@ -255,17 +255,19 @@ export function WebsiteDesignsPage() {
       </ServiceBand>
 
       <ServiceBand label={page.guarantee.eyebrow} tone="warm" accent={ACCENT} labelStyle={LABEL}>
-        <div className="max-w-[70ch]">
+        <div>
           <h2 className="font-sans text-h2 font-semibold text-balance">{page.guarantee.heading}</h2>
-          {page.guarantee.body.map((paragraph) => (
-            <p key={paragraph} className="mt-6 text-lead leading-relaxed text-ink/75">
-              {paragraph}
-            </p>
-          ))}
-          <div className="mt-9">
-            <Button href="/warranty" variant="secondary" data-event="website_designs_warranty_click">
-              Read the guarantee
-            </Button>
+          <div className="mt-6">
+            {page.guarantee.body.map((paragraph) => (
+              <p key={paragraph} className="mt-6 text-body leading-relaxed text-ink/75 first:mt-0">
+                {paragraph}
+              </p>
+            ))}
+            <div className="mt-9">
+              <Button href="/warranty" variant="secondary" data-event="website_designs_warranty_click">
+                Read the guarantee
+              </Button>
+            </div>
           </div>
         </div>
       </ServiceBand>

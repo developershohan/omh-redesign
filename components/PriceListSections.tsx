@@ -78,8 +78,8 @@ export function PriceListHero() {
         <p className="text-body font-semibold text-muted">Services & pricing</p>
         <div className="mt-5 flex items-end justify-between gap-8 max-md:block">
           <div>
-            <h1 className="max-w-[19ch] font-sans text-display font-semibold text-balance">Choose the right service for <span className="text-amber-deep">your business</span>.</h1>
-            <p className="mt-5 max-w-[57ch] text-lead leading-relaxed text-ink/70">Choose a service below to see its packages, prices and what’s included. Compare only what you need.</p>
+            <h1 className="font-sans text-display font-semibold text-balance">Choose the right service for <span className="text-amber-deep">your business</span>.</h1>
+            <p className="mt-5 text-lead leading-relaxed text-ink/70">Choose a service below to see its packages, prices and what’s included. Compare only what you need.</p>
           </div>
           <div className="shrink-0 max-md:mt-7">
             <Button href="/contact" arrow data-event="pricing_hero_cta_click">Help me choose</Button>
@@ -113,13 +113,13 @@ export function PriceTables() {
           <ul className="grid grid-cols-2 gap-x-5 lg:grid-cols-1">
             {groups.map(group => <li key={group.id}><a href={`#${group.id}`} className="block min-h-12 border-b border-line py-4 text-body font-medium leading-relaxed text-ink transition-colors hover:text-amber-deep focus-visible:outline-2 focus-visible:outline-amber">{group.title}</a></li>)}
           </ul>
-          <p className="mt-5 max-w-[30ch] text-body leading-relaxed text-muted">Open a service to compare packages. Prices, contract lengths and extra costs are listed together.</p>
+          <p className="mt-5 text-body leading-relaxed text-muted">Open a service to compare packages. Prices, contract lengths and extra costs are listed together.</p>
         </nav>
         <div className="min-w-0 space-y-12">
           {groups.map(group => (
             <section key={group.id} id={group.id} aria-labelledby={`${group.id}-heading`} className="scroll-mt-28">
               <h2 id={`${group.id}-heading`} className="font-sans text-h3 font-semibold text-ink">{group.title}</h2>
-              <p className="mt-2 max-w-[62ch] text-body text-muted">{group.description}</p>
+              <p className="mt-2 text-body text-muted">{group.description}</p>
               <div className="mt-6 border-t border-line">
                 {group.services.map(id => {
                   const table = priceList.tables.find(item => item.id === id)!;
@@ -132,15 +132,15 @@ export function PriceTables() {
                         <span className="flex shrink-0 items-center gap-3 max-sm:w-full max-sm:justify-between sm:gap-5"><span className="text-right max-sm:text-left"><span className="block text-body text-muted">{pricing ? "Starting from" : "Bespoke pricing"}</span><span className="block font-sans text-xl font-semibold text-amber-deep">{pricing ? pricing.values[0] : "Custom quote"}</span></span><ChevronDown className="size-5 text-amber-deep transition-transform group-open/service:rotate-180 motion-reduce:transition-none" aria-hidden /></span>
                       </summary>
                       <div className="border-t border-line p-4 sm:p-6">
-                        {pricing ? <ComparisonTable table={table} /> : <div className="max-w-[58ch]"><h3 className="font-sans text-h4 font-semibold">Let’s scope your website design</h3><p className="mt-3 text-body leading-relaxed text-ink/75">There is no fixed package price for this service. Share your requirements and we’ll help you choose a design and prepare a quote.</p><Link href="/website-designs" className="mt-4 inline-block font-semibold text-amber-deep underline underline-offset-4">Browse website designs</Link></div>}
-                        {importantNotes.length > 0 && <div className="mt-5 rounded-lg border-l-2 border-amber bg-warm p-4"><p className="mb-2 text-body font-semibold text-ink">Pricing notes</p>{importantNotes.map(note => <p key={note} className="mt-1 max-w-[70ch] text-body leading-relaxed text-ink/75">{note}</p>)}</div>}
+                        {pricing ? <ComparisonTable table={table} /> : <div className=""><h3 className="font-sans text-h4 font-semibold">Let’s scope your website design</h3><p className="mt-3 text-body leading-relaxed text-ink/75">There is no fixed package price for this service. Share your requirements and we’ll help you choose a design and prepare a quote.</p><Link href="/website-designs" className="mt-4 inline-block font-semibold text-amber-deep underline underline-offset-4">Browse website designs</Link></div>}
+                        {importantNotes.length > 0 && <div className="mt-5 rounded-lg border-l-2 border-amber bg-warm p-4"><p className="mb-2 text-body font-semibold text-ink">Pricing notes</p>{importantNotes.map(note => <p key={note} className="mt-1 text-body leading-relaxed text-ink/75">{note}</p>)}</div>}
                         <details className="mt-5 border-b border-line pb-5">
                           <summary className="cursor-pointer text-body font-semibold text-ink focus-visible:outline-2 focus-visible:outline-amber">Package details & terms</summary>
-                          <ul className="mt-4 max-w-[72ch] list-disc space-y-3 pl-5 text-body leading-relaxed text-ink/75">
+                          <ul className="mt-4 list-disc space-y-3 pl-5 text-body leading-relaxed text-ink/75">
                             {table.notes.filter(note => !importantNotes.includes(note) && note !== "As part of your services, we will:").map(note => <li key={note}>{note}</li>)}
                           </ul>
                         </details>
-                        <div className="mt-5 flex flex-wrap items-center justify-between gap-4"><p className="max-w-[40ch] text-body text-muted">Discuss your requirements before choosing a package.</p><Button href="/contact" data-event="pricing_service_enquiry" data-service={id}>{pricing ? "Discuss this service" : "Request a quote"}</Button></div>
+                        <div className="mt-5 flex flex-wrap items-center justify-between gap-4"><p className="text-body text-muted">Discuss your requirements before choosing a package.</p><Button href="/contact" data-event="pricing_service_enquiry" data-service={id}>{pricing ? "Discuss this service" : "Request a quote"}</Button></div>
                       </div>
                     </details>
                   );
@@ -160,7 +160,7 @@ export function PriceListFinalCta() {
       <div className="container-omh flex items-center justify-between gap-8 py-12 max-md:flex-col max-md:items-start sm:py-16">
         <div>
           <h2 className="font-sans text-h3 font-semibold">Need help choosing a service?</h2>
-          <p className="mt-4 max-w-[60ch] text-body leading-relaxed text-ink/75">Tell us what you want to achieve. We’ll explain the options and costs in a free 30-minute consultation.</p>
+          <p className="mt-4 text-body leading-relaxed text-ink/75">Tell us what you want to achieve. We’ll explain the options and costs in a free 30-minute consultation.</p>
         </div>
         <Button href="/contact" data-event="pricing_final_cta_click">Book a free consultation</Button>
       </div>

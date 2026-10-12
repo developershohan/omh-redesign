@@ -7,7 +7,7 @@ import { ArrowRight } from "@/components/ui/Button";
 export type RelatedServiceLink = {
   title: string;
   href: string;
-  body: string;
+  body?: string;
 };
 
 export function RelatedServices({
@@ -19,7 +19,7 @@ export function RelatedServices({
 }: {
   label?: string;
   title: string;
-  body: string;
+  body?: string;
   links: RelatedServiceLink[];
   eventPrefix: string;
 }) {
@@ -32,10 +32,10 @@ export function RelatedServices({
               <p className="flex items-center gap-2.5 text-[14px] font-semibold uppercase tracking-[0.16em] text-muted before:h-0.5 before:w-5 before:bg-amber before:content-['']">
                 {label}
               </p>
-              <h2 id={`${eventPrefix}-related-title`} className="mt-6 max-w-[18ch] font-sans text-h3 font-semibold text-balance">
+              <h2 id={`${eventPrefix}-related-title`} className="mt-6 font-sans text-h3 font-semibold text-balance">
                 {title}
               </h2>
-              <p className="mt-5 max-w-[40ch] text-body leading-relaxed text-ink/70">{body}</p>
+              {body && <p className="mt-5 text-body leading-relaxed text-ink/70">{body}</p>}
             </div>
             <div className="col-span-8 grid grid-cols-3 gap-5 max-md:grid-cols-1">
               {links.map((link, index) => (
@@ -54,7 +54,7 @@ export function RelatedServices({
                       <ArrowRight className="mt-1 size-4 shrink-0 transition-transform duration-500 group-hover:translate-x-1" />
                     </Link>
                   </h3>
-                  <p className="mt-3 text-body leading-relaxed text-ink/70">{link.body}</p>
+                  {link.body && <p className="mt-3 text-body leading-relaxed text-ink/70">{link.body}</p>}
                 </article>
               ))}
             </div>

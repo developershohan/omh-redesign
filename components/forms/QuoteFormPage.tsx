@@ -208,7 +208,7 @@ function Sent({ onReset }: { onReset: () => void }) {
   return (
     <div className="rounded-card border border-teal/25 bg-soft/50 p-9 max-sm:p-6" role="status">
       <h2 className="font-sans text-h3 font-semibold">Thanks, that&apos;s with us.</h2>
-      <p className="mt-3 max-w-[48ch] text-body leading-relaxed text-ink/75">
+      <p className="mt-3 text-body leading-relaxed text-ink/75">
         A real person will read this and come back with the quote and the next step. If it&apos;s
         urgent, call us on{" "}
         <Link href={company.phoneHref} className="font-semibold text-ink hover:text-amber-deep">
@@ -231,7 +231,7 @@ function HeroCopy({ page }: { page: PageData }) {
   return (
     <>
       <h1 className="font-sans text-display font-semibold text-balance"><AccentTitle text={page.title} /></h1>
-      <p className="mt-6 max-w-[54ch] text-lead leading-relaxed text-ink/75">{page.intro}</p>
+      <p className="mt-6 text-lead leading-relaxed text-ink/75">{page.intro}</p>
       <p className="mt-7 font-sans text-h4 font-semibold text-balance">
         <Link href={company.phoneHref} className="hover:text-amber-deep">
           {page.callHeading}

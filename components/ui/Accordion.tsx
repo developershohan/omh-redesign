@@ -6,16 +6,19 @@ import type { ReactNode } from "react";
 export function Accordion({
   items,
   group,
+  heading: Q = "span",
 }: {
   items: readonly { q: string; a: ReactNode }[];
   group?: string;
+  // Wrap each question in a real heading where the brief maps FAQs to H3s.
+  heading?: "span" | "h3";
 }) {
   return (
     <div className="divide-y divide-line border-y border-line">
       {items.map((item) => (
         <details key={item.q} name={group} className="group py-1">
           <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-4 py-3 font-sans text-h4 font-semibold [&::-webkit-details-marker]:hidden">
-            {item.q}
+            <Q>{item.q}</Q>
             <svg
               viewBox="0 0 24 24"
               fill="none"

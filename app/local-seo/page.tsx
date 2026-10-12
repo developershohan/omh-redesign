@@ -31,13 +31,14 @@ export default function LocalSeoPage() {
     <div className="service-page service-page-local-seo">
       <ServiceJsonLd path="/local-seo" />
       <LocalSeoHero />
-      <LocalSeoSignals />
-      <LocalSeoFit />
-      <LocalSeoBenefits />
       <LocalSeoMap />
       <LocalSeoWorkstreams />
+      <LocalSeoFit />
+      <LocalSeoSignals />
+      <LocalSeoBenefits />
       <LocalSeoProcess />
       <LocalSeoPricing />
+      <LocalSeoWhyOmh />
       <ServiceCaseStudies
         serviceId="seo"
         title="See local SEO services in action"
@@ -45,7 +46,6 @@ export default function LocalSeoPage() {
         limit={3}
       />
       <LocalSeoReviews />
-      <LocalSeoWhyOmh />
       <LocalSeoPromise />
       <RelatedServices
         eventPrefix="local_seo"

@@ -20,7 +20,7 @@ export function FaqHero() {
           <Eyebrow>{faqPage.eyebrow}</Eyebrow>
           <div className="mt-8 grid grid-cols-12 items-center gap-x-12 gap-y-10 max-lg:block">
             <div className="col-span-7">
-              <h1 className="max-w-[14ch] font-sans text-display font-semibold text-balance">
+              <h1 className="font-sans text-display font-semibold text-balance">
                 Most Common <span className="text-amber-deep">Questions</span>
               </h1>
               {/* A contents list, not a stock paragraph — on a page this long the
@@ -79,7 +79,7 @@ export function FaqGroups() {
               <div className="grid grid-cols-12 gap-x-12 gap-y-7 max-lg:block">
                 <div className="col-span-4">
                   <div className="lg:sticky lg:top-24">
-                    <h2 className="max-w-[14ch] font-sans text-h2 font-semibold text-balance">
+                    <h2 className="font-sans text-h2 font-semibold text-balance">
                       {group.heading}
                     </h2>
                   </div>
@@ -112,10 +112,10 @@ function FaqMediaBreak() {
       <Reveal>
         <div className="grid grid-cols-12 items-center gap-x-12 gap-y-10 max-lg:block">
           <div className="col-span-5">
-            <h2 className="max-w-[15ch] font-sans text-h2 font-semibold text-balance">
+            <h2 className="font-sans text-h2 font-semibold text-balance">
               Rather see it than read it?
             </h2>
-            <p className="mt-6 max-w-[44ch] text-body leading-relaxed text-oninverse/70">
+            <p className="mt-6 text-body leading-relaxed text-oninverse/70">
               A walkthrough of a project from first consultation to launch, and the reporting that
               follows it.
             </p>
@@ -139,10 +139,10 @@ export function FaqPricingLink() {
       <div className="container-omh section-md">
         <div className="grid grid-cols-12 items-center gap-x-12 gap-y-6 max-lg:block">
           <div className="col-span-7">
-            <h2 className="max-w-[22ch] font-sans text-h2 font-semibold">
+            <h2 className="font-sans text-h2 font-semibold">
               Prefer to see the numbers before you ask?
             </h2>
-            <p className="mt-5 max-w-[58ch] text-body leading-relaxed text-ink/75">
+            <p className="mt-5 text-body leading-relaxed text-ink/75">
               Every package and price we quote is published in full, service by service.
             </p>
           </div>

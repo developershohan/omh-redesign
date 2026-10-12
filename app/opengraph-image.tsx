@@ -36,8 +36,8 @@ export default async function Image() {
           color: "#ffffff",
         }}
       >
-        {/* 1462×361 source, scaled to 300 wide */}
-        <img src={logoSrc} width={300} height={74} alt="" />
+        {/* 2063×526 source, scaled to 300 wide */}
+        <img src={logoSrc} width={300} height={76} alt="" />
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ width: 64, height: 6, background: AMBER, borderRadius: 3, marginBottom: 28 }} />

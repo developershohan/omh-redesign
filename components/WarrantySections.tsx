@@ -16,10 +16,10 @@ export function WarrantyHero() {
           <Eyebrow>{warranty.eyebrow}</Eyebrow>
           <div className="mt-9 grid grid-cols-12 items-center gap-x-12 gap-y-10 max-lg:block">
             <div className="col-span-6">
-              <h1 className="max-w-[16ch] font-sans text-display font-semibold text-balance">
+              <h1 className="font-sans text-display font-semibold text-balance">
                 Dedicated to <span className="text-amber-deep">Customer Care</span>
               </h1>
-              <p className="mt-7 max-w-[46ch] font-serif text-[clamp(20px,1.5vw,26px)] leading-[1.4] text-ink/85">
+              <p className="mt-7 text-body leading-relaxed text-ink/85">
                 {lead}
               </p>
               <div className="mt-9">
@@ -57,7 +57,7 @@ export function WarrantyIntro() {
       <Reveal>
         <div className="columns-2 gap-x-14 max-md:columns-1">
           {rest.map((paragraph) => (
-            <p key={paragraph} className="mb-5 max-w-[58ch] break-inside-avoid text-body leading-relaxed text-ink/75">
+            <p key={paragraph} className="mb-5 break-inside-avoid text-body leading-relaxed text-ink/75">
               {paragraph}
             </p>
           ))}
@@ -76,7 +76,7 @@ export function WarrantyCoverage() {
         <div className="grid grid-cols-12 gap-x-12 gap-y-10 max-lg:block">
           <div className="col-span-5">
             <div className="lg:sticky lg:top-24">
-              <h2 className="max-w-[16ch] font-sans text-h2 font-semibold text-balance">
+              <h2 className="font-sans text-h2 font-semibold text-balance">
                 The warranty covers the following aspects
               </h2>
               <MediaFrame
@@ -113,7 +113,7 @@ export function WarrantyPricing() {
   return (
     <ServiceBand label="Warranty pricing" tone="navy" accent="bg-[#f2c675]" labelStyle="underline">
       <Reveal>
-        <h2 className="mb-11 max-w-[20ch] font-sans text-h2 font-semibold text-balance">
+        <h2 className="mb-11 font-sans text-h2 font-semibold text-balance">
           Choose the term that fits how you use your website
         </h2>
         <div className="grid grid-cols-3 gap-5 max-lg:grid-cols-1">
@@ -164,10 +164,10 @@ export function WarrantyGuarantee() {
           <div className="grid grid-cols-12 items-center gap-x-12 gap-y-9 max-lg:block">
             <div className="col-span-7">
               <Eyebrow>Guarantee</Eyebrow>
-              <h2 className="mt-6 max-w-[16ch] font-sans text-h2 font-semibold text-balance">
+              <h2 className="mt-6 font-sans text-h2 font-semibold text-balance">
                 {warranty.guarantee.heading}
               </h2>
-              <p className="mt-6 max-w-[58ch] text-lead leading-relaxed text-ink/75">
+              <p className="mt-6 text-lead leading-relaxed text-ink/75">
                 {warranty.guarantee.body}
               </p>
             </div>

@@ -40,10 +40,10 @@ export function ServiceHero() {
               <Eyebrow>{content.hero.eyebrow}</Eyebrow>
               {/* text-h1, not text-display: 72px in a 7-col measure wrapped to six
                   lines and pushed the hero past the fold. */}
-              <h1 className="mb-6 mt-7 max-w-[19ch] font-sans text-display font-semibold text-balance">
+              <h1 className="mb-6 mt-7 font-sans text-display font-semibold text-balance">
                 <HighlightedText text={content.hero.title} highlight="drive growth" />
               </h1>
-              <p className="mb-9 max-w-[54ch] text-lead leading-relaxed text-ink/75">
+              <p className="mb-9 text-lead leading-relaxed text-ink/75">
                 {content.hero.body}
               </p>
               <div className="flex flex-wrap items-center gap-3.5 max-sm:flex-col max-sm:items-stretch">
@@ -91,7 +91,7 @@ export function ServiceHero() {
                 />
               </div>
             </Pointer>
-            <ReviewProof heading="Proven WordPress experience" className="mt-6" />
+            <ReviewProof serviceId="wordpress" heading="Proven WordPress experience" className="mt-6" />
           </Reveal>
         </div>
       </div>
@@ -110,7 +110,7 @@ export function PainPointSection() {
             <div className="lg:sticky lg:top-24">
               <SectionIntro title="A WordPress website can look fine and still hold the business back" accent="business back" />
               {/* Serif pull quote — the direction's editorial accent, used once */}
-              <p className="mt-7 border-l-2 border-amber pl-5 font-serif text-[21px] leading-snug text-ink/85">
+              <p className="mt-7 border-l-2 border-amber pl-5 text-body leading-snug text-ink/85">
                 Most businesses do not come to us because the website failed. They come
                 because it is slow, hard to update, or quietly costing them enquiries.
               </p>
@@ -136,7 +136,7 @@ export function PainPointSection() {
                 >
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <p className="font-serif text-[21px] leading-snug text-ink/90 max-sm:text-[19px]">
+                <p className="text-body leading-snug text-ink/90">
                   {pain}
                 </p>
               </li>
@@ -187,7 +187,7 @@ export function ServiceCapabilityGrid() {
                 Most projects start here
               </p>
               <h3 className="mt-5 font-sans text-h2 font-semibold">{featured.title}</h3>
-              <p className="mt-5 max-w-[42ch] text-lead leading-relaxed text-oninverse/75">
+              <p className="mt-5 text-lead leading-relaxed text-oninverse/75">
                 {featured.body}
               </p>
             </div>
@@ -288,14 +288,13 @@ export function PricingPackages() {
     <Band label="Packages" id="packages">
       <div>
         <div data-event="wpdev_pricing_view">
-          <div className="grid grid-cols-12 items-end gap-x-10 gap-y-6 max-lg:block">
+          <div>
             <SectionIntro
-              className="col-span-7"
               title="Website packages for different stages of growth"
               accent="stages of growth"
               body="Every WordPress project needs the right scope. These packages are a starting point, and your account manager will recommend the right option during the consultation."
             />
-            <p className="col-span-5 text-bsm leading-relaxed text-ink/70 max-lg:mt-6">
+            <p className="mt-5 text-body leading-relaxed text-ink/70">
               Some businesses only need a focused starter site. Others need more pages,
               deeper content, advanced functionality or ongoing support. Final scope
               depends on content, functionality and business needs.
@@ -441,7 +440,7 @@ export function IncludedFeatures() {
             </div>
           ))}
         </div>
-        <p className="mt-6 max-w-[62ch] text-bsm text-muted">
+        <p className="mt-6 text-bsm text-muted">
           Anything outside these areas is quoted separately rather than assumed.
         </p>
       </Reveal>
@@ -457,7 +456,7 @@ export function CaseStudyFeature() {
       <Reveal>
         <div className="overflow-hidden rounded-card border border-soft-dark bg-soft/60">
           <div className="grid grid-cols-12 gap-x-10 gap-y-8 p-10 max-lg:block max-sm:p-6">
-            <div className="col-span-5">
+            <div className="col-span-12">
               <Eyebrow>Case study placeholder</Eyebrow>
               <h2 className="mb-5 mt-6 font-sans text-h3 font-semibold text-balance">
                 A real WordPress project, <span className="text-amber-deep">explained properly</span>
@@ -487,7 +486,7 @@ export function CaseStudyFeature() {
               </div>
             </div>
 
-            <div className="col-span-7 col-start-6 max-lg:mt-9">
+            <div className="col-span-12 mt-9">
               <div className="grid grid-cols-2 gap-5 max-sm:grid-cols-1">
                 <Fpo ratio="4/3" tag="Before" title="Before website screenshot" note="Use the real previous website screen." source="/images/Services/shopify/before.png" alt="Illustrative website layout before redesign" />
                 <Fpo ratio="4/3" tag="After" title="After website screenshot" note="Use the real launched website screen." source="/images/Services/shopify/after.png" alt="Illustrative website layout after redesign" />

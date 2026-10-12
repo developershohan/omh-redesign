@@ -27,11 +27,11 @@ export function PpcHero() {
           <div className="col-span-7 max-lg:mb-12">
             <Reveal>
               <Eyebrow>{content.hero.eyebrow}</Eyebrow>
-              <h1 className="mb-6 mt-7 max-w-[20ch] font-sans text-display font-semibold text-balance">
+              <h1 className="mb-6 mt-7 font-sans text-display font-semibold text-balance">
                 {/* &nbsp; keeps "agency UK" on one line so the keyword phrase never splits. */}
                 Google Ads agency&nbsp;UK: PPC management built around <span className="text-amber-deep">measurable action</span>
               </h1>
-              <p className="mb-9 max-w-[57ch] text-lead leading-relaxed text-ink/75">{content.hero.body}</p>
+              <p className="mb-9 text-lead leading-relaxed text-ink/75">{content.hero.body}</p>
               <div className="flex flex-wrap items-center gap-3.5 max-sm:flex-col max-sm:items-stretch">
                 <Button href={content.hero.primary.href} arrow data-event="ppc_hero_cta_click">{content.hero.primary.label}</Button>
                 <Button href={content.hero.secondary.href} variant="secondary" data-event="ppc_view_packages_click">{content.hero.secondary.label}</Button>
@@ -48,7 +48,7 @@ export function PpcHero() {
           </div>
           <Reveal className="col-span-5 col-start-8">
             <Pointer><div className="pointer-parallax"><MediaFrame kind="screen" theme="ppc" ratio="16/11" title="Google Ads campaign view" note="Replace with a real, anonymised account view with spend, date range and conversion definition visible." source="/images/Services/Images on the pages/Account baseline Before.png" alt="Illustrative Google Ads account overview used by OMH, a Google Ads agency for UK businesses, showing clicks, impressions, average CPC, cost and conversions" /></div></Pointer>
-            <ReviewProof heading="Google Ads experience with verified client trust" className="mt-6" />
+            <ReviewProof serviceId="google-ads" heading="Google Ads experience with verified client trust" className="mt-6" />
           </Reveal>
         </div>
       </div>
@@ -64,7 +64,7 @@ export function PpcNeedSection() {
           <div className="col-span-4 max-lg:mb-10">
             <div className="lg:sticky lg:top-24">
               <SectionIntro size="md" title="Getting Google Ads to work for your business" accent="work for your business" body="Before the task list, these are the commercial problems Google Ads management has to solve." />
-              <p className="mt-7 border-l-2 border-amber pl-5 font-serif text-[20px] leading-snug text-ink/85">More clicks are not the goal. Useful enquiries, bookings or sales, and reliable evidence of them, are what make optimisation possible.</p>
+              <p className="mt-7 border-l-2 border-amber pl-5 text-body leading-snug text-ink/85">More clicks are not the goal. Useful enquiries, bookings or sales, and reliable evidence of them, are what make optimisation possible.</p>
             </div>
           </div>
           <div className="col-span-8 grid grid-cols-2 gap-x-8 max-md:grid-cols-1">
@@ -108,7 +108,7 @@ export function PpcCapabilityGrid() {
             <div className="col-span-6">
               <p className="text-[14px] font-semibold uppercase tracking-[0.16em] text-oninverse/55">High-intent demand</p>
               <h3 className="mt-5 font-sans text-h2 font-semibold">{featured.title}</h3>
-              <p className="mt-5 max-w-[46ch] text-lead leading-relaxed text-oninverse/75">{featured.body}</p>
+              <p className="mt-5 text-lead leading-relaxed text-oninverse/75">{featured.body}</p>
             </div>
             <ul className="col-span-5 col-start-8 grid gap-3 border-t border-oninverse/15 pt-6 max-lg:mt-8">
               {featured.detail?.map((line) => <li key={line} className="flex gap-3 text-body leading-snug text-oninverse/85"><Check className="mt-0.5 size-4 shrink-0 text-[#f2c675]" />{line}</li>)}
@@ -168,9 +168,9 @@ export function PpcPricingPackages() {
   return (
     <Band label="Packages" id="packages">
       <div data-event="ppc_pricing_view">
-        <div className="grid grid-cols-12 items-end gap-x-10 gap-y-6 max-lg:block">
-          <SectionIntro className="col-span-7" title="Our Google Ads management packages, compared clearly" accent="compared clearly" body="Four packages across sixteen comparison points, including the two exclusions in PPC Seed." />
-          <p className="col-span-5 text-bsm leading-relaxed text-ink/70 max-lg:mt-6">Package names do not imply a recommendation. Scope, billing frequency, VAT, ad-spend period and agreement terms should be confirmed in the written proposal.</p>
+        <div>
+          <SectionIntro title="Our Google Ads management packages, compared clearly" accent="compared clearly" body="Four packages across sixteen comparison points, including the two exclusions in PPC Seed." />
+          <p className="mt-5 text-body leading-relaxed text-ink/70">Package names do not imply a recommendation. Scope, billing frequency, VAT, ad-spend period and agreement terms should be confirmed in the written proposal.</p>
         </div>
         <div className="mt-12 hidden overflow-x-auto rounded-card border border-line bg-surface xl:block">
           <table className="w-full min-w-[1100px] border-collapse text-left text-bsm">
@@ -209,14 +209,14 @@ export function PpcProofSection() {
       <Reveal>
         <div className="overflow-hidden rounded-card border border-soft-dark bg-soft/60">
           <div className="grid grid-cols-12 gap-x-10 gap-y-8 p-10 max-lg:block max-sm:p-6">
-            <div className="col-span-5">
+            <div className="col-span-12">
               <Eyebrow>Client work</Eyebrow>
               <h2 className="mb-5 mt-6 font-sans text-h3 font-semibold text-balance">Show spend, measurement and the <span className="text-amber-deep">verified commercial outcome</span></h2>
               <p className="text-body leading-relaxed text-ink/75">Every Google Ads case study we publish includes the date range and what counted as a conversion, so the result can actually be evaluated.</p>
               <ul className="mt-7 border-t border-soft-dark">{["Starting account and business goal", "Campaign and landing-page work", "Spend and measurement period", "Verified lead, sale or efficiency outcome"].map((field) => <li key={field} className="border-b border-soft-dark py-3 text-body text-ink/70">{field}</li>)}</ul>
               <div className="mt-7"><TextLink href="/case-studies" data-event="ppc_case_study_click">View case studies</TextLink></div>
             </div>
-            <div className="col-span-7 col-start-6 max-lg:mt-9">
+            <div className="col-span-12 mt-9">
               <div className="grid grid-cols-2 gap-5 max-sm:grid-cols-1">
                 <Fpo ratio="4/3" tag="Before" title="Account baseline" note="Show an approved starting view and date range." source="/images/Services/Images on the pages/Account baseline Before.png" alt="Illustrative Google Ads account baseline" />
                 <Fpo ratio="4/3" tag="After" title="Verified PPC result" note="Use the same metric definition and a comparable period." source="/images/Services/Images on the pages/Verified PPC result after.png" alt="Illustrative Google Ads reporting example" />

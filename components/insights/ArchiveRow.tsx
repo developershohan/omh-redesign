@@ -44,10 +44,10 @@ export function ArchiveRow({ post }: { post: InsightIndexEntry }) {
           <span aria-hidden>·</span>
           <span className="normal-case tracking-normal">{post.readingTime} min read</span>
         </span>
-        <span className="mt-3 block max-w-[38ch] font-sans text-[clamp(22px,20px+0.35vw,27px)] font-semibold leading-tight text-balance">
+        <span className="mt-3 block font-sans text-[clamp(22px,20px+0.35vw,27px)] font-semibold leading-tight text-balance">
           {post.title}
         </span>
-        <span className="mt-3 block max-w-[68ch] text-body leading-relaxed text-ink/66">{post.summary}</span>
+        <span className="mt-3 block text-body leading-relaxed text-ink/66">{post.summary}</span>
       </span>
 
       <span className="flex size-11 items-center justify-center rounded-full border border-line text-amber-deep transition-colors group-hover:border-teal group-hover:bg-teal group-hover:text-white max-md:hidden">

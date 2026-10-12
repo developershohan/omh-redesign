@@ -211,7 +211,7 @@ export const instagramLanding = {
 
   goals: {
     ...socialLanding.goals,
-    title: "DEFINING YOUR INSTAGRAM MARKETING GOALS",
+    title: "Defining Your Instagram Marketing Goals",
     body: "Instagram marketing covers everything from organic content (Reels, carousels, Stories, static posts) to paid Instagram ads and influencer partnerships. Before we build your Instagram strategy, we work out what success looks like for your business. Starting an Instagram campaign without a clear commercial goal behind it wastes budget and produces vanity metrics that do not convert.",
     questions: [
       "What commercial outcome do you want from Instagram: leads, sales, bookings or brand awareness?",

@@ -36,7 +36,7 @@ export function ContactForm() {
     return (
       <div className="rounded-card border border-teal/25 bg-soft/50 p-8 max-sm:p-6" role="status">
         <h2 className="font-sans text-h3 font-semibold">Thanks - that&apos;s with us.</h2>
-        <p className="mt-3 max-w-[48ch] text-body leading-relaxed text-ink/75">
+        <p className="mt-3 text-body leading-relaxed text-ink/75">
           A real person will review your enquiry and reply with a clear recommendation on the
           next step. If it&apos;s urgent, call us on{" "}
           <span className="font-semibold text-ink">020 3489 3934</span>.

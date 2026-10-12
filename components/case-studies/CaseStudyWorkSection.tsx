@@ -14,7 +14,7 @@ export function CaseStudyChallenges({ study }: { study: CaseStudy }) {
           <h2 id="brief-heading" className="mt-5 font-sans text-h2 font-semibold">
             Where {study.client} started
           </h2>
-          <p className="mt-6 max-w-[44ch] font-sans text-h4 font-semibold leading-relaxed text-ink/85">{study.objective}</p>
+          <p className="mt-6 font-sans text-h4 font-semibold leading-relaxed text-ink/85">{study.objective}</p>
         </div>
         <div className="lg:col-span-7">
           <h3 className="font-sans text-h4 font-semibold">What needed to change</h3>
@@ -46,14 +46,14 @@ export function CaseStudyWorkSection({ study }: { study: CaseStudy }) {
   return (
     <section id="work" aria-labelledby="work-heading" className="scroll-mt-28 border-b border-line bg-warm">
       <div className="container-omh section-md">
-        <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
+        <div>
           <div>
             <p className={label}>Our approach</p>
-            <h2 id="work-heading" className="mt-5 max-w-[20ch] font-sans text-h2 font-semibold">
+            <h2 id="work-heading" className="mt-5 font-sans text-h2 font-semibold">
               {heading}
             </h2>
           </div>
-          <p className="max-w-[40ch] text-body leading-relaxed text-ink/70">
+          <p className="mt-5 text-body leading-relaxed text-ink/70">
             The work delivered for {study.client}, grouped by workstream.
           </p>
         </div>

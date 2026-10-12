@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Sans, Source_Sans_3, Source_Serif_4 } from "next/font/google";
+import { Instrument_Sans, Source_Sans_3 } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollTop } from "@/components/layout/ScrollTop";
@@ -15,12 +15,6 @@ const instrument = Instrument_Sans({
 const sourceSans = Source_Sans_3({
   variable: "--font-source-sans",
   subsets: ["latin"],
-});
-
-const sourceSerif = Source_Serif_4({
-  variable: "--font-source-serif",
-  subsets: ["latin"],
-  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -46,7 +40,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en-GB"
-      className={`${instrument.variable} ${sourceSans.variable} ${sourceSerif.variable} h-full antialiased`}
+      className={`${instrument.variable} ${sourceSans.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>

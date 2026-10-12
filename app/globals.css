@@ -76,7 +76,6 @@
   /* Type (brief §16) — fonts wired to next/font variables in app/layout.tsx */
   --font-sans: var(--font-instrument), "Helvetica Neue", Arial, sans-serif;
   --font-body: var(--font-source-sans), Arial, sans-serif;
-  --font-serif: var(--font-source-serif), Georgia, serif;
 
   /* Fluid scale hits the brief's desktop/tablet/mobile stops (72/58/42 etc.) */
   --text-display: clamp(2.625rem, 1.85rem + 3.31vw, 4.5rem);
@@ -165,13 +164,12 @@ body {
 }
 
 /*
-  Three-font system, assigned once at element level so no page can drift.
-  Instrument Sans = headings/UI, Source Sans 3 = reading copy, Source Serif 4 =
-  editorial quotation only.
+  Two-font system, assigned once at element level so no page can drift.
+  Instrument Sans = headings/UI, Source Sans 3 = everything else, quotes
+  included (the Source Serif 4 accent was dropped in Oct 2026 at the client's request).
 
   These MUST stay inside @layer base. Unlayered CSS outranks every Tailwind
-  layer, so as plain rules they beat `font-serif`/`font-sans` utilities — a
-  `<p class="font-serif">` silently rendered in Source Sans 3.
+  layer, so as plain rules they beat `font-body`/`font-sans` utilities.
 */
 @layer base {
   h1,
@@ -193,13 +191,20 @@ body {
   textarea,
   select,
   label,
+  blockquote,
+  .editorial-quote,
   .body-copy {
     font-family: var(--font-body);
   }
 
-  blockquote,
-  .editorial-quote {
-    font-family: var(--font-serif);
+  /* Section titles wrap to about two lines instead of running the full 1344px
+     container (client, 12 Oct 2026); descriptions stay full width. Centred
+     titles keep their auto margins so the cap doesn't push them left. */
+  h2 {
+    max-width: 30ch;
+  }
+  h2:is(.text-center, .text-center *) {
+    margin-inline: auto;
   }
 }
 
@@ -865,7 +870,6 @@ body {
   background: var(--color-soft);
   padding: 1.25em 1.4em;
   color: color-mix(in oklab, var(--color-ink) 80%, transparent);
-  font-family: var(--font-serif);
   font-size: 1.18em;
   line-height: 1.55;
 }
@@ -1199,4 +1203,32 @@ select:focus-visible {
   .recognition-tile * {
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Section anchors in articles: a "#" that appears on hover beside each h2. */
+.insight-prose h2 {
+  position: relative;
+}
+
+.insight-prose h2 .heading-anchor {
+  margin-left: 0.4em;
+  color: var(--color-amber-deep);
+  font-weight: 500;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.insight-prose h2:hover .heading-anchor,
+.insight-prose h2 .heading-anchor:focus-visible {
+  opacity: 1;
+}
+
+.insight-prose h2:target {
+  animation: heading-flash 1.6s ease-out;
+}
+
+@keyframes heading-flash {
+  from { background: var(--color-tint-amber); }
+  to { background: transparent; }
 }

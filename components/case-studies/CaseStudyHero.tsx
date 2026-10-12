@@ -33,8 +33,8 @@ export function CaseStudyHero({ study }: { study: CaseStudy }) {
             <p className="text-[14px] font-semibold uppercase tracking-[0.14em] text-amber-deep">
               {study.category} · {study.sector}
             </p>
-            <h1 className="mt-6 max-w-[18ch] font-sans text-display font-semibold text-balance"><AccentTitle text={study.title} /></h1>
-            <p className="mt-7 max-w-[56ch] text-body leading-relaxed text-ink/75">{study.lede}</p>
+            <h1 className="mt-6 font-sans text-display font-semibold text-balance"><AccentTitle text={study.title} /></h1>
+            <p className="mt-7 text-body leading-relaxed text-ink/75">{study.lede}</p>
             <dl className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 border-t border-line pt-7 max-sm:grid-cols-1">
               <Fact label="Client" value={study.client} />
               {study.duration ? <Fact label="Duration" value={study.duration} /> : <Fact label="Sector" value={study.sector} />}

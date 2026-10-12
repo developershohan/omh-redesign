@@ -3,18 +3,23 @@ import Link from "next/link";
 import { Clock3 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { formatInsightDate } from "@/components/insights/InsightMeta";
-import { ArrowRight, TextLink } from "@/components/ui/Button";
+import { InsightContents } from "@/components/insights/InsightContents";
+import { ShareRow } from "@/components/insights/ShareRow";
+import { ArrowRight, Button, TextLink } from "@/components/ui/Button";
 import { FinalCta } from "@/components/ui/FinalCta";
 import { Eyebrow } from "@/components/ui/Proof";
-import { withContents } from "@/lib/content/insight-toc";
+import { splitAtMiddle, withContents } from "@/lib/content/insight-toc";
 import { getRelatedInsights } from "@/lib/sanity/insights";
 import { insightHref, type InsightPost } from "@/lib/content/insights-types";
+import { SITE } from "@/lib/schema";
 import { AccentTitle } from "@/components/services/ServicePrimitives";
 
 export async function InsightArticle({ post }: { post: InsightPost }) {
   const related = await getRelatedInsights(post);
   const wasUpdated = post.modifiedAt.slice(0, 10) !== post.publishedAt.slice(0, 10);
   const { html, items } = withContents(post.contentHtml);
+  const [head, tail] = splitAtMiddle(html, items);
+  const url = `${SITE}${insightHref(post)}/`;
 
   return (
     <article>
@@ -48,17 +53,18 @@ export async function InsightArticle({ post }: { post: InsightPost }) {
             {/* Title left, lead image right: the heading row used to leave the
                 whole right-hand half of the hero empty. */}
             <div className="mt-6 grid grid-cols-12 items-center gap-x-12 gap-y-9 max-lg:block">
-              <div className={post.featuredImage ? "col-span-7" : "col-span-9"}>
-                <h1 className="font-sans text-display font-semibold text-balance"><AccentTitle text={post.title} /></h1>
-                <p className="mt-7 max-w-[56ch] text-lead leading-relaxed text-ink/72">
+              <div className={post.featuredImage ? "col-span-6" : "col-span-9"}>
+                <h1 className="font-sans text-h1 font-semibold text-balance"><AccentTitle text={post.title} /></h1>
+                <p className="mt-7 text-lead leading-relaxed text-ink/72">
                   {post.summary}
                 </p>
               </div>
 
-              {/* Shown at its own proportions: many lead images are graphics with
-                  text in them, and a fixed 4:3 crop cut that text off. */}
+              {/* Larger but never cropped (user call, 12 Oct 2026): the title takes
+                  six columns and the image six, shown at its own proportions
+                  because many lead images are graphics with text in them. */}
               {post.featuredImage && (
-                <div className="col-span-5 max-lg:mt-9">
+                <div className="col-span-6 max-lg:mt-9">
                   <div className="overflow-hidden rounded-media border border-line bg-soft shadow-[0_30px_70px_-50px_rgb(16_24_40/0.55)]">
                     {post.featuredImage.width && post.featuredImage.height ? (
                       <Image
@@ -67,7 +73,7 @@ export async function InsightArticle({ post }: { post: InsightPost }) {
                         width={post.featuredImage.width}
                         height={post.featuredImage.height}
                         priority
-                        sizes="(max-width: 1024px) 100vw, 44vw"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
                         className="block h-auto w-full"
                       />
                     ) : (
@@ -77,7 +83,7 @@ export async function InsightArticle({ post }: { post: InsightPost }) {
                           alt={post.featuredImage.alt || post.title}
                           fill
                           priority
-                          sizes="(max-width: 1024px) 100vw, 44vw"
+                          sizes="(max-width: 1024px) 100vw, 50vw"
                           className="object-contain"
                         />
                       </div>
@@ -116,28 +122,7 @@ export async function InsightArticle({ post }: { post: InsightPost }) {
           <div className="grid grid-cols-[minmax(200px,240px)_minmax(0,1fr)] gap-x-[clamp(48px,5vw,88px)] gap-y-10 max-lg:block">
             <aside className="max-lg:mb-12">
               <div className="sticky top-28 max-lg:static">
-                {items.length > 1 && (
-                  <nav aria-labelledby="article-contents" className="border-t border-line pt-5">
-                    <p
-                      id="article-contents"
-                      className="text-[14px] font-semibold uppercase tracking-[0.15em] text-muted"
-                    >
-                      On this page
-                    </p>
-                    <ol className="mt-4 grid gap-2.5 max-lg:mt-5">
-                      {items.slice(0, 9).map((item) => (
-                        <li key={item.id}>
-                          <a
-                            href={`#${item.id}`}
-                            className="block border-l-2 border-line py-0.5 pl-4 text-body leading-snug text-ink/68 transition-colors hover:border-amber hover:text-amber-deep"
-                          >
-                            {item.text}
-                          </a>
-                        </li>
-                      ))}
-                    </ol>
-                  </nav>
-                )}
+                {items.length > 1 && <InsightContents items={items} />}
 
                 <div className="mt-8 border-t border-line pt-5">
                   <p className="text-[14px] font-semibold uppercase tracking-[0.15em] text-muted">
@@ -154,13 +139,31 @@ export async function InsightArticle({ post }: { post: InsightPost }) {
                 </div>
 
                 <div className="mt-8 border-t border-line pt-5">
+                  <ShareRow title={post.title} url={url} />
+                </div>
+
+                <div className="mt-8 border-t border-line pt-5">
                   <TextLink href="/insights">All insights</TextLink>
                 </div>
               </div>
             </aside>
 
             <Reveal className="min-w-0">
-              <div className="insight-prose" dangerouslySetInnerHTML={{ __html: html }} />
+              <div className="insight-prose" dangerouslySetInnerHTML={{ __html: head }} />
+              {tail && (
+                <>
+                  <aside className="my-14 rounded-card bg-inverse p-9 text-oninverse max-sm:p-6" aria-label="Talk to the team">
+                    <p className="text-[14px] font-semibold uppercase tracking-[0.15em] text-oninverse/55">Need a hand with {post.topic.name}?</p>
+                    <p className="mt-4 font-sans text-h3 font-semibold text-balance">Talk it through with the team before you change anything.</p>
+                    <p className="mt-4 text-body leading-relaxed text-oninverse/72">A free consultation call. We look at what you have in place now and suggest the clearest next step, whether or not you work with us.</p>
+                    <div className="mt-7 flex flex-wrap items-center gap-4">
+                      <Button href="/contact" variant="inverse" small arrow data-event="insight_inline_cta_click">Book a Growth Consultation</Button>
+                      <span className="text-[15px] text-oninverse/55">Keep reading below</span>
+                    </div>
+                  </aside>
+                  <div className="insight-prose" dangerouslySetInnerHTML={{ __html: tail }} />
+                </>
+              )}
             </Reveal>
           </div>
         </div>

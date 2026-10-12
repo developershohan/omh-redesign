@@ -25,10 +25,10 @@ export default function ContactPage() {
           {/* Left: intro, details, what happens next */}
           <div className="col-span-5 max-lg:mb-12">
             <Eyebrow>Contact</Eyebrow>
-            <h1 className="mb-5 mt-6 max-w-[18ch] font-sans text-display font-semibold text-balance">
+            <h1 className="mb-5 mt-6 font-sans text-display font-semibold text-balance">
               Tell us what you need and we&apos;ll recommend <span className="text-amber-deep">the next step</span>
             </h1>
-            <p className="max-w-[52ch] text-lead leading-relaxed text-ink/75">
+            <p className="text-lead leading-relaxed text-ink/75">
               Whether it&apos;s a new website, a redesign, WordPress support or wider marketing,
               send a few details and we&apos;ll come back with a practical recommendation. No
               hard sell.

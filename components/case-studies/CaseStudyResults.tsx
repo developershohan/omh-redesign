@@ -11,13 +11,13 @@ export function CaseStudyResults({ study }: { study: CaseStudy }) {
     <section id="results" aria-labelledby="results-heading" className="dark-grid scroll-mt-28 bg-inverse text-oninverse">
       <div className="container-omh section-md">
         <p className="text-[14px] font-semibold uppercase tracking-[0.14em] text-amber">Results</p>
-        <h2 id="results-heading" className="mt-5 max-w-[22ch] font-sans text-h2 font-semibold text-balance">
+        <h2 id="results-heading" className="mt-5 font-sans text-h2 font-semibold text-balance">
           What changed for {study.client}
         </h2>
         <div className="mt-12 grid gap-x-16 gap-y-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="flex flex-col justify-center lg:border-r lg:border-oninverse/15 lg:pr-14">
             <p className="font-sans text-[clamp(72px,9vw,128px)] font-semibold leading-none text-[#f2c675]">{headline.value}</p>
-            <p className="mt-5 max-w-[24ch] font-sans text-h4 font-semibold">{headline.label}</p>
+            <p className="mt-5 font-sans text-h4 font-semibold">{headline.label}</p>
             {headline.context && <p className="mt-3 text-body leading-relaxed text-oninverse/70">{headline.context}</p>}
           </div>
           {rest.length > 0 && (
@@ -50,9 +50,9 @@ export function CaseStudyTestimonial({ study }: { study: CaseStudy }) {
   return (
     <section id="client-feedback" aria-label="Client feedback" className="scroll-mt-28 border-b border-line bg-surface">
       <div className="container-omh section-md">
-        <figure className="mx-auto max-w-[62ch] text-center">
-          <span aria-hidden className="block font-serif text-[72px] leading-none text-amber">“</span>
-          <blockquote className="mt-2 font-serif text-[clamp(24px,2.3vw,34px)] leading-snug text-ink text-balance">
+        <figure className="mx-auto text-center">
+          <span aria-hidden className="block font-body text-[72px] leading-none text-amber">“</span>
+          <blockquote className="mt-2 font-body text-[clamp(24px,2.3vw,34px)] leading-snug text-ink text-balance">
             {study.testimonial.quote}
           </blockquote>
           <figcaption className="mt-8">

@@ -40,11 +40,11 @@ export const voiceAgentsMarkup = String.raw`
 </svg>
 
 <section id="hero" data-component="Hero" class="relative">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 grid items-center gap-12 pb-16 pt-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,.92fr)] lg:gap-14 lg:pb-24 lg:pt-20">
+  <div class="container-omh grid items-center gap-12 pb-16 pt-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,.92fr)] lg:gap-14 lg:pb-24 lg:pt-20">
     <div>
       <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"><i></i><i></i><i></i></span>AI voice agents for UK service businesses</p>
       <h1>An AI receptionist that answers, books and follows up, <span class="hl">day and night</span></h1>
-      <p class="mt-6 max-w-[34rem] text-[20px] leading-[1.55] text-muted">When your team can't get to the phone, your voice agent picks up in your business's name, books the appointment into your diary and passes anything complicated to a person. OMH builds it, tests it and manages it for you.</p>
+      <p class="mt-6 text-body leading-[1.55] text-muted">When your team can't get to the phone, your voice agent picks up in your business's name, books the appointment into your diary and passes anything complicated to a person. OMH builds it, tests it and manages it for you.</p>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <a href="/contact?service=ai-voice-agents" class="btn btn-primary" data-track="hero_book_demo">Book a Voice Agent Demo</a>
         <a href="#video" class="btn btn-secondary" data-track="hero_hear_sample"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-play"/></svg>Hear a sample call</a>
@@ -53,7 +53,7 @@ export const voiceAgentsMarkup = String.raw`
         Or call our demo agent now:
         <a href="tel:" class="text-link tnum" data-demo-number data-track="hero_demo_number_call"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>[DEMO NUMBER]</a><span class="flag">[PLACEHOLDER]</span>
       </p>
-      <dl class="mt-10 grid max-w-[36rem] grid-cols-3 border-t border-line">
+      <dl class="mt-10 grid grid-cols-3 border-t border-line">
         <div class="pr-3 pt-5">
           <dd class="font-display text-[clamp(1.5rem,1.1rem+1.6vw,2.25rem)] font-semibold leading-none tracking-tight tnum">98%</dd>
           <dt class="mt-2 text-[15px] leading-snug text-muted">of calls answered</dt>
@@ -76,7 +76,7 @@ export const voiceAgentsMarkup = String.raw`
       </div>
       <div class="flex items-center justify-between gap-4 px-5 pt-5">
         <div>
-          <p class="font-display text-[19px] font-semibold leading-tight">Albion Square Dental</p>
+          <p class="font-display text-body font-semibold leading-tight">Albion Square Dental</p>
           <p class="text-[15px] text-muted">Manchester. Answered by Amy, AI assistant</p>
         </div>
         <div class="flex items-center gap-3" data-call-status>
@@ -107,7 +107,7 @@ export const voiceAgentsMarkup = String.raw`
   </div>
 
   <div class="border-y border-line">
-    <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 flex flex-col gap-x-8 gap-y-2 py-5 text-[16px] text-muted md:flex-row md:items-center md:justify-between">
+    <div class="container-omh flex flex-col gap-x-8 gap-y-2 py-5 text-[16px] text-muted md:flex-row md:items-center md:justify-between">
       <p class="flex items-start gap-2"><svg class="icon mt-1 text-hl" aria-hidden="true" focusable="false"><use href="#i-map-pin"/></svg><span>Voice agents for businesses in <strong class="font-semibold text-ink">London, Birmingham, Manchester, Leeds, Liverpool and Bristol</strong></span></p>
       <p class="md:text-right">Built and managed remotely from Essex by a UK team</p>
     </div>
@@ -115,7 +115,7 @@ export const voiceAgentsMarkup = String.raw`
 </section>
 
 <section id="overview" data-component="Overview" class="on-band bg-band text-band-ink">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 grid gap-12 py-20 lg:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)] lg:gap-16 lg:py-28">
+  <div class="container-omh grid gap-12 py-20 lg:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)] lg:gap-16 lg:py-28">
     <div>
       <p class="eyebrow eyebrow-band"><span class="eyebrow-mark" aria-hidden="true"><i></i><i></i><i></i></span>What a voice agent is</p>
       <h2>The calls you miss are customers <span class="hl">ringing someone else</span></h2>
@@ -129,7 +129,7 @@ export const voiceAgentsMarkup = String.raw`
         <div data-ledger data-mode="without" class="self-start rounded-[14px] border border-band-line bg-band-surface">
       <div class="flex flex-col gap-4 border-b border-band-line p-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p class="font-display text-[19px] font-semibold leading-tight">Aire Valley Heating, Leeds</p>
+          <p class="font-display text-body font-semibold leading-tight">Aire Valley Heating, Leeds</p>
           <p class="text-[15px] text-band-muted">Calls after 5:30pm on a Tuesday. Illustrative example.</p>
         </div>
         <fieldset class="shrink-0">
@@ -206,8 +206,8 @@ export const voiceAgentsMarkup = String.raw`
 </section>
 
 <section id="video" data-component="VideoOverview" class="bg-surface">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 py-20 lg:py-28">
-    <div class="max-w-[46rem]">
+  <div class="container-omh py-20 lg:py-28">
+    <div class="">
       <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"><i></i><i></i><i></i></span>See it and hear it</p>
       <h2>Two minutes of video, or one <span class="hl">phone call</span></h2>
       <p class="mt-5 text-muted">Watch a short walkthrough of a real call from start to finish. Better still, ring the demo agent and test it with your own questions.</p>
@@ -260,13 +260,13 @@ export const voiceAgentsMarkup = String.raw`
 </section>
 
 <section id="industries" data-component="Industries">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 py-20 lg:py-28">
-    <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
+  <div class="container-omh py-20 lg:py-28">
+    <div>
       <div>
         <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"><i></i><i></i><i></i></span>Industries</p>
         <h2>Built for businesses that live on <span class="hl">the phone</span></h2>
       </div>
-      <p class="text-muted lg:pt-10">We set up AI voice agents for estate and letting agents, dental clinics, healthcare clinics, plumbers, heating engineers, builders, law firms and car dealerships. Each agent is scripted around the calls your sector actually gets.</p>
+      <p class="mt-5 text-muted">We set up AI voice agents for estate and letting agents, dental clinics, healthcare clinics, plumbers, heating engineers, builders, law firms and car dealerships. Each agent is scripted around the calls your sector actually gets.</p>
     </div>
 
     <div role="group" aria-label="Filter industries by group" class="mt-10 flex flex-wrap gap-2" data-industry-filters>
@@ -412,13 +412,13 @@ export const voiceAgentsMarkup = String.raw`
 </section>
 
 <section id="areas" data-component="AreasWeServe" class="bg-sand">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 py-20 lg:py-28">
-    <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
+  <div class="container-omh py-20 lg:py-28">
+    <div>
       <div>
         <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"><i></i><i></i><i></i></span>Areas we serve</p>
         <h2>Based in Essex, <span class="hl">working UK-wide</span></h2>
       </div>
-      <div class="space-y-4 text-muted lg:pt-10">
+      <div class="mt-5 space-y-4 text-muted">
         <p>We focus our voice agent work on six cities. We don't have offices in any of them and we won't pretend otherwise. Our team is in Hullbridge, Essex, and we run discovery, testing and monthly reviews by video call and phone.</p>
         <p>Your callers still get a local experience. The agent can answer on your existing number, or on a new local number with the right area code.</p>
       </div>
@@ -532,13 +532,13 @@ export const voiceAgentsMarkup = String.raw`
 </section>
 
 <section id="why-omh" data-component="WhyChooseOMH" class="bg-surface">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 py-20 lg:py-28">
-    <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
+  <div class="container-omh py-20 lg:py-28">
+    <div>
       <div>
         <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"><i></i><i></i><i></i></span>Why choose OMH</p>
         <h2>The software is the easy part. <span class="hl">Running it well</span> is the job.</h2>
       </div>
-      <p class="text-muted lg:pt-10">Anyone can sign up for a voice AI tool. Whether it works for your business depends on the script, the testing and somebody keeping an eye on it every month. That's the part we do.</p>
+      <p class="mt-5 text-muted">Anyone can sign up for a voice AI tool. Whether it works for your business depends on the script, the testing and somebody keeping an eye on it every month. That's the part we do.</p>
     </div>
 
         <p class="mt-12 flex flex-wrap gap-x-5 gap-y-2 text-[15px] font-semibold md:hidden" aria-hidden="true"><span class="flex items-center gap-2"><span class="block h-3.5 w-3.5 rounded-[4px] bg-band"></span>Managed by OMH</span><span class="flex items-center gap-2 text-muted"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-x"/></svg>DIY or generic tool</span></p>
@@ -645,8 +645,8 @@ export const voiceAgentsMarkup = String.raw`
 </section>
 
 <section id="how-it-works" data-component="HowItWorks">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 py-20 lg:py-28">
-    <div class="mx-auto max-w-[44rem] text-center">
+  <div class="container-omh py-20 lg:py-28">
+    <div class="mx-auto text-center">
       <p class="eyebrow justify-center"><span class="eyebrow-mark" aria-hidden="true"><i></i><i></i><i></i></span>How it works</p>
       <h2>Four steps from first call <span class="hl">to live agent</span></h2>
       <p class="mt-5 text-muted">You stay in control at every step. Typical time from discovery to launch <span class="flag">[PLACEHOLDER]</span> We confirm your timeline after the first call.</p>
@@ -733,13 +733,13 @@ export const voiceAgentsMarkup = String.raw`
 </section>
 
 <section id="solutions" data-component="Solutions" class="bg-sand">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 py-20 lg:py-28">
-    <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
+  <div class="container-omh py-20 lg:py-28">
+    <div>
       <div>
         <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"><i></i><i></i><i></i></span>Our solutions</p>
         <h2>Three jobs your agent <span class="hl">can take on</span></h2>
       </div>
-      <p class="text-muted lg:pt-10">Start with one and add the others when you're ready. Most businesses begin with booking for the calls their team can't answer. Pick a job below to see how a call flows.</p>
+      <p class="mt-5 text-muted">Start with one and add the others when you're ready. Most businesses begin with booking for the calls their team can't answer. Pick a job below to see how a call flows.</p>
     </div>
     <div class="mt-12" data-tabs>
       <div role="tablist" aria-label="Voice agent solutions" class="grid gap-3 md:grid-cols-3">
@@ -1076,7 +1076,7 @@ export const voiceAgentsMarkup = String.raw`
 
 <section id="billing" data-component="Billing" class="relative overflow-hidden bg-surface">
   <div class="pointer-events-none absolute -left-40 top-24 h-[560px] w-[560px] rounded-full bg-gold/10 blur-3xl" aria-hidden="true"></div>
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 relative py-20 lg:py-28" data-bill data-bill-price="449" data-bill-included="800" data-bill-rate="0.3" data-bill-max="1200">
+  <div class="container-omh relative py-20 lg:py-28" data-bill data-bill-price="449" data-bill-included="800" data-bill-rate="0.3" data-bill-max="1200">
     <div class="grid items-center gap-x-16 gap-y-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,.95fr)] lg:grid-rows-[auto_auto]">
 
             <div class="relative order-2 mx-auto w-full max-w-[560px] lg:order-none lg:row-span-2 lg:min-h-[580px]" aria-label="Example invoice and usage report" role="group">
@@ -1093,7 +1093,7 @@ export const voiceAgentsMarkup = String.raw`
         <div class="relative mt-5 rounded-[16px] border border-line bg-surface p-5 shadow-[0_30px_70px_-30px_rgb(16_24_40/0.55)] sm:p-6 lg:absolute lg:bottom-0 lg:right-0 lg:mt-0 lg:w-[80%] lg:rotate-[1.5deg]">
           <div class="flex flex-col-reverse items-start justify-between gap-2 sm:flex-row sm:gap-4">
             <div>
-              <p class="font-display text-[19px] font-semibold leading-tight">Invoice OMH-VA-0042</p>
+              <p class="font-display text-body font-semibold leading-tight">Invoice OMH-VA-0042</p>
               <p class="mt-1 text-[14.5px] text-muted">Severn Plumbing Ltd, Bristol</p>
             </div>
             <span class="flag">[PLACEHOLDER] figures</span>
@@ -1171,7 +1171,7 @@ export const voiceAgentsMarkup = String.raw`
 
 <section id="branding" data-component="Branding" class="on-band relative overflow-hidden bg-band text-band-ink">
   <div class="pointer-events-none absolute right-[-10%] top-1/2 h-[620px] w-[620px] -translate-y-1/2 rounded-full bg-gold/15 blur-3xl" aria-hidden="true"></div>
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 relative grid items-center gap-14 py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16 lg:py-28" data-brand
+  <div class="container-omh relative grid items-center gap-14 py-20 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,.65fr)] lg:gap-16 lg:py-28" data-brand
     data-brand-biz='[{"id":"law","label":"Law firm","name":"Hartwell Reeve Solicitors","city":"Birmingham","num":"0121 496 0147","agent":"Grace","kind":"firm&#39;s","initials":"HR","voice":"British English, calm and measured","never":"Gives legal advice","transfer":"Existing clients go to their named solicitor"},{"id":"dental","label":"Dental clinic","name":"Albion Square Dental","city":"Manchester","num":"0161 496 0123","agent":"Amy","kind":"practice&#39;s","initials":"AS","voice":"British English, warm and friendly","never":"Gives clinical advice","transfer":"Dental emergencies go to the on-call line"},{"id":"plumber","label":"Plumber","name":"Severn Plumbing","city":"Bristol","num":"0117 496 0135","agent":"Sam","kind":"team&#39;s","initials":"SP","voice":"British English, relaxed","never":"Quotes a price it has not been given","transfer":"Burst pipes go straight to the plumber on call"}]'>
     <div>
       <p class="eyebrow eyebrow-band"><span class="eyebrow-mark" aria-hidden="true"><i></i><i></i><i></i></span>Branding</p>
@@ -1248,13 +1248,13 @@ export const voiceAgentsMarkup = String.raw`
 </section>
 
 <section id="right-fit" data-component="RightFit">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 py-20 lg:py-28">
-    <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
+  <div class="container-omh py-20 lg:py-28">
+    <div>
       <div>
         <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"><i></i><i></i><i></i></span>Is it the right fit?</p>
         <h2>A voice agent <span class="hl">isn't for everyone</span></h2>
       </div>
-      <p class="text-muted lg:pt-10">We would rather tell you now than three months in. Here is where it earns its keep and where it doesn't. Or answer five quick questions and see for yourself.</p>
+      <p class="mt-5 text-muted">We would rather tell you now than three months in. Here is where it earns its keep and where it doesn't. Or answer five quick questions and see for yourself.</p>
     </div>
 
     <div class="mt-12 grid gap-5 md:grid-cols-2">
@@ -1287,7 +1287,7 @@ export const voiceAgentsMarkup = String.raw`
         <ol class="mt-6 divide-y divide-line border-y border-line">
           <li>
             <fieldset class="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
-              <legend class="float-left flex gap-3 text-[16.5px] leading-snug sm:max-w-[30rem]"><span class="num text-[15px] leading-[1.6]">01</span><span>Do you miss calls when your team is busy, on site or closed?</span></legend>
+              <legend class="float-left flex gap-3 text-[16.5px] leading-snug sm:"><span class="num text-[15px] leading-[1.6]">01</span><span>Do you miss calls when your team is busy, on site or closed?</span></legend>
               <span class="flex shrink-0 gap-2 pl-8 sm:pl-0">
                 <label class="relative">
                   <input type="radio" name="fit-q0" value="yes" class="peer sr-only" data-fit-q="0" data-track="fit_check_answer" data-track-name="Q1 yes">
@@ -1301,7 +1301,7 @@ export const voiceAgentsMarkup = String.raw`
           </li>
           <li>
             <fieldset class="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
-              <legend class="float-left flex gap-3 text-[16.5px] leading-snug sm:max-w-[30rem]"><span class="num text-[15px] leading-[1.6]">02</span><span>Are most of your calls the same few requests?</span></legend>
+              <legend class="float-left flex gap-3 text-[16.5px] leading-snug sm:"><span class="num text-[15px] leading-[1.6]">02</span><span>Are most of your calls the same few requests?</span></legend>
               <span class="flex shrink-0 gap-2 pl-8 sm:pl-0">
                 <label class="relative">
                   <input type="radio" name="fit-q1" value="yes" class="peer sr-only" data-fit-q="1" data-track="fit_check_answer" data-track-name="Q2 yes">
@@ -1315,7 +1315,7 @@ export const voiceAgentsMarkup = String.raw`
           </li>
           <li>
             <fieldset class="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
-              <legend class="float-left flex gap-3 text-[16.5px] leading-snug sm:max-w-[30rem]"><span class="num text-[15px] leading-[1.6]">03</span><span>Could one missed call cost you a customer worth real money?</span></legend>
+              <legend class="float-left flex gap-3 text-[16.5px] leading-snug sm:"><span class="num text-[15px] leading-[1.6]">03</span><span>Could one missed call cost you a customer worth real money?</span></legend>
               <span class="flex shrink-0 gap-2 pl-8 sm:pl-0">
                 <label class="relative">
                   <input type="radio" name="fit-q2" value="yes" class="peer sr-only" data-fit-q="2" data-track="fit_check_answer" data-track-name="Q3 yes">
@@ -1329,7 +1329,7 @@ export const voiceAgentsMarkup = String.raw`
           </li>
           <li>
             <fieldset class="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
-              <legend class="float-left flex gap-3 text-[16.5px] leading-snug sm:max-w-[30rem]"><span class="num text-[15px] leading-[1.6]">04</span><span>Do you have a diary or system bookings can go into?</span></legend>
+              <legend class="float-left flex gap-3 text-[16.5px] leading-snug sm:"><span class="num text-[15px] leading-[1.6]">04</span><span>Do you have a diary or system bookings can go into?</span></legend>
               <span class="flex shrink-0 gap-2 pl-8 sm:pl-0">
                 <label class="relative">
                   <input type="radio" name="fit-q3" value="yes" class="peer sr-only" data-fit-q="3" data-track="fit_check_answer" data-track-name="Q4 yes">
@@ -1343,7 +1343,7 @@ export const voiceAgentsMarkup = String.raw`
           </li>
           <li>
             <fieldset class="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
-              <legend class="float-left flex gap-3 text-[16.5px] leading-snug sm:max-w-[30rem]"><span class="num text-[15px] leading-[1.6]">05</span><span>Are you happy for callers to be told they are speaking to an AI?</span></legend>
+              <legend class="float-left flex gap-3 text-[16.5px] leading-snug sm:"><span class="num text-[15px] leading-[1.6]">05</span><span>Are you happy for callers to be told they are speaking to an AI?</span></legend>
               <span class="flex shrink-0 gap-2 pl-8 sm:pl-0">
                 <label class="relative">
                   <input type="radio" name="fit-q4" value="yes" class="peer sr-only" data-fit-q="4" data-track="fit_check_answer" data-track-name="Q5 yes">
@@ -1368,7 +1368,7 @@ export const voiceAgentsMarkup = String.raw`
           <text x="180" y="116" class="fit-tick" text-anchor="middle">5</text>
         </svg>
         <p class="mt-3 font-display text-[26px] font-semibold leading-tight" data-fit-title>Answer to see your fit</p>
-        <p class="mt-2 max-w-[22rem] text-[16px] leading-snug text-muted" data-fit-text>Your result appears here as you go. Nothing is sent anywhere.</p>
+        <p class="mt-2 text-[16px] leading-snug text-muted" data-fit-text>Your result appears here as you go. Nothing is sent anywhere.</p>
         <p class="mt-1 text-[14.5px] text-muted tnum" data-fit-count>0 of 5 answered</p>
         <a href="/contact?service=ai-voice-agents" class="btn btn-primary mt-5" data-fit-cta data-track="fit_check_book_demo" hidden>Book a Voice Agent Demo</a>
       </div>
@@ -1377,13 +1377,13 @@ export const voiceAgentsMarkup = String.raw`
 </section>
 
 <section id="feedback" data-component="ClientFeedback" class="bg-surface">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 py-20 lg:py-28">
-    <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
+  <div class="container-omh py-20 lg:py-28">
+    <div>
       <div>
         <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"><i></i><i></i><i></i></span>Client feedback</p>
         <h2>Proof goes here <span class="hl">when it's real</span></h2>
       </div>
-      <p class="text-muted lg:pt-10">Voice agents are a new service for us, so we haven't filled this wall with invented praise. Each video below is reserved for a client and stays marked as pending until we have checked their results.</p>
+      <p class="mt-5 text-muted">Voice agents are a new service for us, so we haven't filled this wall with invented praise. Each video below is reserved for a client and stays marked as pending until we have checked their results.</p>
     </div>
 
     <dl class="mt-12 grid border-y border-[var(--va-line-strong)] sm:grid-cols-3">
@@ -1516,11 +1516,11 @@ export const voiceAgentsMarkup = String.raw`
 
 <section id="white-label" data-component="WhiteLabel" class="relative overflow-hidden bg-sand">
   <div class="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[900px] -translate-x-1/2 rounded-full bg-gold/15 blur-3xl" aria-hidden="true"></div>
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 relative py-20 lg:py-28" data-wl data-wl-monthly="349" data-wl-annual="291" data-wl-year="3490">
-    <div class="mx-auto max-w-[48rem] text-center">
+  <div class="container-omh relative py-20 lg:py-28" data-wl data-wl-monthly="349" data-wl-annual="291" data-wl-year="3490">
+    <div class="mx-auto text-center">
       <span class="inline-flex rounded-full border border-gold bg-surface px-3.5 py-1.5 text-[14.5px] font-semibold text-hl">For agencies and resellers</span>
       <h2 class="mt-5">Sell AI voice agents under <span class="hl">your own brand</span></h2>
-      <p class="mx-auto mt-5 max-w-[40rem] text-muted">For marketing agencies, web studios and IT providers who want to offer voice agents to their clients. We build and run the agents behind the scenes. Your clients only ever see your name.</p>
+      <p class="mx-auto mt-5 text-muted">For marketing agencies, web studios and IT providers who want to offer voice agents to their clients. We build and run the agents behind the scenes. Your clients only ever see your name.</p>
     </div>
 
     <fieldset class="mx-auto mt-9 w-fit">
@@ -1608,9 +1608,9 @@ export const voiceAgentsMarkup = String.raw`
 </section>
 
 <section id="pricing" data-component="Pricing">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 py-20 lg:py-28" data-pricing data-billing="monthly">
+  <div class="container-omh py-20 lg:py-28" data-pricing data-billing="monthly">
     <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-      <div class="max-w-[44rem]">
+      <div class="">
         <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"><i></i><i></i><i></i></span>Pricing</p>
         <h2>Three plans, priced <span class="hl">by the month</span></h2>
         <p class="mt-5 text-muted">Every plan includes setup support, a managed agent and a monthly report. The figures below are examples while we finalise pricing. <span class="flag">[PLACEHOLDER]</span></p>
@@ -1694,7 +1694,7 @@ export const voiceAgentsMarkup = String.raw`
       </article>
     </div>
 
-    <ol class="mt-8 max-w-[58rem] list-decimal space-y-1.5 pl-5 text-[15.5px] text-muted">
+    <ol class="mt-8 list-decimal space-y-1.5 pl-5 text-[15.5px] text-muted">
       <li>All prices exclude VAT at the current rate.</li>
       <li>Plan prices, included minutes and per-minute rates are example figures and will be confirmed before launch. <span class="flag">[PLACEHOLDER]</span></li>
       <li>One-off setup fee <span class="flag">[PLACEHOLDER]</span> Agreed in writing before work starts.</li>
@@ -1705,8 +1705,8 @@ export const voiceAgentsMarkup = String.raw`
 </section>
 
 <section id="calculator" data-component="MissedCallCalculator" class="bg-sand">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 py-20 lg:py-28">
-    <div class="max-w-[44rem]">
+  <div class="container-omh py-20 lg:py-28">
+    <div class="">
       <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"><i></i><i></i><i></i></span>Calculator</p>
       <h2>What are missed calls <span class="hl">costing you?</span></h2>
       <p class="mt-5 text-muted">Put in your own numbers. If you don't know how many calls you miss, your phone provider's call log will tell you, and we can help you read it.</p>
@@ -1786,13 +1786,13 @@ export const voiceAgentsMarkup = String.raw`
 </section>
 
 <section id="compare" data-component="Compare">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 py-20 lg:py-28">
-    <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
+  <div class="container-omh py-20 lg:py-28">
+    <div>
       <div>
         <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"><i></i><i></i><i></i></span>Compare your options</p>
         <h2>How a voice agent compares with <span class="hl">the usual answers</span></h2>
       </div>
-      <p class="text-muted lg:pt-10">Most businesses handle missed calls with voicemail, an answering service, more reception staff or a DIY tool. Here is an honest side-by-side, including where each option wins.</p>
+      <p class="mt-5 text-muted">Most businesses handle missed calls with voicemail, an answering service, more reception staff or a DIY tool. Here is an honest side-by-side, including where each option wins.</p>
     </div>
 
         <div class="mt-12 hidden overflow-hidden rounded-[18px] border border-line bg-surface shadow-[0_30px_60px_-45px_rgb(16_24_40/0.45)] lg:block">
@@ -1916,7 +1916,7 @@ export const voiceAgentsMarkup = String.raw`
 </section>
 
 <section id="faq" data-component="FAQ" class="bg-surface">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 grid gap-10 py-20 lg:grid-cols-[minmax(0,.72fr)_minmax(0,1.28fr)] lg:grid-rows-[auto_1fr] lg:gap-x-14 lg:gap-y-8 lg:py-28">
+  <div class="container-omh grid gap-10 py-20 lg:grid-cols-[minmax(0,.72fr)_minmax(0,1.28fr)] lg:grid-rows-[auto_1fr] lg:gap-x-14 lg:gap-y-8 lg:py-28">
     <div>
       <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"><i></i><i></i><i></i></span>Questions</p>
       <h2>Straight answers to <span class="hl">fair questions</span></h2>
@@ -1925,7 +1925,7 @@ export const voiceAgentsMarkup = String.raw`
 
     <div class="order-last lg:order-none lg:col-start-1 lg:row-start-2 lg:sticky lg:top-28 lg:self-start">
       <div class="rounded-[16px] bg-band p-6 text-band-ink on-band">
-        <p class="font-display text-[19px] font-semibold">Still have a question?</p>
+        <p class="font-display text-body font-semibold">Still have a question?</p>
         <p class="mt-1.5 text-[16px] leading-snug text-band-muted">Talk to a person on our UK team. No sales script.</p>
         <ul class="mt-4 space-y-1 text-[16px]">
           <li><a href="tel:+442034893934" class="text-link tnum" data-track="faq_phone_click"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>020 3489 3934</a></li>
@@ -1964,7 +1964,7 @@ export const voiceAgentsMarkup = String.raw`
           </span>
           <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--va-line-strong)] group-open:border-gold group-open:bg-gold group-open:text-navy"><svg class="icon faq-chevron" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></span>
         </summary>
-        <div class="max-w-[46rem] px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
+        <div class="px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
           <p data-faq-answer>Yes. We set every agent up to say it is an AI assistant at the start of the call. Callers deserve to know, and it avoids awkward moments later in the conversation.</p>
           
         </div>
@@ -1978,7 +1978,7 @@ export const voiceAgentsMarkup = String.raw`
           </span>
           <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--va-line-strong)] group-open:border-gold group-open:bg-gold group-open:text-navy"><svg class="icon faq-chevron" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></span>
         </summary>
-        <div class="max-w-[46rem] px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
+        <div class="px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
           <p data-faq-answer>Yes. You set the rules. Emergencies, existing clients, complaints and anyone who asks for a person can be put through to the right phone. Outside your opening hours the agent takes a detailed message and sends it to your team.</p>
           
         </div>
@@ -1992,7 +1992,7 @@ export const voiceAgentsMarkup = String.raw`
           </span>
           <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--va-line-strong)] group-open:border-gold group-open:bg-gold group-open:text-navy"><svg class="icon faq-chevron" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></span>
         </summary>
-        <div class="max-w-[46rem] px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
+        <div class="px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
           <p data-faq-answer>The agent needs somewhere to put bookings and call notes, usually your calendar and your CRM or practice system. We check your exact tools during discovery and tell you plainly what connects directly, what needs a workaround and what is not possible yet.</p>
           <p class="mt-3"><span class="flag flag-wrap">[CONFIRM] list of supported calendar and CRM integrations</span></p>
         </div>
@@ -2006,7 +2006,7 @@ export const voiceAgentsMarkup = String.raw`
           </span>
           <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--va-line-strong)] group-open:border-gold group-open:bg-gold group-open:text-navy"><svg class="icon faq-chevron" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></span>
         </summary>
-        <div class="max-w-[46rem] px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
+        <div class="px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
           <p data-faq-answer>In most cases you keep your number and divert calls to the agent, either all of them or only the ones your team cannot answer. If you want a new local number, for example an 0161 number for Manchester, we can arrange one as part of setup.</p>
           <p class="mt-3"><span class="flag flag-wrap">[CONFIRM] number porting and local number provisioning</span></p>
         </div>
@@ -2020,7 +2020,7 @@ export const voiceAgentsMarkup = String.raw`
           </span>
           <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--va-line-strong)] group-open:border-gold group-open:bg-gold group-open:text-navy"><svg class="icon faq-chevron" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></span>
         </summary>
-        <div class="max-w-[46rem] px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
+        <div class="px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
           <p data-faq-answer>Calls can be recorded and transcribed so you can review them, and callers are told at the start of the call. You remain the data controller and OMH acts as your processor under a written agreement. We agree retention periods with you and delete recordings on that schedule.</p>
           <p class="mt-3"><span class="flag flag-wrap">[CONFIRM] data processing agreement, storage region and retention options</span></p>
         </div>
@@ -2034,7 +2034,7 @@ export const voiceAgentsMarkup = String.raw`
           </span>
           <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--va-line-strong)] group-open:border-gold group-open:bg-gold group-open:text-navy"><svg class="icon faq-chevron" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></span>
         </summary>
-        <div class="max-w-[46rem] px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
+        <div class="px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
           <p data-faq-answer>The agent only calls people who have given appropriate consent, such as customers who asked for a reminder or a call back. We follow the UK PECR rules, screen lists against the Telephone Preference Service where required and act on opt-outs straight away. We do not run cold calling campaigns to bought or non-consented lists.</p>
           
         </div>
@@ -2048,7 +2048,7 @@ export const voiceAgentsMarkup = String.raw`
           </span>
           <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--va-line-strong)] group-open:border-gold group-open:bg-gold group-open:text-navy"><svg class="icon faq-chevron" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></span>
         </summary>
-        <div class="max-w-[46rem] px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
+        <div class="px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
           <p data-faq-answer>Yes, for bookings, routing and practical questions such as opening hours, fees and directions. The agent never gives clinical or medical advice. Anything clinical goes to your team, and urgent calls follow the emergency route you set.</p>
           
         </div>
@@ -2062,7 +2062,7 @@ export const voiceAgentsMarkup = String.raw`
           </span>
           <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--va-line-strong)] group-open:border-gold group-open:bg-gold group-open:text-navy"><svg class="icon faq-chevron" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></span>
         </summary>
-        <div class="max-w-[46rem] px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
+        <div class="px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
           <p data-faq-answer>Yes, for taking new enquiries, booking consultations and routing existing clients. The agent never gives legal advice and does not comment on the merits of a matter. It collects the details and gets the caller to the right person.</p>
           
         </div>
@@ -2076,7 +2076,7 @@ export const voiceAgentsMarkup = String.raw`
           </span>
           <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--va-line-strong)] group-open:border-gold group-open:bg-gold group-open:text-navy"><svg class="icon faq-chevron" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></span>
         </summary>
-        <div class="max-w-[46rem] px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
+        <div class="px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
           <p data-faq-answer>Yes. We are based in Hullbridge, Essex and work with businesses across the UK remotely. London, Birmingham, Manchester, Leeds, Liverpool and Bristol are where we focus our voice agent work at the moment.</p>
           
         </div>
@@ -2090,7 +2090,7 @@ export const voiceAgentsMarkup = String.raw`
           </span>
           <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--va-line-strong)] group-open:border-gold group-open:bg-gold group-open:text-navy"><svg class="icon faq-chevron" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></span>
         </summary>
-        <div class="max-w-[46rem] px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
+        <div class="px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
           <p data-faq-answer>It depends on how many types of call you have and what the agent needs to connect to. A simple booking agent is quicker than one covering several departments. We give you a realistic timeline after the discovery call, before you commit to anything.</p>
           <p class="mt-3"><span class="flag flag-wrap">[PLACEHOLDER] typical setup time</span></p>
         </div>
@@ -2104,7 +2104,7 @@ export const voiceAgentsMarkup = String.raw`
           </span>
           <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--va-line-strong)] group-open:border-gold group-open:bg-gold group-open:text-navy"><svg class="icon faq-chevron" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></span>
         </summary>
-        <div class="max-w-[46rem] px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
+        <div class="px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
           <p data-faq-answer>It says so. The agent answers only from information you have approved, so when a question falls outside that, it offers to take a message or transfer the call. We review those moments every month and add the answers worth adding.</p>
           
         </div>
@@ -2118,7 +2118,7 @@ export const voiceAgentsMarkup = String.raw`
           </span>
           <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--va-line-strong)] group-open:border-gold group-open:bg-gold group-open:text-navy"><svg class="icon faq-chevron" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></span>
         </summary>
-        <div class="max-w-[46rem] px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
+        <div class="px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
           <p data-faq-answer>We set out the terms in writing before you start, including the notice period, what is included each month and what counts as extra. There are no hidden usage fees. Every invoice shows your included minutes and any overage.</p>
           <p class="mt-3"><span class="flag flag-wrap">[PLACEHOLDER] contract length and notice period</span></p>
         </div>
@@ -2134,8 +2134,8 @@ export const voiceAgentsMarkup = String.raw`
 
 <section id="sectors" data-component="Sectors" class="relative overflow-hidden bg-sand">
   <div class="pointer-events-none absolute left-1/2 top-1/3 h-[520px] w-[900px] -translate-x-1/2 rounded-full bg-gold/10 blur-3xl" aria-hidden="true"></div>
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 relative py-20 lg:py-28">
-    <div class="mx-auto max-w-[46rem] text-center">
+  <div class="container-omh relative py-20 lg:py-28">
+    <div class="mx-auto text-center">
       <p class="eyebrow justify-center"><span class="eyebrow-mark" aria-hidden="true"><i></i><i></i><i></i></span>Who it works for</p>
       <h2>Industries where a voice agent <span class="hl">pays its way</span></h2>
       <p class="mt-5 text-muted">Businesses that live on the phone, where a missed call usually means a missed customer.</p>
@@ -2308,8 +2308,8 @@ export const voiceAgentsMarkup = String.raw`
 </section>
 
 <section id="related" data-component="RelatedServices">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 py-20 lg:py-28" data-related>
-    <div class="mx-auto max-w-[46rem] text-center">
+  <div class="container-omh py-20 lg:py-28" data-related>
+    <div class="mx-auto text-center">
       <p class="eyebrow justify-center"><span class="eyebrow-mark" aria-hidden="true"><i></i><i></i><i></i></span>Related services</p>
       <h2>What makes the phone ring <span class="hl">in the first place</span></h2>
       <p class="mt-5 text-muted">Ads, local search and your website bring the calls. The voice agent makes sure every one of them is answered. We run all four, so the numbers join up in one report.</p>
@@ -2387,11 +2387,11 @@ export const voiceAgentsMarkup = String.raw`
 
 <section id="book-demo" data-component="FinalCTA" class="on-band relative overflow-hidden bg-band text-band-ink">
   <div class="pointer-events-none absolute -left-40 bottom-[-200px] h-[560px] w-[560px] rounded-full bg-gold/15 blur-3xl" aria-hidden="true"></div>
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 relative grid gap-12 py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16 lg:py-28">
+  <div class="container-omh relative grid gap-12 py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16 lg:py-28">
     <div>
       <p class="eyebrow eyebrow-band"><span class="eyebrow-mark" aria-hidden="true"><i></i><i></i><i></i></span>Book a demo</p>
       <h2>Hear a voice agent answer <span class="hl">as your business</span></h2>
-      <p class="mt-5 max-w-[34rem] text-band-muted">Tell us about your calls and we'll show you what an agent would say to them. If it isn't right for you, we'll tell you.</p>
+      <p class="mt-5 text-band-muted">Tell us about your calls and we'll show you what an agent would say to them. If it isn't right for you, we'll tell you.</p>
 
       <h3 class="mt-10 !text-[22px]">What happens next</h3>
       <ol class="relative mt-5 space-y-6 before:absolute before:bottom-6 before:left-[19px] before:top-6 before:w-[2px] before:bg-band-line">
@@ -2485,7 +2485,7 @@ export const voiceAgentsMarkup = String.raw`
         <div class="py-6 text-center" data-demo-success hidden tabindex="-1">
           <span class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-ok text-surface" aria-hidden="true"><svg class="icon !h-8 !w-8" aria-hidden="true" focusable="false"><use href="#i-check"/></svg></span>
           <h3 class="mt-5 !text-[26px]" data-demo-success-title>Thanks, we've got it</h3>
-          <p class="mx-auto mt-2 max-w-[24rem] text-[16.5px] text-muted">We'll be in touch within one working day to book your 30-minute call. In the meantime, ring our demo agent to hear one for yourself.</p>
+          <p class="mx-auto mt-2 text-[16.5px] text-muted">We'll be in touch within one working day to book your 30-minute call. In the meantime, ring our demo agent to hear one for yourself.</p>
           <a href="tel:" class="btn btn-secondary mt-6" data-demo-number data-track="final_success_demo_number"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>[DEMO NUMBER]</a>
         </div>
       </div>

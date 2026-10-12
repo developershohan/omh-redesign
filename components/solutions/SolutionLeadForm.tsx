@@ -30,7 +30,7 @@ export function SolutionLeadForm({
     return (
       <div role="status" className="rounded-card border border-[#f2c675]/30 bg-oninverse/[0.06] p-7">
         <p className="font-sans text-h4 font-semibold text-oninverse">Thanks. Your enquiry is ready for review.</p>
-        <p className="mt-3 max-w-[50ch] text-body leading-relaxed text-oninverse/68">
+        <p className="mt-3 text-body leading-relaxed text-oninverse/68">
           A real person will look at the context you shared before suggesting a next step. If you
           prefer to talk, call 020 3489 3934.
         </p>

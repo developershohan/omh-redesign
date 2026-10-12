@@ -45,12 +45,12 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
         <div className="container-omh section-md">
           <Reveal>
             <div className="grid grid-cols-12 items-end gap-x-12 gap-y-8 max-lg:block">
-              <div className="col-span-7">
+              <div className="col-span-12">
                 <Eyebrow>Policy</Eyebrow>
-                <h1 className="mt-7 max-w-[18ch] font-sans text-display font-semibold text-balance">
+                <h1 className="mt-7 font-sans text-display font-semibold text-balance">
                   <AccentTitle text={doc.title} />
                 </h1>
-                <p className="mt-6 max-w-[58ch] text-lead leading-relaxed text-ink/75">
+                <p className="mt-6 text-lead leading-relaxed text-ink/75">
                   {doc.intro}
                 </p>
               </div>
@@ -88,7 +88,7 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
             <section
               key={section.heading}
               id={slug(section.heading)}
-              className="mt-14 max-w-[74ch] first:mt-0"
+              className="mt-14 first:mt-0"
             >
               <h2 className="mb-5 font-sans text-h3 font-semibold">{section.heading}</h2>
               {section.body.map((block, index) => (

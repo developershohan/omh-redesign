@@ -39,7 +39,7 @@ export const organisation = {
   description:
     "Full-service digital marketing agency for UK service businesses and ecommerce brands: Google Ads, Meta Ads, SEO, websites and reporting under one roof.",
   foundingDate: "2019",
-  telephone: company.phoneDisplay,
+  telephone: "+44 20 3489 3934",
   email: company.email,
   address: {
     "@type": "PostalAddress",

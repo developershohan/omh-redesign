@@ -60,7 +60,7 @@ export function AboutTabs({
             </p>
             <div className="mt-8 grid gap-5 border-t border-line pt-7">
               {item.body.map((paragraph) => (
-                <p key={paragraph} className="max-w-[68ch] text-body leading-relaxed text-ink/75">
+                <p key={paragraph} className="text-body leading-relaxed text-ink/75">
                   {paragraph}
                 </p>
               ))}

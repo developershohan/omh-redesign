@@ -27,11 +27,11 @@ export function MaintenanceHero() {
           <div className="col-span-7 max-lg:mb-12">
             <Reveal>
               <Eyebrow>{content.hero.eyebrow}</Eyebrow>
-              <h1 className="mb-6 mt-7 max-w-[20ch] font-sans text-display font-semibold text-balance">
+              <h1 className="mb-6 mt-7 font-sans text-display font-semibold text-balance">
                 WordPress maintenance packages that keep your website{" "}
                 <span className="text-amber-deep">under control</span>
               </h1>
-              <p className="mb-9 max-w-[55ch] text-lead leading-relaxed text-ink/75">
+              <p className="mb-9 text-lead leading-relaxed text-ink/75">
                 {content.hero.body}
               </p>
               <div className="flex flex-wrap items-center gap-3.5 max-sm:flex-col max-sm:items-stretch">
@@ -83,7 +83,7 @@ export function MaintenanceHero() {
                 />
               </div>
             </Pointer>
-            <ReviewProof heading="WordPress support with verified trust" className="mt-6" />
+            <ReviewProof serviceId="maintenance" heading="WordPress support with verified trust" className="mt-6" />
           </Reveal>
         </div>
       </div>
@@ -104,7 +104,7 @@ export function MaintenanceIssueSection() {
                 accent="convenient time"
                 body="These are the WordPress support issues our maintenance packages are designed to catch early, before they become urgent. Grouping them by likely area makes it easier to recognise the problem without pretending every fault has the same fix."
               />
-              <p className="mt-7 border-l-2 border-amber pl-5 font-serif text-[20px] leading-snug text-ink/85">
+              <p className="mt-7 border-l-2 border-amber pl-5 text-body leading-snug text-ink/85">
                 A maintenance plan reduces avoidable risk, but every inherited
                 or urgent issue still needs proper diagnosis.
               </p>
@@ -166,7 +166,7 @@ export function MaintenanceCapabilityGrid() {
               <h3 className="mt-5 font-sans text-h2 font-semibold">
                 {featured.title}
               </h3>
-              <p className="mt-5 max-w-[46ch] text-lead leading-relaxed text-oninverse/75">
+              <p className="mt-5 text-lead leading-relaxed text-oninverse/75">
                 {featured.body}
               </p>
             </div>
@@ -278,14 +278,13 @@ export function MaintenancePricingPackages() {
   return (
     <Band label="Packages" id="packages">
       <div data-event="maintenance_pricing_view">
-        <div className="grid grid-cols-12 items-end gap-x-10 gap-y-6 max-lg:block">
+        <div>
           <SectionIntro
-            className="col-span-7"
             title="WordPress website maintenance packages with clear published allowances"
             accent="published allowances"
             body="Three packages across sixteen comparison points. Billing and contract terms still to be confirmed are marked."
           />
-          <p className="col-span-5 text-bsm leading-relaxed text-ink/70 max-lg:mt-6">
+          <p className="mt-5 text-body leading-relaxed text-ink/70">
             No package has been labelled as recommended. The right option
             depends on the website, request volume and whether larger
             development work is already needed.
@@ -415,7 +414,7 @@ export function MaintenanceProofSection() {
       <Reveal>
         <div className="overflow-hidden rounded-card border border-soft-dark bg-soft/60">
           <div className="grid grid-cols-12 gap-x-10 gap-y-8 p-10 max-lg:block max-sm:p-6">
-            <div className="col-span-5">
+            <div className="col-span-12">
               <Eyebrow>Client work</Eyebrow>
               <h2 className="mb-5 mt-6 font-sans text-h3 font-semibold text-balance">
                 Show the problem, the WordPress maintenance work and{" "}
@@ -449,7 +448,7 @@ export function MaintenanceProofSection() {
                 </TextLink>
               </div>
             </div>
-            <div className="col-span-7 col-start-6 max-lg:mt-9">
+            <div className="col-span-12 mt-9">
               <div className="grid grid-cols-2 gap-5 max-sm:grid-cols-1">
                 <Fpo
                   ratio="4/3"

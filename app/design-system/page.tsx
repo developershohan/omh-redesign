@@ -70,7 +70,7 @@ export default function DesignSystem() {
       <header>
         <Eyebrow>Phase 2 · internal reference</Eyebrow>
         <h1 className="mb-3 mt-5 font-sans text-h1 font-semibold">Design system: Direction 1 “Marginalia”</h1>
-        <p className="max-w-[70ch] text-lead text-ink/80">
+        <p className="text-lead text-ink/80">
           Every token below lives in <code className="text-bsm">app/globals.css</code> and maps 1:1
           to Elementor global settings for the later WordPress rebuild. Components carry their
           future widget name in a source comment.
@@ -144,7 +144,7 @@ export default function DesignSystem() {
             </div>
           ))}
         </div>
-        <p className="mt-5 max-w-[70ch] text-bsm text-muted">
+        <p className="mt-5 text-bsm text-muted">
           Rules (brief §15): one accent per component · amber never carries small text on light
           grounds · dark sections limited and purposeful (one ink band per page) · no gradients.
         </p>
@@ -161,8 +161,8 @@ export default function DesignSystem() {
             </div>
           ))}
           <div className="grid grid-cols-[8fr_4fr] items-baseline gap-6 border-t border-line py-4 max-sm:grid-cols-1">
-            <p className="font-serif text-[26px] leading-snug">
-              An editorial opener, set in <em>Source Serif 4.</em>
+            <p className="font-body text-[26px] leading-snug">
+              An editorial opener, set in <em>Source Sans 3.</em>
             </p>
             <p className="text-[13.5px] leading-snug text-muted">
               <b className="font-semibold text-ink">Serif accent</b> · quotes, section openers, CTA
@@ -184,7 +184,7 @@ export default function DesignSystem() {
           </span>
           <TextLink href="#">Text link with a specific label</TextLink>
         </div>
-        <p className="mt-5 max-w-[70ch] text-bsm text-muted">
+        <p className="mt-5 text-bsm text-muted">
           10px radius · 600 weight · arrow nudges 2 to 3px on hover · 1px lift on primary · visible
           focus ring · never a vague “Learn more” when a specific label is possible (brief §18).
         </p>
@@ -210,7 +210,7 @@ export default function DesignSystem() {
             <Fpo ratio="16/10" tag="Photo · 16:10" title="Real asset required" note="Hatched frame states exactly what is needed." source="/images/home/agency-collaboration.png" alt="Agency collaboration" />
           </div>
         </div>
-        <p className="mt-5 max-w-[70ch] text-bsm text-muted">
+        <p className="mt-5 text-bsm text-muted">
           Unverified facts are impossible to mistake for proof (brief §1). These slots ship to
           staging but block go-live.
         </p>
@@ -242,7 +242,7 @@ export default function DesignSystem() {
       </Spec>
 
       <Spec title="Motion tokens">
-        <ul className="max-w-[75ch]">
+        <ul className="">
           {[
             ["Micro 120 to 220ms", "arrow nudge, link underline, button lift"],
             ["Standard 220 to 360ms", "hover states, border-colour shifts, card raise"],

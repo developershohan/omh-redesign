@@ -245,7 +245,7 @@ const planCard = `
         <span class="chip !py-0.5">First six months</span>
       </div>
       <div class="px-5 pt-5">
-        <p class="font-display text-[19px] font-semibold leading-tight">Severn Lettings</p>
+        <p class="font-display text-body font-semibold leading-tight">Severn Lettings</p>
         <p class="text-[15px] text-muted">Bristol. Four jobs handed to AI, one at a time</p>
       </div>
       <ol class="space-y-2.5 px-5 pb-2 pt-5">
@@ -321,7 +321,7 @@ const serviceArticle = (s: AiService, i: number) => `
             <span class="num text-[15px]">${pad(i + 1)} / ${pad(aiServices.length)}</span>
           </div>
           <h3 class="mt-5">${esc(s.name)}</h3>
-          <p class="mt-3 text-[19px] leading-[1.5]">${esc(s.summary)}</p>
+          <p class="mt-3 text-body leading-[1.5]">${esc(s.summary)}</p>
           <div class="mt-4 space-y-4 text-[17px] text-muted">
             ${s.body.map((p) => `<p>${esc(p)}</p>`).join("\n            ")}
           </div>
@@ -496,7 +496,7 @@ const faqItems = aiServicesFaqs
           </span>
           <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--va-line-strong)] group-open:border-gold group-open:bg-gold group-open:text-navy">${icon("i-chevron-down", "faq-chevron")}</span>
         </summary>
-        <div class="max-w-[46rem] px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
+        <div class="px-5 pb-6 text-[17px] text-muted sm:pl-[4.25rem]">
           <p data-faq-answer>${esc(f.a)}</p>
           ${f.confirm ? `<p class="mt-3"><span class="flag flag-wrap">[CONFIRM] ${esc(f.confirm)}</span></p>` : ""}
         </div>
@@ -540,11 +540,11 @@ export const aiServicesMarkup = String.raw`
 </svg>
 
 <section id="hero" data-component="Hero" class="relative">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 grid items-center gap-12 pb-16 pt-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,.92fr)] lg:gap-14 lg:pb-24 lg:pt-20">
+  <div class="container-omh grid items-center gap-12 pb-16 pt-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,.92fr)] lg:gap-14 lg:pb-24 lg:pt-20">
     <div>
       <p class="eyebrow">${mark}AI services for UK businesses</p>
       <h1>Put AI to work on the jobs that <span class="hl">slow your team down</span></h1>
-      <p class="mt-6 max-w-[34rem] text-[20px] leading-[1.55] text-muted">OMH plans, builds and manages practical AI for UK businesses: chatbots and voice agents that answer your customers, integrations that move data between your systems, and software built around the way you work. You deal with one UK team from the first idea to the monthly review.</p>
+      <p class="mt-6 text-body leading-[1.55] text-muted">OMH plans, builds and manages practical AI for UK businesses: chatbots and voice agents that answer your customers, integrations that move data between your systems, and software built around the way you work. You deal with one UK team from the first idea to the monthly review.</p>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <a href="#book-demo" class="btn btn-primary" data-track="hero_book_consultation">Book an AI Consultation</a>
         <a href="#services" class="btn btn-secondary" data-track="hero_see_services">See the seven services${icon("i-chevron-down")}</a>
@@ -553,7 +553,7 @@ export const aiServicesMarkup = String.raw`
         Or talk to a person now:
         <a href="tel:+442034893934" class="text-link tnum" data-track="hero_phone_click">${icon("i-phone")}020 3489 3934</a>
       </p>
-      <dl class="mt-10 grid max-w-[36rem] grid-cols-3 border-t border-line">
+      <dl class="mt-10 grid grid-cols-3 border-t border-line">
         <div class="pr-3 pt-5">
           <dd class="font-display text-[clamp(1.5rem,1.1rem+1.6vw,2.25rem)] font-semibold leading-none tracking-tight tnum">7</dd>
           <dt class="mt-2 text-[15px] leading-snug text-muted">AI services under one roof</dt>
@@ -572,7 +572,7 @@ ${planCard}
   </div>
 
   <div class="border-y border-line">
-    <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 flex flex-col gap-x-8 gap-y-2 py-5 text-[16px] text-muted md:flex-row md:items-center md:justify-between">
+    <div class="container-omh flex flex-col gap-x-8 gap-y-2 py-5 text-[16px] text-muted md:flex-row md:items-center md:justify-between">
       <p class="flex items-start gap-2">${icon("i-map-pin", "mt-1 text-hl")}<span>Based in <strong class="font-semibold text-ink">Hullbridge, Essex</strong>, working with businesses across the UK</span></p>
       <p class="md:text-right">Plain advice on where AI helps, and where it doesn't</p>
     </div>
@@ -580,7 +580,7 @@ ${planCard}
 </section>
 
 <section id="overview" data-component="Overview" class="on-band bg-band text-band-ink">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 grid gap-12 py-20 lg:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)] lg:gap-16 lg:py-28">
+  <div class="container-omh grid gap-12 py-20 lg:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)] lg:gap-16 lg:py-28">
     <div>
       <p class="eyebrow eyebrow-band">${mark}What we mean by AI services</p>
       <h2>Less time on repeat work, <span class="hl">more time for customers</span></h2>
@@ -595,13 +595,13 @@ ${timePanel}
 </section>
 
 <section id="services" data-component="Services" class="bg-sand">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 py-20 lg:py-28">
-    <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
+  <div class="container-omh py-20 lg:py-28">
+    <div>
       <div>
         <p class="eyebrow">${mark}Our AI services</p>
         <h2>Seven ways we put AI <span class="hl">to work for you</span></h2>
       </div>
-      <p class="text-muted lg:pt-10">Start with one and add others when they make sense. Below is what each service is, what we do and who it suits.</p>
+      <p class="mt-5 text-muted">Start with one and add others when they make sense. Below is what each service is, what we do and who it suits.</p>
     </div>
 ${jumpGrid}
 
@@ -612,21 +612,21 @@ ${aiServices.map(serviceArticle).join("\n")}
 </section>
 
 <section id="why-omh" data-component="WhyChooseOMH" class="bg-surface">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 py-20 lg:py-28">
-    <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
+  <div class="container-omh py-20 lg:py-28">
+    <div>
       <div>
         <p class="eyebrow">${mark}Why choose OMH</p>
         <h2>AI tools are easy to buy. <span class="hl">Making them work</span> is the job.</h2>
       </div>
-      <p class="text-muted lg:pt-10">Anyone can sign up for an AI tool. Whether it helps your business depends on choosing the right job, setting it up properly and checking it every month. That's the part we do.</p>
+      <p class="mt-5 text-muted">Anyone can sign up for an AI tool. Whether it helps your business depends on choosing the right job, setting it up properly and checking it every month. That's the part we do.</p>
     </div>
 ${whyTable}
   </div>
 </section>
 
 <section id="how-it-works" data-component="HowItWorks">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 py-20 lg:py-28">
-    <div class="mx-auto max-w-[44rem] text-center">
+  <div class="container-omh py-20 lg:py-28">
+    <div class="mx-auto text-center">
       <p class="eyebrow justify-center">${mark}How it works</p>
       <h2>Four steps from first call <span class="hl">to working tool</span></h2>
       <p class="mt-5 text-muted">You stay in control at every step. We confirm your timeline after the first call, before you commit to anything.</p>
@@ -639,13 +639,13 @@ ${whyTable}
 </section>
 
 <section id="right-fit" data-component="RightFit" class="bg-sand">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 py-20 lg:py-28">
-    <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
+  <div class="container-omh py-20 lg:py-28">
+    <div>
       <div>
         <p class="eyebrow">${mark}Is it the right fit?</p>
         <h2>AI won't fix <span class="hl">everything</span></h2>
       </div>
-      <p class="text-muted lg:pt-10">We would rather tell you now than three months in. This is where AI services earn their keep, and where they don't.</p>
+      <p class="mt-5 text-muted">We would rather tell you now than three months in. This is where AI services earn their keep, and where they don't.</p>
     </div>
 
     <div class="mt-12 grid gap-5 md:grid-cols-2">
@@ -666,7 +666,7 @@ ${whyTable}
 </section>
 
 <section id="faq" data-component="FAQ" class="bg-surface">
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 grid gap-10 py-20 lg:grid-cols-[minmax(0,.72fr)_minmax(0,1.28fr)] lg:grid-rows-[auto_1fr] lg:gap-x-14 lg:gap-y-8 lg:py-28">
+  <div class="container-omh grid gap-10 py-20 lg:grid-cols-[minmax(0,.72fr)_minmax(0,1.28fr)] lg:grid-rows-[auto_1fr] lg:gap-x-14 lg:gap-y-8 lg:py-28">
     <div>
       <p class="eyebrow">${mark}Questions</p>
       <h2>Straight answers about <span class="hl">AI for your business</span></h2>
@@ -675,7 +675,7 @@ ${whyTable}
 
     <div class="order-last lg:order-none lg:col-start-1 lg:row-start-2 lg:sticky lg:top-28 lg:self-start">
       <div class="rounded-[16px] bg-band p-6 text-band-ink on-band">
-        <p class="font-display text-[19px] font-semibold">Still have a question?</p>
+        <p class="font-display text-body font-semibold">Still have a question?</p>
         <p class="mt-1.5 text-[16px] leading-snug text-band-muted">Talk to a person on our UK team. No sales script.</p>
         <ul class="mt-4 space-y-1 text-[16px]">
           <li><a href="tel:+442034893934" class="text-link tnum" data-track="faq_phone_click">${icon("i-phone")}020 3489 3934</a></li>
@@ -713,11 +713,11 @@ ${whyTable}
 
 <section id="book-demo" data-component="FinalCTA" class="on-band relative overflow-hidden bg-band text-band-ink">
   <div class="pointer-events-none absolute -left-40 bottom-[-200px] h-[560px] w-[560px] rounded-full bg-gold/15 blur-3xl" aria-hidden="true"></div>
-  <div class="mx-auto w-full max-w-[1240px] px-5 sm:px-8 relative grid gap-12 py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16 lg:py-28">
+  <div class="container-omh relative grid gap-12 py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16 lg:py-28">
     <div>
       <p class="eyebrow eyebrow-band">${mark}Book a consultation</p>
       <h2>Find out where AI <span class="hl">fits your business</span></h2>
-      <p class="mt-5 max-w-[34rem] text-band-muted">Tell us what slows your team down. We'll tell you honestly whether AI can help and which service to start with.</p>
+      <p class="mt-5 text-band-muted">Tell us what slows your team down. We'll tell you honestly whether AI can help and which service to start with.</p>
 
       <h3 class="mt-10 !text-[22px]">What happens next</h3>
       <ol class="relative mt-5 space-y-6 before:absolute before:bottom-6 before:left-[19px] before:top-6 before:w-[2px] before:bg-band-line">
@@ -786,7 +786,7 @@ ${whyTable}
         <div class="py-6 text-center" data-demo-success hidden tabindex="-1">
           <span class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-ok text-surface" aria-hidden="true">${icon("i-check", "!h-8 !w-8")}</span>
           <h3 class="mt-5 !text-[26px]" data-demo-success-title>Thanks, we've got it</h3>
-          <p class="mx-auto mt-2 max-w-[24rem] text-[16.5px] text-muted">We'll be in touch within one working day to book your 30-minute call.</p>
+          <p class="mx-auto mt-2 text-[16.5px] text-muted">We'll be in touch within one working day to book your 30-minute call.</p>
           <a href="/ai-voice-agents" class="btn btn-secondary mt-6" data-track="final_success_voice_page">See how our AI voice agents work</a>
         </div>
       </div>

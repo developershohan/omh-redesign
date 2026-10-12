@@ -16,10 +16,10 @@ function SolutionHero({ content }: { content: SolutionPageContent }) {
       <div className="container-omh grid min-h-[690px] grid-cols-[minmax(0,1.05fr)_minmax(390px,.75fr)] items-center gap-[clamp(48px,7vw,110px)] py-[clamp(64px,7vw,105px)] max-lg:min-h-0 max-lg:grid-cols-1">
         <Reveal className="relative z-10">
           <Eyebrow>{content.eyebrow}</Eyebrow>
-          <h1 className="mt-7 max-w-[14ch] font-sans text-display font-semibold text-balance max-lg:max-w-[18ch]">
+          <h1 className="mt-7 font-sans text-display font-semibold text-balance max-lg:">
             {content.title} <span className="text-amber-deep">{content.titleAccent}</span>
           </h1>
-          <p className="mt-7 max-w-[62ch] text-body leading-relaxed text-ink/75">{content.intro}</p>
+          <p className="mt-7 text-body leading-relaxed text-ink/75">{content.intro}</p>
           <div className="mt-9 flex flex-wrap gap-3 max-sm:flex-col">
             <Button href="#enquire" arrow data-event={`${content.slug}_hero_primary_click`}>
               {content.primaryCta}
@@ -83,14 +83,12 @@ function DefinitionSection({ content }: { content: SolutionPageContent }) {
     <section className="border-b border-line bg-tint-blue">
       <div className="container-omh section-md">
         <Reveal>
-          <div className="grid grid-cols-12 gap-x-12 gap-y-8 max-lg:block">
-            <div className="col-span-5 max-lg:mb-8">
-              <Eyebrow>The basics</Eyebrow>
-              <h2 className="mt-6 max-w-[14ch] font-sans text-h2 font-semibold text-balance">{definition.title}</h2>
-            </div>
-            <div className="col-span-7 max-w-[62ch] space-y-5">
+          <div>
+            <Eyebrow>The basics</Eyebrow>
+            <h2 className="mt-6 font-sans text-h2 font-semibold text-balance">{definition.title}</h2>
+            <div className="mt-5 space-y-5">
               {definition.body.split("\n\n").map((paragraph) => (
-                <p key={paragraph} className="font-serif text-[clamp(19px,1.3vw,23px)] leading-[1.55] text-ink/85">
+                <p key={paragraph} className="text-body leading-relaxed text-ink/85">
                   {paragraph}
                 </p>
               ))}
@@ -134,8 +132,8 @@ function ProblemSection({ content }: { content: SolutionPageContent }) {
           <div className="grid grid-cols-12 gap-x-[clamp(40px,7vw,104px)] gap-y-10 max-lg:block">
             <div className="col-span-5 lg:sticky lg:top-28 lg:self-start max-lg:mb-10">
               <Eyebrow>{content.problem.eyebrow}</Eyebrow>
-              <h2 className="mt-6 max-w-[15ch] font-sans text-h2 font-semibold text-balance">{content.problem.title}</h2>
-              <p className="mt-6 max-w-[50ch] text-body leading-relaxed text-ink/70">{content.problem.intro}</p>
+              <h2 className="mt-6 font-sans text-h2 font-semibold text-balance">{content.problem.title}</h2>
+              <p className="mt-6 text-body leading-relaxed text-ink/70">{content.problem.intro}</p>
             </div>
             <div className="col-span-7 border-t border-line">
               {content.problem.symptoms.map((item, index) => (
@@ -143,7 +141,7 @@ function ProblemSection({ content }: { content: SolutionPageContent }) {
                   <span className="pt-1 font-sans text-[18px] font-semibold tabular-nums text-amber">0{index + 1}</span>
                   <div>
                     <h3 className="font-sans text-h4 font-semibold">{item.title}</h3>
-                    <p className="mt-3 max-w-[58ch] text-body leading-relaxed text-ink/68">{item.body}</p>
+                    <p className="mt-3 text-body leading-relaxed text-ink/68">{item.body}</p>
                   </div>
                 </article>
               ))}
@@ -164,7 +162,7 @@ function ComparisonSection({ content }: { content: SolutionPageContent }) {
       <div className="container-omh section-md">
         <Reveal>
           <Eyebrow>{comparison.eyebrow}</Eyebrow>
-          <h2 className="mt-6 max-w-[22ch] font-sans text-h2 font-semibold text-balance">{comparison.title}</h2>
+          <h2 className="mt-6 font-sans text-h2 font-semibold text-balance">{comparison.title}</h2>
           <div className="mt-12 grid grid-cols-3 gap-5 max-lg:grid-cols-1">
             {comparison.options.map((option) => (
               <div key={option.label} className="rounded-card border border-line bg-surface p-8 max-sm:p-6">
@@ -174,7 +172,7 @@ function ComparisonSection({ content }: { content: SolutionPageContent }) {
             ))}
             <div className="rounded-card bg-inverse p-8 text-oninverse max-sm:p-6">
               <p className="text-[14px] font-semibold uppercase tracking-[0.14em] text-[#f5d394]">{comparison.verdict.label}</p>
-              <p className="mt-4 font-serif text-[clamp(19px,1.3vw,22px)] leading-[1.5] text-oninverse/90">{comparison.verdict.body}</p>
+              <p className="mt-4 text-body leading-relaxed text-oninverse/90">{comparison.verdict.body}</p>
             </div>
           </div>
         </Reveal>
@@ -188,10 +186,10 @@ function OutcomesSection({ content }: { content: SolutionPageContent }) {
     <section className="dark-grid border-b border-oninverse/10 bg-inverse text-oninverse">
       <div className="container-omh section-lg">
         <Reveal>
-          <div className="max-w-[850px]">
+          <div>
             <Eyebrow light>What better looks like</Eyebrow>
-            <h2 className="mt-6 max-w-[18ch] font-sans text-h2 font-semibold text-balance">{content.outcomes.title}</h2>
-            <p className="mt-5 max-w-[60ch] text-body leading-relaxed text-oninverse/65">{content.outcomes.intro}</p>
+            <h2 className="mt-6 font-sans text-h2 font-semibold text-balance">{content.outcomes.title}</h2>
+            <p className="mt-5 text-body leading-relaxed text-oninverse/65">{content.outcomes.intro}</p>
           </div>
           <div
             className={
@@ -210,8 +208,8 @@ function OutcomesSection({ content }: { content: SolutionPageContent }) {
                 }
               >
                 <span className="font-sans text-[18px] font-semibold text-[#f5d394]">{item.number}</span>
-                <h3 className="mt-16 max-w-[15ch] font-sans text-[clamp(24px,2vw,31px)] font-semibold leading-tight max-md:mt-7">{item.title}</h3>
-                <p className="mt-5 max-w-[40ch] text-body leading-relaxed text-oninverse/62">{item.body}</p>
+                <h3 className="mt-16 font-sans text-[clamp(24px,2vw,31px)] font-semibold leading-tight max-md:mt-7">{item.title}</h3>
+                <p className="mt-5 text-body leading-relaxed text-oninverse/62">{item.body}</p>
               </article>
             ))}
           </div>
@@ -242,8 +240,8 @@ function MediaSection({ content }: { content: SolutionPageContent }) {
           <div className="grid grid-cols-12 items-end gap-x-12 gap-y-8 max-lg:block">
             <div className="col-span-5 max-lg:mb-9">
               <Eyebrow>{content.media.eyebrow}</Eyebrow>
-              <h2 className="mt-6 max-w-[14ch] font-sans text-h2 font-semibold text-balance">{content.media.title}</h2>
-              <p className="mt-5 max-w-[48ch] text-body leading-relaxed text-ink/68">{content.media.body}</p>
+              <h2 className="mt-6 font-sans text-h2 font-semibold text-balance">{content.media.title}</h2>
+              <p className="mt-5 text-body leading-relaxed text-ink/68">{content.media.body}</p>
               {content.media.journey && (
                 <ol className="mt-8 flex flex-wrap items-center gap-2">
                   {content.media.journey.map((step, index, all) => (
@@ -264,7 +262,8 @@ function MediaSection({ content }: { content: SolutionPageContent }) {
               <MediaFrame kind="image" theme={content.theme} ratio="5/4" title={content.media.imageTitle} note="Image placeholder for approved project media." source={content.media.imageSrc} alt={content.media.imageAlt} />
             </Captioned>
             <Captioned caption={content.media.captions?.[2]} className="col-span-7 max-md:col-span-12">
-              <MediaFrame kind="screen" theme={content.theme} ratio="16/8" title={content.media.screenTitle} note="Screen placeholder for approved, anonymised reporting media." source={content.media.screenSrc} alt={content.media.screenAlt} />
+              {/* 16/9 in 7 columns matches the 5/4 frame's height in 5 columns, so the row's bottom edges line up. */}
+              <MediaFrame kind="screen" theme={content.theme} ratio="16/9" title={content.media.screenTitle} note="Screen placeholder for approved, anonymised reporting media." source={content.media.screenSrc} alt={content.media.screenAlt} />
             </Captioned>
           </div>
         </Reveal>
@@ -281,8 +280,8 @@ function ApproachSection({ content }: { content: SolutionPageContent }) {
           <div className="grid grid-cols-12 gap-x-12 gap-y-12 max-lg:block">
             <div className="col-span-4 max-lg:mb-10">
               <Eyebrow>A clear first move</Eyebrow>
-              <h2 className="mt-6 max-w-[15ch] font-sans text-h2 font-semibold text-balance">{content.approach.title}</h2>
-              <p className="mt-5 max-w-[44ch] text-body leading-relaxed text-ink/68">{content.approach.intro}</p>
+              <h2 className="mt-6 font-sans text-h2 font-semibold text-balance">{content.approach.title}</h2>
+              <p className="mt-5 text-body leading-relaxed text-ink/68">{content.approach.intro}</p>
             </div>
             <ol className="col-span-8 border-t border-line">
               {content.approach.steps.map((step, index) => (
@@ -305,12 +304,12 @@ function ServicesSection({ content }: { content: SolutionPageContent }) {
     <section className="border-b border-line bg-surface">
       <div className="container-omh section-md">
         <Reveal>
-          <div className="flex items-end justify-between gap-10 max-md:block">
+          <div>
             <div>
               <Eyebrow>Connected services</Eyebrow>
-              <h2 className="mt-6 max-w-[20ch] font-sans text-h2 font-semibold text-balance">{content.services.title}</h2>
+              <h2 className="mt-6 font-sans text-h2 font-semibold text-balance">{content.services.title}</h2>
             </div>
-            <p className="max-w-[48ch] text-body leading-relaxed text-ink/68 max-md:mt-5">{content.services.intro}</p>
+            <p className="mt-5 text-body leading-relaxed text-ink/68">{content.services.intro}</p>
           </div>
           <div className="mt-12 grid grid-cols-2 border-l border-t border-line max-md:grid-cols-1">
             {content.services.items.map((item, index) => (
@@ -320,7 +319,7 @@ function ServicesSection({ content }: { content: SolutionPageContent }) {
                   <ArrowUpRight className="size-5 text-amber-deep transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
                 </div>
                 <h3 className="mt-12 font-sans text-[26px] font-semibold">{item.title}</h3>
-                <p className="mt-3 max-w-[44ch] text-body leading-relaxed text-ink/66">{item.body}</p>
+                <p className="mt-3 text-body leading-relaxed text-ink/66">{item.body}</p>
                 {item.cta && (
                   <span className="mt-6 inline-flex items-center gap-2 font-semibold text-amber-deep group-hover:underline underline-offset-4">
                     {item.cta}
@@ -344,8 +343,8 @@ function FitSection({ content }: { content: SolutionPageContent }) {
           <div className="grid grid-cols-12 gap-x-12 gap-y-9 max-lg:block">
             <div className="col-span-4 max-lg:mb-9">
               <Eyebrow>Fit matters</Eyebrow>
-              <h2 className="mt-6 max-w-[14ch] font-sans text-h2 font-semibold text-balance">{content.fit.title}</h2>
-              <p className="mt-5 max-w-[40ch] text-body leading-relaxed text-ink/68">{content.fit.intro ?? "A useful first conversation should establish this honestly, before anyone proposes a programme."}</p>
+              <h2 className="mt-6 font-sans text-h2 font-semibold text-balance">{content.fit.title}</h2>
+              <p className="mt-5 text-body leading-relaxed text-ink/68">{content.fit.intro ?? "A useful first conversation should establish this honestly, before anyone proposes a programme."}</p>
             </div>
             <div className="col-span-8 grid grid-cols-2 overflow-hidden rounded-card border border-line bg-surface max-md:grid-cols-1">
               <div className="p-7">
@@ -376,10 +375,10 @@ function ProofSection({ content }: { content: SolutionPageContent }) {
           <div className="grid grid-cols-[1fr_1.1fr] items-end gap-16 max-lg:grid-cols-1 max-lg:gap-8">
             <div>
               <Eyebrow>Relevant proof</Eyebrow>
-              <h2 className="mt-6 max-w-[17ch] font-sans text-[clamp(34px,3.8vw,52px)] font-semibold leading-[1.08] text-balance">{content.proof.title}</h2>
+              <h2 className="mt-6 font-sans text-[clamp(34px,3.8vw,52px)] font-semibold leading-[1.08] text-balance">{content.proof.title}</h2>
             </div>
             <div>
-              <p className="max-w-[60ch] text-body leading-relaxed text-ink/68">{content.proof.body}</p>
+              <p className="text-body leading-relaxed text-ink/68">{content.proof.body}</p>
               <div className="mt-7 flex flex-wrap gap-x-7 gap-y-4">
                 {content.proof.links.map((link) => (
                   <Link key={link.href} href={link.href} className="group inline-flex items-center gap-2 font-semibold text-amber-deep hover:underline underline-offset-4">
@@ -405,8 +404,8 @@ function FaqAndNext({ content }: { content: SolutionPageContent }) {
           <div className="grid grid-cols-12 gap-x-14 gap-y-12 max-lg:block">
             <div className="col-span-4 max-lg:mb-10">
               <Eyebrow>Questions before you enquire</Eyebrow>
-              <h2 className="mt-6 max-w-[16ch] font-sans text-h2 font-semibold text-balance">{content.faqTitle ?? "Straight answers"}</h2>
-              <p className="mt-5 max-w-[42ch] text-body leading-relaxed text-ink/68">If the right answer depends on your circumstances, we say so.</p>
+              <h2 className="mt-6 font-sans text-h2 font-semibold text-balance">{content.faqTitle ?? "Straight answers"}</h2>
+              <p className="mt-5 text-body leading-relaxed text-ink/68">If the right answer depends on your circumstances, we say so.</p>
             </div>
             <div className="col-span-8"><Accordion items={content.faq} group={`${content.slug}-faq`} /></div>
           </div>
@@ -433,8 +432,8 @@ function FinalSection({ content }: { content: SolutionPageContent }) {
           <div className="grid grid-cols-[.82fr_1.18fr] gap-[clamp(48px,8vw,120px)] max-lg:grid-cols-1">
             <div>
               <Eyebrow light>{content.final.eyebrow ?? "Start with the real problem"}</Eyebrow>
-              <h2 className="mt-6 max-w-[14ch] font-sans text-[clamp(36px,4.4vw,60px)] font-semibold leading-[1.04] text-balance">{content.final.title}</h2>
-              <p className="mt-6 max-w-[48ch] text-body leading-relaxed text-oninverse/66">{content.final.body}</p>
+              <h2 className="mt-6 font-sans text-[clamp(36px,4.4vw,60px)] font-semibold leading-[1.04] text-balance">{content.final.title}</h2>
+              <p className="mt-6 text-body leading-relaxed text-oninverse/66">{content.final.body}</p>
               <div className="mt-9 space-y-3 text-body text-oninverse/58">
                 <p><span className="mr-3 text-[#f5d394]">01</span>Your enquiry is read by a person.</p>
                 <p><span className="mr-3 text-[#f5d394]">02</span>We review the context before suggesting a service.</p>

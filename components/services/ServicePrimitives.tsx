@@ -46,7 +46,7 @@ export function ServiceSectionIntro({
   body,
   size = "lg",
   className = "",
-  headingMaxWidthClassName = "max-w-[22ch]",
+  headingMaxWidthClassName = "",
   headingClassName = "",
   bodyClassName = "",
   accentClassName = "text-amber-deep",
@@ -75,7 +75,7 @@ export function ServiceSectionIntro({
         />
       </h2>
       {body && (
-        <p className={`mt-5 max-w-[64ch] text-lead leading-relaxed text-ink/75 ${bodyClassName}`}>
+        <p className={`mt-5 text-lead leading-relaxed text-ink/75 ${bodyClassName}`}>
           {body}
         </p>
       )}

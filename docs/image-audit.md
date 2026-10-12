@@ -6,8 +6,8 @@ Empty media slots found and replaced with existing local assets. Video shells no
 | --- | --- | --- |
 | app/design-system/page.tsx | Real asset required | /images/home/agency-collaboration.png |
 | components/PriceListSections.tsx | How we scope and price a project | /images/home/campaign-review.png |
-| components/SeoLandingSections.tsx | Listing walkthrough | /images/Services/Local SEO.png |
-| components/SeoLandingSections.tsx | SEO review walkthrough | /images/Services/SEO 1.jpg |
+| (removed with components/SeoLandingSections.tsx, 12 Oct 2026) | Listing walkthrough | /images/Services/Local SEO.png |
+| components/services/SeoServicesSections.tsx | SEO review walkthrough | /images/Services/SEO 1.jpg |
 | components/ServiceMedia.tsx | 45-second WordPress project overview | /images/Services/wordpress development 1.jpg |
 | components/ServiceMedia.tsx | Store journey walkthrough | /images/Services/Shopify Development.jpg |
 | components/ServiceMedia.tsx | Monthly report walkthrough | /images/Services/website maintenance 1.jpg |

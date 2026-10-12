@@ -28,10 +28,10 @@ export function ShopifyHero() {
           <div className="col-span-7 max-lg:mb-12">
             <Reveal>
               <Eyebrow>{content.hero.eyebrow}</Eyebrow>
-              <h1 className="mb-6 mt-7 max-w-[20ch] font-sans text-display font-semibold text-balance">
+              <h1 className="mb-6 mt-7 font-sans text-display font-semibold text-balance">
                 <HighlightedText text={content.hero.title} highlight={"high-\u2060performing stores"} />
               </h1>
-              <p className="mb-9 max-w-[55ch] text-lead leading-relaxed text-ink/75">{content.hero.body}</p>
+              <p className="mb-9 text-lead leading-relaxed text-ink/75">{content.hero.body}</p>
               <div className="flex flex-wrap items-center gap-3.5 max-sm:flex-col max-sm:items-stretch">
                 <Button href={content.hero.primary.href} arrow data-event="shopify_hero_cta_click">
                   {content.hero.primary.label}
@@ -61,7 +61,7 @@ export function ShopifyHero() {
                 <MediaFrame kind="image" theme="shopify" ratio="4/5" title="Shopify storefront feature" note="Replace with a real product, collection or storefront view from an approved client project." source="/images/Services/Shopify Development.jpg" alt="A Shopify storefront product page shown on screen." />
               </div>
             </Pointer>
-            <ReviewProof heading="Verified client trust" className="mt-6" />
+            <ReviewProof serviceId="shopify" heading="Verified client trust" className="mt-6" />
           </Reveal>
         </div>
       </div>
@@ -77,7 +77,7 @@ export function ShopifyNeedSection() {
           <div className="col-span-5 max-lg:mb-10">
             <div className="lg:sticky lg:top-24">
               <SectionIntro title="Common Shopify problems we fix" accent="we fix" />
-              <p className="mt-7 border-l-2 border-amber pl-5 font-serif text-[21px] leading-snug text-ink/85">
+              <p className="mt-7 border-l-2 border-amber pl-5 text-body leading-snug text-ink/85">
 A store can look great and still be hard to grow. Confusing navigation, slow pages, a clunky checkout, a theme nobody on your team can actually edit. Sound familiar? That&apos;s usually where we come in.
 
               </p>
@@ -93,7 +93,7 @@ A store can look great and still be hard to grow. Confusing navigation, slow pag
                 <span aria-hidden className="font-sans text-[18px] font-semibold tabular-nums tracking-[0.1em] text-muted transition-colors group-hover:text-amber">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <p className="font-serif text-[21px] leading-snug text-ink/90 max-sm:text-[19px]">{need}</p>
+                <p className="text-body leading-snug text-ink/90">{need}</p>
               </li>
             ))}
           </ol>
@@ -132,7 +132,7 @@ export function ShopifyCapabilityGrid() {
             <div className="col-span-6">
               <p className="text-[14px] font-semibold uppercase tracking-[0.16em] text-oninverse/55">Most projects start here</p>
               <h3 className="mt-5 font-sans text-h2 font-semibold">{featured.title}</h3>
-              <p className="mt-5 max-w-[46ch] text-lead leading-relaxed text-oninverse/75">{featured.body}</p>
+              <p className="mt-5 text-lead leading-relaxed text-oninverse/75">{featured.body}</p>
             </div>
             <ul className="col-span-5 col-start-8 grid gap-3 border-t border-oninverse/15 pt-6 max-lg:mt-8">
               {featured.detail?.map((line) => (
@@ -283,7 +283,7 @@ export function ShopifyCaseStudyFeature() {
       <Reveal>
         <div className="overflow-hidden rounded-card border border-soft-dark bg-soft/60">
           <div className="grid grid-cols-12 gap-x-10 gap-y-8 p-10 max-lg:block max-sm:p-6">
-            <div className="col-span-5">
+            <div className="col-span-12">
               <Eyebrow>Client work</Eyebrow>
               <h2 className="mb-5 mt-6 font-sans text-h3 font-semibold text-balance">
                 Show the store, the challenge and <span className="text-amber-deep">what changed</span>
@@ -299,7 +299,7 @@ export function ShopifyCaseStudyFeature() {
               <div className="mt-7"><TextLink href="/case-studies" data-event="shopify_case_study_click">View case studies</TextLink></div>
             </div>
 
-            <div className="col-span-7 col-start-6 max-lg:mt-9">
+            <div className="col-span-12 mt-9">
               <div className="grid grid-cols-2 gap-5 max-sm:grid-cols-1">
                 {/* The frame drops its badge once media lands, but before/after is content here, so caption it. */}
                 <figure>

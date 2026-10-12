@@ -38,7 +38,7 @@ export function ThankYouPage({ page }: { page: PageData }) {
   return (
     <main>
       <ServiceBand label={page.title} tone="warm" accent="bg-teal" labelStyle="plain" className="hero-grid">
-        <div className="max-w-[62ch]">
+        <div className="">
           <h1 className="font-sans text-display font-semibold text-balance"><AccentTitle text={page.heading} /></h1>
           {page.body.map((paragraph) => (
             <p key={paragraph} className="mt-6 text-lead leading-relaxed text-ink/75">
@@ -82,7 +82,7 @@ export function ThankYouPage({ page }: { page: PageData }) {
           accent="bg-teal"
           labelStyle="underline"
         >
-          <div className="max-w-[62ch]">
+          <div className="">
             <h2 className="font-sans text-h2 font-semibold text-balance">
               Every starter package, side by side.
             </h2>
@@ -107,7 +107,7 @@ export function SubscriptionThankYouPage() {
   return (
     <main>
       <ServiceBand label={page.title} tone="warm" accent="bg-teal" labelStyle="plain" className="hero-grid">
-        <h1 className="max-w-[20ch] font-sans text-display font-semibold text-balance">
+        <h1 className="font-sans text-display font-semibold text-balance">
           <AccentTitle text={page.heading} />
         </h1>
       </ServiceBand>
@@ -130,7 +130,7 @@ export function SubscriptionThankYouPage() {
       </ServiceBand>
 
       <ServiceBand label={page.resourcesHeading} tone="mist" accent="bg-teal" labelStyle="underline">
-        <div className="max-w-[70ch] rounded-card border border-line bg-surface p-9 max-sm:p-6">
+        <div className="rounded-card border border-line bg-surface p-9 max-sm:p-6">
           <h2 className="font-sans text-h3 font-semibold text-balance">{page.resource.title}</h2>
           <p className="mt-5 text-body leading-relaxed text-ink/75">{page.resource.body}</p>
           {/* The live page's three download buttons all point at `href="#"` — no

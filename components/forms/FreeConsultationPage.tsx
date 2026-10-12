@@ -13,7 +13,7 @@ export function FreeConsultationPage() {
   return (
     <main>
       <ServiceBand label="Free consultation" tone="warm" accent="bg-amber" labelStyle="plain" className="hero-grid">
-        <div className="mx-auto max-w-[58ch] text-center">
+        <div className="mx-auto text-center">
           <h1 className="font-sans text-display font-semibold text-balance"><AccentTitle text={page.title} /></h1>
           <p className="mt-5 font-sans text-h2 font-semibold text-amber-deep text-balance">
             {page.subtitle}
@@ -34,7 +34,7 @@ export function FreeConsultationPage() {
         accent="bg-amber"
         labelStyle="centered"
       >
-        <h2 className="mx-auto max-w-[24ch] text-center font-sans text-h2 font-semibold text-balance">
+        <h2 className="mx-auto text-center font-sans text-h2 font-semibold text-balance">
           {page.bookingHeading}
         </h2>
         <div className="mt-10">
@@ -69,7 +69,7 @@ export function FreeConsultationPage() {
       </ServiceBand>
 
       <ServiceBand label={page.contactHeading} tone="warm" accent="bg-amber" labelStyle="centered">
-        <div className="mx-auto max-w-[52ch] text-center">
+        <div className="mx-auto text-center">
           <p className="text-lead leading-relaxed text-ink/75">{page.contactBody}</p>
           <p className="mt-6 font-sans text-h2 font-semibold">
             <Link href={company.phoneHref} className="hover:text-amber-deep">
@@ -80,7 +80,7 @@ export function FreeConsultationPage() {
       </ServiceBand>
 
       <ServiceBand label={page.clientsHeading} tone="mist" accent="bg-amber" labelStyle="centered">
-        <p className="mx-auto max-w-[62ch] text-center text-lead leading-relaxed text-ink/75">
+        <p className="mx-auto text-center text-lead leading-relaxed text-ink/75">
           {page.clientsIntro}
         </p>
         <div className="mt-11 grid grid-cols-2 gap-8 max-md:grid-cols-1">

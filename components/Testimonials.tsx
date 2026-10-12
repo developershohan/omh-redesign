@@ -76,8 +76,8 @@ export function ServiceTestimonials({
         >
           <div className="col-span-4 max-lg:mb-10">
             <p className={`text-[14px] font-semibold uppercase tracking-[0.15em] ${dark ? "text-[#9bc3f3]" : "text-amber-deep"}`}>{eyebrow}</p>
-            <h2 id={headingId} className="mt-5 max-w-[15ch] font-sans text-h2 font-semibold">{title}</h2>
-            <p className={`mt-5 max-w-[42ch] text-body leading-relaxed ${secondary}`}>{body}</p>
+            <h2 id={headingId} className="mt-5 font-sans text-h2 font-semibold">{title}</h2>
+            <p className={`mt-5 text-body leading-relaxed ${secondary}`}>{body}</p>
             <div className={`mt-8 flex items-center gap-3 border-t pt-5 ${rule}`}>
               <button
                 type="button"
@@ -115,8 +115,10 @@ export function ServiceTestimonials({
                     aria-hidden={index === current ? undefined : true}
                     className={`flex min-h-[360px] w-full shrink-0 flex-col rounded-card border p-[clamp(28px,4vw,48px)] ${dark ? "border-oninverse/12 bg-oninverse/[0.04]" : "border-line bg-surface"}`}
                   >
-                    <span className={`font-serif text-[52px] leading-none ${dark ? "text-[#9bc3f3]" : "text-amber"}`} aria-hidden>“</span>
-                    <blockquote className={`flex-1 font-serif text-[clamp(21px,1.5vw,27px)] leading-[1.38] ${dark ? "text-oninverse/88" : "text-ink/88"}`}>{testimonialItem.quote}</blockquote>
+                    <span className={`font-body text-[52px] leading-none ${dark ? "text-[#9bc3f3]" : "text-amber"}`} aria-hidden>“</span>
+                    {/* Slides share the tallest quote's height; auto margins centre shorter quotes
+                        instead of leaving a gap above the attribution. */}
+                    <blockquote className={`my-auto py-4 font-body text-[clamp(21px,1.5vw,27px)] leading-[1.38] ${dark ? "text-oninverse/88" : "text-ink/88"}`}>{testimonialItem.quote}</blockquote>
                     <footer className={`mt-8 border-t pt-5 ${rule}`}>
                       <p className="font-sans text-body font-semibold">{testimonialItem.name}</p>
                       {testimonialItem.context && <p className={`mt-1 text-body ${secondary}`}>{testimonialItem.context}</p>}

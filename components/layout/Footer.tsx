@@ -115,8 +115,8 @@ export function Footer() {
         <div className="py-14">
           <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
             <div>
-              <Image src="/images/logo-white.png" alt={company.name} width={180} height={44} className="h-auto w-[180px]" />
-              <p className="mt-5 max-w-[38ch] text-body leading-relaxed text-oninverse/62">
+              <Image src="/images/logo-white.png" alt={company.name} width={180} height={46} className="h-auto w-[180px]" />
+              <p className="mt-5 text-body leading-relaxed text-oninverse/62">
                 {company.positioning}
               </p>
               <ul className="mt-6 flex gap-3">

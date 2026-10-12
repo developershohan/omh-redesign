@@ -64,7 +64,7 @@ export function ServiceProcessTimeline({
                   {index + 1}
                 </span>
                 <h3 className="font-sans text-h3 font-semibold">{stepTitle}</h3>
-                <p className="mt-2.5 max-w-[62ch] text-body leading-relaxed text-ink/75">
+                <p className="mt-2.5 text-body leading-relaxed text-ink/75">
                   {stepBody}
                 </p>
               </li>

@@ -393,6 +393,7 @@ export const solutions: Record<string, SolutionPageContent> = {
       body: "Good conversion proof should explain the starting problem, what changed, the traffic or measurement context, and the verified outcome. We use real case studies rather than isolated percentage claims.",
       links: [
         { label: "View website case studies", href: "/case-studies" },
+        { label: "Read the steakhouse reservations project", href: "/case-studies/bar" },
         { label: "Explore WordPress development", href: "/wordpress-development" },
       ],
     },

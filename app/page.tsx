@@ -109,6 +109,7 @@ export default async function Home() {
     title: post.title,
     body: post.summary,
     href: insightHref(post),
+    image: post.featuredImage,
   }));
 
   return (
@@ -117,10 +118,10 @@ export default async function Home() {
         <div className="container-omh grid min-h-[680px] grid-cols-[minmax(0,0.92fr)_minmax(440px,0.78fr)] items-center gap-[clamp(48px,7vw,116px)] py-[clamp(40px,3.5vw,60px)] max-lg:min-h-0 max-lg:grid-cols-1 max-lg:gap-8 max-sm:gap-8">
           <Reveal className="relative z-10">
             <StarRating label={hero.eyebrow} />
-            <h1 className="mb-7 mt-8 max-w-[14ch] font-sans text-display font-semibold max-lg:max-w-none">
+            <h1 className="mb-7 mt-8 font-sans text-display font-semibold max-lg:max-w-none">
               Full-service digital marketing agency for <span className="text-amber-deep">UK businesses</span>
             </h1>
-            <p className="mb-10 max-w-[59ch] text-body leading-relaxed text-ink/75 max-lg:max-w-none">
+            <p className="mb-10 text-body leading-relaxed text-ink/75 max-lg:max-w-none">
               {hero.standfirst}
             </p>
             <div className="flex flex-wrap items-center gap-4 max-sm:flex-col max-sm:items-stretch">
@@ -233,12 +234,12 @@ export default async function Home() {
           <div className="grid grid-cols-[0.74fr_1.26fr] items-start gap-[clamp(48px,7vw,112px)] max-lg:grid-cols-1 max-sm:gap-10">
             <div className="lg:sticky lg:top-24">
               <SectionLabel>Success stories</SectionLabel>
-              <h2 className="mt-6 max-w-[15ch] font-sans text-h2 font-semibold">
+              <h2 className="mt-6 font-sans text-h2 font-semibold">
                 Results from our <span className="text-amber-deep">digital marketing clients</span>
               </h2>
               <p className="mt-5 text-body leading-relaxed text-ink/75">
                 Real projects across hospitality, retail, automotive and ecommerce, showing how SEO,
-                content and website work came together to grow traffic and enquiries.
+                content and website work came together to grow traffic and enquiries for UK businesses.
               </p>
               <div className="mt-8">
                 <Button href="/case-studies" variant="secondary" arrow>
@@ -405,14 +406,14 @@ export default async function Home() {
       <section className="border-y border-line bg-surface py-[clamp(72px,8vw,128px)]">
         <div className="container-omh">
           <Reveal>
-            <div className="mb-12 flex items-end justify-between gap-10 max-lg:block">
+            <div className="mb-12">
               <div>
                 <StarRating label="Client success stories" />
-                <h2 className="mt-6 max-w-[19ch] font-sans text-h2 font-semibold">
+                <h2 className="mt-6 font-sans text-h2 font-semibold">
                   What our <span className="text-amber-deep">clients say</span>
                 </h2>
               </div>
-              <p className="max-w-[42ch] text-body leading-relaxed text-ink/70 max-lg:mt-5">
+              <p className="mt-5 text-body leading-relaxed text-ink/70">
                 Feedback from published client case studies across SEO, paid media and web
                 development.
               </p>
@@ -421,7 +422,7 @@ export default async function Home() {
             <div className="grid grid-cols-[1.1fr_0.9fr] gap-6 max-lg:grid-cols-1">
               <figure className="quote-feature group relative flex min-h-[520px] flex-col justify-between overflow-hidden rounded-[8px] bg-inverse p-[clamp(28px,4vw,56px)] text-oninverse max-sm:min-h-[420px]">
                 <Quote className="size-12 text-oninverse/22 transition-transform duration-500 ease-[cubic-bezier(.2,.8,.2,1)] group-hover:-translate-y-1 group-hover:rotate-[-4deg]" strokeWidth={1.5} aria-hidden />
-                <blockquote className="my-12 font-serif text-[clamp(30px,25px+1.3vw,44px)] leading-tight">
+                <blockquote className="my-12 font-body text-[clamp(30px,25px+1.3vw,44px)] leading-tight">
                   &ldquo;{testimonials[0].quote}&rdquo;
                 </blockquote>
                 <figcaption className="text-body font-semibold text-oninverse/75">
@@ -559,7 +560,7 @@ export default async function Home() {
                   .
                 </p>
               </div>
-              <Accordion group="home-faq" items={homeFaqs.map((faq) => ({ q: faq.q, a: withLinks(faq.a) }))} />
+              <Accordion group="home-faq" heading="h3" items={homeFaqs.map((faq) => ({ q: faq.q, a: withLinks(faq.a) }))} />
             </div>
           </Reveal>
         </div>
@@ -581,8 +582,15 @@ export default async function Home() {
             <div className="grid grid-cols-[1.12fr_0.88fr] gap-8 max-lg:grid-cols-1">
               <Link
                 href={insights[0].href}
-                className="surface-card group flex min-h-[520px] flex-col justify-between rounded-[8px] bg-inverse p-[clamp(28px,4vw,52px)] text-oninverse max-sm:min-h-0 max-sm:gap-20"
+                className="surface-card group relative isolate flex min-h-[520px] flex-col justify-between overflow-hidden rounded-[8px] bg-inverse p-[clamp(28px,4vw,52px)] text-oninverse max-sm:min-h-0 max-sm:gap-20"
               >
+                {/* The card stretches to the three rows beside it; the post's cover fills that height. */}
+                {insights[0].image && (
+                  <>
+                    <Image src={insights[0].image.src} alt="" fill sizes="(max-width: 1024px) 100vw, 56vw" className="-z-20 object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+                    <div className="absolute inset-0 -z-10 bg-linear-to-t from-inverse via-inverse/80 to-inverse/40" aria-hidden />
+                  </>
+                )}
                 <div className="flex items-center justify-between gap-4">
                   <p className="text-[18px] font-semibold uppercase tracking-[0.14em] text-amber">
                     {insights[0].category}
@@ -590,10 +598,10 @@ export default async function Home() {
                   <CardArrow />
                 </div>
                 <div>
-                  <h3 className="max-w-[19ch] font-sans text-[clamp(32px,26px+1.5vw,50px)] font-semibold leading-tight">
+                  <h3 className="font-sans text-[clamp(32px,26px+1.5vw,50px)] font-semibold leading-tight">
                     {insights[0].title}
                   </h3>
-                  <p className="mt-5 max-w-[54ch] text-body leading-relaxed text-oninverse/70">
+                  <p className="mt-5 text-body leading-relaxed text-oninverse/70">
                     {insights[0].body}
                   </p>
                 </div>
@@ -610,7 +618,7 @@ export default async function Home() {
                       <p className="text-[18px] font-semibold uppercase tracking-[0.14em] text-amber-deep">
                         {post.category}
                       </p>
-                      <h3 className="mt-4 max-w-[24ch] font-sans text-[27px] font-semibold leading-tight">
+                      <h3 className="mt-4 font-sans text-[27px] font-semibold leading-tight">
                         {post.title}
                       </h3>
                     </div>

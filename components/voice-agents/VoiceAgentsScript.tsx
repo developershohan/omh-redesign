@@ -374,7 +374,7 @@ function init(page: HTMLElement, navigate: (href: string) => void) {
         note.className = "absolute inset-0 grid place-items-center p-6 text-center";
         note.innerHTML =
           '<div><p class="font-display text-[22px] font-semibold">This video is on its way</p>' +
-          '<p class="mx-auto mt-2 max-w-[30rem] text-[16.5px] text-band-muted">It will go live once we have verified this client\'s results. Until then, ring our demo agent to hear one for yourself.</p></div>';
+          '<p class="mx-auto mt-2 text-[16.5px] text-band-muted">It will go live once we have verified this client\'s results. Until then, ring our demo agent to hear one for yourself.</p></div>';
         player.appendChild(note);
       }
       dialog.showModal();

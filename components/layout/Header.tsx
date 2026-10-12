@@ -27,7 +27,7 @@ function MenuLink({ link, onClick }: { link: NavLink; onClick?: () => void }) {
       href={link.href}
       onClick={onClick}
       aria-current={current ? "page" : undefined}
-      className={`block rounded-button px-2.5 py-2 text-[16px] font-medium transition-colors hover:bg-warm hover:text-amber-deep ${
+      className={`block rounded-button px-2.5 py-2.5 text-[16px] font-medium transition-colors hover:bg-warm hover:text-amber-deep ${
         current ? "bg-warm text-amber-deep" : "text-ink"
       }`}
     >
@@ -80,18 +80,18 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
       }`}
     >
       <div
-        className={`container-omh flex items-center gap-3 transition-[height] duration-300 max-lg:gap-3 xl:gap-6 ${
+        className={`container-omh flex items-center gap-3 transition-[height] duration-300 max-lg:gap-3 min-[1420px]:gap-6 ${
           scrolled ? "h-[68px]" : "h-[84px]"
         }`}
       >
         {/* Sized by width: the two exports differ in proportion, so matching
             widths keeps the strapline the same size in both themes. */}
         <Link href="/" aria-label="Online Marketing Help, home" className="shrink-0">
-          <Image src="/images/logo-dark.png" alt="" width={140} height={44} priority className="h-auto w-[140px] lg:max-xl:w-[120px] dark:hidden" />
-          <Image src="/images/logo-white.png" alt="" width={140} height={35} priority className="hidden h-auto w-[140px] lg:max-xl:w-[120px] dark:block" />
+          <Image src="/images/logo-dark.png" alt="" width={140} height={36} priority className="h-auto w-[140px] lg:max-[1420px]:w-[120px] dark:hidden" />
+          <Image src="/images/logo-white.png" alt="" width={140} height={36} priority className="hidden h-auto w-[140px] lg:max-[1420px]:w-[120px] dark:block" />
         </Link>
 
-        <nav aria-label="Primary" className="ml-auto flex items-center gap-0.5 max-lg:hidden xl:gap-1">
+        <nav aria-label="Primary" className="ml-auto flex items-center gap-0.5 max-lg:hidden min-[1420px]:gap-1">
           {primaryNav.map((item, i) => {
             const current = isCurrent(pathname, item);
             // The last menu sits near the right edge, so its panel hangs left of
@@ -112,7 +112,7 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
                   aria-expanded={menu === item.label}
                   aria-haspopup="true"
                   onClick={() => setMenu(menu === item.label ? null : item.label)}
-                  className={`nav-item flex cursor-pointer items-center gap-1 whitespace-nowrap px-1 py-1.5 text-[15px] font-medium xl:px-3 xl:text-[16px] ${
+                  className={`nav-item flex cursor-pointer items-center gap-1 whitespace-nowrap px-0.5 py-1.5 text-[14px] font-medium xl:max-[1420px]:px-2 xl:max-[1420px]:text-[15px] min-[1420px]:px-3 min-[1420px]:text-[16px] ${
                     current || menu === item.label ? "is-active" : ""
                   }`}
                 >
@@ -133,7 +133,7 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
                         // the widest link stops wrapping; the 4th category
                         // flows to a second row until xl gives it its own column.
                         item.columns.length > 3
-                          ? "grid w-[720px] grid-cols-3 gap-x-4 gap-y-6 xl:w-[920px] xl:grid-cols-4 xl:gap-y-0"
+                          ? "grid w-[720px] grid-cols-3 gap-x-4 gap-y-6 min-[1420px]:w-[920px] min-[1420px]:grid-cols-4 min-[1420px]:gap-y-0"
                           : item.columns.length === 3
                             ? "grid w-[620px] grid-cols-3 gap-x-6"
                             : item.columns.length === 2
@@ -166,7 +166,7 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
                 key={item.href}
                 href={item.href!}
                 aria-current={current ? "page" : undefined}
-                className={`nav-item whitespace-nowrap px-1 py-1.5 text-[15px] font-medium xl:px-3 xl:text-[16px] ${current ? "is-active" : ""}`}
+                className={`nav-item whitespace-nowrap px-0.5 py-1.5 text-[14px] font-medium xl:max-[1420px]:px-2 xl:max-[1420px]:text-[15px] min-[1420px]:px-3 min-[1420px]:text-[16px] ${current ? "is-active" : ""}`}
               >
                 {item.label}
               </Link>
@@ -174,23 +174,14 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
           })}
         </nav>
 
-        <div className="ml-auto flex shrink-0 items-center gap-2 lg:ml-3 xl:ml-6">
-          {/* The nav leaves no room for the number until 2xl, and even there only
-              because search stays icon-only (the container caps at 1344px). It
-              is still in the mobile menu and the footer. The CTA is the primary
-              action, so it keeps its space. */}
-          <span className="max-2xl:hidden">
-            <a
-              href={company.phoneHref}
-              className="mr-2 whitespace-nowrap text-[16px] font-medium text-muted transition-colors hover:text-ink"
-            >
-              {company.phoneDisplay}
-            </a>
-          </span>
+        <div className="ml-auto flex shrink-0 items-center gap-2 lg:ml-3 min-[1420px]:ml-6">
+          {/* No phone number in this row: at 2xl the logo, nav and buttons already
+              take ~1294px of the 1344px container, so the number pushed the CTA
+              past the body's right edge. It stays in the mobile menu and footer. */}
           <SiteSearch entries={searchEntries} />
           <ThemeToggle />
           <span className="max-md:hidden">
-            <Button href="/contact" small className="whitespace-nowrap max-xl:px-3.5">
+            <Button href="/contact" small className="whitespace-nowrap max-[1420px]:px-3.5">
               {/* With the desktop nav, the full label only fits from ~1330px: at
                   1024 it pushed the header 65px past its container and the page
                   scrolled sideways. Below 1360 the short label keeps some slack. */}

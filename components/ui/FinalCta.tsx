@@ -48,10 +48,10 @@ export function FinalCta({
     <section id={id} className="scroll-mt-20 bg-inverse text-oninverse">
       <div className="container-omh section-md grid grid-cols-12 items-start gap-x-10 gap-y-10 max-lg:block">
         <Reveal className="col-span-7">
-          <h2 className="mb-5 max-w-[20ch] font-sans text-h2 font-semibold text-balance">
+          <h2 className="mb-5 font-sans text-h2 font-semibold text-balance">
             <HighlightedText text={title} highlight={titleAccent} highlightClassName="text-[#f2c675]" />
           </h2>
-          <p className="mb-9 max-w-[56ch] text-body leading-relaxed text-oninverse/75">{body}</p>
+          <p className="mb-9 text-body leading-relaxed text-oninverse/75">{body}</p>
           <div className="flex flex-wrap items-center gap-3.5 max-sm:flex-col max-sm:items-stretch">
             <Button href={primary.href ?? "/contact"} variant="inverse" arrow data-event={primary.event}>
               {primary.label}

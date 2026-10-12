@@ -27,17 +27,17 @@ export function AboutHero() {
 
           <div className="mt-9 grid grid-cols-12 items-center gap-x-12 gap-y-12 max-lg:block">
             <div className="col-span-7">
-              <h1 className="max-w-[16ch] font-sans text-display font-semibold text-balance">
+              <h1 className="font-sans text-display font-semibold text-balance">
                 <span className="text-amber-deep">{about.hero.titleLead}</span>{" "}
                 {about.hero.titleRest}
               </h1>
               {/* Tied to the headline with a rule — on its own it read as a
                   stray serif line floating between the h1 and the copy. */}
-              <p className="mt-6 flex items-center gap-4 font-serif text-h3 text-ink/75">
+              <p className="mt-6 flex items-center gap-4 font-body text-h3 text-ink/75">
                 <span aria-hidden className="h-px w-10 shrink-0 bg-amber" />
                 {about.hero.subtitle}
               </p>
-              <p className="mt-8 max-w-[54ch] text-lead leading-relaxed text-ink/75">{lead}</p>
+              <p className="mt-8 text-lead leading-relaxed text-ink/75">{lead}</p>
               <div className="mt-10 flex flex-wrap gap-3.5 max-sm:flex-col max-sm:items-stretch">
                 <Button href="/contact" arrow data-event="about_hero_cta_click">
                   Talk to the Team
@@ -135,12 +135,12 @@ export function AboutStory() {
 
             <div className="col-span-6 col-start-7">
               <Eyebrow>Our story</Eyebrow>
-              <h2 className="mt-6 max-w-[18ch] font-sans text-h2 font-semibold text-balance">
+              <h2 className="mt-6 font-sans text-h2 font-semibold text-balance">
                 Built after struggling to find a transparent agency.
               </h2>
               <div className="mt-7 grid gap-5">
                 {rest.map((paragraph) => (
-                  <p key={paragraph} className="max-w-[60ch] text-body leading-relaxed text-ink/75">
+                  <p key={paragraph} className="text-body leading-relaxed text-ink/75">
                     {paragraph}
                   </p>
                 ))}
@@ -161,7 +161,7 @@ export function AboutAwards() {
           <div className="grid grid-cols-12 items-center gap-x-12 gap-y-10 max-lg:block">
             <div className="col-span-6">
               <Eyebrow light>{about.awards.label}</Eyebrow>
-              <h2 className="mt-6 max-w-[14ch] font-sans text-h2 font-semibold text-balance">
+              <h2 className="mt-6 font-sans text-h2 font-semibold text-balance">
                 <span className="text-[#f2c675]">{about.awards.titleLead}</span>{" "}
                 {about.awards.titleRest}
               </h2>
@@ -169,7 +169,7 @@ export function AboutAwards() {
                 {about.awards.body.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className="max-w-[58ch] text-body leading-relaxed text-oninverse/70"
+                    className="text-body leading-relaxed text-oninverse/70"
                   >
                     {paragraph}
                   </p>
@@ -212,14 +212,14 @@ export function AboutSustainability() {
           <div className="grid grid-cols-12 items-start gap-x-12 gap-y-8 max-lg:block">
             <div className="col-span-5">
               <Eyebrow>{about.sustainability.label}</Eyebrow>
-              <h2 className="mt-6 max-w-[15ch] font-sans text-h2 font-semibold text-balance">
+              <h2 className="mt-6 font-sans text-h2 font-semibold text-balance">
                 {about.sustainability.title}
               </h2>
             </div>
             <div className="col-span-6 col-start-7 max-lg:mt-8">
               <div className="grid gap-5">
                 {about.sustainability.body.map((paragraph) => (
-                  <p key={paragraph} className="max-w-[54ch] text-body leading-relaxed text-ink/72">
+                  <p key={paragraph} className="text-body leading-relaxed text-ink/72">
                     {paragraph}
                   </p>
                 ))}
@@ -246,11 +246,11 @@ export function AboutCharity() {
           <div className="grid grid-cols-12 items-start gap-x-12 gap-y-10 max-lg:block">
             <div className="col-span-6">
               <Eyebrow>{about.charity.label}</Eyebrow>
-              <h2 className="mt-6 max-w-[17ch] font-sans text-h2 font-semibold text-balance">
+              <h2 className="mt-6 font-sans text-h2 font-semibold text-balance">
                 <span className="text-amber-deep">{about.charity.titleLead}</span>{" "}
                 {about.charity.titleRest}
               </h2>
-              <p className="mt-7 max-w-[58ch] text-lead leading-relaxed text-ink/75">{lead}</p>
+              <p className="mt-7 text-lead leading-relaxed text-ink/75">{lead}</p>
 
               <ul className="mt-10 grid gap-4">
                 {about.charity.causes.map((cause) => (
@@ -275,7 +275,7 @@ export function AboutCharity() {
             <div className="col-span-6 max-lg:mt-10">
               <div className="grid gap-5">
                 {rest.map((paragraph) => (
-                  <p key={paragraph} className="max-w-[62ch] text-body leading-relaxed text-ink/72">
+                  <p key={paragraph} className="text-body leading-relaxed text-ink/72">
                     {paragraph}
                   </p>
                 ))}
@@ -301,7 +301,7 @@ export function AboutTeam() {
           <div className="grid grid-cols-12 items-start gap-x-12 gap-y-8 max-lg:block">
             <div className="col-span-5">
               <Eyebrow>{about.team.label}</Eyebrow>
-              <h2 className="mt-6 max-w-[15ch] font-sans text-h2 font-semibold text-balance">
+              <h2 className="mt-6 font-sans text-h2 font-semibold text-balance">
                 <span className="text-amber-deep">{about.team.titleLead}</span>{" "}
                 {about.team.titleRest}
               </h2>
@@ -310,7 +310,7 @@ export function AboutTeam() {
               {about.team.body.map((paragraph) => (
                 <p
                   key={paragraph}
-                  className="mt-5 max-w-[54ch] text-body leading-relaxed text-ink/70 first:mt-0"
+                  className="mt-5 text-body leading-relaxed text-ink/70 first:mt-0"
                 >
                   {paragraph}
                 </p>

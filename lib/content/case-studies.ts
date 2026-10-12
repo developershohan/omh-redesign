@@ -28,6 +28,10 @@ export type CaseStudy = {
      recommendation with no name against it. */
   testimonial?: { quote: string; attribution?: string };
   serviceIds: CaseStudyServiceId[];
+  /* Hub card only (case studies SEO brief, Oct 2026) — the article page keeps
+     `title` as its H1. `results` maps an existing result label to its hub
+     wording; insertion order is display order, business outcome first. */
+  card: { title: string; results?: Record<string, string> };
 };
 
 export const caseStudyServices: Record<
@@ -77,6 +81,7 @@ export const caseStudies: CaseStudy[] = [
       attribution: "Penny Williams, Owner",
     },
     serviceIds: ["seo", "wordpress"],
+    card: { title: "Sweet Delights Bakery: Growing Organic Visibility and Reaching New Customers", results: { "Share of traffic from new users": "of Traffic from New Users", "Organic-traffic increase": "Organic Traffic Increase" } },
   },
   {
     slug: "car-showroom",
@@ -113,6 +118,7 @@ export const caseStudies: CaseStudy[] = [
       attribution: "Stuart Pelton, Owner",
     },
     serviceIds: ["seo", "google-ads", "maintenance"],
+    card: { title: "CarShow Hub: SEO Growth That Supported More Car Sales", results: { "Uplift in car sales attributed to SEO": "Uplift in Car Sales Attributed to SEO", "Organic-traffic increase": "Organic Traffic Increase" } },
   },
   {
     slug: "clothing-business",
@@ -146,6 +152,7 @@ export const caseStudies: CaseStudy[] = [
       attribution: "Clive Houseton",
     },
     serviceIds: ["seo", "shopify"],
+    card: { title: "TrendyThreads: Ecommerce SEO That Increased Purchases", results: { "Purchase-conversion increase": "Purchase Conversion Increase", "Organic-traffic increase": "Organic Traffic Increase" } },
   },
   {
     slug: "craft-business",
@@ -181,6 +188,9 @@ export const caseStudies: CaseStudy[] = [
       attribution: "George Peters, Owner",
     },
     serviceIds: ["seo", "google-ads"],
+    // The brief kept traffic first "unless a verified sales/conversion metric is
+    // available" — this study publishes one (30% purchase conversion), so it leads.
+    card: { title: "CraftyCreations: Organic Growth for an Ecommerce Craft Brand", results: { "Purchase-conversion increase": "Purchase Conversion Increase", "Organic-traffic increase": "Organic Traffic Increase" } },
   },
   {
     slug: "bar",
@@ -214,6 +224,7 @@ export const caseStudies: CaseStudy[] = [
       attribution: "George Schwarz, Owner",
     },
     serviceIds: ["wordpress", "seo", "google-ads", "social-media", "paid-social"],
+    card: { title: "Keens Steak House: A Hospitality Website Built Around Reservations", results: { "Reservation increase": "Reservation Increase", "Positive booking-experience survey": "Positive Booking Experience" } },
   },
   {
     slug: "fine-dining",
@@ -249,6 +260,7 @@ export const caseStudies: CaseStudy[] = [
       attribution: "Serg Zinki, Owner",
     },
     serviceIds: ["seo", "google-ads", "wordpress", "social-media", "paid-social"],
+    card: { title: "Savor Bistro: Local SEO Growth for Restaurant Discovery and Walk-ins", results: { "Increase in walk-ins": "Increase in Walk-ins", "Organic-traffic increase": "Organic Traffic Increase", "Local business-profile position": "Local Business-Profile Position" } },
   },
   /*
     Phase 4 of docs/legacy-pages-plan.md — the four standalone legacy case-study
@@ -320,6 +332,7 @@ export const caseStudies: CaseStudy[] = [
         "Excellent service from the team with constant communication keeping us up to date, excellent results from their hard work, with a big thanks to Matt who has worked directly alongside us to give us the support needed, Matt has improved our campaign and answered any questions we have had. Great work Online Marketing Help.",
     },
     serviceIds: ["google-ads"],
+    card: { title: "Fleming Verandas: Launching Google Ads for Local Customer Acquisition" },
   },
   {
     slug: "california-accounting",
@@ -368,6 +381,7 @@ export const caseStudies: CaseStudy[] = [
         "Thanks to Online Marketing Help we have seen an increase of 210% YOY growth with new clients driven by local searching. We have a much clearer communication channel with existing and new clients. We are now on page 1 for accounting firms in California, we continue to see a better ROI on our google ads spend although we have reduced this considerable due to the volume of leads we are getting organically.",
     },
     serviceIds: ["seo"],
+    card: { title: "California Accounting: Building a Long-Term SEO Strategy for an Accountancy Firm" },
   },
   {
     slug: "allied-hands",
@@ -417,6 +431,8 @@ export const caseStudies: CaseStudy[] = [
         "We really needed some illustrations for our business quick smart and found Online Marketing Help. The lady that reached out to me was professional, speedy and super friendly. In know time she really understood my business and what I was looking for. Within 24 hours of contact I had my illustrations back and I didn’t need to make any changes as they were exactly what I wanted.",
     },
     serviceIds: [],
+    // The brief says "Allied Hands Social Care"; the published client name is "Allied Hands".
+    card: { title: "Allied Hands: On-Brand Illustration Design for Social Care" },
   },
   {
     slug: "out-out-entry",
@@ -467,8 +483,18 @@ export const caseStudies: CaseStudy[] = [
         "I had a vision for my website but I couldn’t have dreamed of achieving what the Online Marketing Help team delivered. From regular updates and consultations to the excellent delivery of my social media channels and assets alike. I had been talking with a number of web design agencies prior to starting working with Online Marketing Help and I was blown away by their professionalism from the onset.",
     },
     serviceIds: ["wordpress", "seo"],
+    card: { title: "Out Out Entry: Multi-Site Website Design and Development for Travel Experiences" },
   },
 ];
+
+/** A study's hub-card results, in card order. A label that matches no result is a data bug, so it fails the build. */
+export function cardResults(study: CaseStudy) {
+  return Object.entries(study.card.results ?? {}).map(([from, label]) => {
+    const result = study.results.find((r) => r.label === from);
+    if (!result) throw new Error(`${study.slug}: no result labelled "${from}"`);
+    return { value: result.value, label };
+  });
+}
 
 export function getCaseStudy(slug: string) {
   return caseStudies.find((study) => study.slug === slug);

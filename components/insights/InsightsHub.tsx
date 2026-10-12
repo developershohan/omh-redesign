@@ -43,7 +43,7 @@ function FeaturedStories({ posts }: { posts: InsightIndexEntry[] }) {
             </span>
             <span className="col-span-5 block">
               <InsightMeta post={lead} />
-              <span className="mt-6 block max-w-[17ch] font-sans text-[clamp(32px,26px+1.45vw,50px)] font-semibold leading-[1.08] text-balance">
+              <span className="mt-6 block font-sans text-[clamp(32px,26px+1.45vw,50px)] font-semibold leading-[1.08] text-balance">
                 {lead.title}
               </span>
               <span className="mt-5 block text-body leading-relaxed text-ink/70">{lead.summary}</span>
@@ -63,12 +63,12 @@ function FeaturedStories({ posts }: { posts: InsightIndexEntry[] }) {
               >
                 <span>
                   <InsightMeta post={post} />
-                  <span className="mt-5 block max-w-[26ch] font-sans text-[clamp(25px,22px+0.65vw,31px)] font-semibold leading-tight">
+                  <span className="mt-5 block font-sans text-[clamp(25px,22px+0.65vw,31px)] font-semibold leading-tight">
                     {post.title}
                   </span>
                 </span>
                 <span className="mt-8 flex items-end justify-between gap-6">
-                  <span className="max-w-[44ch] text-body leading-relaxed text-ink/68">{post.summary}</span>
+                  <span className="text-body leading-relaxed text-ink/68">{post.summary}</span>
                   <span className="flex size-11 shrink-0 items-center justify-center rounded-full border border-line bg-warm text-amber-deep transition-colors group-hover:border-teal group-hover:bg-teal group-hover:text-white">
                     <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
                   </span>
@@ -116,14 +116,14 @@ export async function InsightsHub({ topic = "", query = "", page = 1 }: { topic?
             <Eyebrow>Insights</Eyebrow>
             <div className="mt-8 grid grid-cols-12 items-start gap-x-12 gap-y-10 max-lg:block">
               <div className="col-span-7">
-                <h1 className="max-w-[16ch] font-sans text-display font-semibold text-balance">
+                <h1 className="font-sans text-display font-semibold text-balance">
                   Practical thinking for <span className="text-amber-deep">better marketing decisions</span>.
                 </h1>
-                <p className="mt-7 max-w-[54ch] text-lead leading-relaxed text-ink/72">
+                <p className="mt-7 text-lead leading-relaxed text-ink/72">
                   Plain-English guidance on websites, SEO, paid media and digital growth, written
                   to help you judge options, ask better questions and choose the clearest next step.
                 </p>
-                <p className="mt-8 flex items-center gap-4 border-t border-line pt-7 font-serif text-h3 leading-snug text-ink/75">
+                <p className="mt-8 flex items-center gap-4 border-t border-line pt-7 text-body leading-relaxed text-ink/75">
                   <span aria-hidden className="h-px w-10 shrink-0 bg-amber" />
                   Useful when you are planning the work, and when you need to challenge it.
                 </p>

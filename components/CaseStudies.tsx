@@ -67,13 +67,13 @@ export function ServiceCaseStudies({
               </p>
               <h2
                 id={`${serviceId}-case-studies-title`}
-                className="mt-5 max-w-[18ch] font-sans text-h2 font-semibold text-balance"
+                className="mt-5 font-sans text-h2 font-semibold text-balance"
               >
                 {title}
               </h2>
             </div>
             <div className="max-lg:mt-5">
-              <p className="max-w-[48ch] text-body leading-relaxed text-ink/68">{body}</p>
+              <p className="text-body leading-relaxed text-ink/68">{body}</p>
               <div className="mt-4">
                 <TextLink href="/case-studies">View all case studies</TextLink>
               </div>
