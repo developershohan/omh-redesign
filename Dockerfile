@@ -7,7 +7,7 @@ RUN npm ci
 COPY . .
 # Next inlines NEXT_PUBLIC_* at build time. Both are public values (see
 # .env.example), so they default here and no build args are needed.
-ARG NEXT_PUBLIC_SANITY_PROJECT_ID=8wl45ar9
+ARG NEXT_PUBLIC_SANITY_PROJECT_ID=qr5jqq87
 ARG NEXT_PUBLIC_SANITY_DATASET=production
 ENV NEXT_PUBLIC_SANITY_PROJECT_ID=$NEXT_PUBLIC_SANITY_PROJECT_ID \
     NEXT_PUBLIC_SANITY_DATASET=$NEXT_PUBLIC_SANITY_DATASET

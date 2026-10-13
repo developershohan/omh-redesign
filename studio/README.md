@@ -3,7 +3,7 @@
 The blog editor. It is a standalone Sanity Studio with its own dependencies and
 build; it is not part of the Next.js app, it just lives in the same repo.
 
-Project `8wl45ar9`, dataset `production`.
+Project `qr5jqq87`, dataset `production`.
 
 ## Running it locally
 
