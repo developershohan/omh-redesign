@@ -3,12 +3,15 @@ import { createClient } from "next-sanity";
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET ?? "production";
 
-// The dataset is public, so reads need no token.
+// The dataset is public, so reads need no token. No API CDN: the webhook fires
+// the instant a publish lands, and a refetch through the CDN can still get the
+// old document, which would then be cached under POSTS_TAG for another hour.
+// Next's data cache already absorbs the traffic, so the live API is cheap here.
 export const client = createClient({
   projectId,
   dataset,
   apiVersion: "2024-10-01",
-  useCdn: true,
+  useCdn: false,
 });
 
 // Cache tag every blog query is filed under. Publishing in the Studio calls
