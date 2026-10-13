@@ -24,9 +24,9 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: "Bad request" }, { status: 400 });
     }
 
-    // 'max' = stale-while-revalidate: visitors keep getting an instant cached
-    // page while the new one renders in the background.
-    revalidateTag(POSTS_TAG, "max");
+    // expire: 0 = the next visit fetches fresh content, so a publish shows on
+    // the first reload ('max' would serve the stale page once more first).
+    revalidateTag(POSTS_TAG, { expire: 0 });
 
     return NextResponse.json({
       revalidated: true,
