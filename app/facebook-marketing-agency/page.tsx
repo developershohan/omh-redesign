@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BookDemo } from "@/components/BookDemo";
 import { SocialLandingPage } from "@/components/SocialLandingSections";
 import { ServiceJsonLd } from "@/lib/schema";
 
@@ -14,6 +15,7 @@ export default function FacebookMarketingPage() {
     <>
       <ServiceJsonLd path="/facebook-marketing-agency" />
       <SocialLandingPage variant="facebook" event="facebook_marketing" />
+      <BookDemo />
     </>
   );
 }

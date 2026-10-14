@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BookDemo } from "@/components/BookDemo";
 import { defaultOgImages } from "@/lib/schema";
 import { notFound } from "next/navigation";
 import { SolutionPage } from "@/components/solutions/SolutionPage";
@@ -85,6 +86,7 @@ export default async function Page({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
       />
       <SolutionPage content={content} />
+      <BookDemo />
     </>
   );
 }

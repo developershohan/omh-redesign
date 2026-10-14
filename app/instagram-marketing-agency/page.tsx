@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BookDemo } from "@/components/BookDemo";
 import { SocialLandingPage } from "@/components/SocialLandingSections";
 import { ServiceJsonLd, defaultOgImages } from "@/lib/schema";
 
@@ -15,6 +16,7 @@ export default function InstagramMarketingPage() {
     <>
       <ServiceJsonLd path="/instagram-marketing-agency" />
       <SocialLandingPage variant="instagram" event="instagram_marketing" />
+      <BookDemo />
     </>
   );
 }

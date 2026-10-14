@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BookDemo } from "@/components/BookDemo";
 import { ServiceJsonLd } from "@/lib/schema";
 import { ServiceCaseStudies } from "@/components/CaseStudies";
 import { RelatedServices } from "@/components/RelatedServices";
@@ -50,6 +51,7 @@ export default function SocialMediaPaidAdvertisingPage() {
         ]}
       />
       <SocialFinalCTA {...content.finalCta} />
+      <BookDemo />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BookDemo } from "@/components/BookDemo";
 import { ServiceJsonLd } from "@/lib/schema";
 import {
   CaseStudyFeature,
@@ -70,6 +71,7 @@ export default function WordPressDevelopmentPage() {
       />
       <FAQAccordion />
       <FinalCTA />
+      <BookDemo />
     </div>
   );
 }

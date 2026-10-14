@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BookDemo } from "@/components/BookDemo";
 import { ServiceJsonLd, defaultOgImages } from "@/lib/schema";
 import {
   PpcCapabilityGrid,
@@ -71,6 +72,7 @@ export default function GoogleAdwordsPpcPage() {
       />
       <PpcFAQAccordion />
       <PpcFinalCTA />
+      <BookDemo />
     </div>
   );
 }

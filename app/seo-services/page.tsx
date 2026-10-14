@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BookDemo } from "@/components/BookDemo";
 import { ServiceJsonLd } from "@/lib/schema";
 import { RelatedServices } from "@/components/RelatedServices";
 import { ServiceCaseStudies } from "@/components/CaseStudies";
@@ -53,6 +54,7 @@ export default function SeoServicesPage() {
       />
       <SeoFAQ />
       <SeoFinalCTA />
+      <BookDemo />
     </div>
   );
 }

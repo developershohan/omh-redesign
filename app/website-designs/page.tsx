@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BookDemo } from "@/components/BookDemo";
 import { WebsiteDesignsPage } from "@/components/WebsiteDesignsSections";
 import { websiteDesigns } from "@/lib/content/website-designs";
 
@@ -9,5 +10,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <WebsiteDesignsPage />;
+  return (
+    <>
+      <WebsiteDesignsPage />
+      <BookDemo />
+    </>
+  );
 }
