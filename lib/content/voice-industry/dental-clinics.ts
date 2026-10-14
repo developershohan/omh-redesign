@@ -1,7 +1,13 @@
-// Body of /ai-voice-agents/dental-clinics, generated from the standalone design file
-// (dental-clinics-industry.html) without its stand-in header and footer. Rendered as HTML by
-// app/ai-voice-agents/[industry]/page.tsx and wired up by
-// components/voice-agents/IndustryScript.tsx. Styles: voice-agents.css + industry.css.
+// Generated from the standalone design file dental-clinics-industry.html,
+// without its stand-in header and footer. Registered in ./index.ts.
+export const meta = {
+  "title": "AI Receptionist for Dental Practices | UK Dental Clinics | OMH",
+  "description": "An AI voice agent for UK dental practices. Answers patient calls 24/7, books check-ups, fills cancellations and routes urgent calls. Never gives clinical advice. Built and managed by OMH.",
+  "ogTitle": "AI Receptionist for Dental Practices | OMH",
+  "ogDescription": "Every patient call answered, even when reception is full. Built, tested and managed by a UK team.",
+  "canonical": "/ai-voice-agents/dental-clinics"
+};
+
 export const schema = [
   {
     "@context": "https://schema.org",

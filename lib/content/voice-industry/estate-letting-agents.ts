@@ -1,7 +1,13 @@
-// Body of /ai-voice-agents/estate-letting-agents, generated from the standalone design file
-// (real-estate-industry.html) without its stand-in header and footer. Rendered as HTML by
-// app/ai-voice-agents/[industry]/page.tsx and wired up by
-// components/voice-agents/IndustryScript.tsx. Styles: voice-agents.css + industry.css.
+// Generated from the standalone design file real-estate-industry.html,
+// without its stand-in header and footer. Registered in ./index.ts.
+export const meta = {
+  "title": "AI Receptionist for Estate & Letting Agents | UK | OMH",
+  "description": "An AI voice agent for UK estate and letting agents. Answers every enquiry 24/7, books viewings and valuations, qualifies buyers and tenants and routes tenant emergencies. Built and managed by OMH.",
+  "ogTitle": "AI Receptionist for Estate & Letting Agents | OMH",
+  "ogDescription": "Every property enquiry answered, even when the team is out on viewings. Built, tested and managed by a UK team.",
+  "canonical": "/ai-voice-agents/estate-letting-agents"
+};
+
 export const schema = [
   {
     "@context": "https://schema.org",

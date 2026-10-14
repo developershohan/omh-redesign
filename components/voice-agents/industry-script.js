@@ -1,13 +1,14 @@
 /* eslint-disable */
 // @ts-nocheck
 /*
-  Behaviour for the /ai-voice-agents/[industry] pages: the design file's own
-  script, kept verbatim apart from (1) the theme toggle and mobile menu, which
-  the site header owns, (2) per-page wording via `copy`, and (3) the booking
-  forms posting to /api/enquiry. The timer, frame and observer globals are
+  Behaviour for the AI voice agent industry and city pages: the design files'
+  own script, kept verbatim apart from (1) the theme toggle and mobile menu,
+  which the site header owns, (2) per-page wording via `copy`, (3) the booking
+  forms posting to /api/enquiry, and (4) page-specific blocks running only when
+  the page lists them in `blocks`. The timer, frame and observer globals are
   parameters so IndustryScript.tsx can track and cancel them on unmount.
 */
-export function runIndustryScript({ setTimeout, setInterval, requestAnimationFrame, IntersectionObserver, copy }) {
+export function runIndustryScript({ setTimeout, setInterval, requestAnimationFrame, IntersectionObserver, copy, blocks }) {
 (function () {
   'use strict';
 
@@ -1665,6 +1666,8 @@ export function runIndustryScript({ setTimeout, setInterval, requestAnimationFra
   initChecklist();
 })();
 
+
+if (blocks.indexOf('dental-v2') !== -1) {
 /* ===================== Dental Clinics v2 ===================== */
 (function () {
   'use strict';
@@ -1769,4 +1772,902 @@ export function runIndustryScript({ setTimeout, setInterval, requestAnimationFra
   initDiary();
   initChairCalc();
 })();
+}
+
+if (blocks.indexOf('london') !== -1) {
+window.__cmpModes={office:(d, h) => d < 5 && h >= 9 && h < 17,extended:(d, h) => (d < 5 && h >= 8 && h < 20) || (d === 5 && h >= 9 && h < 17),seven:(d, h) => h >= 8 && h < 20,all:() => true};
+/* London city page */
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Area map: tabs plus pins
+  var lm = document.querySelector('[data-lm]');
+  if (lm) {
+    var tabs = [].slice.call(lm.querySelectorAll('[data-lm-tab]'));
+    var pick = function (id, focus) {
+      tabs.forEach(function (t) {
+        var on = t.getAttribute('data-lm-tab') === id;
+        t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1;
+        if (on && focus) t.focus();
+      });
+      lm.querySelectorAll('[data-lm-panel]').forEach(function (p) { p.hidden = p.getAttribute('data-lm-panel') !== id; });
+      lm.querySelectorAll('[data-lm-pick]').forEach(function (p) { p.classList.toggle('is-on', p.getAttribute('data-lm-pick') === id); });
+    };
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { pick(t.getAttribute('data-lm-tab')); });
+      t.addEventListener('keydown', function (e) {
+        var k = e.key, j = -1;
+        if (k === 'ArrowRight' || k === 'ArrowDown') j = (i + 1) % tabs.length;
+        else if (k === 'ArrowLeft' || k === 'ArrowUp') j = (i - 1 + tabs.length) % tabs.length;
+        else if (k === 'Home') j = 0; else if (k === 'End') j = tabs.length - 1;
+        if (j < 0) return;
+        e.preventDefault(); pick(tabs[j].getAttribute('data-lm-tab'), true);
+      });
+    });
+    lm.querySelectorAll('[data-lm-pick]').forEach(function (p) {
+      p.addEventListener('click', function () { pick(p.getAttribute('data-lm-pick')); });
+    });
+  }
+
+  // Postcode routing
+  var rt = document.querySelector('[data-rt]');
+  if (rt) {
+    var input = rt.querySelector('[data-rt-input]');
+    var result = rt.querySelector('[data-rt-result]');
+    var say = rt.querySelector('[data-rt-say]');
+    var svg = rt.querySelector('[data-rt-svg]');
+    var diagram = rt.querySelector('[data-rt-diagram]');
+    var cards = [].slice.call(rt.querySelectorAll('[data-rt-branch]'));
+    var unit = rt.getAttribute('data-unit') || 'branch';
+    var typeBtn = function () { return rt.querySelector('[data-rt-type][aria-pressed="true"]'); };
+    var map = {};
+    cards.forEach(function (c) {
+      var name = c.querySelector('.font-display').textContent.replace(' ' + unit, '');
+      c.querySelectorAll('.tnum').forEach(function (t) { map[t.textContent.trim()] = { id: c.getAttribute('data-rt-branch'), name: name }; });
+    });
+    var state = { pc: '' };
+    var esc = function (t) { return t.replace(/[&<>"]/g, function (m) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]; }); };
+    var routeTimer;
+
+    var draw = function () {
+      if (!svg || window.innerWidth < 1024) return;
+      var box = diagram.getBoundingClientRect();
+      var ag = rt.querySelector('[data-rt-agent] .rt-agent').getBoundingClientRect();
+      var cl = rt.querySelector('[data-rt-caller]').getBoundingClientRect();
+      var ax = ag.left - box.left, ay = ag.top - box.top + ag.height / 2, ar = ax + ag.width;
+      var html = '<path class="rt-path' + (state.pc ? ' is-on' : '') + '" d="M' + (cl.right - box.left) + ' ' + (cl.top - box.top + cl.height / 2) + ' L' + ax + ' ' + ay + '"/>';
+      cards.forEach(function (c) {
+        var r = c.getBoundingClientRect(), bx = r.left - box.left, by = r.top - box.top + r.height / 2, mx = (ar + bx) / 2;
+        html += '<path class="rt-path' + (c.classList.contains('is-on') ? ' is-on' : '') + '" d="M' + ar + ' ' + ay + ' C' + mx + ' ' + ay + ' ' + mx + ' ' + by + ' ' + bx + ' ' + by + '"/>';
+      });
+      svg.innerHTML = html;
+    };
+
+    var render = function () {
+      var raw = state.pc.toUpperCase().replace(/\s+/g, '');
+      var m = raw.match(/^([A-Z]{1,2})[0-9]/);
+      var hit = m && map[m[1]];
+      var tb = typeBtn(), t = [tb.getAttribute('data-team'), tb.getAttribute('data-do'), tb.getAttribute('data-say')];
+      rt.querySelectorAll('[data-rt-chip]').forEach(function (c) { c.setAttribute('aria-pressed', c.getAttribute('data-rt-chip') === raw); });
+      rt.querySelectorAll('[data-rt-team]').forEach(function (el) { el.textContent = t[0]; });
+      cards.forEach(function (c) { c.classList.toggle('is-on', !!hit && c.getAttribute('data-rt-branch') === hit.id); });
+      rt.classList.toggle('has-route', !!hit);
+      if (!raw) { draw(); return; }
+      var out = raw.length > 4 ? raw.slice(0, -3) + ' ' + raw.slice(-3) : raw;
+      if (hit) {
+        say.innerHTML = '&ldquo;' + esc(t[2]) + ' My postcode is ' + esc(out) + '.&rdquo;';
+        result.innerHTML = '<p class="font-display text-[16px] font-semibold"><span class="tnum">' + esc(out) + '</span> goes to the ' + hit.name + ' ' + unit + '</p><p class="mt-1 text-[15px]">The agent ' + t[1].replace('{b}', hit.name) + '</p>';
+        rt.classList.add('is-routing'); clearTimeout(routeTimer); routeTimer = setTimeout(function () { rt.classList.remove('is-routing'); }, 1600);
+      } else if (m) {
+        say.innerHTML = '&ldquo;My postcode is ' + esc(out) + '.&rdquo;';
+        result.innerHTML = '<p class="font-display text-[16px] font-semibold"><span class="tnum">' + esc(out) + '</span> is outside your routing rules</p><p class="mt-1 text-[15px]">The agent takes the caller\'s details and passes them to head office, so no enquiry is lost.</p>';
+      } else {
+        result.innerHTML = '<p class="font-display text-[16px] font-semibold">That doesn\'t look like a postcode</p><p class="mt-1 text-[15px]">Try the first part, such as SW4, N1 or E14.</p>';
+      }
+      draw();
+    };
+
+    rt.querySelector('[data-rt-form]').addEventListener('submit', function (e) { e.preventDefault(); state.pc = input.value; render(); });
+    rt.querySelectorAll('[data-rt-chip]').forEach(function (c) { c.addEventListener('click', function () { state.pc = c.getAttribute('data-rt-chip'); input.value = state.pc; render(); }); });
+    rt.querySelectorAll('[data-rt-type]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        rt.querySelectorAll('[data-rt-type]').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+        render();
+      });
+    });
+    var rz; window.addEventListener('resize', function () { clearTimeout(rz); rz = setTimeout(draw, 120); });
+    if (window.ResizeObserver) new ResizeObserver(function () { draw(); }).observe(diagram);
+    draw();
+  }
+
+  // Compare
+  var cmp = document.querySelector('[data-cmp]');
+  if (cmp) {
+    var modes = window.__cmpModes || {};
+    var gbp = function (n) { return '\u00a3' + Math.round(n).toLocaleString('en-GB'); };
+    var cost = function (hours) {
+      var pay = hours * 52 * 14.8, n = Math.ceil(hours / 40 - 1e-9);
+      return { total: Math.round(pay + n * Math.max(0, pay / n - 5000) * 0.15), people: n };
+    };
+    var max = cost(168).total;
+    var setMode = function (btn) {
+      var id = btn.getAttribute('data-cmp-mode'), hours = parseFloat(btn.getAttribute('data-hours')), c = cost(hours), on = modes[id];
+      cmp.querySelectorAll('[data-cmp-mode]').forEach(function (b) { b.setAttribute('aria-pressed', b === btn); });
+      cmp.querySelectorAll('[data-cmp-staff]').forEach(function (el) { el.textContent = gbp(c.total); });
+      cmp.querySelector('[data-cmp-staff-bar]').style.width = (c.total / max * 100).toFixed(1) + '%';
+      cmp.querySelector('[data-cmp-people]').textContent = c.people + (c.people === 1 ? ' person' : ' people');
+      cmp.querySelector('[data-cmp-hours]').textContent = hours;
+      cmp.querySelector('[data-cmp-covered]').textContent = hours;
+      var gap = 168 - hours;
+      cmp.querySelector('[data-cmp-note]').innerHTML = gap > 0
+        ? 'The agent covers the <strong class="font-semibold tnum">' + gap + '</strong> hours a week your staff aren\'t on the phones, for less than one receptionist.'
+        : 'Round-the-clock staff cover costs about <strong class="font-semibold tnum">' + Math.round(c.total / parseFloat(cmp.getAttribute('data-ai-year'))) + ' times</strong> the AI agent, before pension and night pay.';
+      if (on) cmp.querySelectorAll('[data-cmp-grid] .cmp-cell').forEach(function (cell) { cell.classList.toggle('is-on', on(+cell.getAttribute('data-d'), +cell.getAttribute('data-h') + 0.5)); });
+    };
+    cmp.querySelectorAll('[data-cmp-mode]').forEach(function (b) { b.addEventListener('click', function () { setMode(b); }); });
+    cmp.querySelectorAll('[data-cmp-filter]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var f = b.getAttribute('data-cmp-filter');
+        cmp.setAttribute('data-filter', f);
+        cmp.querySelectorAll('[data-cmp-filter]').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+        cmp.querySelectorAll('.cmp-row').forEach(function (r) { r.classList.toggle('is-match', r.getAttribute('data-cmp-tag') === f); });
+      });
+    });
+  }
+
+  // Rules tabs
+  var lr = document.querySelector('[data-lr]');
+  if (lr) {
+    var rtabs = [].slice.call(lr.querySelectorAll('[data-lr-tab]'));
+    var rpick = function (id, focus) {
+      rtabs.forEach(function (t) { var on = t.getAttribute('data-lr-tab') === id; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; if (on && focus) t.focus(); });
+      lr.querySelectorAll('[data-lr-panel]').forEach(function (p) { p.hidden = p.getAttribute('data-lr-panel') !== id; });
+    };
+    rtabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { rpick(t.getAttribute('data-lr-tab')); });
+      t.addEventListener('keydown', function (e) {
+        var k = e.key, j = -1;
+        if (k === 'ArrowDown' || k === 'ArrowRight') j = (i + 1) % rtabs.length;
+        else if (k === 'ArrowUp' || k === 'ArrowLeft') j = (i - 1 + rtabs.length) % rtabs.length;
+        else if (k === 'Home') j = 0; else if (k === 'End') j = rtabs.length - 1;
+        if (j < 0) return; e.preventDefault(); rpick(rtabs[j].getAttribute('data-lr-tab'), true);
+      });
+    });
+  }
+
+  // Modernise: before / after
+  var mb = document.querySelector('[data-mb]');
+  if (mb) {
+    mb.classList.add('mb-js');
+    var set = function (mode) {
+      mb.querySelectorAll('[data-mb-mode]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-mb-mode') === mode); });
+      mb.querySelectorAll('[data-mb-panel]').forEach(function (p) { p.hidden = p.getAttribute('data-mb-panel') !== mode; });
+    };
+    mb.querySelectorAll('[data-mb-mode]').forEach(function (b) { b.addEventListener('click', function () { set(b.getAttribute('data-mb-mode')); }); });
+    set('before');
+  }
+
+  // A London call: play the transcript line by line
+  var lc = document.querySelector('[data-lc]');
+  if (lc) {
+    var lines = [].slice.call(lc.querySelectorAll('[data-lc-line]'));
+    var timer = lc.querySelector('[data-lc-timer]');
+    var btn = lc.querySelector('[data-lc-play]');
+    var ticks = [];
+    var fmt = function (s) { return '00:' + (s < 10 ? '0' : '') + s; };
+    var stop = function () { ticks.forEach(clearTimeout); ticks = []; };
+    var play = function () {
+      stop();
+      if (reduce) { lines.forEach(function (l) { l.classList.add('is-in'); }); timer.textContent = fmt(42); return; }
+      lines.forEach(function (l) { l.classList.remove('is-in'); });
+      timer.textContent = fmt(0);
+      lines.forEach(function (l, i) {
+        ticks.push(setTimeout(function () { l.classList.add('is-in'); timer.textContent = fmt(Math.round((i + 1) / lines.length * 42)); }, 250 + i * 1100));
+      });
+      ticks.push(setTimeout(function () { btn.innerHTML = btn.innerHTML.replace('Play the call', 'Play again'); }, 250 + lines.length * 1100));
+    };
+    lc.classList.add('lc-js');
+    lines.forEach(function (l) { l.classList.add('is-in'); });
+    btn.addEventListener('click', play);
+  }
+
+  // London property year
+  var cal = document.querySelector('[data-cal]');
+  if (cal) {
+    var note = cal.querySelector('[data-cal-note]');
+    var bars = cal.querySelectorAll('[data-cal-i]');
+    var show = function (b) {
+      bars.forEach(function (x) { x.classList.toggle('is-on', x === b); x.setAttribute('aria-pressed', x === b); });
+      note.innerHTML = '<strong class="font-semibold">' + b.getAttribute('data-m') + ':</strong> ' + b.getAttribute('data-note') + '.';
+    };
+    bars.forEach(function (b) {
+      b.setAttribute('aria-pressed', b.classList.contains('is-on'));
+      b.addEventListener('click', function () { show(b); });
+      b.addEventListener('mouseenter', function () { show(b); });
+      b.addEventListener('focus', function () { show(b); });
+    });
+  }
+})();
+}
+
+if (blocks.indexOf('dental-london-v2') !== -1) {
+/* ===================== Dental Clinics in London, v2 ===================== */
+(function () {
+  'use strict';
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var D = JSON.parse(($('#dlv2-data') || { textContent: '{}' }).textContent);
+  var esc = function (s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
+  var ico = function (n, c) { return '<svg class="icon ' + (c || '') + '" aria-hidden="true" focusable="false"><use href="#i-' + n + '"/></svg>'; };
+  var lc = function (t) { return t.charAt(0).toLowerCase() + t.slice(1); };
+  var gbp = function (n) { return '£' + Math.round(n).toLocaleString('en-GB'); };
+  var setup = {};
+  function setupChanged() {
+    var box = $('[data-su]'); if (!box) return;
+    var items = [];
+    if (setup.hours) items.push(setup.hours);
+    if (setup.urgent) items.push(setup.urgent);
+    if (setup.cover) items.push(setup.cover);
+    if (setup.call) items.push(setup.call);
+    if (!items.length) return;
+    $('[data-su-list]', box).innerHTML = items.map(function (t) { return '<li class="flex gap-2">' + ico('check', 'mt-[3px] !h-4 !w-4 shrink-0 text-band-hl') + '<span>' + esc(t) + '</span></li>'; }).join('');
+    box.hidden = false;
+  }
+  // Radio groups with arrow keys
+  function radios(group, attr, onPick) {
+    var opts = $$('[' + attr + ']', group);
+    function pick(o, focus) {
+      opts.forEach(function (x) { var on = x === o; x.setAttribute('aria-checked', on); x.tabIndex = on ? 0 : -1; });
+      if (focus) o.focus();
+      onPick(o.getAttribute(attr));
+    }
+    opts.forEach(function (o, i) {
+      o.addEventListener('click', function () { pick(o); });
+      o.addEventListener('keydown', function (e) {
+        var j = -1;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') j = (i + 1) % opts.length;
+        else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') j = (i - 1 + opts.length) % opts.length;
+        if (j < 0) return; e.preventDefault(); pick(opts[j], true);
+      });
+    });
+  }
+
+  /* ---------------- 1. Hero: London tonight */
+  (function () {
+    var root = $('[data-hv]'); if (!root || !D.events) return;
+    var pins = $('[data-hv-pins]', root), list = $('[data-hv-list]', root), count = $('[data-hv-count]', root), btn = $('[data-hv-pause]', root);
+    var ns = 'http://www.w3.org/2000/svg', i = 4, n = 4, timer = null, paused = false;
+    function pin(ev, fresh) {
+      var g = document.createElementNS(ns, 'g');
+      g.setAttribute('class', 'hv-pin' + (fresh ? ' is-new' : ''));
+      g.setAttribute('transform', 'translate(' + ev[2] + ' ' + ev[3] + ')');
+      g.innerHTML = '<circle r="20" class="hv-ring"/><circle r="10" class="hv-dot"/><g transform="translate(15 -16)"><rect x="0" y="-16" rx="12" width="' + (ev[1].length * 11 + 18) + '" height="28" class="hv-tag"/><text x="9" y="4" class="hv-txt">' + ev[1] + '</text></g>';
+      pins.appendChild(g);
+      var all = $$('.hv-pin', pins);
+      if (all.length > 5) all[0].remove();
+      $$('.hv-pin', pins).forEach(function (p, k, arr) { p.classList.toggle('is-old', k < arr.length - 1); });
+    }
+    D.events.slice(0, 4).forEach(function (e) { pin(e, false); });
+    function tickRow(ev) {
+      var li = document.createElement('li');
+      li.className = 'hv-tick is-new flex items-start gap-3 rounded-[12px] border border-line bg-paper px-3 py-2.5';
+      li.innerHTML = '<span class="w-11 shrink-0 font-display text-[14px] font-semibold tnum">' + ev[0] + '</span><span class="min-w-0 flex-1 text-[14.5px] leading-snug"><span class="font-semibold">' + esc(ev[4]) + '</span> <span class="rounded-[5px] bg-sand px-1.5 text-[12px] font-semibold tnum">' + ev[1] + '</span><span class="mt-0.5 flex items-center gap-1 text-[13.5px] text-ok">' + ico('check', '!h-3.5 !w-3.5 shrink-0') + esc(ev[5]) + '</span></span>';
+      list.insertBefore(li, list.firstChild);
+      while (list.children.length > 4) list.lastElementChild.remove();
+    }
+    function step() {
+      var ev = D.events[i % D.events.length];
+      i += 1; n += 1;
+      if (i % D.events.length === 0) { n = 0; pins.innerHTML = ''; }
+      pin(ev, true); tickRow(ev); count.textContent = n;
+    }
+    function run() { clearInterval(timer); if (!paused && !reduce.matches) timer = setInterval(step, 2600); }
+    btn.addEventListener('click', function () {
+      paused = !paused;
+      btn.setAttribute('aria-pressed', paused);
+      $('[data-hv-pause-label]', btn).textContent = paused ? 'Play' : 'Pause';
+      btn.querySelector('use').setAttribute('href', paused ? '#i-play' : '#i-pause');
+      run();
+    });
+    if (reduce.matches) { paused = true; btn.hidden = true; }
+    // Only animate while visible
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) run(); else clearInterval(timer); }); }).observe(root);
+    } else run();
+  })();
+
+  /* ---------------- 2. How it works */
+  (function () {
+    var root = $('[data-hw]'); if (!root) return;
+    var btns = $$('[data-hw-step]', root), fill = $('[data-hw-fill]', root), t = [];
+    function show(k) {
+      btns.forEach(function (b, j) {
+        b.setAttribute('aria-pressed', j === k);
+        b.classList.toggle('is-done', j < k);
+        b.closest('li').classList.toggle('is-active', j === k);
+      });
+      fill.style.width = (k / (btns.length - 1) * 100) + '%';
+    }
+    btns.forEach(function (b, k) { b.addEventListener('click', function () { t.forEach(clearTimeout); show(k); }); });
+    $('[data-hw-play]', root).addEventListener('click', function () {
+      t.forEach(clearTimeout); t = [];
+      show(0);
+      if (reduce.matches) { show(2); return; }
+      t.push(setTimeout(function () { show(1); }, 1400));
+      t.push(setTimeout(function () { show(2); }, 2800));
+    });
+    show(0);
+  })();
+
+  /* ---------------- 3. NHS map */
+  (function () {
+    var root = $('[data-nm]'); if (!root || !D.icbs) return;
+    var metric = 'adults';
+    var tabs = $$('[data-nm-tab]', root);
+    function shade() {
+      var vals = D.icbs.map(function (r) { return r[metric]; });
+      var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals);
+      D.icbs.forEach(function (r) {
+        var k = hi === lo ? 2 : Math.min(4, Math.floor((r[metric] - lo) / (hi - lo) * 4.999));
+        var g = $('[data-nm-shape="' + r.id + '"]', root);
+        g.setAttribute('class', 'nm-region nm-t' + k + (g.classList.contains('is-on') ? ' is-on' : ''));
+        $('[data-nm-val="' + r.id + '"]', root).textContent = r[metric] + (metric === 'per' ? '' : '%');
+      });
+      var m = D.metrics.filter(function (x) { return x[0] === metric; })[0];
+      $('title', $('[data-nm-svg]', root)).textContent = "Simplified map of London's five NHS areas, shaded by " + m[2].toLowerCase();
+      $('[data-nm-lo]', root).textContent = 'Lower (' + lo + (metric === 'per' ? '' : '%') + ')';
+      $('[data-nm-hi]', root).textContent = 'Higher (' + hi + (metric === 'per' ? '' : '%') + ')';
+    }
+    function pick(id, focus) {
+      tabs.forEach(function (t) { var on = t.getAttribute('data-nm-tab') === id; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; if (on && focus) t.focus(); });
+      $$('[data-nm-panel]', root).forEach(function (p) { p.hidden = p.getAttribute('data-nm-panel') !== id; });
+      $$('[data-nm-shape]', root).forEach(function (g) { g.classList.toggle('is-on', g.getAttribute('data-nm-shape') === id); });
+      $$('[data-nm-pick]', root).forEach(function (b) { b.classList.toggle('is-on', b.getAttribute('data-nm-pick') === id); });
+    }
+    $$('[data-nm-metric]', root).forEach(function (b) {
+      b.addEventListener('click', function () {
+        metric = b.getAttribute('data-nm-metric');
+        $$('[data-nm-metric]', root).forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+        shade();
+      });
+    });
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { pick(t.getAttribute('data-nm-tab')); });
+      t.addEventListener('keydown', function (e) {
+        var j = -1;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') j = (i + 1) % tabs.length;
+        else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') j = (i - 1 + tabs.length) % tabs.length;
+        if (j < 0) return; e.preventDefault(); pick(tabs[j].getAttribute('data-nm-tab'), true);
+      });
+    });
+    $$('[data-nm-pick]', root).forEach(function (b) { b.addEventListener('click', function () { pick(b.getAttribute('data-nm-pick')); }); });
+    $$('[data-nm-shape]', root).forEach(function (g) { g.addEventListener('click', function () { pick(g.getAttribute('data-nm-shape')); }); });
+    shade(); pick('ne');
+  })();
+
+  /* ---------------- 4. Try a call */
+  (function () {
+    var root = $('[data-tc]'); if (!root || !D.outcomes) return;
+    var st = { caller: 'new', when: 'evening' }, t = [];
+    var nodes = $$('[data-tc-node]', root), fill = $('[data-tc-fill]', root);
+    function data() {
+      var c = D.callers.filter(function (x) { return x.id === st.caller; })[0];
+      var w = D.whens.filter(function (x) { return x.id === st.when; })[0];
+      var o = D.outcomes[st.caller];
+      var r = o.all || o[st.when] || o.evening;
+      return { c: c, w: w, ask: o.ask, r: r };
+    }
+    function render(animate) {
+      t.forEach(clearTimeout); t = [];
+      var d = data();
+      var texts = [
+        d.w.label + '. ' + d.w.ring + '.',
+        '“' + d.w.greet + ", Halden Dental. I'm Amy, the practice's AI assistant.” Caller: “" + d.c.say + '”',
+        '“' + d.ask + '”',
+        d.r.title,
+      ];
+      nodes.forEach(function (n, k) { $('[data-tc-text="' + k + '"]', root).textContent = texts[k]; });
+      $('[data-tc-title]', root).textContent = d.r.title;
+      $('[data-tc-diary]', root).textContent = d.r.diary;
+      $('[data-tc-sms]', root).textContent = d.r.text;
+      $('[data-tc-team]', root).textContent = d.r.team;
+      setup.call = 'Tried a call: ' + d.c.label.toLowerCase() + ', ' + d.w.label;
+      var summary = $('[data-tc-summary]', root);
+      if (!animate || reduce.matches) {
+        nodes.forEach(function (n) { n.classList.add('is-on'); });
+        fill.style.width = '100%'; summary.classList.remove('is-wait');
+        return;
+      }
+      nodes.forEach(function (n) { n.classList.remove('is-on'); });
+      fill.style.width = '0%'; summary.classList.add('is-wait');
+      nodes.forEach(function (n, k) {
+        t.push(setTimeout(function () { n.classList.add('is-on'); fill.style.width = (k / (nodes.length - 1) * 100) + '%'; }, 200 + k * 900));
+      });
+      t.push(setTimeout(function () { summary.classList.remove('is-wait'); setupChanged(); }, 200 + nodes.length * 900));
+    }
+    radios(root, 'data-tc-caller', function (v) { st.caller = v; render(false); });
+    radios(root, 'data-tc-when', function (v) { st.when = v; render(false); });
+    $('[data-tc-go]', root).addEventListener('click', function () { render(true); });
+    render(false); setup.call = null;
+  })();
+
+  /* ---------------- 5. Clock */
+  (function () {
+    var root = $('[data-clk]'); if (!root || !D.hourly) return;
+    var open = $('[data-clk-open]', root), close = $('[data-clk-close]', root), lunch = $('[data-clk-lunch]', root);
+    var total = D.hourly.reduce(function (a, b) { return a + b; }, 0);
+    var pad = function (h) { return (h < 10 ? '0' : '') + h + ':00'; };
+    function upd(user) {
+      var o = +open.value, c = +close.value, l = lunch.checked, teamH = 0, share = 0;
+      for (var h = 0; h < 24; h++) {
+        var team = h >= o && h < c && !(l && h === 13);
+        if (team) teamH += 1; else share += D.hourly[h];
+        $('[data-clk-h="' + h + '"]', root).setAttribute('class', 'ck-seg ' + (team ? 'is-team' : 'is-agent'));
+        $('[data-clk-b="' + h + '"]', root).setAttribute('class', 'ck-bar ' + (team ? 'is-team' : 'is-agent'));
+      }
+      var agentDay = 24 - teamH, week = agentDay * 5 + 48, pct = Math.round(share / total * 100);
+      $('[data-clk-agent]', root).textContent = agentDay;
+      $('[data-clk-team]', root).textContent = teamH;
+      $('[data-clk-week]', root).textContent = week;
+      $('[data-clk-note]', root).innerHTML = 'With these hours, roughly <strong class="font-semibold tnum">' + Math.max(1, Math.round(pct / 10)) + ' in 10</strong> weekday calls come when your team isn’t answering. The early-morning rush and evenings are the big ones.';
+      $('[data-clk-title]', root).textContent = '24-hour clock. Your team answers from ' + pad(o) + ' to ' + pad(c) + (l ? ', except 13:00 to 14:00' : '') + '. Your agent covers the other ' + agentDay + ' hours.';
+      if (user) { setup.hours = 'Open ' + pad(o) + ' to ' + pad(c) + (l ? ' with phones off at lunch' : '') + ', so the agent covers ' + week + ' hours a week'; setupChanged(); }
+    }
+    [open, close, lunch].forEach(function (el) { el.addEventListener('change', function () { upd(true); }); });
+    upd(false);
+  })();
+
+  /* ---------------- 7. Before / after */
+  (function () {
+    var root = $('[data-ba]'); if (!root) return;
+    var range = $('[data-ba-range]', root), stage = $('.ba-stage', root);
+    function set(v) {
+      v = Math.max(15, Math.min(85, v));
+      range.value = v;
+      stage.style.setProperty('--ba', v + '%');
+      range.setAttribute('aria-valuetext', v >= 70 ? 'Mostly without an agent' : v <= 30 ? 'Mostly with an agent' : 'Both side by side');
+    }
+    range.addEventListener('input', function () { set(+range.value); });
+    $$('[data-ba-set]', root).forEach(function (b) { b.addEventListener('click', function () { set(+b.getAttribute('data-ba-set')); }); });
+    var drag = false;
+    function at(e) { var r = stage.getBoundingClientRect(); set(Math.round((e.clientX - r.left) / r.width * 100)); }
+    stage.addEventListener('pointerdown', function (e) { if (window.innerWidth < 640) return; drag = true; stage.setPointerCapture(e.pointerId); at(e); });
+    stage.addEventListener('pointermove', function (e) { if (drag) at(e); });
+    stage.addEventListener('pointerup', function () { drag = false; });
+    set(50);
+  })();
+
+  /* ---------------- 8. Urgent care calculator */
+  (function () {
+    var root = $('[data-uc]'); if (!root) return;
+    var input = $('[data-uc-input]', root), range = $('[data-uc-range]', root), dots = $('[data-uc-dots]', root);
+    function upd(v, user) {
+      v = Math.max(0, Math.min(10000000, v || 0));
+      var courses = Math.round(v / 10000 * 11), week = Math.round(courses / 52);
+      $('[data-uc-courses]', root).textContent = courses.toLocaleString('en-GB');
+      $('[data-uc-week]', root).textContent = week;
+      $('[data-uc-pay]', root).textContent = gbp(courses * 75);
+      var html = '';
+      for (var k = 0; k < Math.min(week, 60); k++) html += '<span class="uc-dot">' + ico('shield', '!h-3.5 !w-3.5') + '</span>';
+      if (week > 60) html += '<span class="self-center text-[13px] font-semibold text-muted">+' + (week - 60) + ' more</span>';
+      if (!week) html = '<span class="text-[14px] text-muted">Less than one a week</span>';
+      dots.innerHTML = html;
+      if (user) { setup.urgent = 'NHS contract of ' + gbp(v) + ', about ' + week + ' urgent slots a week'; setupChanged(); }
+    }
+    function parse(s) { return +String(s).replace(/[^0-9]/g, ''); }
+    input.addEventListener('input', function () { var v = parse(input.value); range.value = Math.min(2000000, Math.max(50000, v)); upd(v, true); });
+    input.addEventListener('blur', function () { input.value = parse(input.value).toLocaleString('en-GB'); });
+    range.addEventListener('input', function () { input.value = (+range.value).toLocaleString('en-GB'); upd(+range.value, true); });
+    upd(500000, false);
+  })();
+
+  /* ---------------- 9. Cost of cover */
+  (function () {
+    var root = $('[data-cv]'); if (!root || !D.coverStops) return;
+    var range = $('[data-cv-range]', root), ai = +root.getAttribute('data-ai-year');
+    var cost = function (hours) { var pay = hours * 52 * 14.8, n = Math.ceil(hours / 40 - 1e-9); return { total: Math.round(pay + n * Math.max(0, pay / n - 5000) * 0.15), people: n }; };
+    var max = cost(168).total;
+    function upd(user) {
+      var s = D.coverStops[+range.value], c = cost(s[0]);
+      $('[data-cv-label]', root).textContent = s[1];
+      $('[data-cv-sub]', root).textContent = s[2];
+      $('[data-cv-hours]', root).textContent = s[0];
+      $('[data-cv-staff]', root).textContent = gbp(c.total);
+      $('[data-cv-staff2]', root).textContent = gbp(c.total);
+      $('[data-cv-people]', root).textContent = c.people + (c.people === 1 ? ' person' : ' people');
+      $('[data-cv-bar]', root).style.width = (c.total / max * 100).toFixed(1) + '%';
+      range.setAttribute('aria-valuetext', s[1] + ', ' + s[0] + ' hours a week, staff cost ' + gbp(c.total) + ' a year');
+      var x = Math.round(c.total / ai);
+      $('[data-cv-note]', root).innerHTML = 'Staff for ' + lc(s[1]) + ' cost about <strong class="font-semibold tnum">' + x + ' times</strong> the agent' + (s[0] < 168 ? ', and the agent also covers the other ' + (168 - s[0]) + ' hours.' : '.');
+      if (user) { setup.cover = 'Compared staff cover: ' + lc(s[1]); setupChanged(); }
+    }
+    range.addEventListener('input', function () { upd(true); });
+    upd(false);
+  })();
+
+  /* ---------------- 10. Case flips */
+  $$('[data-cf]').forEach(function (card) {
+    var btn = $('[data-cf-flip]', card), front = $('[data-cf-face="front"]', card), back = $('[data-cf-face="back"]', card);
+    btn.addEventListener('click', function () {
+      var on = !card.classList.contains('is-flipped');
+      card.classList.toggle('is-flipped', on);
+      btn.setAttribute('aria-pressed', on);
+      $('[data-cf-label]', btn).textContent = on ? 'See the problem' : 'See the result';
+      front.setAttribute('aria-hidden', on); back.setAttribute('aria-hidden', !on);
+    });
+  });
+
+  /* ---------------- 11. FAQ search */
+  (function () {
+    var root = $('[data-fq]'); if (!root) return;
+    var input = $('[data-fq-search]', root), items = $$('[data-fq-item]', root), cat = 'all';
+    function upd() {
+      var q = input.value.trim().toLowerCase(), shown = 0;
+      items.forEach(function (it) {
+        var ok = (cat === 'all' || it.getAttribute('data-cat') === cat) && (!q || it.textContent.toLowerCase().indexOf(q) > -1);
+        it.hidden = !ok; if (ok) shown += 1;
+      });
+      $('[data-fq-empty]', root).hidden = shown > 0;
+      $('[data-fq-count]', root).textContent = shown === items.length ? 'Showing all ' + shown + ' questions' : 'Showing ' + shown + ' of ' + items.length + ' questions';
+    }
+    input.addEventListener('input', upd);
+    $$('[data-fq-cat]', root).forEach(function (b) {
+      b.addEventListener('click', function () {
+        cat = b.getAttribute('data-fq-cat');
+        $$('[data-fq-cat]', root).forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+        upd();
+      });
+    });
+  })();
+})();
+}
+
+if (blocks.indexOf('estate-london-v2') !== -1) {
+/* ===================== Real Estate in London, v2 ===================== */
+(function () {
+  'use strict';
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var D = JSON.parse(($('#elv2-data') || { textContent: '{}' }).textContent);
+  var esc = function (s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
+  var ico = function (n, c) { return '<svg class="icon ' + (c || '') + '" aria-hidden="true" focusable="false"><use href="#i-' + n + '"/></svg>'; };
+  var lc = function (t) { return t.charAt(0).toLowerCase() + t.slice(1); };
+  var gbp = function (n) { return '£' + Math.round(n).toLocaleString('en-GB'); };
+  var setup = {};
+  function setupChanged() {
+    var box = $('[data-su]'); if (!box) return;
+    var items = [];
+    if (setup.hours) items.push(setup.hours);
+    if (setup.cover) items.push(setup.cover);
+    if (setup.call) items.push(setup.call);
+    if (!items.length) return;
+    $('[data-su-list]', box).innerHTML = items.map(function (t) { return '<li class="flex gap-2">' + ico('check', 'mt-[3px] !h-4 !w-4 shrink-0 text-band-hl') + '<span>' + esc(t) + '</span></li>'; }).join('');
+    box.hidden = false;
+  }
+  // Radio groups with arrow keys
+  function radios(group, attr, onPick) {
+    var opts = $$('[' + attr + ']', group);
+    function pick(o, focus) {
+      opts.forEach(function (x) { var on = x === o; x.setAttribute('aria-checked', on); x.tabIndex = on ? 0 : -1; });
+      if (focus) o.focus();
+      onPick(o.getAttribute(attr));
+    }
+    opts.forEach(function (o, i) {
+      o.addEventListener('click', function () { pick(o); });
+      o.addEventListener('keydown', function (e) {
+        var j = -1;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') j = (i + 1) % opts.length;
+        else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') j = (i - 1 + opts.length) % opts.length;
+        if (j < 0) return; e.preventDefault(); pick(opts[j], true);
+      });
+    });
+  }
+
+  /* ---------------- 1. Hero: London tonight */
+  (function () {
+    var root = $('[data-hv]'); if (!root || !D.events) return;
+    var pins = $('[data-hv-pins]', root), list = $('[data-hv-list]', root), count = $('[data-hv-count]', root), btn = $('[data-hv-pause]', root);
+    var ns = 'http://www.w3.org/2000/svg', i = 4, n = 4, timer = null, paused = false;
+    function pin(ev, fresh) {
+      var g = document.createElementNS(ns, 'g');
+      g.setAttribute('class', 'hv-pin' + (fresh ? ' is-new' : ''));
+      g.setAttribute('transform', 'translate(' + ev[2] + ' ' + ev[3] + ')');
+      g.innerHTML = '<circle r="20" class="hv-ring"/><circle r="10" class="hv-dot"/><g transform="translate(15 -16)"><rect x="0" y="-16" rx="12" width="' + (ev[1].length * 11 + 18) + '" height="28" class="hv-tag"/><text x="9" y="4" class="hv-txt">' + ev[1] + '</text></g>';
+      pins.appendChild(g);
+      var all = $$('.hv-pin', pins);
+      if (all.length > 5) all[0].remove();
+      $$('.hv-pin', pins).forEach(function (p, k, arr) { p.classList.toggle('is-old', k < arr.length - 1); });
+    }
+    D.events.slice(0, 4).forEach(function (e) { pin(e, false); });
+    function tickRow(ev) {
+      var li = document.createElement('li');
+      li.className = 'hv-tick is-new flex items-start gap-3 rounded-[12px] border border-line bg-paper px-3 py-2.5';
+      li.innerHTML = '<span class="w-11 shrink-0 font-display text-[14px] font-semibold tnum">' + ev[0] + '</span><span class="min-w-0 flex-1 text-[14.5px] leading-snug"><span class="font-semibold">' + esc(ev[4]) + '</span> <span class="rounded-[5px] bg-sand px-1.5 text-[12px] font-semibold tnum">' + ev[1] + '</span><span class="mt-0.5 flex items-center gap-1 text-[13.5px] text-ok">' + ico('check', '!h-3.5 !w-3.5 shrink-0') + esc(ev[5]) + '</span></span>';
+      list.insertBefore(li, list.firstChild);
+      while (list.children.length > 4) list.lastElementChild.remove();
+    }
+    function step() {
+      var ev = D.events[i % D.events.length];
+      i += 1; n += 1;
+      if (i % D.events.length === 0) { n = 0; pins.innerHTML = ''; }
+      pin(ev, true); tickRow(ev); count.textContent = n;
+    }
+    function run() { clearInterval(timer); if (!paused && !reduce.matches) timer = setInterval(step, 2600); }
+    btn.addEventListener('click', function () {
+      paused = !paused;
+      btn.setAttribute('aria-pressed', paused);
+      $('[data-hv-pause-label]', btn).textContent = paused ? 'Play' : 'Pause';
+      btn.querySelector('use').setAttribute('href', paused ? '#i-play' : '#i-pause');
+      run();
+    });
+    if (reduce.matches) { paused = true; btn.hidden = true; }
+    // Only animate while visible
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) run(); else clearInterval(timer); }); }).observe(root);
+    } else run();
+  })();
+
+  /* ---------------- 2. How it works */
+  (function () {
+    var root = $('[data-hw]'); if (!root) return;
+    var btns = $$('[data-hw-step]', root), fill = $('[data-hw-fill]', root), t = [];
+    function show(k) {
+      btns.forEach(function (b, j) {
+        b.setAttribute('aria-pressed', j === k);
+        b.classList.toggle('is-done', j < k);
+        b.closest('li').classList.toggle('is-active', j === k);
+      });
+      fill.style.width = (k / (btns.length - 1) * 100) + '%';
+    }
+    btns.forEach(function (b, k) { b.addEventListener('click', function () { t.forEach(clearTimeout); show(k); }); });
+    $('[data-hw-play]', root).addEventListener('click', function () {
+      t.forEach(clearTimeout); t = [];
+      show(0);
+      if (reduce.matches) { show(2); return; }
+      t.push(setTimeout(function () { show(1); }, 1400));
+      t.push(setTimeout(function () { show(2); }, 2800));
+    });
+    show(0);
+  })();
+
+  /* ---------------- 3. Borough map */
+  (function () {
+    var root = $('[data-bm]'); if (!root || !D.boroughs) return;
+    var metric = 'price', sel = $('[data-bm-select]', root);
+    var fmt = function (v) {
+      if (metric === 'price') return v >= 1000000 ? '£' + (v / 1000000).toFixed(2).replace(/0$/, '') + 'm' : '£' + Math.round(v / 1000) + 'k';
+      if (metric === 'rent') return '£' + v.toLocaleString('en-GB');
+      return '+' + v + '%';
+    };
+    var names = { price: 'average house prices', rent: 'average monthly rents', rentCh: 'yearly rent rises' };
+    function shade() {
+      var vals = D.boroughs.map(function (b) { return b[metric]; });
+      var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals);
+      D.boroughs.forEach(function (b) {
+        var t = (b[metric] - lo) / (hi - lo || 1), k = Math.min(4, Math.floor(t * 4.999));
+        var c = $('[data-bm-shape="' + b.id + '"]', root);
+        c.setAttribute('class', 'bm-bubble nm-t' + k + (c.classList.contains('is-on') ? ' is-on' : ''));
+        c.setAttribute('r', (14 + t * 22).toFixed(1));
+        var lab = $('[data-bm-pick="' + b.id + '"]', root); lab.style.top = ((+lab.getAttribute('data-y') + 14 + t * 22 + 4) / 4).toFixed(2) + '%';
+        $('[data-bm-val="' + b.id + '"]', root).textContent = fmt(b[metric]);
+      });
+      $('[data-bm-title]', root).textContent = 'Simplified map of London showing ' + names[metric] + ' in ten boroughs';
+      $('[data-bm-lo]', root).textContent = 'Lower (' + fmt(lo) + ')';
+      $('[data-bm-hi]', root).textContent = 'Higher (' + fmt(hi) + ')';
+    }
+    function pick(id) {
+      sel.value = id;
+      $$('[data-bm-panel]', root).forEach(function (p) { p.hidden = p.getAttribute('data-bm-panel') !== id; });
+      $$('[data-bm-shape]', root).forEach(function (c) { c.classList.toggle('is-on', c.getAttribute('data-bm-shape') === id); });
+      $$('[data-bm-pick]', root).forEach(function (b) { b.classList.toggle('is-on', b.getAttribute('data-bm-pick') === id); });
+    }
+    $$('[data-bm-metric]', root).forEach(function (b) {
+      b.addEventListener('click', function () {
+        metric = b.getAttribute('data-bm-metric');
+        $$('[data-bm-metric]', root).forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+        shade();
+      });
+    });
+    sel.addEventListener('change', function () { pick(sel.value); });
+    $$('[data-bm-pick]', root).forEach(function (b) { b.addEventListener('click', function () { pick(b.getAttribute('data-bm-pick')); }); });
+    $$('[data-bm-shape]', root).forEach(function (c) { c.addEventListener('click', function () { pick(c.getAttribute('data-bm-shape')); }); });
+    shade(); pick('isl');
+  })();
+
+  /* ---------------- 4. Try a call */
+  (function () {
+    var root = $('[data-tc]'); if (!root || !D.outcomes) return;
+    var st = { caller: D.callers[0].id, when: 'evening' }, t = [];
+    var nodes = $$('[data-tc-node]', root), fill = $('[data-tc-fill]', root);
+    function data() {
+      var c = D.callers.filter(function (x) { return x.id === st.caller; })[0];
+      var w = D.whens.filter(function (x) { return x.id === st.when; })[0];
+      var o = D.outcomes[st.caller];
+      var r = o.all || o[st.when] || o.evening;
+      return { c: c, w: w, ask: o.ask, r: r };
+    }
+    function render(animate) {
+      t.forEach(clearTimeout); t = [];
+      var d = data();
+      var texts = [
+        d.w.label + '. ' + d.w.ring + '.',
+        '“' + d.w.greet + ", Halden Dental. I'm Amy, the practice's AI assistant.” Caller: “" + d.c.say + '”',
+        '“' + d.ask + '”',
+        d.r.title,
+      ];
+      nodes.forEach(function (n, k) { $('[data-tc-text="' + k + '"]', root).textContent = texts[k]; });
+      $('[data-tc-title]', root).textContent = d.r.title;
+      $('[data-tc-diary]', root).textContent = d.r.diary;
+      $('[data-tc-sms]', root).textContent = d.r.text;
+      $('[data-tc-team]', root).textContent = d.r.team;
+      setup.call = 'Tried a call: ' + d.c.label.toLowerCase() + ', ' + d.w.label;
+      var summary = $('[data-tc-summary]', root);
+      if (!animate || reduce.matches) {
+        nodes.forEach(function (n) { n.classList.add('is-on'); });
+        fill.style.width = '100%'; summary.classList.remove('is-wait');
+        return;
+      }
+      nodes.forEach(function (n) { n.classList.remove('is-on'); });
+      fill.style.width = '0%'; summary.classList.add('is-wait');
+      nodes.forEach(function (n, k) {
+        t.push(setTimeout(function () { n.classList.add('is-on'); fill.style.width = (k / (nodes.length - 1) * 100) + '%'; }, 200 + k * 900));
+      });
+      t.push(setTimeout(function () { summary.classList.remove('is-wait'); setupChanged(); }, 200 + nodes.length * 900));
+    }
+    radios(root, 'data-tc-caller', function (v) { st.caller = v; render(false); });
+    radios(root, 'data-tc-when', function (v) { st.when = v; render(false); });
+    $('[data-tc-go]', root).addEventListener('click', function () { render(true); });
+    render(false); setup.call = null;
+  })();
+
+  /* ---------------- 5. Clock */
+  (function () {
+    var root = $('[data-clk]'); if (!root || !D.hourly) return;
+    var open = $('[data-clk-open]', root), close = $('[data-clk-close]', root), lunch = $('[data-clk-lunch]', root);
+    var total = D.hourly.reduce(function (a, b) { return a + b; }, 0);
+    var pad = function (h) { return (h < 10 ? '0' : '') + h + ':00'; };
+    function upd(user) {
+      var o = +open.value, c = +close.value, l = lunch.checked, teamH = 0, share = 0;
+      for (var h = 0; h < 24; h++) {
+        var team = h >= o && h < c && !(l && (h === 12 || h === 13));
+        if (team) teamH += 1; else share += D.hourly[h];
+        $('[data-clk-h="' + h + '"]', root).setAttribute('class', 'ck-seg ' + (team ? 'is-team' : 'is-agent'));
+        $('[data-clk-b="' + h + '"]', root).setAttribute('class', 'ck-bar ' + (team ? 'is-team' : 'is-agent'));
+      }
+      var agentDay = 24 - teamH, week = agentDay * 5 + 16 + 24, pct = Math.round(share / total * 100);
+      $('[data-clk-agent]', root).textContent = agentDay;
+      $('[data-clk-team]', root).textContent = teamH;
+      $('[data-clk-week]', root).textContent = week;
+      $('[data-clk-note]', root).innerHTML = 'With these hours, roughly <strong class="font-semibold tnum">' + Math.max(1, Math.round(pct / 10)) + ' in 10</strong> weekday calls come when your team isn’t answering. Lunchtimes and evenings are the big ones.';
+      $('[data-clk-title]', root).textContent = '24-hour clock. Your team answers from ' + pad(o) + ' to ' + pad(c) + (l ? ', except 12:00 to 14:00' : '') + '. Your agent covers the other ' + agentDay + ' hours.';
+      if (user) { setup.hours = 'Open ' + pad(o) + ' to ' + pad(c) + (l ? ' with phones off for viewings at midday' : '') + ', so the agent covers ' + week + ' hours a week'; setupChanged(); }
+    }
+    [open, close, lunch].forEach(function (el) { el.addEventListener('change', function () { upd(true); }); });
+    upd(false);
+  })();
+
+  /* ---------------- 7. Before / after */
+  (function () {
+    var root = $('[data-ba]'); if (!root) return;
+    var range = $('[data-ba-range]', root), stage = $('.ba-stage', root);
+    function set(v) {
+      v = Math.max(15, Math.min(85, v));
+      range.value = v;
+      stage.style.setProperty('--ba', v + '%');
+      range.setAttribute('aria-valuetext', v >= 70 ? 'Mostly without an agent' : v <= 30 ? 'Mostly with an agent' : 'Both side by side');
+    }
+    range.addEventListener('input', function () { set(+range.value); });
+    $$('[data-ba-set]', root).forEach(function (b) { b.addEventListener('click', function () { set(+b.getAttribute('data-ba-set')); }); });
+    var drag = false;
+    function at(e) { var r = stage.getBoundingClientRect(); set(Math.round((e.clientX - r.left) / r.width * 100)); }
+    stage.addEventListener('pointerdown', function (e) { if (window.innerWidth < 640) return; drag = true; stage.setPointerCapture(e.pointerId); at(e); });
+    stage.addEventListener('pointermove', function (e) { if (drag) at(e); });
+    stage.addEventListener('pointerup', function () { drag = false; });
+    set(50);
+  })();
+
+  /* ---------------- 8. Stamp Duty estimate */
+  (function () {
+    var root = $('[data-sd]'); if (!root) return;
+    var input = $('[data-sd-input]', root), range = $('[data-sd-range]', root), ftb = true;
+    var STD = [[125000, 0], [250000, 0.02], [925000, 0.05], [1500000, 0.10], [Infinity, 0.12]];
+    var FTB = [[300000, 0], [500000, 0.05]];
+    var cols = ['var(--sd0)', 'var(--sd1)', 'var(--sd2)', 'var(--sd3)', 'var(--sd4)'];
+    function bands(p, table) {
+      var out = [], prev = 0;
+      table.forEach(function (b) { if (p > prev) { var part = Math.min(p, b[0]) - prev; out.push({ from: prev, to: prev + part, rate: b[1], tax: part * b[1] }); } prev = b[0]; });
+      return out;
+    }
+    function parse(v) { return +String(v).replace(/[^0-9]/g, ''); }
+    function upd(p) {
+      p = Math.max(0, Math.min(50000000, p || 0));
+      var relief = ftb && p <= 500000, rows = bands(p, relief ? FTB : STD);
+      var tax = Math.floor(rows.reduce(function (a, r) { return a + r.tax; }, 0));
+      $('[data-sd-tax]', root).textContent = gbp(tax);
+      $('[data-sd-relief-l]', root).textContent = ftb ? 'first-time buyer relief' : 'buyer type';
+      $('[data-sd-relief]', root).textContent = ftb ? (relief ? 'Applies' : 'Not available') : 'Home mover';
+      $('[data-sd-bar]', root).innerHTML = rows.map(function (r, i) { return '<span style="flex:' + (r.to - r.from) + ';background:' + cols[Math.min(i + (relief ? 0 : 0), 4)] + '"></span>'; }).join('');
+      $('[data-sd-legend]', root).innerHTML = rows.map(function (r, i) { return '<li class="flex items-center gap-1.5"><i class="inline-block h-3 w-3 rounded-[3px]" style="background:' + cols[Math.min(i, 4)] + '"></i>' + gbp(r.from) + ' to ' + gbp(r.to) + ' at ' + Math.round(r.rate * 100) + '%</li>'; }).join('');
+      var note;
+      if (ftb && p > 500000) {
+        note = 'Above £500,000 a first-time buyer loses the relief completely, so they pay the full ' + gbp(tax) + '. Expect calls asking about it.';
+      } else if (ftb) note = 'Under £500,000, a first-time buyer pays nothing on the first £300,000.';
+      else note = 'A home mover pays nothing on the first £125,000, then 2% up to £250,000 and 5% up to £925,000.';
+      $('[data-sd-note]', root).textContent = note;
+    }
+    input.addEventListener('input', function () { var v = parse(input.value); range.value = Math.min(2000000, Math.max(200000, v)); upd(v); });
+    input.addEventListener('blur', function () { input.value = parse(input.value).toLocaleString('en-GB'); });
+    range.addEventListener('input', function () { input.value = (+range.value).toLocaleString('en-GB'); upd(+range.value); });
+    $$('[data-sd-ftb]', root).forEach(function (b) {
+      b.addEventListener('click', function () {
+        ftb = b.getAttribute('data-sd-ftb') === '1';
+        $$('[data-sd-ftb]', root).forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+        upd(parse(input.value));
+      });
+    });
+    upd(550037);
+  })();
+
+  /* ---------------- 9. Cost of cover */
+  (function () {
+    var root = $('[data-cv]'); if (!root || !D.coverStops) return;
+    var range = $('[data-cv-range]', root), ai = +root.getAttribute('data-ai-year');
+    var cost = function (hours) { var pay = hours * 52 * 14.8, n = Math.ceil(hours / 40 - 1e-9); return { total: Math.round(pay + n * Math.max(0, pay / n - 5000) * 0.15), people: n }; };
+    var max = cost(168).total;
+    function upd(user) {
+      var s = D.coverStops[+range.value], c = cost(s[0]);
+      $('[data-cv-label]', root).textContent = s[1];
+      $('[data-cv-sub]', root).textContent = s[2];
+      $('[data-cv-hours]', root).textContent = s[0];
+      $('[data-cv-staff]', root).textContent = gbp(c.total);
+      $('[data-cv-staff2]', root).textContent = gbp(c.total);
+      $('[data-cv-people]', root).textContent = c.people + (c.people === 1 ? ' person' : ' people');
+      $('[data-cv-bar]', root).style.width = (c.total / max * 100).toFixed(1) + '%';
+      range.setAttribute('aria-valuetext', s[1] + ', ' + s[0] + ' hours a week, staff cost ' + gbp(c.total) + ' a year');
+      var x = Math.round(c.total / ai);
+      $('[data-cv-note]', root).innerHTML = 'Staff for ' + lc(s[1]) + ' cost about <strong class="font-semibold tnum">' + x + ' times</strong> the agent' + (s[0] < 168 ? ', and the agent also covers the other ' + (168 - s[0]) + ' hours.' : '.');
+      if (user) { setup.cover = 'Compared staff cover: ' + lc(s[1]); setupChanged(); }
+    }
+    range.addEventListener('input', function () { upd(true); });
+    upd(false);
+  })();
+
+  /* ---------------- 10. Case flips */
+  $$('[data-cf]').forEach(function (card) {
+    var btn = $('[data-cf-flip]', card), front = $('[data-cf-face="front"]', card), back = $('[data-cf-face="back"]', card);
+    btn.addEventListener('click', function () {
+      var on = !card.classList.contains('is-flipped');
+      card.classList.toggle('is-flipped', on);
+      btn.setAttribute('aria-pressed', on);
+      $('[data-cf-label]', btn).textContent = on ? 'See the problem' : 'See the result';
+      front.setAttribute('aria-hidden', on); back.setAttribute('aria-hidden', !on);
+    });
+  });
+
+  /* ---------------- 11. FAQ search */
+  (function () {
+    var root = $('[data-fq]'); if (!root) return;
+    var input = $('[data-fq-search]', root), items = $$('[data-fq-item]', root), cat = 'all';
+    function upd() {
+      var q = input.value.trim().toLowerCase(), shown = 0;
+      items.forEach(function (it) {
+        var ok = (cat === 'all' || it.getAttribute('data-cat') === cat) && (!q || it.textContent.toLowerCase().indexOf(q) > -1);
+        it.hidden = !ok; if (ok) shown += 1;
+      });
+      $('[data-fq-empty]', root).hidden = shown > 0;
+      $('[data-fq-count]', root).textContent = shown === items.length ? 'Showing all ' + shown + ' questions' : 'Showing ' + shown + ' of ' + items.length + ' questions';
+    }
+    input.addEventListener('input', upd);
+    $$('[data-fq-cat]', root).forEach(function (b) {
+      b.addEventListener('click', function () {
+        cat = b.getAttribute('data-fq-cat');
+        $$('[data-fq-cat]', root).forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+        upd();
+      });
+    });
+  })();
+})();
+}
 }

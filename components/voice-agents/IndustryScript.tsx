@@ -21,7 +21,8 @@ export type IndustryCopy = {
   timers, frames and observers go through tracked stand-ins it receives as
   parameters, which also covers the ones it starts later.
 */
-export function IndustryScript({ copy }: { copy: IndustryCopy }) {
+/** `blocks`: the page-specific parts of industry-script.js this page needs. */
+export function IndustryScript({ copy, blocks }: { copy: IndustryCopy; blocks: string[] }) {
   useEffect(() => {
     const undo: (() => void)[] = [];
     const page = document.getElementById("va-page");
@@ -56,6 +57,7 @@ export function IndustryScript({ copy }: { copy: IndustryCopy }) {
           }
         },
         copy,
+        blocks,
       });
     } finally {
       EventTarget.prototype.addEventListener = add;
@@ -67,7 +69,7 @@ export function IndustryScript({ copy }: { copy: IndustryCopy }) {
       window.speechSynthesis?.cancel();
       document.documentElement.classList.remove("js-reveal");
     };
-  }, [copy]);
+  }, [copy, blocks]);
 
   return null;
 }
